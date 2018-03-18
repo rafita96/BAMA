@@ -7,7 +7,7 @@ class Comentario extends React.Component{
 }
 
 d3.json("./data/texto.json", function(error, data){
-	post('/database/insertar/', { collection: 'juego1', data: {
+	post('/database/insertar/', { collection: 'rafael', data: {
 		nombre: 'sinuhe',
 		edad: 3
 	} });
