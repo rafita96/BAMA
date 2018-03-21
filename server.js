@@ -32,17 +32,51 @@ app.get('/juegos/:name/*', function (req, res){
 
 /** Base de datos **/
 app.post('/database/insertar/', function(req, res){
-	var error = dbManager.insertar(req.body.collection, req.body.data);
-	
-	if(error){
-		res.status(500).send('error');
-	}else{
-		if(req.body.redirect){
-			res.redirect(req.body.redirect);
+	dbManager.insertar(req.body.collection, req.body.data, function(error){
+		if(error){
+			res.status(500).send('error');
 		}else{
-			res.status(200).send('ok');
+			if(req.body.redirect){
+				res.redirect(req.body.redirect);
+			}else{
+				res.status(200).send('ok');
+			}
 		}
-	}
+	});
+});
+
+app.delete('/database/eliminar/', function(req, res){
+	dbManager.eliminar(req.body.collection, req.body.data, function(error){
+		if(error){
+			res.status(500).send('error');
+		}else{
+			if(req.body.redirect){
+				res.redirect(req.body.redirect);
+			}else{
+				res.status(200).send('ok');
+			}
+		}
+	})
+});
+
+app.put('/database/actualizar/', function(req, res){
+	dbManager.actualizar(req.body.collection, req.body.query, req.body.data, function(error){
+		if(error){
+			res.status(500).send('error');
+		}else{
+			if(req.body.redirect){
+				res.redirect(req.body.redirect);
+			}else{
+				res.status(200).send('ok');
+			}
+		}
+	})
+});
+
+app.get('/database/get/:collection/:query', function(req, res){
+	dbManager.find(req.params.collection, req.params.query, function(data){
+		res.status(200).jsonp(data);
+	});
 });
 /**  **/
 

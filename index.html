@@ -10,9 +10,22 @@
 	<body>
 		Pagina inicial, no tengas miedo, aqui tengo links. <br>
 
-		<p>Lista de usuarios</p><br>
 
 		<a href="/usuarios/agregar/">Agregar Usuario</a>
-	</body>
+		<p>Lista de usuarios</p>
+		<div id="users"></div>
 	
+	<script type="text/javascript">
+
+		get('/database/get/users/{}', function(data){
+			var div = document.getElementById('users');
+			for(var i = 0; i < data.length; i++){
+				var x = document.createElement("p");
+				x.innerHTML = data[i].nombre;
+				div.appendChild(x);
+			}	
+		});
+		
+	</script>
+	</body>
 </html>
