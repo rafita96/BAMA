@@ -10,8 +10,7 @@ var RedisStore = require('connect-redis')(session);
 var MongoStore = require('connect-mongo')(session);
 // var redisSession = require('node-redis-session');
 
-var security = require('./serverfiles/routers/security');
-var database = require('./serverfiles/routers/database');
+var router = require('./serverfiles/router');
 
 var app = express();
 
@@ -29,22 +28,14 @@ app.use(session({
 	})
 }));
 
-app.use( bodyParser.json() );
+app.use(bodyParser.json() );
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 
 /** Manejo de sesion **/
-
-// app.use(redisSession({
-// 	redisOptions: [appConfig.database.port, appConfig.database.host+'/'+appConfig.database.name, {auth_pass: 'auth_pass'}]
-// }));
-
 app.use(firewall);
-/**  **/
-
-/** Manejo de sesion **/
-app.use('/', security);
+app.use('/', router);
 /**  **/
 
 
@@ -52,24 +43,7 @@ app.use('/', security);
 app.get('/', function (req, res, next) {
 	res.sendFile(path.join(__dirname+'/index.html'));
 });
-
-app.get('/usuarios/agregar/', function (req, res) {
-  res.sendFile(path.join(__dirname+'/general/views/usuario/agregar.html'));
-});
 /**  **/
 
-/** Url para los juegos **/
-app.get('/juegos/:name/', function (req, res){
-	res.sendFile(path.join(__dirname + '/juegos/'+req.params.name+"/index.html"));
-});
-
-app.get('/juegos/:name/*', function (req, res){
-	res.sendFile(path.join(__dirname+"/juegos/"+ req.params["name"] +"/"+req.params[0]));
-});
-/**  **/
-
-/** Manejo de base de datos **/
-app.use('/database', database);
-/**  **/
 
 app.listen(8080); 
