@@ -7,6 +7,9 @@ var Consulta = {
 		    // The key needs to match your method's input parameter (case-sensitive).
 		    data: JSON.stringify(data),
 		    contentType: "application/json; charset=utf-8",
+		    xhrFields: {
+		       withCredentials: true
+		    },
 		    success: function(data){callback(false);},
 		    failure: function(errMsg) {
 		        callback(true);
@@ -21,6 +24,9 @@ var Consulta = {
 		    // The key needs to match your method's input parameter (case-sensitive).
 		    datatype: "json",
 		    contentType: "application/json; charset=utf-8",
+		    xhrFields: {
+		       withCredentials: true
+		    },
 		    success: function(data){
 		    	callback(data);
 		    },
@@ -37,6 +43,9 @@ var Consulta = {
 		    // The key needs to match your method's input parameter (case-sensitive).
 		    data: JSON.stringify(data),
 		    contentType: "application/json; charset=utf-8",
+		    xhrFields: {
+		       withCredentials: true
+		    },
 		    success: function(data){callback(false);},
 		    failure: function(errMsg) {
 		        callback(true);
@@ -51,6 +60,9 @@ var Consulta = {
 		    // The key needs to match your method's input parameter (case-sensitive).
 		    data: JSON.stringify(data),
 		    contentType: "application/json; charset=utf-8",
+		    xhrFields: {
+		       withCredentials: true
+		    },
 		    success: function(data){callback(false);},
 		    failure: function(errMsg) {
 		        callback(true);
