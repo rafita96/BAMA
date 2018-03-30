@@ -7,16 +7,16 @@ Para tener un usuario administrador es necesario ejecutar el archivo [init.js](i
 node init.js
 ```
 
-## /common
+## [common](/common)
 
 En esa caarpeta deben de ir las librerías que se utilizan comunmente en los diferentes juegos, por ejemplo react.js, bootstrap.
 Se creó esta carpeta para no tener archivos repetidos, de igual forma pueden tener sus librerías de forma local en cada carpeta.
 
-## /data
+## [data](/data)
 
 Carpeta que contiene la base de datos.
 
-## /juegos
+## [juegos](/juegos)
 
 Aquí se guardarán todos los juegos que se pretendan utilizar en la plataforma, y la forma de acceder a ellos es mediante la URI
 localhost:8080/juegos/{nombre del juego}/
@@ -30,20 +30,20 @@ localhost:8080/juegos/{nombre del juego}/
   /common/js/react.js
 
 
-## /general
+## [general](/general)
 
 Aquí van los archivos que pertenecen al sistema general, es decir, no pertenecen a un juego
 en especifico, sino que es para paginas de administracion general.
     
-### /views
+### [views](/general/views)
 Vistas generales del sistema organizadas en carpetas
 
-## server.js
+## [server.js](server.js)
 Servidor en Nodejs, se quiere mantener este programa tan general como sea posible, de forma que se puedan agregar juegos extras
 sin problema, por lo tanto, se necesita tener un patron de diseño de cada juego que se quiera agregar.
 
-## /serverfiles
+## [serverfiles](/serverfiles)
 Código del servidor modularizado.
 
-### /routers
+### [routers](/serverfiles/routers)
 Aquí van la lógica para las diferentes rutas en el sistema.
