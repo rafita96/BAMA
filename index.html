@@ -3,29 +3,110 @@
 		 <meta charset="UTF-8"> 
 		 <title>Inicial</title>
 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 		<script src="/common/js/jquery-3.2.1.min.js"></script>
 		<script src="/common/js/post.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 	</head>
 
-	<body>
-		Pagina inicial, no tengas miedo, aqui tengo links. <br>
+	<body class="bg-light text-dark">
+		<nav>
+			<div class="row bg-dark text-white" style="padding: 5px 0px 5px 0px; margin-bottom: 20px">
+				<div class="col-7 offset-3">
+					<h1>Sistema de rehabilitación cognitiva</h1>
+				</div>
+				<div class="col-2 d-flex align-items-center">
+					<a href="/logout" class="btn btn-light text-center">Cerrar sessión</a>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="card text-white bg-dark mb-3">
+						<div class="card-header">
+							<div class="row">
+								<div class="col-3 text-center">
+									<h3 class="text-info">Lista de usuarios</h3>
+								</div>
+								<div class="col-6 text-center">
+									<input class="form-control" type="text" name="buscar" id="buscar" placeholder="Buscar" />
+								</div>
+								<div class="col-3 text-center">
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">Agregar paciente</button>
+								</div>
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="row">
+								<div class="col-12">
+									<table class="table text-center text-white" id="pacientes">
+										<thead>
+											<th>Nombre</th>
+											<th>Apellido Paterno</th>
+											<th>Apellido Materno</th>
+											<th>Acción</th>
+										</thead>
+										<tbody>
+											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">Agregar Paciente</h3>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						
+						<div class="modal-body">
+							<form class="form" id="target" method="POST" enctype='application/json' action="/database/insertar/">
+								<input type="hidden" name="collection" value="users" />
+								<input type="hidden" name="redirect" value="/" />
 
+								<div class="form-group">
+									<input class="form-control" id="nombre" type="text" name="data[nombre]" placeholder="Nombre">
+								</div>
+								
+								<div class="form-group">
+									<input class="form-control" id="aPaterno" type="text" name="data[aPaterno]" placeholder="Apellido Paterno">
+								</div>
+								
+								<div class="form-group">
+									<input class="form-control" id="aMaterno" type="text" name="data[aMaterno]" placeholder="Apellido Materno">
+								</div>
+								
+								<!-- <div class="form-group">
+									<input class="form-control" id="datepicker" type="text" data-date-format="dd-mm-yyyy" data-date-language="es" name="data[fechaNacimiento]" placeholder="Fecha de Nacimiento">
+								</div> -->
 
-		<a href="/usuarios/agregar/">Agregar Usuario</a>
-		<p>Lista de usuarios</p>
-		<div id="users"></div>
-	
-	<script type="text/javascript">
-
-		get('/database/get/users/{}', function(data){
-			var div = document.getElementById('users');
-			for(var i = 0; i < data.length; i++){
-				var x = document.createElement("p");
-				x.innerHTML = data[i].nombre;
-				div.appendChild(x);
-			}	
-		});
+								<div class="form-group">
+									<label for="datepicker">Fecha de Nacimiento</label>
+									<input id="datepicker" class="form-control" type="date" name="data[fechaNacimiento]" placeholder="Fecha de Nacimiento">
+								</div>
+								
+								<div class="form-group">
+									<button class="btn btn-primary" id="guardar" type="submit">Guardar</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		
-	</script>
+		<script type="text/javascript" src="/general/js/main.js"></script>
 	</body>
 </html>

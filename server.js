@@ -16,6 +16,7 @@ var app = express();
 
 /** Url estatica para datos comunes**/
 app.use("/common", express.static(__dirname + "/common"));
+app.use("/general", express.static(__dirname + "/general"));
 /**  **/
 
 app.use(session({
