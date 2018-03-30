@@ -45,12 +45,22 @@ function fillTable(data){
         b.setAttribute('class', 'btn btn-primary');
 
         b.userId = data[i]._id;
+        b.indice = i;
         b.addEventListener('click', function(){
-            alert(this.userId);
+            var indice = this.indice;
+            Consulta.post('/usuarios/paciente/actual/', {paciente: this.userId}, function(res){
+                mostrarPerfil(users[indice]);
+            });
         });
         b.innerHTML = "Seleccionar";
         cell.appendChild(b);
     }
+}
+
+function mostrarPerfil(usuario){
+    $("#paciente_actual").text(usuario["nombre"].capitalize()+" "+
+                                usuario["aPaterno"].capitalize()+" "+
+                                usuario["aMaterno"].capitalize());
 }
 
 function buscar(texto){
