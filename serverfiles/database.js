@@ -1,5 +1,6 @@
 var mongo = require('mongodb').MongoClient;
-var url = 'mongodb://localhost:27017/';
+var appConfig = require('./conf').conf["database"];
+var url = 'mongodb://' + appConfig["host"] +':'+ appConfig["port"] +'/';
 
 exports.find = function(collection, query, callback){
 
