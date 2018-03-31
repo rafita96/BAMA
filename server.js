@@ -2,7 +2,7 @@ var path = require("path");
 var express = require('express');
 var bodyParser = require('body-parser');
 var appConfig = require('./serverfiles/conf').conf;
-var firewall = require('./serverfiles/firewall').firewall;
+var firewall = require('./serverfiles/controllers/firewall').firewall;
 
 // var cookieParser = require('cookie-parser');
 var session = require('express-session');

@@ -19,6 +19,7 @@ var Consulta = {
 
 
 	get: function(url, callback){
+
 		$.ajax({
 		    url: url,
 		    // The key needs to match your method's input parameter (case-sensitive).

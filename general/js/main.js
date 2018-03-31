@@ -1,14 +1,23 @@
 var users = [];
+var actual = null;
 $(document).ready(function() {
-    String.prototype.capitalize = function() {
-        return this.charAt(0).toUpperCase() + this.slice(1);
-    }
-
+     
+    // Obtiene todos los pacientes registrados
     Consulta.get('/database/get/users/{}', function(data){
         users = data;
         fillTable(data); 
     });
 
+    // Si ya eligio un usuario anteriormente, entonces muestra que ya fue
+    // seleccionado
+    Consulta.get('/usuarios/paciente/actual/', function(data){
+        if(data["id"] != null){
+            mostrarPerfil(data);
+        }
+    });
+
+    // Antes de que se envie el formulario de registro de un paciente
+    // se convierte todo a minusculas para que se guarde en la base de datos.
     $( "#guardar" ).click(function() {
         $("form#target :input").each(function(){
             this.value = this.value.toLowerCase();;
@@ -16,12 +25,14 @@ $(document).ready(function() {
         $( "#target" ).submit();
     });
 
-
+    // Cuando se escribe algo en la barra de busqueda se busca el paciente
+    // que cumpla con el criterio de busqueda
     $("#buscar")[0].addEventListener("keydown", function(){
         buscar(this.value);
     });
 });
 
+// Dada una lista de pacientes, vacia y llena una tabla escribiendo sus nombres
 function fillTable(data){
     var tabla = document.getElementById('pacientes').getElementsByTagName('tbody')[0];
     $(tabla).empty();
@@ -51,18 +62,23 @@ function fillTable(data){
             Consulta.post('/usuarios/paciente/actual/', {paciente: this.userId}, function(res){
                 mostrarPerfil(users[indice]);
             });
+            if(actual == null){
+                actual = this;
+                this.disabled = true;
+            }else if(actual === this){
+                // do nothing
+            }else{
+                actual.disabled = false;
+                actual = this;
+                this.disabled = true;
+            }
         });
         b.innerHTML = "Seleccionar";
         cell.appendChild(b);
     }
 }
 
-function mostrarPerfil(usuario){
-    $("#paciente_actual").text(usuario["nombre"].capitalize()+" "+
-                                usuario["aPaterno"].capitalize()+" "+
-                                usuario["aMaterno"].capitalize());
-}
-
+// busca el paciente que cumpla en el criterio de busqueda
 function buscar(texto){
     var encontrados = [];
     if(texto == ""){

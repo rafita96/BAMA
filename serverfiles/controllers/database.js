@@ -1,5 +1,5 @@
 var mongo = require('mongodb').MongoClient;
-var appConfig = require('./conf').conf["database"];
+var appConfig = require('./../conf').conf["database"];
 var url = 'mongodb://' + appConfig["host"] +':'+ appConfig["port"] +'/';
 
 exports.find = function(collection, query, callback){

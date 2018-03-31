@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var dbManager = require('./../database');
+var dbManager = require('./../controllers/database');
 
 router.post('/insertar/', function(req, res){
     dbManager.insertar(req.body.collection, req.body.data, function(error){

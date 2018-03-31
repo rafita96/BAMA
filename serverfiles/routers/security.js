@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var path = require("path");
-var dbManager = require('./../database');
+var dbManager = require('./../controllers/database');
 var adminConf = require('./../conf').conf["session"];
 var bcrypt = require('bcrypt');
 
