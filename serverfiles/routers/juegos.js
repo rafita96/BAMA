@@ -15,8 +15,8 @@ router.use(function(req, res, next){
 });
 
 router.get('/', function(req, res){
-    
-    res.sendFile(path.join(__dirname + '/../../general/views/juegos/lista.html'));
+    res.render('juegos/lista');
+    // res.sendFile(path.join(__dirname + '/../../general/views/juegos/lista.html'));
 });
 
 router.get('/todos/los/nombres', function(req, res){
@@ -26,7 +26,7 @@ router.get('/todos/los/nombres', function(req, res){
 });
 
 router.get('/:name/', function (req, res){
-    res.sendFile(path.join(__dirname + '/../../juegos/'+req.params.name+"/index.html"));
+    res.render('../../juegos/'+req.params.name+"/index");
 });
 
 router.get('/:name/*', function (req, res){

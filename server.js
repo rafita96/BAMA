@@ -13,7 +13,8 @@ var MongoStore = require('connect-mongo')(session);
 var router = require('./serverfiles/router');
 
 var app = express();
-
+app.set('views', path.join(__dirname, '/general/views/'));
+app.set('view engine', 'ejs');
 /** Url estatica para datos comunes**/
 app.use("/common", express.static(__dirname + "/common"));
 app.use("/general", express.static(__dirname + "/general"));
@@ -42,7 +43,8 @@ app.use('/', router);
 
 /** General **/
 app.get('/', function (req, res, next) {
-	res.sendFile(path.join(__dirname+'/index.html'));
+	// res.sendFile(path.join(__dirname+'/index.html'));
+    res.render('index');
 });
 /**  **/
 

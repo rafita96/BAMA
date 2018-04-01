@@ -8,7 +8,7 @@ var bcrypt = require('bcrypt');
 
 // Vista del login
 router.get('/login/', function(req, res) {
-    res.sendFile(path.join(__dirname+'/../../general/views/seguridad/login.html'));
+    res.render('seguridad/login');
 });
 
 // Logica del login
