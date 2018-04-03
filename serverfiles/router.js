@@ -11,7 +11,7 @@ router.use('/', security);
 /**  **/
 
 /** Manejo de usuarios **/
-router.use('/usuarios', usuarios);
+router.use('/paciente', usuarios);
 /**  **/
 
 /** Url para los juegos **/

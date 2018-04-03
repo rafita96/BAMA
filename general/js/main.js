@@ -1,5 +1,4 @@
 var users = [];
-var actual = null;
 $(document).ready(function() {
      
     // Obtiene todos los pacientes registrados
@@ -10,7 +9,7 @@ $(document).ready(function() {
 
     // Si ya eligio un usuario anteriormente, entonces muestra que ya fue
     // seleccionado
-    Consulta.get('/usuarios/paciente/actual/', function(data){
+    Consulta.get('/paciente/actual/', function(data){
         if(data["id"] != null){
             mostrarPerfil(data);
         }
@@ -27,7 +26,7 @@ $(document).ready(function() {
 
     // Cuando se escribe algo en la barra de busqueda se busca el paciente
     // que cumpla con el criterio de busqueda
-    $("#buscar")[0].addEventListener("keydown", function(){
+    $("#buscar")[0].addEventListener("keyup", function(){
         buscar(this.value);
     });
 });
@@ -56,22 +55,10 @@ function fillTable(data){
         b.setAttribute('class', 'btn btn-primary');
 
         b.userId = data[i]._id;
-        b.indice = i;
         b.addEventListener('click', function(){
-            var indice = this.indice;
-            Consulta.post('/usuarios/paciente/actual/', {paciente: this.userId}, function(res){
-                mostrarPerfil(users[indice]);
+            Consulta.post('/paciente/actual/', {paciente: this.userId}, function(res){
+                window.location.href = '/paciente/perfil/';
             });
-            if(actual == null){
-                actual = this;
-                this.disabled = true;
-            }else if(actual === this){
-                // do nothing
-            }else{
-                actual.disabled = false;
-                actual = this;
-                this.disabled = true;
-            }
         });
         b.innerHTML = "Seleccionar";
         cell.appendChild(b);
@@ -79,13 +66,24 @@ function fillTable(data){
 }
 
 // busca el paciente que cumpla en el criterio de busqueda
-function buscar(texto){
-    var encontrados = [];
-    if(texto == ""){
+function buscar(criterio){
+
+    if(criterio == ""){
         fillTable(users);
     }else{
+        criterio = criterio.split(" ");
+        var encontrados = [];
+
         for(var i = 0; i < users.length; i++){
-            if(users[i].nombre.includes(texto)){
+            var candidato = true;
+            for(j in criterio){
+                var texto = criterio[j].toLowerCase();
+                candidato = candidato && (users[i].nombre.includes(texto) || 
+                users[i].aPaterno.includes(texto) ||
+                users[i].aMaterno.includes(texto));
+            }
+
+            if(candidato){
                 encontrados.push(users[i]);
             }
         }

@@ -24,7 +24,7 @@ function bloque(data){
 $(document).ready(function() {
     // Si ya eligio un usuario anteriormente, entonces muestra que ya fue
     // seleccionado
-    Consulta.get('/usuarios/paciente/actual/', function(data){
+    Consulta.get('/paciente/actual/', function(data){
         if(data["id"] != null){
             mostrarPerfil(data);
         }

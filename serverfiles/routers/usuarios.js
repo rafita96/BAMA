@@ -4,11 +4,11 @@ var path = require("path");
 
 var userManager = require("./../controllers/usuarios");
 
-router.get('/agregar/', function (req, res) {
-  res.sendFile(path.join(__dirname+'/../../general/views/usuario/agregar.html'));
+router.get('/perfil/', function(req, res){
+    res.render('paciente/perfil')
 });
 
-router.post('/paciente/actual', function(req, res){
+router.post('/actual', function(req, res){
     req.session.pacienteId = req.body.paciente;
     userManager.getUserInfo(req.body.paciente, function(data){
         if(data == null){
@@ -19,7 +19,7 @@ router.post('/paciente/actual', function(req, res){
     });
 });
 
-router.get('/paciente/actual', function(req, res){
+router.get('/actual', function(req, res){
     if(req.session.pacienteId){
         userManager.getUserInfo(req.session.pacienteId, function(data){
             if(data == null){
