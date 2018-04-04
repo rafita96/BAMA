@@ -1,6 +1,10 @@
 var users = [];
 $(document).ready(function() {
-     
+    $('#datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+        disableTouchKeyboard: true,
+        language: 'es'
+    });
     // Obtiene todos los pacientes registrados
     Consulta.get('/database/get/users/{}', function(data){
         users = data;

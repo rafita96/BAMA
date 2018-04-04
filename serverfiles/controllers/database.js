@@ -39,7 +39,6 @@ exports.insertar = function(collection, data, callback){
 		dbo.collection(collection).insertOne(data, function(err, res) {
 		
 			if (err) throw err;
-			console.log("Insertado");
 			callback(false);
 		});
 		db.close();

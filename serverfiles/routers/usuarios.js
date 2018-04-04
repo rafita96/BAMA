@@ -5,7 +5,17 @@ var path = require("path");
 var userManager = require("./../controllers/usuarios");
 
 router.get('/perfil/', function(req, res){
-    res.render('paciente/perfil')
+    res.render('paciente/perfil');
+});
+
+router.post('/agregar/', function(req, res){
+    userManager.agregar(req.body.data, function(data){
+        if(data){
+            res.send("error");
+        }else{
+            res.redirect('/');
+        }
+    });
 });
 
 router.post('/actual', function(req, res){
@@ -31,6 +41,19 @@ router.get('/actual', function(req, res){
     }else{
         res.status(200).jsonp({id: null});
     }
+});
+
+router.get('/evaluar', function(req, res){
+    res.render('psicologo/evaluar');
+});
+
+router.post('/evaluar', function(req, res){
+    var info = {
+
+    };
+    userManager.evaluar(info, function(data){
+        res.render('paciente/perfil');
+    });
 });
 
 module.exports = router;

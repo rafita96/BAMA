@@ -18,3 +18,15 @@ exports.getUserInfo = function(id, callback){
 
     }); 
 }
+
+exports.agregar = function(data, callback){
+    var info = {
+        nombre: data.nombre,
+        aPaterno: data.aPaterno,
+        aMaterno: data.aMaterno,
+        fechaNacimiento: data.fechaNacimiento
+    };
+    dbManager.insertar('users', info, function(error){
+        callback(error);
+    });
+}
