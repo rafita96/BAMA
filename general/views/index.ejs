@@ -4,7 +4,6 @@
          <title>Inicial</title>
 
         <% include layouts/header %>
-
     </head>
 
     <body class="bg-light text-dark">
@@ -75,16 +74,17 @@
                                 <div class="form-group">
                                     <input class="form-control" id="aMaterno" type="text" name="data[aMaterno]" placeholder="Apellido Materno">
                                 </div>
-                                
-                                <!-- <div class="form-group">
-                                    <input class="form-control" id="datepicker" type="text" data-date-format="dd-mm-yyyy" data-date-language="es" name="data[fechaNacimiento]" placeholder="Fecha de Nacimiento">
-                                </div> -->
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="datepicker">Fecha de Nacimiento</label>
                                     <input id="datepicker" class="form-control" type="date" name="data[fechaNacimiento]" placeholder="Fecha de Nacimiento">
+                                </div> -->
+                                <div class="form-group">
+                                    <label for="datepicker">Fecha de Nacimiento</label>
+                                    <input id="datepicker" class="form-control" type="text" name="data[fechaNacimiento]">
                                 </div>
                                 
+
                                 <div class="form-group">
                                     <button class="btn btn-primary" id="guardar" type="submit">Guardar</button>
                                 </div>
@@ -97,5 +97,12 @@
         
         <script type="text/javascript" src="/general/js/user/perfil.js"></script>
         <script type="text/javascript" src="/general/js/main.js"></script>
+        <script type="text/javascript">
+            $('#datepicker').datepicker({
+                format: 'dd/mm/yyyy',
+                disableTouchKeyboard: true,
+                language: 'es'
+            });
+        </script>
     </body>
 </html>
