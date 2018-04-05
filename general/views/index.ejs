@@ -9,8 +9,20 @@
     <body class="bg-light text-dark">
         <% include layouts/nav %>
 
-    
         <div class="container-fluid">
+            
+            <div class="row" style="margin-top: 20px">
+                <div class="col-12">
+                    <h1 class="text-center">Pacientes</h1>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-10">
+                    <h3><b class="text-info">Paciente actual: </b><span id="paciente_actual"></span></h3>
+                </div>
+            </div>
+
             <div class="row" style="margin-top: 20px">
                 <div class="col-12">
                     <div class="card text-white bg-dark mb-3">
@@ -60,6 +72,10 @@
                         
                         <div class="modal-body">
                             <form class="form" id="target" method="POST" enctype='application/json' action="/paciente/agregar">
+
+                                <div class="form-group">
+                                    <input class="form-control" id="noExpediente" type="text" name="data[noExpediente]" placeholder="Número de expediente" required minlength="2">
+                                </div>
                                 
                                 <div class="form-group">
                                     <input class="form-control" id="nombre" type="text" name="data[nombre]" placeholder="Nombre" required minlength="2">

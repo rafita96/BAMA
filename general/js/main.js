@@ -7,6 +7,7 @@ $(document).ready(function() {
     });
     // Obtiene todos los pacientes registrados
     Consulta.get('/database/get/users/{}', function(data){
+        console.log(data);
         users = data;
         fillTable(data); 
     });
