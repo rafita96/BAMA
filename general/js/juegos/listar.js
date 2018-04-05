@@ -1,6 +1,6 @@
 function bloque(data, bigPapa){
     var div = document.createElement('div');
-    div.setAttribute('class', 'col-2');
+    div.setAttribute("class", "col-2")
 
     var img = document.createElement('img');
     img.src = "/"+data["dir"]+"/"+data["img"];
@@ -28,9 +28,16 @@ function showGames(div, juegos){
 
 function createBigPapa(texto){
     var bigPapa = document.createElement("div");
+    bigPapa.setAttribute("class", "bg-dark text-white p-2 m-3 rounded")
+
+    var fondo = document.createElement("div");
+    fondo.setAttribute("class", "text-center p-2");
+
     var titulo = document.createElement("h3");
     titulo.innerHTML = texto;
-    bigPapa.appendChild(titulo);
+
+    fondo.appendChild(titulo);
+    bigPapa.appendChild(fondo);
     return bigPapa;
 }
 
