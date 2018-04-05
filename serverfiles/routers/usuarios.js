@@ -9,9 +9,9 @@ router.get('/perfil/', function(req, res){
 });
 
 router.post('/agregar/', function(req, res){
-    userManager.agregar(req.body.data, function(data){
-        if(data){
-            res.send("error");
+    userManager.agregar(req.body.data, function(error, message){
+        if(error){
+            res.send(message);
         }else{
             res.redirect('/');
         }
@@ -48,11 +48,12 @@ router.get('/evaluar', function(req, res){
 });
 
 router.post('/evaluar', function(req, res){
-    var info = {
-
-    };
-    userManager.evaluar(info, function(data){
-        res.render('paciente/perfil');
+    userManager.evaluar(req.body.data, function(error){
+        if(error){
+            res.send('error');
+        }else{
+            res.render('paciente/perfil');
+        }
     });
 });
 

@@ -9,15 +9,22 @@ const getDirectories = source =>
 
 exports.getJuegos = function(callback) {
     var dirs = getDirectories("./juegos/");
-    var info = [];
+    var info = {
+        L: [],
+        O: [],
+        C: [],
+        M: [],
+        P: []
+    };
     for(var i = 0; i < dirs.length; i++){
         var meta = JSON.parse((fileManager.readFileSync(dirs[i]+"/meta.json")));
-
-        info.push({
-            nombre: meta.nombre,
-            img: meta.img,
-            dir: dirs[i]
-        });
+        for(var j = 0; j < meta.categorias.length; j++){
+            info[meta.categorias[j]].push({
+                nombre: meta.nombre,
+                img: meta.img,
+                dir: dirs[i]
+            });
+        }
     }
     callback(info);
 }
