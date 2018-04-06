@@ -8,18 +8,12 @@
 
     <body class="bg-light text-dark">
         <% include layouts/nav %>
-
+        <% include layouts/toast %>
         <div class="container-fluid">
             
             <div class="row" style="margin-top: 20px">
                 <div class="col-12">
                     <h1 class="text-center">Pacientes</h1>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-10">
-                    <h3><b class="text-info">Paciente actual: </b><span id="paciente_actual"></span></h3>
                 </div>
             </div>
 
@@ -28,13 +22,15 @@
                     <div class="card text-white bg-dark mb-3">
                         <div class="card-header">
                             <div class="row">
-                                <div class="col-3 text-center">
-                                    <h3 class="text-info">Lista de pacientes</h3>
+                                <div class="col-md-12">
+                                    <h3><b class="text-info">Paciente actual: </b><span id="paciente_actual"></span></h3>
                                 </div>
-                                <div class="col-6 text-center">
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8 col-md-10 text-center">
                                     <input class="form-control" type="text" name="buscar" id="buscar" placeholder="Buscar" />
                                 </div>
-                                <div class="col-3 text-center">
+                                <div class="col-2 text-center">
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">Agregar paciente</button>
                                 </div>
                             </div>
@@ -44,10 +40,11 @@
                                 <div class="col-12">
                                     <table class="table text-center text-white" id="pacientes">
                                         <thead>
-                                            <th>Nombre</th>
-                                            <th>Apellido Paterno</th>
-                                            <th>Apellido Materno</th>
-                                            <th>Acción</th>
+                                            <th class="col-2">No. Expediente</th>
+                                            <th class="col-3">Nombre</th>
+                                            <th class="col-3">Apellido Paterno</th>
+                                            <th class="col-3">Apellido Materno</th>
+                                            <th class="col-1">Acción</th>
                                         </thead>
                                         <tbody>
                                             
@@ -106,6 +103,6 @@
         </div>
         
         <script type="text/javascript" src="/general/js/user/perfil.js"></script>
-        <script type="text/javascript" src="/general/js/main.js"></script>
+        <script type="text/javascript" src="/general/js/index.js"></script>
     </body>
 </html>

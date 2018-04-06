@@ -9,7 +9,8 @@ exports.getUserInfo = function(id, callback){
                 nombre: data[0]["nombre"],
                 aPaterno: data[0]["aPaterno"],
                 aMaterno: data[0]["aMaterno"],
-                noExpediente: data[0]["noExpediente"]
+                noExpediente: data[0]["noExpediente"],
+                fechaNacimiento: data[0]["fechaNacimiento"]
             };
             
             callback(info);

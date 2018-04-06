@@ -1,7 +1,16 @@
 <link rel="stylesheet" href="/common/css/bootstrap/bootstrap.css">
 <link rel="stylesheet" href="/common/css/bootstrap/datepicker/bootstrap-datepicker3.standalone.css">
+<link rel="stylesheet" href="/common/css/toast.css">
 
+<script type="text/javascript">
+    // Agrega la funcion de poner en mayusculas las primeras letras a todas las
+    // cadenas de caracteres
+    String.prototype.capitalize = function() {
+        return this.split(/\s+/).map(w => w[0].toUpperCase() + w.slice(1)).join(' ');;
+    } 
+</script>
 <script src="/common/js/jquery-3.2.1.min.js"></script>
+<script src="/common/js/toast.js"></script>
 <script src="/common/js/post.js"></script>
 <script src="/common/js/popper.js"></script>
 <script src="/common/js/bootstrap/bootstrap.js"></script>

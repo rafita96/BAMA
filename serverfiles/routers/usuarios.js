@@ -4,6 +4,14 @@ var path = require("path");
 
 var userManager = require("./../controllers/usuarios");
 
+router.use(function(req, res, next){
+    if(req.path.match("/agregar") || req.path.match("/actual/") || req.session.pacienteId){
+        return next();
+    }else{
+        return res.redirect('/');
+    }
+});
+
 router.get('/perfil/', function(req, res){
     res.render('paciente/perfil');
 });
@@ -11,8 +19,10 @@ router.get('/perfil/', function(req, res){
 router.post('/agregar/', function(req, res){
     userManager.agregar(req.body.data, function(error, message){
         if(error){
-            res.send(message);
+            req.flash('error', message);
+            res.redirect('/');
         }else{
+            req.flash('success', "El usuario se ha agregado éxitosamente.")
             res.redirect('/');
         }
     });

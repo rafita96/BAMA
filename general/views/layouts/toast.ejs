@@ -1,0 +1,13 @@
+<script type="text/javascript">
+    <% if ( typeof error !== 'undefined' && error.length > 0 ) { %>
+        var error = "<%= error %>";
+    <% } else { %>
+        var error = false;
+    <% } %>
+
+    <% if ( typeof success !== 'undefined' && success.length > 0 ) { %>
+        var success = "<%= success %>";
+    <% } else { %>
+        var success = false;
+    <% } %>
+</script>

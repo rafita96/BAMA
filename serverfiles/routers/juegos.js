@@ -16,7 +16,6 @@ router.use(function(req, res, next){
 
 router.get('/', function(req, res){
     res.render('juegos/lista');
-    // res.sendFile(path.join(__dirname + '/../../general/views/juegos/lista.html'));
 });
 
 router.get('/todos/los/nombres', function(req, res){

@@ -1,5 +1,13 @@
 var users = [];
 $(document).ready(function() {
+    if(success){
+        toastr(success);
+    }
+
+    if(error){
+        toastr(error);
+    }
+
     $('#datepicker').datepicker({
         format: 'dd/mm/yyyy',
         disableTouchKeyboard: true,
@@ -7,7 +15,6 @@ $(document).ready(function() {
     });
     // Obtiene todos los pacientes registrados
     Consulta.get('/database/get/users/{}', function(data){
-        console.log(data);
         users = data;
         fillTable(data); 
     });
@@ -43,19 +50,23 @@ function fillTable(data){
     for(var i = 0; i < data.length; i++){
         var row = tabla.insertRow(tabla.rows.length);
 
-        var cell = row.insertCell(0);
-        var text = document.createTextNode(data[i].nombre.capitalize());
+        var cell = row.insertCell();
+        var text = document.createTextNode(data[i].noExpediente);
         cell.appendChild(text);
 
-        cell = row.insertCell(1);
+        cell = row.insertCell();
+        text = document.createTextNode(data[i].nombre.capitalize());
+        cell.appendChild(text);
+
+        cell = row.insertCell();
         text = document.createTextNode(data[i].aPaterno.capitalize());
         cell.appendChild(text);
 
-        cell = row.insertCell(2);
+        cell = row.insertCell();
         text = document.createTextNode(data[i].aMaterno.capitalize());
         cell.appendChild(text);
 
-        cell = row.insertCell(3);
+        cell = row.insertCell();
         var b = document.createElement('button');
         b.setAttribute('class', 'btn btn-primary');
 
@@ -85,7 +96,8 @@ function buscar(criterio){
                 var texto = criterio[j].toLowerCase();
                 candidato = candidato && (users[i].nombre.includes(texto) || 
                 users[i].aPaterno.includes(texto) ||
-                users[i].aMaterno.includes(texto));
+                users[i].aMaterno.includes(texto) ||
+                users[i].noExpediente.includes(texto));
             }
 
             if(candidato){
