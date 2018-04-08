@@ -59,6 +59,6 @@ exports.actualizar = function(collection, query, data, callback){
 			callback(false);
 		});
 		db.close();
-	
+		
 	});
 }

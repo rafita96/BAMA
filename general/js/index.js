@@ -1,12 +1,5 @@
 var users = [];
 $(document).ready(function() {
-    if(success){
-        toastr(success);
-    }
-
-    if(error){
-        toastr(error);
-    }
 
     $('#datepicker').datepicker({
         format: 'dd/mm/yyyy',
@@ -68,7 +61,7 @@ function fillTable(data){
 
         cell = row.insertCell();
         var b = document.createElement('button');
-        b.setAttribute('class', 'btn btn-primary');
+        b.setAttribute('class', 'btn btn-azul');
 
         b.userId = data[i]._id;
         b.addEventListener('click', function(){

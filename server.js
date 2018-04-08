@@ -22,7 +22,7 @@ app.use("/common", express.static(__dirname + "/common"));
 app.use("/general", express.static(__dirname + "/general"));
 /**  **/
 
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(session({
 	secret: 'keyboard god',
 	resave: false,
@@ -50,7 +50,7 @@ app.use('/', router);
 /** General **/
 app.get('/', function (req, res, next) {
 	// res.sendFile(path.join(__dirname+'/index.html'));
-    res.render('index', {success: req.flash('success'), error: req.flash('error')});
+    res.render('index', {success: req.flash('success'), error: req.flash('error'), titulo: "Pacientes"});
 });
 /**  **/
 

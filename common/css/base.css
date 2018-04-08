@@ -1,0 +1,68 @@
+.bg-azul{
+    background-color: #317589;
+}
+
+.bg-verde{
+    background-color: #87d37c;
+}
+
+.bg-vino, .bg-principal{
+    background-color: #89313d;
+}
+
+.bg-amarillo, .bg-title{
+    background-color: #F5AB35;
+}
+
+.text-azul{
+    color: #317589;
+}
+
+.text-verde, .text-accent{
+    color: #87d37c;
+}
+
+.text-vino{
+    color: #89313d;
+}
+
+.text-amarillo{
+    color: #F5AB35
+}
+
+
+.btn-vino {
+    background: #89313d;
+    color: #ffffff;
+}
+ 
+.btn-vino:hover, .btn-vino:focus, .btn-vino:active, .btn-vino.active, .open > .dropdown-toggle.btn-vino {
+    background: #703e45;
+}
+
+.btn-azul {
+    background: #317589;
+    color: #ffffff;
+}
+ 
+.btn-azul:hover, .btn-azul:focus, .btn-azul:active, .btn-azul.active, .open > .dropdown-toggle.btn-azul {
+    background: #3e6470;
+}
+
+.btn-verde {
+    background: #87d37c;
+    color: #000000;
+}
+ 
+.btn-verde:hover, .btn-verde:focus, .btn-verde:active, .btn-verde.active, .open > .dropdown-toggle.btn-verde {
+    background: #57ba48;
+}
+
+.btn-amarillo {
+    background: #F5AB35;
+    color: #ffffff;
+}
+ 
+.btn-amarillo:hover, .btn-amarillo:focus, .btn-amarillo:active, .btn-amarillo.active, .open > .dropdown-toggle.btn-amarillo {
+    background: #dcab5b;
+}

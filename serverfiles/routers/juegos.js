@@ -15,7 +15,7 @@ router.use(function(req, res, next){
 });
 
 router.get('/', function(req, res){
-    res.render('juegos/lista');
+    res.render('juegos/lista', {titulo: "Juegos"});
 });
 
 router.get('/todos/los/nombres', function(req, res){

@@ -9,21 +9,25 @@
     <body class="bg-light text-dark">
         <% include layouts/nav %>
         <% include layouts/toast %>
-        <div class="container-fluid">
+        <script src="/common/js/bootstrap/datepicker/bootstrap-datepicker.js"></script>
+        <script src="/common/js/bootstrap/datepicker/bootstrap-datepicker.es.min.js"></script>
             
-            <div class="row" style="margin-top: 20px">
-                <div class="col-12">
-                    <h1 class="text-center">Pacientes</h1>
-                </div>
+        <% include layouts/title %>
+        <!-- <div class="row bg-info text-light p-2">
+            <div class="col-12">
+                <h1 class="text-center">Pacientes</h1>
             </div>
+        </div> -->
 
-            <div class="row" style="margin-top: 20px">
+        <div class="container">
+            
+            <div class="row" style="margin-top: 10px">
                 <div class="col-12">
-                    <div class="card text-white bg-dark mb-3">
+                    <div class="card text-white bg-principal mb-3">
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h3><b class="text-info">Paciente actual: </b><span id="paciente_actual"></span></h3>
+                                    <h3><b class="text-accent">Paciente actual: </b><span id="paciente_actual"></span></h3>
                                 </div>
                             </div>
                             <div class="row">
@@ -31,7 +35,7 @@
                                     <input class="form-control" type="text" name="buscar" id="buscar" placeholder="Buscar" />
                                 </div>
                                 <div class="col-2 text-center">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">Agregar paciente</button>
+                                    <button type="button" class="btn btn-azul" data-toggle="modal" data-target="#modal">Agregar paciente</button>
                                 </div>
                             </div>
                         </div>
@@ -40,11 +44,11 @@
                                 <div class="col-12">
                                     <table class="table text-center text-white" id="pacientes">
                                         <thead>
-                                            <th class="col-2">No. Expediente</th>
-                                            <th class="col-3">Nombre</th>
-                                            <th class="col-3">Apellido Paterno</th>
-                                            <th class="col-3">Apellido Materno</th>
-                                            <th class="col-1">Acción</th>
+                                            <th class="col-2 text-accent">No. Expediente</th>
+                                            <th class="col-3 text-accent">Nombre</th>
+                                            <th class="col-3 text-accent">Apellido Paterno</th>
+                                            <th class="col-3 text-accent">Apellido Materno</th>
+                                            <th class="col-1 text-accent">Acción</th>
                                         </thead>
                                         <tbody>
                                             

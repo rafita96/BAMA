@@ -13,7 +13,11 @@ router.use(function(req, res, next){
 });
 
 router.get('/perfil/', function(req, res){
-    res.render('paciente/perfil');
+    res.render('paciente/perfil', {
+        titulo: "Perfil", 
+        error: req.flash('error'),
+        success: req.flash('success')
+    });
 });
 
 router.post('/agregar/', function(req, res){
@@ -54,7 +58,7 @@ router.get('/actual', function(req, res){
 });
 
 router.get('/evaluar', function(req, res){
-    res.render('psicologo/evaluar');
+    res.render('psicologo/evaluar', {titulo: "Nota Clínica"});
 });
 
 router.post('/evaluar', function(req, res){
@@ -62,9 +66,43 @@ router.post('/evaluar', function(req, res){
         if(error){
             res.send('error');
         }else{
-            res.render('paciente/perfil');
+            res.redirect('paciente/perfil');
         }
     });
+});
+
+router.get('/editar', function(req, res){
+    if(req.session.pacienteId){
+        userManager.getUserInfo(req.session.pacienteId, function(data){
+            if(data == null){
+                req.flash('error', 'Error en base de datos.');
+                res.redirect('/');
+            }else{
+                res.render('paciente/editar', {userData: data, titulo: "Editar"});
+            }
+        });
+    }else{
+        req.flash('error', 'No has seleccionado un paciente.');
+        res.redirect('/');
+    }
+});
+
+router.post('/editar', function(req,res){
+
+    if(req.session.pacienteId){
+        userManager.editar(req.session.pacienteId,req.body.data, function(error){
+            if(error){
+                req.flash('error', 'Error en base de datos.');
+                res.redirect('/paciente/perfil');
+            }else{
+                req.flash('success', 'Paciente actualizado.');
+                res.redirect('/paciente/perfil');
+            }
+        });
+    }else{
+        req.flash('error', 'No has seleccionado un paciente.');
+        res.redirect('/');
+    }
 });
 
 module.exports = router;

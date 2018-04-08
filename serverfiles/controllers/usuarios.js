@@ -57,3 +57,16 @@ exports.evaluar = function(data, callback){
         callback(error);
     });
 }
+
+exports.editar = function(id, data, callback){
+    var info = {
+        nombre: data.nombre,
+        aPaterno: data.aPaterno,
+        aMaterno: data.aMaterno,
+        fechaNacimiento: data.fechaNacimiento,
+        noExpediente: data.noExpediente
+    };
+    dbManager.actualizar('users',{_id: new ObjectId(id)}, info, function(error){
+        callback(error);
+    });
+}

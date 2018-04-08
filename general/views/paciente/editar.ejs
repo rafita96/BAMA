@@ -1,7 +1,7 @@
 <html lang="es">
     <head>
          <meta charset="UTF-8"> 
-         <title>Perfil</title>
+         <title>Editar</title>
 
         <% include ../layouts/header %>
 
@@ -9,46 +9,68 @@
 
     <body class="bg-light text-dark">
         <% include ../layouts/nav %>
-
-        <div class="container-fluid">
-            <div class="row" style="margin-top: 20px">
-                <div class="col-12">
-                    <h1 class="text-center">Perfil</h1>
-                </div>
+        <script src="/common/js/bootstrap/datepicker/bootstrap-datepicker.js"></script>
+        <script src="/common/js/bootstrap/datepicker/bootstrap-datepicker.es.min.js"></script>
+        
+        <% include ../layouts/title %>
+       <!--  <div class="row bg-info text-dark p-2">
+            <div class="col-12">
+                <h1 class="text-center">Editar</h1>
             </div>
-
+        </div>
+ -->
+        <div class="container">
+            
             <div class="row" style="margin-top: 20px">
                 <div class="col-12">
                     <div class="card bg-dark text-white">
                         <div class="card-header">
                             <div class="col-10">
-                                <h3><b class="text-info">Paciente actual: </b><span id="paciente_actual">No has seleccionado a un paciente</span></h3>
+                                <h3>Editar paciente</h3>
                             </div>
                         </div>
 
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-                                    <h3>Edad: <span id="edad"></span></h3>
+                                    <form class="form" id="target" method="POST" enctype='application/json' action="/paciente/editar">
+
+                                    <div class="form-group">
+                                        <input class="form-control" id="noExpediente" type="text" name="data[noExpediente]" placeholder="Número de expediente" required minlength="2" value="<%= userData.noExpediente %>">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <input class="form-control" id="nombre" type="text" name="data[nombre]" placeholder="Nombre" required minlength="2" value="<%= userData.nombre %>">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <input class="form-control" id="aPaterno" type="text" name="data[aPaterno]" placeholder="Apellido Paterno" required minlength="2" value="<%= userData.aPaterno %>">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <input class="form-control" id="aMaterno" type="text" name="data[aMaterno]" placeholder="Apellido Materno" required minlength="2" value="<%= userData.aMaterno %>">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="datepicker">Fecha de Nacimiento</label>
+                                        <input id="datepicker" class="form-control" type="text" name="data[fechaNacimiento]" value="<%= userData.fechaNacimiento %>" required>
+                                    </div>
+                                    
                                 </div>
                             </div>
-                            Grafica mostrando la realidad del paciente    
                         </div>
                         
                         <div class="card-footer">
-                            <div class="col-12">
-                                <a class="btn btn-secondary" href="/paciente/editar/">editar</a>
+                           <div class="form-group">
+                                <button class="btn btn-primary" id="guardar" type="submit">Guardar</button>
                             </div>
-                            <div class="col-12">
-                                <a class="btn btn-secondary" href="/juegos/">Jugar</a>
-                            </div>
+                        </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
             
-        <script type="text/javascript" src="/general/js/user/perfil.js"></script>
-        <script type="text/javascript" src="/general/js/user/show.js"></script>
+        <script type="text/javascript" src="/general/js/user/editar.js"></script>
     </body>
 </html>

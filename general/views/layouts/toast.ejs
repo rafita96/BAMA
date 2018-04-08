@@ -10,4 +10,14 @@
     <% } else { %>
         var success = false;
     <% } %>
+
+    $(document).ready(function(){
+        if(success){
+            toastr(success);
+        }
+
+        if(error){
+            toastr(error);
+        }
+    });
 </script>

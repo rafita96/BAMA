@@ -17,7 +17,7 @@ exports.firewall = function(req, res, next){
     res.header("Access-Control-Allow-Headers", "Content-Type");
 
     if (firewall(req.path) || (req.session && req.session.userId)) {
-        if(req.path.match(new RegExp('/login/*'))){
+        if(req.path.match(new RegExp('/login/*')) && (req.session && req.session.userId)){
             return res.redirect('/');
         }else{
             return next();
