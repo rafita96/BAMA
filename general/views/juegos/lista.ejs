@@ -19,23 +19,23 @@
         <% include ../layouts/nav %>
         
         <% include ../layouts/title %>
-        <!-- <div class="row bg-info text-dark p-3">
-            <div class="col-12">
-                <h1 class="text-center">Juegos</h1>
-            </div>
-        </div> -->
         <div class="container">
 
-            <div class="row" style="margin-top: 20px">
+            <div class="row mt-3">
                 <div class="col-12">
-                    <h3><b class="text-info">Paciente: </b><span id="paciente_actual">No has seleccionado a un paciente</span></h3>
+                    <div class="card text-dark bg-principal">
+                        <div class="card-header">
+                            <h3><b class="text-accent">Paciente: </b><span id="paciente_actual">No has seleccionado a un paciente</span></h3>
+                        </div>
+                        <div class="card-body">
+                            <input class="form-control" type="text" name="buscar" id="buscar" placeholder="Buscar" />
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="row" style="margin-top: 20px">
-                <div class="col-12" id="juegos">
-                    
-                </div>
+            <div id="juegos">
+                
             </div>
         </div>
             

@@ -1,5 +1,5 @@
 {
     "nombre": "Juego 1",
     "img": "thumbnail.png",
-    "categorias": ["L","O","P"]
+    "categorias": ["L","O","P", "C", "M"]
 }

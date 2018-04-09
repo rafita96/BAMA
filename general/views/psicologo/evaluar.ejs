@@ -11,46 +11,41 @@
         <% include ../layouts/nav %>
         
         <% include ../layouts/title %>
-       <!--  <div class="row bg-info text-dark p-2">
-            <div class="col-12">
-                <h1 class="text-center">Nota Clínica</h1>
-            </div>
-        </div> -->
         <div class="container">
             
             <div class="row" style="margin-top: 20px">
                 <div class="col-12">
-                    <div class="card bg-dark text-white">
+                    <div class="card bg-principal text-dark">
                         <div class="card-header">
                             <div class="col-10">
-                                <h3><b class="text-info">Paciente actual: </b><span id="paciente_actual"></span></h3>
+                                <h3><b class="text-accent">Paciente actual: </b><span id="paciente_actual"></span></h3>
                             </div>
                         </div>
 
                         <div class="card-body">
                             <form class="form" id="target" method="POST" enctype='application/json' action="/paciente/evaluar">
                                 <div class="form-group">
-                                    <label for="problema">Problema</label>
+                                    <label for="problema" class="text-accent">Problema</label>
                                     <textarea class="form-control" id="problema" name="data[problema]" placeholder="Describirlo, ¨paciente femenino, 40 años ingresada por..¨" required></textarea>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="subjetivo">Subjetivo</label>
+                                    <label for="subjetivo" class="text-accent">Subjetivo</label>
                                     <textarea class="form-control" id="subjetivo" name="data[subjetivo]" placeholder="¨La paciente refiere sentir tranquila teme pero esta bien¨" required></textarea>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="objetivo">Objetivo</label>
+                                    <label for="objetivo" class="text-accent">Objetivo</label>
                                     <textarea class="form-control" id="objetivo" name="data[objetivo]" placeholder="¨Paciente consciente, bien orientado, C.I. regular¨" required></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="analisis">Análisis Dx reales</label>
+                                    <label for="analisis" class="text-accent">Análisis Dx reales</label>
                                     <textarea class="form-control" id="analisis" name="data[analisis]" placeholder="¨Evaluación potencial¨" required></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="plan">Plan de tratamiento</label>
+                                    <label for="plan" class="text-accent">Plan de tratamiento</label>
                                     <textarea class="form-control" id="plan" name="data[plan]" placeholder="¨Plan para la siguiente sesión¨" required></textarea>
                                 </div>
                         </div>
@@ -58,7 +53,7 @@
                         <div class="card-footer">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <button class="btn btn-primary" id="guardar" type="submit">Guardar</button>
+                                    <button class="btn btn-principal" id="guardar" type="submit">Guardar</button>
                                 </div>                                
                             </form>
                             </div>

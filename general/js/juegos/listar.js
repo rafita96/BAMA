@@ -1,6 +1,6 @@
-function bloque(data, bigPapa){
+function bloque(data){
     var div = document.createElement('div');
-    div.setAttribute("class", "col-2")
+    div.setAttribute("class", "col-3")
 
     var img = document.createElement('img');
     img.src = "/"+data["dir"]+"/"+data["img"];
@@ -10,6 +10,7 @@ function bloque(data, bigPapa){
     text.setAttribute("class", 'text-center');
 
     var a = document.createElement('a');
+    a.setAttribute("class", "a-principal");
     a.href = "/"+data["dir"]+"/";
     a.innerHTML = data["nombre"];
 
@@ -17,28 +18,37 @@ function bloque(data, bigPapa){
 
     div.appendChild(text);
 
-    bigPapa.appendChild(div);
+    return div;
 }
 
 function showGames(div, juegos){
     for(var i = 0; i < juegos.length; i++){
-        bloque(juegos[i], div);
+        var juego = bloque(juegos[i]);
+        div.append(juego);
     }
 }
 
-function createBigPapa(texto){
+function createBigPapa(texto, juegos){
     var bigPapa = document.createElement("div");
-    bigPapa.setAttribute("class", "bg-dark text-white p-2 m-3 rounded")
+    bigPapa.setAttribute("class", "card bg-principal text-white mt-3")
 
-    var fondo = document.createElement("div");
-    fondo.setAttribute("class", "text-center p-2");
+    var header = document.createElement("div");
+    header.setAttribute("class", "card-header");
 
     var titulo = document.createElement("h3");
+    titulo.setAttribute("class", "text-accent")
     titulo.innerHTML = texto;
 
-    fondo.appendChild(titulo);
-    bigPapa.appendChild(fondo);
-    return bigPapa;
+    header.appendChild(titulo);
+    bigPapa.appendChild(header);
+
+    var cardBody = document.createElement("div");
+    cardBody.setAttribute("class", "card-body");
+    bigPapa.appendChild(cardBody);
+
+    juegos.appendChild(bigPapa);
+
+    return cardBody;
 }
 
 $(document).ready(function() {
@@ -55,37 +65,32 @@ $(document).ready(function() {
         var divJuegos = document.getElementById('juegos');
         // Primero orientacion
         if(juegos["O"].length != 0){
-            var div = createBigPapa("Orientación");
+            var div = createBigPapa("Orientación", divJuegos);
             showGames(div, juegos["O"])
-            divJuegos.appendChild(div);
         }
 
         // Lenguaje
         if(juegos["L"].length != 0){
-            var div = createBigPapa("Lenguaje");
+            var div = createBigPapa("Lenguaje", divJuegos);
             showGames(div, juegos["L"])
-            divJuegos.appendChild(div);
         }
 
         // Praxias
         if(juegos["P"].length != 0){
-            var div = createBigPapa("Praxias");
+            var div = createBigPapa("Praxias", divJuegos);
             showGames(div, juegos["P"])
-            divJuegos.appendChild(div);
         }
 
         // Memoria
         if(juegos["M"].length != 0){
-            var div = createBigPapa("Memoria");
+            var div = createBigPapa("Memoria", divJuegos);
             showGames(div, juegos["M"])
-            divJuegos.appendChild(div);
         }
 
         // Calculo
         if(juegos["C"].length != 0){
-            var div = createBigPapa("Cálculo");
+            var div = createBigPapa("Cálculo", divJuegos);
             showGames(div, juegos["C"])
-            divJuegos.appendChild(div);
         }
     });
 });

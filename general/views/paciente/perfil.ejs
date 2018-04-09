@@ -12,26 +12,21 @@
         <% include ../layouts/toast %>
         
         <% include ../layouts/title %>
-        <!-- <div class="row bg-info text-dark p-2">
-            <div class="col-12">
-                <h1 class="text-center">Perfil</h1>
-            </div>
-        </div> -->
         <div class="container">
 
             <div class="row" style="margin-top: 20px">
                 <div class="col-12">
-                    <div class="card bg-dark text-white">
+                    <div class="card bg-principal">
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-1">
-                                    <a class="btn btn-secondary" href="/">Pacientes</a>
+                                    <a class="btn btn-principal" href="/">Pacientes</a>
                                 </div>
                                 <div class="col-sm-6 col-md-10 text-center">
-                                    <h3><b class="text-info">Paciente actual: </b><span id="paciente_actual">No has seleccionado a un paciente</span></h3>
+                                    <h3><b class="text-accent">Paciente actual: </b><span id="paciente_actual" class="text-dark">No has seleccionado a un paciente</span></h3>
                                 </div>
                                 <div class="col-1">
-                                    <a class="btn btn-secondary" href="/paciente/editar/">Editar</a>
+                                    <a class="btn btn-principal" href="/paciente/editar/">Editar</a>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +34,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-                                    <h3>Edad: <span id="edad"></span></h3>
+                                    <h3 class="text-accent">Edad: <span class="text-dark" id="edad"></span></h3>
                                 </div>
                             </div>
                             Grafica mostrando la realidad del paciente    
@@ -48,7 +43,7 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-1">
-                                    <a class="btn btn-secondary" href="/juegos/">Jugar</a>
+                                    <a class="btn btn-principal" href="/juegos/">Jugar</a>
                                 </div>
                             </div>
                         </div>

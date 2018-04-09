@@ -61,7 +61,7 @@ function fillTable(data){
 
         cell = row.insertCell();
         var b = document.createElement('button');
-        b.setAttribute('class', 'btn btn-azul');
+        b.setAttribute('class', 'btn btn-principal');
 
         b.userId = data[i]._id;
         b.addEventListener('click', function(){

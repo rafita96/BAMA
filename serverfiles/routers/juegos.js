@@ -10,6 +10,7 @@ router.use(function(req, res, next){
     if(req.session.pacienteId){
         return next();
     }else{
+        req.flash('error', 'No has seleccionado un paciente.');
         return res.redirect('/');
     }
 });

@@ -13,17 +13,12 @@
         <script src="/common/js/bootstrap/datepicker/bootstrap-datepicker.es.min.js"></script>
             
         <% include layouts/title %>
-        <!-- <div class="row bg-info text-light p-2">
-            <div class="col-12">
-                <h1 class="text-center">Pacientes</h1>
-            </div>
-        </div> -->
 
         <div class="container">
             
             <div class="row" style="margin-top: 10px">
                 <div class="col-12">
-                    <div class="card text-white bg-principal mb-3">
+                    <div class="card text-dark bg-principal mb-3">
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-md-12">
@@ -35,14 +30,14 @@
                                     <input class="form-control" type="text" name="buscar" id="buscar" placeholder="Buscar" />
                                 </div>
                                 <div class="col-2 text-center">
-                                    <button type="button" class="btn btn-azul" data-toggle="modal" data-target="#modal">Agregar paciente</button>
+                                    <button type="button" class="btn btn-principal" data-toggle="modal" data-target="#modal">Agregar paciente</button>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-                                    <table class="table text-center text-white" id="pacientes">
+                                    <table class="table text-center" id="pacientes">
                                         <thead>
                                             <th class="col-2 text-accent">No. Expediente</th>
                                             <th class="col-3 text-accent">Nombre</th>
@@ -65,7 +60,7 @@
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title">Agregar Paciente</h3>
+                            <h3 class="modal-title text-accent">Agregar Paciente</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -75,19 +70,23 @@
                             <form class="form" id="target" method="POST" enctype='application/json' action="/paciente/agregar">
 
                                 <div class="form-group">
-                                    <input class="form-control" id="noExpediente" type="text" name="data[noExpediente]" placeholder="Número de expediente" required minlength="2">
+                                    <label for="noExpediente">Número de expediente</label>
+                                    <input class="form-control" id="noExpediente" type="text" name="data[noExpediente]" required minlength="2">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <input class="form-control" id="nombre" type="text" name="data[nombre]" placeholder="Nombre" required minlength="2">
+                                    <label for="nombre">Nombre</label>
+                                    <input class="form-control" id="nombre" type="text" name="data[nombre]" required minlength="2">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <input class="form-control" id="aPaterno" type="text" name="data[aPaterno]" placeholder="Apellido Paterno" required minlength="2">
+                                    <label for="aPaterno">Apellido Paterno</label>
+                                    <input class="form-control" id="aPaterno" type="text" name="data[aPaterno]" required minlength="2">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <input class="form-control" id="aMaterno" type="text" name="data[aMaterno]" placeholder="Apellido Materno" required minlength="2">
+                                    <label for="aMaterno">Apellido Materno</label>
+                                    <input class="form-control" id="aMaterno" type="text" name="data[aMaterno]" required minlength="2">
                                 </div>
 
                                 <div class="form-group">
@@ -95,9 +94,10 @@
                                     <input id="datepicker" class="form-control" type="text" name="data[fechaNacimiento]" required>
                                 </div>
                                 
-
+                        </div>
+                        <div class="modal-footer">
                                 <div class="form-group">
-                                    <button class="btn btn-primary" id="guardar" type="submit">Guardar</button>
+                                    <button class="btn btn-vino" id="guardar" type="submit">Guardar</button>
                                 </div>
                             </form>
                         </div>
