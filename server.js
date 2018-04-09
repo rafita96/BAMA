@@ -3,8 +3,8 @@ var express = require('express');
 var cookieParser = require('cookie-parser')
 var flash = require('express-flash');
 var bodyParser = require('body-parser');
-var appConfig = require('./serverfiles/conf').conf;
-var firewall = require('./serverfiles/controllers/firewall').firewall;
+var appConfig = require('./src/conf').conf;
+var firewall = require('./src/controllers/firewall').firewall;
 
 // var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -12,14 +12,14 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 // var redisSession = require('node-redis-session');
 
-var router = require('./serverfiles/router');
+var router = require('./src/router');
 
 var app = express();
-app.set('views', path.join(__dirname, '/general/views/'));
+app.set('views', path.join(__dirname, '/src/views/'));
 app.set('view engine', 'ejs');
 /** Url estatica para datos comunes**/
-app.use("/common", express.static(__dirname + "/common"));
-app.use("/general", express.static(__dirname + "/general"));
+app.use("/public", express.static(__dirname + "/public"));
+// app.use("/general", express.static(__dirname + "/general"));
 /**  **/
 
 app.use(cookieParser());

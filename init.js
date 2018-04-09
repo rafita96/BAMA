@@ -1,6 +1,6 @@
 var bcrypt = require('bcrypt');
-var appConfig = require('./serverfiles/conf').conf["session"];
-var dbManager = require('./serverfiles/controllers/database');
+var appConfig = require('./src/conf').conf["session"];
+var dbManager = require('./src/controllers/database');
 
 var hash = bcrypt.hashSync(appConfig["password"], appConfig["saltRounds"]);
 
