@@ -47,10 +47,8 @@ exports.agregar = function(data, callback){
 
 exports.evaluar = function(data, callback){
     var info = {
-        problema:data.problema,
-        subjetivo:data.subjetivo,
-        objetivo:data.objetivo,
-        analisis:data.analisis,
+        terapeuta:data.terapeuta,
+        diagnostico:data.diagnostico,
         plan:data.plan
     };
     dbManager.insertar('notas', info, function(error){

@@ -25,23 +25,13 @@
                         <div class="card-body">
                             <form class="form" id="target" method="POST" enctype='application/json' action="/paciente/evaluar">
                                 <div class="form-group">
-                                    <label for="problema" class="text-accent">Problema</label>
-                                    <textarea class="form-control" id="problema" name="data[problema]" placeholder="Describirlo, ¨paciente femenino, 40 años ingresada por..¨" required></textarea>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="subjetivo" class="text-accent">Subjetivo</label>
-                                    <textarea class="form-control" id="subjetivo" name="data[subjetivo]" placeholder="¨La paciente refiere sentir tranquila teme pero esta bien¨" required></textarea>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="objetivo" class="text-accent">Objetivo</label>
-                                    <textarea class="form-control" id="objetivo" name="data[objetivo]" placeholder="¨Paciente consciente, bien orientado, C.I. regular¨" required></textarea>
+                                    <label for="terapeuta" class="text-accent">Terapeuta</label>
+                                    <input class="form-control" id="terapeuta" name="data[terapeuta]" required />
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="analisis" class="text-accent">Análisis Dx reales</label>
-                                    <textarea class="form-control" id="analisis" name="data[analisis]" placeholder="¨Evaluación potencial¨" required></textarea>
+                                    <label for="diagnostico" class="text-accent">Diagnóstico</label>
+                                    <textarea class="form-control" id="diagnostico" placeholder="¨¿Cómo le fue en la sesión?¨" name="data[diagnostico]" rows="18" required></textarea>
                                 </div>
 
                                 <div class="form-group">

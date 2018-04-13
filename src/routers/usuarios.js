@@ -67,7 +67,7 @@ router.post('/evaluar', function(req, res){
         if(error){
             res.send('error');
         }else{
-            res.redirect('paciente/perfil');
+            res.redirect('/paciente/perfil');
         }
     });
 });

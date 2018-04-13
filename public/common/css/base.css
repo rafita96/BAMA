@@ -133,7 +133,7 @@ a:link{
 
 */
 /* Pretty pastels */
-/*
+
 .bg-principal{
     background: #bfd8d2;
 }
@@ -161,7 +161,7 @@ a:link{
 .btn-principal:hover, .btn-principal:focus, .btn-principal:active, .btn-principal.active, .open > .dropdown-toggle.btn-principal {
     background: #dbc358;
 }
-*/
+
 
 /* Tints and tones */
 /*
@@ -288,7 +288,7 @@ a:link{
 */
 
 /* Colorful without clashing */
-
+/*
 .bg-principal{
     background: #6ec4db;
 }
@@ -316,7 +316,7 @@ a:link{
 .btn-principal:hover, .btn-principal:focus, .btn-principal:active, .btn-principal.active, .open > .dropdown-toggle.btn-principal {
     background: #3a926a;
 }
-
+*/
 
 /* clean and collegiate */
 /*
