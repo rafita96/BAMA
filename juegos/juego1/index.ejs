@@ -3,15 +3,17 @@
          <meta charset="UTF-8"> 
          <title>Juego 1</title>
 
+         <link rel="stylesheet" href="./public/css/juego1.css">
+
         <script src="/public/common/js/d3/d3.min.js"></script>
         <script src="/public/common/js/react.js"></script>
         <script src="/public/common/js/react-dom.js"></script>
         <script src="/public/common/js/browser.js"></script>
-        <% include src/views/layouts/header %>
+        <% include ../../src/views/layouts/header %>
     </head>
 
     <body class="bg-light text-dark">
-        <% include src/views/layouts/nav %>
+        <% include ../../src/views/layouts/nav %>
         
         <div class="container">
             <div class="row">
@@ -22,6 +24,7 @@
         </div>
         
         <script type="text/babel" src="./public/js/main.js"></script>
+        <script src="./public/js/engine.js"></script>
     </body>
     
 </html>
