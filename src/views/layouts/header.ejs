@@ -1,5 +1,7 @@
+
 <link rel="stylesheet" href="/public/common/css/bootstrap/bootstrap.css">
 <link rel="stylesheet" href="/public/common/css/bootstrap/datepicker/bootstrap-datepicker3.standalone.css">
+<link rel="stylesheet" href="/public/common/css/fontawesome-all.css">
 <link rel="stylesheet" href="/public/common/css/toast.css">
 <link rel="stylesheet" href="/public/common/css/base.css">
 
@@ -9,10 +11,13 @@
     String.prototype.capitalize = function() {
         return this.split(/\s+/).map(w => w[0].toUpperCase() + w.slice(1)).join(' ');;
     } 
+
 </script>
 <script src="/public/common/js/jquery-3.2.1.min.js"></script>
 <script src="/public/common/js/toast.js"></script>
 <script src="/public/common/js/post.js"></script>
-<script src="/public/common/js/popper.js"></script>
+<script type="module">
+    import * from "/node_modules/popper.js/dist/umd/popper.js";
+</script>
 <script src="/public/common/js/bootstrap/bootstrap.js"></script>
 

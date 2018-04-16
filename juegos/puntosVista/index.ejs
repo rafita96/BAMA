@@ -1,0 +1,75 @@
+<html lang="es">
+    <head>
+         <meta charset="UTF-8"> 
+         <title>Puntos de vista</title>
+        
+        <style type="text/css">
+            img {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+
+            .fa-rotate-45 {
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+
+            .fa-rotate--45 {
+                -webkit-transform: rotate(315deg);
+                -moz-transform: rotate(315deg);
+                -ms-transform: rotate(315deg);
+                -o-transform: rotate(315deg);
+                transform: rotate(315deg);
+            }
+
+            .fa-rotate-135 {
+                -webkit-transform: rotate(135deg);
+                -moz-transform: rotate(135deg);
+                -ms-transform: rotate(135deg);
+                -o-transform: rotate(135deg);
+                transform: rotate(135deg);
+            }
+
+            .fa-rotate--135 {
+                -webkit-transform: rotate(-135deg);
+                -moz-transform: rotate(-135deg);
+                -ms-transform: rotate(-135deg);
+                -o-transform: rotate(-135deg);
+                transform: rotate(-135deg);
+            }
+
+            .fa-down{
+                margin-top: 30px;
+            }
+
+            .fa-up{
+                margin-bottom: 30px;
+            }
+        </style>
+
+        <% include ../../src/views/layouts/header %>
+        <script src="/public/common/js/d3/d3.min.js"></script>
+        <script src="/public/common/js/react.js"></script>
+        <script src="/public/common/js/react-dom.js"></script>
+        <script src="/public/common/js/browser.js"></script>
+    </head>
+
+    <body class="bg-light text-dark">
+        <% include ../../src/views/layouts/nav %>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div id="main"></div>
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/babel" src="./public/js/Canvas.js"></script>
+        <script type="text/babel" src="./public/js/main.js"></script>
+    </body>
+    
+</html>
