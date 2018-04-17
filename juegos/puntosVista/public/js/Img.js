@@ -1,8 +1,9 @@
 class Img extends React.Component{
 
-  componentDidMount(){
-    const img = this.refs.image
-  }
+    componentDidMount(){
+        const img = this.refs.image
+    }
+
 
   render(){
     return(

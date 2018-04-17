@@ -9,7 +9,7 @@ class Ejercicio extends React.Component{
             index: null
         }
 
-        this.numeroPreguntas = 4;
+        this.numeroPreguntas = 8;
 
         this.seleccionarEjercicios();
         this.siguiente = this.siguiente.bind(this);
@@ -83,24 +83,53 @@ class Ejercicio extends React.Component{
         }else{
             var carpeta = this.ejercicios[this.state.pregunta][0];
             var imagen = this.ejercicios[this.state.pregunta][1];
-            return(
-                <div>
-                    <div className="row mt-3">
-                        <div className="col-sm-12 col-md-6">
-                            <Img url={"./img/"+carpeta+"/"+imagen+".png"} />
-                        </div>
 
-                        <div className="col-sm-12 col-md-6">
-                            <Camaras index={this.state.index} seleccionar={this.seleccionar} url={"./img/"+carpeta+"/aereo.png"} />
+            if(this.state.pregunta < this.numeroPreguntas/2){
+                return(
+                    <div>
+                        <div className="row mt-3">
+                            <div className="col-sm-12 col-md-6">
+                                <Img url={"./img/"+carpeta+"/"+imagen+".png"} />
+                            </div>
+
+                            <div className="col-sm-12 col-md-6">
+                                <Camaras index={this.state.index} seleccionar={this.seleccionar} url={"./img/"+carpeta+"/aereo.png"} />
+                            </div>
+                        </div>
+                        <div className="row mt-3">
+                            <div className="col-2 offset-10">
+                                <button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
+                            </div>
                         </div>
                     </div>
-                    <div className="row mt-3">
-                        <div className="col-2 offset-10">
-                            <button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
+                );
+            }else{
+                var imagenSeleccionada = <Img url={"./img/notselected.jpg"} />;
+                if(this.state.index != null){
+                    var imagenSeleccionada = <Img url={"./img/"+carpeta+"/"+this.state.index*45+".png"} />;
+                }
+                return(
+                    <div>
+                        <div className="row mt-3">
+                            <div className="col-sm-12 col-md-6">
+                               {imagenSeleccionada}
+                            </div>
+
+                            <div className="col-sm-12 col-md-6">
+                                <Camaras index={imagen/45} url={"./img/"+carpeta+"/aereo.png"} />
+                            </div>
+                        </div>
+                        <div className="row mt-3">
+                            <div className="col-10">
+                                <BloqueImg carpeta={carpeta} seleccionar={this.seleccionar} />
+                            </div>
+                            <div className="col-2">
+                                <button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            );
+                );
+            }
         }
     }
 }

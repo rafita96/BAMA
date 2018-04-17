@@ -1,3 +1,4 @@
+// Sigue este!
 function bloque(data){
     var div = document.createElement('div');
     div.setAttribute("class", "col-3")

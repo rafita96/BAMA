@@ -20,8 +20,16 @@ class Camara extends React.Component{
                     }}></i>
                 </div>
             );
-        }else{
+        }else if(typeof this.props.seleccionar == "undefined"){
            return(
+                <div>
+                    <i className={"fas fa-camera fa-2x fa-rotate-"+ this.props.rotate} style={{
+                        color: "#009432"
+                    }}></i>
+                </div>
+            ); 
+        }else{
+            return(
                 <div onClick={this.seleccionar}>
                     <i className={"fas fa-camera fa-2x fa-rotate-"+ this.props.rotate} style={{
                         color: "#009432"
@@ -41,7 +49,9 @@ class Camaras extends React.Component{
     }
 
     seleccionar(index){
-        this.props.seleccionar(index);
+        if(typeof this.props.seleccionar != "undefined"){
+            this.props.seleccionar(index);
+        }
     }
 
     render(){
