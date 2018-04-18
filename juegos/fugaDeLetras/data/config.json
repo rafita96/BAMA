@@ -1,0 +1,96 @@
+{
+	"niveles": [
+		[
+			{
+				"pregunta": "EL PE_RO ES NE_RO",
+				"respuesta": ["R","G"],
+				"opciones": [
+					"A", "Z", "X",
+					"B", "H", "T"
+				]
+			},
+			{
+				"pregunta": "MI G_TO ES COLOR CA_É",
+				"respuesta": ["A","F"],
+				"opciones": [
+					"J", "X", "P",
+					"M", "L", "K"
+				]
+			},
+			{
+				"pregunta": "EL CI_LO ES A_UL",
+				"respuesta": ["E","Z"],
+				"opciones": [
+					"A", "B", "T",
+					"X", "Y", "S"
+				]
+			},
+			{
+				"pregunta": "ME GUSTA_ LAS MAN_ANAS",
+				"respuesta": ["N","Z"],
+				"opciones": [
+					"L", "Ñ", "T",
+					"X", "R", "D"
+				]
+			},
+			{
+				"pregunta": "LAS SAN_ÍAS SON V_RDES",
+				"respuesta": ["D","E"],
+				"opciones": [
+					"X", "L", "I",
+					"T", "P", "O"
+				]
+			},
+			{
+				"pregunta": "EL PERR_ L_DRA",
+				"respuesta": ["O","A"],
+				"opciones": [
+					"K", "D", "Q",
+					"S", "F", "H"
+				]
+			},
+			{
+				"pregunta": "LOS _ATOS MAÚL_AN",
+				"respuesta": ["G","L"],
+				"opciones": [
+					"T", "U", "F",
+					"K", "C", "M"
+				]
+			},
+			{
+				"pregunta": "AL INI_INITO Y MÁS _LLÁ",
+				"respuesta": ["F","A"],
+				"opciones": [
+					"C", "T", "K",
+					"M", "O", "L"
+				]
+			},
+			{
+				"pregunta": "SE_ O NO _ER",
+				"respuesta": ["R","S"],
+				"opciones": [
+					"G", "E", "K",
+					"Z", "V", "X"
+				]
+			},
+			{
+				"pregunta": "ME G_STA EL PA_TEL",
+				"respuesta": ["U","S"],
+				"opciones": [
+					"H", "R", "B",
+					"A", "P", "L"
+				]
+			}
+		],
+		[
+			{
+				"pregunta": "HAY U_A SE_PIEN_E EN MI B_TA",
+				"respuesta": ["N","R","T","O"],
+				"opciones": [
+					"A", "D", "K",
+					"P"
+				]
+			}
+		]
+	]
+}
