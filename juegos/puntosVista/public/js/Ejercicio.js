@@ -6,6 +6,7 @@ class Ejercicio extends React.Component{
         this.state = {
             pregunta: 0,
             aciertos: 0,
+            pausa: false,
             index: null
         }
 
@@ -14,6 +15,7 @@ class Ejercicio extends React.Component{
         this.seleccionarEjercicios();
         this.siguiente = this.siguiente.bind(this);
         this.seleccionar = this.seleccionar.bind(this);
+        this.seguir = this.seguir.bind(this);
     }
 
     seleccionarEjercicios(){
@@ -53,29 +55,46 @@ class Ejercicio extends React.Component{
         });
     }
 
+    seguir(){
+        this.setState({
+            pausa: false
+        });
+    }
+
     siguiente(){
         if(this.state.index == null){
-            toastr("No has seleccionado una cámara");
+            toastr("No has seleccionado una opción.");
         }else{
             var respuesta = this.ejercicios[this.state.pregunta][1]/45;
+            var pausa = this.state.pregunta == this.numeroPreguntas/2 - 1;
+
             if(this.state.index == respuesta){
                 this.setState({
                     aciertos: this.state.aciertos+1,
                     pregunta: this.state.pregunta + 1,
-                    index: null
+                    index: null,
+                    pausa: pausa
                 });
             }else{
                 this.setState({
                     pregunta: this.state.pregunta + 1,
-                    index: null
+                    index: null,
+                    pausa: pausa
                 });
             }
+
+            
         }
     }
 
     render(){
-
-        if(this.state.pregunta >= this.ejercicios.length){
+        if(this.state.pausa){
+            return(<Instrucciones 
+                        regresar={false} 
+                        iniciar={this.seguir} 
+                        instrucciones={this.props.parte2} />);
+        }
+        else if(this.state.pregunta >= this.ejercicios.length){
 
             var porcentaje = this.state.aciertos/this.ejercicios.length * 100;
             this.props.terminar(porcentaje);

@@ -46,7 +46,7 @@ class Main extends React.Component{
         }else if(this.state.inicio){
             return(
                 <Bloque nombre={this.props.nombre}>
-                    <Ejercicio terminar={this.terminar} />
+                    <Ejercicio terminar={this.terminar} parte2={this.props.parte2} />
                 </Bloque>
             );
         }else{
@@ -65,7 +65,7 @@ class Main extends React.Component{
 function getInfo(callback){
     d3.json("./data/info.json", function(error, instrucciones){
         d3.json("./meta.json", function(error, nombre){
-            callback(nombre["nombre"], instrucciones["instrucciones"]);
+            callback(nombre["nombre"], instrucciones);
         });
     });
 }
@@ -75,6 +75,7 @@ $(document).ready(function(){
 
         ReactDOM.render(<Main 
             nombre={nombre} 
-            instrucciones={instrucciones} />, document.getElementById('main'));
+            instrucciones={instrucciones["instrucciones"]}
+            parte2={instrucciones["parte2"]} />, document.getElementById('main'));
     })
 }); 
