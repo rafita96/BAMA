@@ -1,3 +1,8 @@
 {
+<<<<<<< HEAD
     "instrucciones": "Se va a mostrar una imagen con la vista aérea de una escena compuesta por figuras de colores. Alrededor de la escena hay 8 cámaras con diferentes puntos de vista, se le mostrará una imagen tomada por una de ellas, el objetivo es descifrar cuál de ellas la tomó."
+=======
+    "instrucciones": "Se va a mostrar una imágen con la vista aerea de una escena compuesta por figuras de colores. Alrededor de la escena hay 8 cámaras con diferentes puntos de vista, se le mostrará una imágen tomada por una de ellas, el objetivo es descifrar cuál de ellas la tomó.",
+    "parte2": "En esta sección se mostrará una lista de opciones con los 8 puntos de vista de cada cámara. El problema consiste en descifrar cuál es la imágen que corresponde a la cámara seleccionada."
+>>>>>>> f6a3c914197e15ac78fe9df5b104845eb20fc5b1
 }

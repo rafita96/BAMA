@@ -1,59 +1,98 @@
-function bloque(data){
-    var div = document.createElement('div');
-    div.setAttribute("class", "col-3")
+class Img extends React.Component{
 
-    var img = document.createElement('img');
-    img.src = "/"+data["dir"]+"/"+data["img"];
+    componentDidMount(){
+        const img = this.refs.image
+    }
 
-    div.appendChild(img);
-    var text = document.createElement('h4');
-    text.setAttribute("class", 'text-center');
 
-    var a = document.createElement('a');
-    a.setAttribute("class", "a-principal");
-    a.href = "/"+data["dir"]+"/";
-    a.innerHTML = data["nombre"];
-
-    text.appendChild(a);
-
-    div.appendChild(text);
-
-    return div;
+  render(){
+    return(
+      <img ref="image" src={this.props.url} />
+    )
+  }
 }
 
-function showGames(div, juegos){
-    for(var i = 0; i < juegos.length; i++){
-        var juego = bloque(juegos[i]);
-        div.append(juego);
+
+
+class Bloque extends React.Component{
+    render(){
+        var url = "/"+this.props.ejercicio["dir"]+"/"+this.props.ejercicio["img"];
+        return(
+            <div className="col-3">
+                <div className="row">
+                    <div className="col-12">
+                        <Img url={url} />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-12 text-center">
+                        <h4><a className="a-principal" href={"/"+this.props.ejercicio["dir"]+"/"}>
+                            {this.props.ejercicio["nombre"]}
+                        </a></h4>
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 
-function createBigPapa(texto, juegos){
-    var bigPapa = document.createElement("div");
-    bigPapa.setAttribute("class", "card bg-principal text-white mt-3")
+class Main extends React.Component{
 
-    var header = document.createElement("div");
-    header.setAttribute("class", "card-header");
+    constructor(props){
+        super(props);
 
-    var titulo = document.createElement("h3");
-    titulo.setAttribute("class", "text-accent")
-    titulo.innerHTML = texto;
+        this.bloques = [];
+        if(this.props.orientacion.length != 0){
+            this.bloques.push(this.crearBloque("Orientación",this.props.orientacion));
+        }
 
-    header.appendChild(titulo);
-    bigPapa.appendChild(header);
+        if(this.props.lenguaje.length != 0){
+            this.bloques.push(this.crearBloque("Lenguaje",this.props.lenguaje));
+        }
 
-    var cardBody = document.createElement("div");
-    cardBody.setAttribute("class", "card-body");
-    bigPapa.appendChild(cardBody);
+        if(this.props.praxias.length != 0){
+            this.bloques.push(this.crearBloque("Praxias",this.props.praxias));
+        }
 
-    juegos.appendChild(bigPapa);
+        if(this.props.memoria.length != 0){
+            this.bloques.push(this.crearBloque("Memoria",this.props.memoria));
+        }
 
-    return cardBody;
+        if(this.props.calculo.length != 0){
+            this.bloques.push(this.crearBloque("Cálculo",this.props.calculo));
+        }
+    }
+
+    crearBloque(nombre, ejercicios){
+        var bloque = [];
+        for(var i = 0; i < ejercicios.length; i++){
+            bloque.push(<Bloque ejercicio={ejercicios[i]} />);
+        }
+
+        return(
+            <div className="row my-3">
+                <div className="col-12">
+                    <div className="card bg-principal">
+                        <div className="card-header">
+                            <h1>{nombre}</h1>
+                        </div>
+                        <div className="card-body">
+                            <div className="row">
+                                {bloque}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    render(){
+        return(<div>{this.bloques}</div>);
+    }
 }
 
-$(document).ready(function() {
-    // Si ya eligio un usuario anteriormente, entonces muestra que ya fue
-    // seleccionado
+$(document).ready(function(){
     Consulta.get('/paciente/actual/', function(data){
         if(data["id"] != null){
             mostrarPerfil(data);
@@ -62,35 +101,12 @@ $(document).ready(function() {
 
     Consulta.get('/juegos/todos/los/nombres', function(data){
         var juegos = data["juegos"];
-        var divJuegos = document.getElementById('juegos');
-        // Primero orientacion
-        if(juegos["O"].length != 0){
-            var div = createBigPapa("Orientación", divJuegos);
-            showGames(div, juegos["O"])
-        }
 
-        // Lenguaje
-        if(juegos["L"].length != 0){
-            var div = createBigPapa("Lenguaje", divJuegos);
-            showGames(div, juegos["L"])
-        }
-
-        // Praxias
-        if(juegos["P"].length != 0){
-            var div = createBigPapa("Praxias", divJuegos);
-            showGames(div, juegos["P"])
-        }
-
-        // Memoria
-        if(juegos["M"].length != 0){
-            var div = createBigPapa("Memoria", divJuegos);
-            showGames(div, juegos["M"])
-        }
-
-        // Calculo
-        if(juegos["C"].length != 0){
-            var div = createBigPapa("Cálculo", divJuegos);
-            showGames(div, juegos["C"])
-        }
+        ReactDOM.render(<Main 
+            orientacion={juegos["O"]} 
+            lenguaje={juegos["L"]} 
+            praxias={juegos["P"]} 
+            memoria={juegos["M"]} 
+            calculo={juegos["C"]} />, document.getElementById('juegos'));
     });
-});
+}); 
