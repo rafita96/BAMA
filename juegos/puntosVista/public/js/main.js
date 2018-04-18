@@ -40,7 +40,7 @@ class Main extends React.Component{
         if(this.state.fin){
             return(
                 <Bloque nombre={this.props.nombre}>
-                    <Fin reiniciar={this.reiniciar} porcentaje={this.state.porcentaje} />
+                    <Fin paciente={this.props.paciente} reiniciar={this.reiniciar} porcentaje={this.state.porcentaje} />
                 </Bloque>
             );
         }else if(this.state.inicio){
@@ -71,11 +71,19 @@ function getInfo(callback){
 }
 
 $(document).ready(function(){
-    getInfo(function(nombre, instrucciones){
+    Consulta.get('/paciente/actual/', function(data){
+        if(data["id"] != null){
+            mostrarPerfil(data);
+            getInfo(function(nombre, instrucciones){
 
-        ReactDOM.render(<Main 
-            nombre={nombre} 
-            instrucciones={instrucciones["instrucciones"]}
-            parte2={instrucciones["parte2"]} />, document.getElementById('main'));
-    })
+                ReactDOM.render(<Main
+                    paciente={data["id"]}  
+                    nombre={nombre} 
+                    instrucciones={instrucciones["instrucciones"]}
+                    parte2={instrucciones["parte2"]} />, document.getElementById('main'));
+            });
+        }else{
+            toastr("No has seleccionado un paciente");
+        }
+    });
 }); 

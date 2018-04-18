@@ -1,4 +1,10 @@
 class Fin extends React.Component{
+
+    // enviarResultado(porcentaje){
+    //     var data = {this.id}
+    //     Consultar.post('/insertar/', )
+    // }
+
     render(){
         var clase = "";
         if(this.props.porcentaje >= 80){
@@ -17,7 +23,10 @@ class Fin extends React.Component{
                     </div>
                 </div>
                 <div className="row mt-3">
-                    <div className="col-12 text-center">
+                    <div className="col-4">
+                        <a href="/juegos/" className="btn btn-principal">Lista de juegos</a>
+                    </div>
+                    <div className="col-4 text-center">
                         <button onClick={this.props.reiniciar} className="btn btn-principal">Volver a jugar</button>
                     </div>
                 </div>
