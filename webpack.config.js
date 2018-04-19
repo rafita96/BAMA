@@ -12,3 +12,6 @@ module.exports = {
         ]
     }
 }
+
+// Para compilar 
+// webpack --mode production ./juegos/puntosVista/public/js/index.jsx --output ./juegos/puntosVista/public/js/bundle.js
