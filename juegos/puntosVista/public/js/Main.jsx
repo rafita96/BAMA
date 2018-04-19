@@ -1,4 +1,9 @@
-class Main extends React.Component{
+import Ejercicio from './Ejercicio.jsx';
+import Fin from './Fin.jsx';
+import Instrucciones from './Instrucciones.jsx';
+import Bloque from './Bloque.jsx';
+
+class Main extends React.Component {
     constructor(props){
         super(props);
 
@@ -40,7 +45,7 @@ class Main extends React.Component{
         if(this.state.fin){
             return(
                 <Bloque nombre={this.props.nombre}>
-                    <Fin reiniciar={this.reiniciar} porcentaje={this.state.porcentaje} />
+                    <Fin paciente={this.props.paciente} reiniciar={this.reiniciar} porcentaje={this.state.porcentaje} />
                 </Bloque>
             );
         }else if(this.state.inicio){
@@ -62,20 +67,14 @@ class Main extends React.Component{
     }
 }
 
-function getInfo(callback){
-    d3.json("./data/info.json", function(error, instrucciones){
-        d3.json("./meta.json", function(error, nombre){
-            callback(nombre["nombre"], instrucciones);
-        });
-    });
+var init = function (paciente, nombre, instrucciones){
+    ReactDOM.render(<div>
+        <Main
+        paciente={paciente}  
+        nombre={nombre} 
+        instrucciones={instrucciones["instrucciones"]}
+        parte2={instrucciones["parte2"]} /></div>, document.getElementById('main'));
 }
 
-$(document).ready(function(){
-    getInfo(function(nombre, instrucciones){
-
-        ReactDOM.render(<Main 
-            nombre={nombre} 
-            instrucciones={instrucciones["instrucciones"]}
-            parte2={instrucciones["parte2"]} />, document.getElementById('main'));
-    })
-}); 
+export {init};
+export default Main;

@@ -8,7 +8,7 @@ class Instrucciones extends React.Component{
                     <a
                         className="btn btn-principal btn-lg" 
                         href="/juegos/">
-                        Regresar a lista
+                        Lista de juegos
                     </a>
                 </div>
             );
@@ -40,3 +40,5 @@ class Instrucciones extends React.Component{
         );
     }
 }
+
+export default Instrucciones;
