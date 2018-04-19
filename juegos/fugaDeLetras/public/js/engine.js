@@ -19,7 +19,7 @@ call();
 function Responder(nivel, pregunta, respuesta) {
 	resp = config["niveles"][nivel][pregunta]["respuesta"];
 	resp.sort();
-	respuesta.sort();
+	respuesta.sort();	
 
 	return JSON.stringify(resp) == JSON.stringify(respuesta);
 }
