@@ -40,3 +40,5 @@ class Instrucciones extends React.Component{
         );
     }
 }
+
+export default Instrucciones;

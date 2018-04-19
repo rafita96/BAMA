@@ -34,3 +34,5 @@ class Fin extends React.Component{
         );
     }
 }
+
+export default Fin;

@@ -1,3 +1,8 @@
+import Instrucciones from './Instrucciones.jsx';
+import Img from './Img.jsx';
+import Camaras from './Camaras.jsx';
+import BloqueImg from './BloqueImg.jsx';
+
 class Ejercicio extends React.Component{
 
     constructor(props){
@@ -25,22 +30,30 @@ class Ejercicio extends React.Component{
             // 10 carpetas, y 8 imagenes por carpeta
             // Entre 0 y 9
             var carpeta = Math.floor(Math.random() * 10);
-            if(carpeta == 10) carpeta--;
+            if(carpeta == 10){ 
+                carpeta--
+            };
             carpeta++;
 
             var imagen = Math.floor((Math.random() * 8));
-            if(imagen == 8) imagen--;
+            if(imagen == 8) {
+                imagen = imagen - 1;
+            };
             imagen = imagen*45;
 
             var index = this.ejercicios.indexOf(carpeta);
 
             while(index != -1 && this.ejercicios[index].indexOf(imagen) != -1){
                 var carpeta = Math.floor(Math.random() * 10);
-                if(carpeta == 10) carpeta--;
+                if(carpeta == 10){ 
+                    carpeta--
+                };
                 carpeta++;
 
                 var imagen = Math.floor((Math.random() * 8));
-                if(imagen == 8) imagen--;
+                if(imagen == 8) {
+                    imagen = imagen - 1;
+                };
                 imagen = imagen*45;
 
                 var index = this.ejercicios.indexOf(carpeta);
@@ -125,7 +138,7 @@ class Ejercicio extends React.Component{
             }else{
                 var imagenSeleccionada = <Img url={"./img/notselected.jpg"} />;
                 if(this.state.index != null){
-                    var imagenSeleccionada = <Img url={"./img/"+carpeta+"/"+this.state.index*45+".png"} />;
+                    var imagenSeleccionada = <Img url={"./img/"+carpeta+"/"+(this.state.index*45)+".png"} />;
                 }
                 return(
                     <div>
@@ -152,3 +165,5 @@ class Ejercicio extends React.Component{
         }
     }
 }
+
+export default Ejercicio;

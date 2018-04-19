@@ -1,4 +1,9 @@
-class Main extends React.Component{
+import Ejercicio from './Ejercicio.jsx';
+import Fin from './Fin.jsx';
+import Instrucciones from './Instrucciones.jsx';
+import Bloque from './Bloque.jsx';
+
+class Main extends React.Component {
     constructor(props){
         super(props);
 
@@ -61,3 +66,15 @@ class Main extends React.Component{
 
     }
 }
+
+var init = function (paciente, nombre, instrucciones){
+    ReactDOM.render(<div>
+        <Main
+        paciente={paciente}  
+        nombre={nombre} 
+        instrucciones={instrucciones["instrucciones"]}
+        parte2={instrucciones["parte2"]} /></div>, document.getElementById('main'));
+}
+
+export {init};
+export default Main;

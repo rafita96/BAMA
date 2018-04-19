@@ -1,3 +1,5 @@
+import Img from './Img.jsx';
+
 class Camara extends React.Component{
 
     constructor(props){
@@ -99,3 +101,5 @@ class Camaras extends React.Component{
         );
     }
 }
+
+export default Camaras;

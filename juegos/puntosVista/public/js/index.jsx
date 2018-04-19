@@ -1,3 +1,5 @@
+import Main, {init} from './Main.jsx';
+
 function getInfo(callback){
     d3.json("./data/info.json", function(error, instrucciones){
         d3.json("./meta.json", function(error, nombre){
@@ -11,12 +13,7 @@ $(document).ready(function(){
         if(data["id"] != null){
             mostrarPerfil(data);
             getInfo(function(nombre, instrucciones){
-
-                ReactDOM.render(<Main
-                    paciente={data["id"]}  
-                    nombre={nombre} 
-                    instrucciones={instrucciones["instrucciones"]}
-                    parte2={instrucciones["parte2"]} />, document.getElementById('main'));
+                init(data["id"], nombre, instrucciones);
             });
         }else{
             toastr("No has seleccionado un paciente");

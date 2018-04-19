@@ -16,3 +16,5 @@ class Bloque extends React.Component{
         );
     }
 }
+
+export default Bloque;

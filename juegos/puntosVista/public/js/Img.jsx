@@ -12,3 +12,4 @@ class Img extends React.Component{
   }
 }
 
+export default Img;
