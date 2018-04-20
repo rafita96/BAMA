@@ -68,3 +68,8 @@ exports.editar = function(id, data, callback){
         callback(error);
     });
 }
+
+exports.registrarAvance = function(data, callback){
+    console.log(data);
+    callback(false, {});
+}

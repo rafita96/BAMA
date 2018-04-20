@@ -21,6 +21,16 @@ router.get('/perfil/', function(req, res){
     });
 });
 
+router.post('/registrar/avance/', function (req, res){
+    userManager.registrarAvance(req.body, function(error, message){
+        if(error){
+            res.jsonp({status: 500, message: message});
+        }else{
+            res.jsonp({status: 200});
+        }
+    });
+});
+
 router.post('/agregar/', function(req, res){
     userManager.agregar(req.body.data, function(error, message){
         if(error){
