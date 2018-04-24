@@ -121,11 +121,11 @@ class Ejercicio extends React.Component{
                     <div>
                         <div className="row mt-3">
                             <div className="col-sm-12 col-md-6">
-                                <Img url={"./img/"+carpeta+"/"+imagen+".png"} />
+                                <Img url={"./img/"+this.props.nivel+"/"+carpeta+"/"+imagen+".png"} />
                             </div>
 
                             <div className="col-sm-12 col-md-6">
-                                <Camaras index={this.state.index} seleccionar={this.seleccionar} url={"./img/"+carpeta+"/aereo.png"} />
+                                <Camaras index={this.state.index} seleccionar={this.seleccionar} url={"./img/"+this.props.nivel+"/"+carpeta+"/aereo.png"} />
                             </div>
                         </div>
                         <div className="row mt-3">
@@ -138,7 +138,7 @@ class Ejercicio extends React.Component{
             }else{
                 var imagenSeleccionada = <Img url={"./img/notselected.jpg"} />;
                 if(this.state.index != null){
-                    var imagenSeleccionada = <Img url={"./img/"+carpeta+"/"+(this.state.index*45)+".png"} />;
+                    var imagenSeleccionada = <Img url={"./img/"+this.props.nivel+"/"+carpeta+"/"+(this.state.index*45)+".png"} />;
                 }
                 return(
                     <div>
@@ -148,12 +148,12 @@ class Ejercicio extends React.Component{
                             </div>
 
                             <div className="col-sm-12 col-md-6">
-                                <Camaras index={imagen/45} url={"./img/"+carpeta+"/aereo.png"} />
+                                <Camaras index={imagen/45} url={"./img/"+this.props.nivel+"/"+carpeta+"/aereo.png"} />
                             </div>
                         </div>
                         <div className="row mt-3">
                             <div className="col-10">
-                                <BloqueImg carpeta={carpeta} seleccionar={this.seleccionar} />
+                                <BloqueImg carpeta={this.props.nivel+"/"+carpeta} seleccionar={this.seleccionar} />
                             </div>
                             <div className="col-2">
                                 <button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>

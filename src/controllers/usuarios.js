@@ -1,5 +1,7 @@
 var dbManager = require('./database');
+var path = require("path");
 var ObjectId = require('mongodb').ObjectId; 
+var fs = require('fs');
 
 exports.getUserInfo = function(id, callback){
     dbManager.find("users", {_id: new ObjectId(id)}, function(data){
@@ -70,6 +72,88 @@ exports.editar = function(id, data, callback){
 }
 
 exports.registrarAvance = function(data, callback){
-    console.log(data);
-    callback(false, {});
+    dbManager.find("juegos", {paciente: data["paciente"], juego: data["juego"]}, function(res){
+        if(res.length == 0){
+            console.log("no existe");
+            var fileDir = path.join(__dirname,'/../../juegos/'+data["juego"]+'/meta.json');
+            
+            fs.readFile(fileDir, function (err, meta) {
+                if (err) throw err;
+                var categorias = JSON.parse(meta)["categorias"];
+                info = {
+                    paciente: data["paciente"],
+                    juego: data["juego"],
+                    categorias: categorias,
+                    record: [
+                            {
+                                nivel: data["nivel"],
+                                porcentaje: data["porcentaje"],
+                                fechaInicio: data["fechaInicio"],
+                                fechaFin: data["fechaFin"]
+                            }
+                        ]
+                };
+
+                dbManager.insertar("juegos", info, function(error){
+                    callback(error);
+                });
+            });
+        }else{
+
+            var record = res[0]["record"];
+            record.push({
+                nivel: data["nivel"],
+                porcentaje: data["porcentaje"],
+                fechaInicio: data["fechaInicio"],
+                fechaFin: data["fechaFin"]
+            });
+            dbManager.actualizar("juegos", {paciente: data["paciente"], juego: data["juego"]}, {record: record}, function(error){
+                callback(error);
+            })
+        }
+    });
+}
+
+exports.getRecord = function(id, callback){
+    // console.log("entra");
+    findRecord(id, function(record){
+        callback(false, record);
+    });
+}
+
+function getPromedio(data){
+    var suma = 0;
+    var total = 0;
+    for(var j = 0; j < data.length; j++){
+        for(var i = 0; i < data[j]["record"].length; i++){
+            suma += data[j]["record"][i]["porcentaje"];
+            total++;
+        }
+    }
+
+    if(total != 0){
+        suma = suma/total;
+    }
+
+    return suma;
+}
+
+function findRecord(id, callback){
+    var record = {};
+    dbManager.find("juegos", {paciente: id, categorias: "O"}, function(orientacion){
+        record["O"] = getPromedio(orientacion);
+        dbManager.find("juegos", {paciente: id, categorias: "L"}, function(lenguaje){
+            record["L"] = getPromedio(lenguaje);
+            dbManager.find("juegos", {paciente: id, categorias: "M"}, function(memoria){
+                record["M"] = getPromedio(memoria);
+                dbManager.find("juegos", {paciente: id, categorias: "C"}, function(calculo){
+                    record["C"] = getPromedio(calculo);
+                    dbManager.find("juegos", {paciente: id, categorias: "P"}, function(praxias){
+                        record["P"] = getPromedio(praxias);
+                        callback(record);
+                    });
+                });
+            });
+        });
+    });
 }

@@ -7,11 +7,14 @@ class Fin extends React.Component{
                 juego: 'puntosVista', 
                 paciente: this.props.paciente,
                 porcentaje: this.props.porcentaje,
-                nivel: this.props.nivel
-        }, 
+                nivel: this.props.nivel,
+                fechaInicio: this.props.fechaInicio,
+                fechaFin: new Date()
+            }, 
             function(error){
                 console.log(error);
-            });
+            }
+        );
     }
 
     render(){

@@ -26,6 +26,7 @@ class Main extends React.Component {
         this.setState({
             inicio: false,
             fin: false,
+            seleccionNivel: true,
             porcentaje: null
         });
     }
@@ -34,6 +35,7 @@ class Main extends React.Component {
         this.setState({
             inicio: true
         });
+        this.fechaInicio = new Date();
     }
 
     terminar(porcentaje){
@@ -62,7 +64,12 @@ class Main extends React.Component {
         else if(this.state.fin){
             return(
                 <Bloque nombre={this.props.nombre}>
-                    <Fin nivel={this.nivel} paciente={this.props.paciente} reiniciar={this.reiniciar} porcentaje={this.state.porcentaje} />
+                    <Fin 
+                        fechaInicio={this.fechaInicio} 
+                        nivel={this.nivel} 
+                        paciente={this.props.paciente} 
+                        reiniciar={this.reiniciar} 
+                        porcentaje={this.state.porcentaje} />
                 </Bloque>
             );
         }else if(this.state.inicio){

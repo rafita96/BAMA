@@ -116,4 +116,17 @@ router.post('/editar', function(req,res){
     }
 });
 
+
+router.get('/record', function(req, res){
+    if(req.session.pacienteId){
+        userManager.getRecord(req.session.pacienteId, function(error, record){
+            res.jsonp(record);
+        });
+    }
+    else{
+        req.flash('error', 'No has seleccionado un paciente.');
+        res.redirect('/');
+    }
+});
+
 module.exports = router;
