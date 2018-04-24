@@ -50,6 +50,8 @@ exports.agregar = function(data, callback){
 exports.evaluar = function(data, callback){
     var info = {
         terapeuta:data.terapeuta,
+        objetivo: data.objetivo,
+        subjetivo: data.subjetivo,
         diagnostico:data.diagnostico,
         plan:data.plan
     };
