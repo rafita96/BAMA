@@ -50,6 +50,8 @@ exports.agregar = function(data, callback){
 exports.evaluar = function(data, callback){
     var info = {
         terapeuta:data.terapeuta,
+        objetivo: data.objetivo,
+        subjetivo: data.subjetivo,
         diagnostico:data.diagnostico,
         plan:data.plan
     };
@@ -121,39 +123,59 @@ exports.getRecord = function(id, callback){
     });
 }
 
-function getPromedio(data){
-    var suma = 0;
-    var total = 0;
-    for(var j = 0; j < data.length; j++){
-        for(var i = 0; i < data[j]["record"].length; i++){
-            suma += data[j]["record"][i]["porcentaje"];
-            total++;
-        }
+function getPromedio(record){
+    var promedio = 0;
+    for(var j = 0; j < record.length; j++){
+        promedio += record[j]["porcentaje"];
     }
 
-    if(total != 0){
-        suma = suma/total;
+    if(record.length != 0){
+        promedio /= record.length;
     }
 
-    return suma;
+    return promedio;
 }
 
 function findRecord(id, callback){
-    var record = {};
-    dbManager.find("juegos", {paciente: id, categorias: "O"}, function(orientacion){
-        record["O"] = getPromedio(orientacion);
-        dbManager.find("juegos", {paciente: id, categorias: "L"}, function(lenguaje){
-            record["L"] = getPromedio(lenguaje);
-            dbManager.find("juegos", {paciente: id, categorias: "M"}, function(memoria){
-                record["M"] = getPromedio(memoria);
-                dbManager.find("juegos", {paciente: id, categorias: "C"}, function(calculo){
-                    record["C"] = getPromedio(calculo);
-                    dbManager.find("juegos", {paciente: id, categorias: "P"}, function(praxias){
-                        record["P"] = getPromedio(praxias);
-                        callback(record);
-                    });
-                });
-            });
-        });
+    var record = {
+        "O": [0,0],
+        "L": [0,0],
+        "P": [0,0],
+        "C": [0,0],
+        "M": [0,0]
+    };
+    dbManager.find("juegos", {paciente: id}, function(juegos){
+        for(var i = 0; i < juegos.length; i++){
+            var promedio = getPromedio(juegos[i]["record"]);
+
+
+            for(var j = 0; j < juegos[i]["categorias"].length; j++){
+                record[juegos[i]["categorias"][j]][0] += promedio;
+                record[juegos[i]["categorias"][j]][1] += 1;
+            }
+        }
+
+        var newRecord = {};
+        for(categoria in record){
+            newRecord[categoria] = record[categoria][0]/record[categoria][1];
+        }
+
+        callback(newRecord);
     });
+    // dbManager.find("juegos", {paciente: id, categorias: "O"}, function(orientacion){
+    //     record["O"] = getPromedio(orientacion);
+    //     dbManager.find("juegos", {paciente: id, categorias: "L"}, function(lenguaje){
+    //         record["L"] = getPromedio(lenguaje);
+    //         dbManager.find("juegos", {paciente: id, categorias: "M"}, function(memoria){
+    //             record["M"] = getPromedio(memoria);
+    //             dbManager.find("juegos", {paciente: id, categorias: "C"}, function(calculo){
+    //                 record["C"] = getPromedio(calculo);
+    //                 dbManager.find("juegos", {paciente: id, categorias: "P"}, function(praxias){
+    //                     record["P"] = getPromedio(praxias);
+    //                     callback(record);
+    //                 });
+    //             });
+    //         });
+    //     });
+    // });
 }
