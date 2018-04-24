@@ -4,6 +4,14 @@
          <title>Juego 1</title>
 
          <link rel="stylesheet" href="./public/css/juego1.css">
+         <style type="text/css">
+            
+
+            .legend {
+                font-family: 'Arial', sans-serif;
+                fill: #333333;
+            }
+         </style>
 
         <script src="/public/common/js/d3/d3.min.js"></script>
         <script src="/public/common/js/react.js"></script>
@@ -21,10 +29,75 @@
                     <div id="main"></div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="radarChart" style="display: inline-flex;"></div>
+                </div>
+            </div>
         </div>
         
-        <script type="text/babel" src="./public/js/main.js"></script>
-        <script src="./public/js/engine.js"></script>
+        <script type="text/javascript" src="./public/js/RadarChart.js"></script>
+        <script type="text/javascript">
+            var margin = { top: 50, right: 80, bottom: 50, left: 80 },
+                width = Math.min(700, window.innerWidth / 4) - margin.left - margin.right,
+                height = Math.min(width, window.innerHeight - margin.top - margin.bottom);
+
+            //////////////////////////////////////////////////////////////
+            ////////////////////////// Data //////////////////////////////
+            //////////////////////////////////////////////////////////////
+
+            var data = [
+                { name: 'Habilidades',
+                    axes: [
+                        {axis: 'Lenguaje', value: 42},
+                        {axis: 'Orientación', value: 20},
+                        {axis: 'Memoria', value: 50},
+                        {axis: 'Calculo', value: 26},
+                        {axis: 'Paxias', value: 35}
+                    ]
+                }
+            ];
+
+            //////////////////////////////////////////////////////////////
+            ////// First example /////////////////////////////////////////
+      ///// (not so much options) //////////////////////////////////
+            //////////////////////////////////////////////////////////////
+            var radarChartOptions = {
+              w: 360,
+              h: 360,
+              margin: margin,
+              maxValue: 100,
+              levels: 5,
+              roundStrokes: true,
+                format: '.0f'
+            };
+
+            //Call function to draw the Radar chart
+            //RadarChart(
+            //      "id or class of to which the new SVG needs to be appended",
+            //      the dataset,
+            //      the options (optional))
+            RadarChart(".radarChart", data, radarChartOptions);
+        </script>
+        <!-- <script type="text/babel" src="./public/js/main.js"></script>
+        <script src="./public/js/engine.js"></script> -->
+        <script type="text/javascript">
+            Consulta.post('/paciente/registrar/avance/', {
+                    juego: 'puntosVista', 
+                    paciente: "5ac56c0299d07b3ba094cd46",
+                    porcentaje: 67.5,
+                    nivel: 1,
+                    fechaInicio: new Date(),
+                    fechaFin: new Date()
+                }, 
+                function(error){
+                    if(error){
+                        console.log("error");
+                    }
+                }
+            );
+        </script>
+
     </body>
     
 </html>

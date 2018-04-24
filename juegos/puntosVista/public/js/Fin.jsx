@@ -1,9 +1,21 @@
 class Fin extends React.Component{
 
-    // enviarResultado(porcentaje){
-    //     var data = {this.id}
-    //     Consultar.post('/insertar/', )
-    // }
+    constructor(props){
+        super(props);
+
+        Consulta.post('/paciente/registrar/avance/', {
+                juego: 'puntosVista', 
+                paciente: this.props.paciente,
+                porcentaje: this.props.porcentaje,
+                nivel: this.props.nivel,
+                fechaInicio: this.props.fechaInicio,
+                fechaFin: new Date()
+            }, 
+            function(error){
+                console.log(error);
+            }
+        );
+    }
 
     render(){
         var clase = "";

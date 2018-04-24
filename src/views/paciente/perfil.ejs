@@ -4,6 +4,14 @@
          <title>Perfil</title>
 
         <% include ../layouts/header %>
+        <script src="/public/common/js/d3/d3.min.js"></script>
+    
+        <style type="text/css">
+            .legend {
+                    font-family: 'Arial', sans-serif;
+                    fill: #333333;
+                }
+        </style>
 
     </head>
 
@@ -14,7 +22,7 @@
         <% include ../layouts/title %>
         <div class="container">
 
-            <div class="row" style="margin-top: 20px">
+            <div class="row mt-3" >
                 <div class="col-12">
                     <div class="card bg-principal">
                         <div class="card-header">
@@ -37,7 +45,11 @@
                                     <h3 class="text-accent">Edad: <span class="text-dark" id="edad"></span></h3>
                                 </div>
                             </div>
-                            Grafica mostrando la realidad del paciente    
+                            <div class="row">
+                                <div class="col-10 offset-1 bg-white p-2 rounded border text-center">
+                                    <div class="radarChart" style="display: inline-flex;"></div>
+                                </div>
+                            </div>    
                         </div>
                         
                         <div class="card-footer">
@@ -54,5 +66,6 @@
             
         <script type="text/javascript" src="/public/js/user/perfil.js"></script>
         <script type="text/javascript" src="/public/js/user/show.js"></script>
+        <script type="text/javascript" src="/public/js/user/RadarChart.js"></script>
     </body>
 </html>
