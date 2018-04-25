@@ -93,16 +93,26 @@ function getInfo(callback){
     d3.json("./data/config.json", function(error, datos){
         d3.json("./data/info.json", function(error, instrucciones){
         	d3.json("./meta.json", function(error, nombre){
-            	callback(nombre["nombre"], instrucciones["instrucciones"],datos["niveles"]);
+                Consulta.get('/paciente/actual/', function(data) {
+                    if (data["id"] != null) {
+                        mostrarPerfil(data);
+                        callback(data["id"],nombre["nombre"], instrucciones["instrucciones"],datos["niveles"]);
+                    } else {
+                        toastr("No has seleccionado un paciente");
+                    }
+            	});
         	});
         });
     });
 }
 
 $(document).ready(function(){
-    getInfo(function(nombre, instrucciones,datos){
+    getInfo(function(paciente,nombre,instrucciones,datos){
 
         ReactDOM.render(<Main 
-            nombre={nombre} instrucciones={instrucciones} datos={datos}/>, document.getElementById('main'));
+            paciente={paciente}
+            nombre={nombre} 
+            instrucciones={instrucciones} 
+            datos={datos}/>, document.getElementById('main'));
     })
 }); 
