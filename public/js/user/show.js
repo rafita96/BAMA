@@ -43,6 +43,8 @@ $(document).ready(function() {
             
         RadarChart(".radarChart", data, radarChartOptions);
     });
+
+    dibujarNotas();
 });
 
 function _calculateAge(birthday) { // birthday is a date
