@@ -33,7 +33,7 @@ class Ejercicio extends React.Component {
             }
             this.losIndices[i] = index;
             indices.push(index);
-            this.ejercicios.push(this.props.datos[index])
+            this.ejercicios.push(this.props.datos_nivel[index])
         }
 	}
 
@@ -56,7 +56,7 @@ class Ejercicio extends React.Component {
             for (var indice in this.state.indices){
                 nuevoArreglo.push(this.ejercicios[this.state.pregunta].opciones[this.state.indices[indice]]);
             }
-            if(Responder(0,this.losIndices[this.state.pregunta],nuevoArreglo)){
+            if(Responder(this.props.nivel-1,this.losIndices[this.state.pregunta],nuevoArreglo)){
                 this.setState({
                     aciertos: this.state.aciertos+1,
                     pregunta: this.state.pregunta+1,
@@ -88,30 +88,9 @@ class Ejercicio extends React.Component {
                 </div>
             );
         }else{
-            var porcentaje = this.state.aciertos/this.ejercicios.length*100;
-            var clase = "";
-            if(porcentaje >= 80){
-                clase = "bg-success";
-            }else if(porcentaje >= 25){
-                clase = "bg-warning";
-            }else{
-                clase = "bg-danger";
-            }
-
-            return(
-                <div>
-                    <div className={"row border rounded " + clase}>
-                        <div className="col-6 offset-3 text-center text-white">
-                            <h1 className="display-1">{porcentaje}%</h1>
-                        </div>
-                    </div>
-                    <div className="row mt-3">
-                        <div className="col-12 text-center">
-                            <button className="btn btn-principal">Volver a jugar</button>
-                        </div>
-                    </div>  
-                </div>
-            );
+            var porcentaje = Math.round(this.state.aciertos/this.ejercicios.length * 100);
+            this.props.terminar(porcentaje);
+            return(<div></div>);;
         }
             
 	}

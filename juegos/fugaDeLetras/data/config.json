@@ -84,11 +84,165 @@
 		],
 		[
 			{
-				"pregunta": "HAY U_A SE_PIEN_E EN MI B_TA",
-				"respuesta": ["N","R","T","O"],
+				"pregunta": "HAY U_A SE_PIEN_E EN MI BOTA",
+				"respuesta": ["N","R","T"],
 				"opciones": [
 					"A", "D", "K",
-					"P"
+					"P", "O"
+				]
+			},
+			{
+				"pregunta": "LA NI_VE ES FRÍ_ Y DE_ICIOSA",
+				"respuesta": ["E","A","L"],
+				"opciones": [
+					"F", "N", "H",
+					"Z", "P"
+				]
+			},
+			{
+				"pregunta": "LOS P_CES VIVE_ EN EL A_UA",
+				"respuesta": ["E","N","G"],
+				"opciones": [
+					"R", "X", "Ñ",
+					"W", "T"
+				]
+			},
+			{
+				"pregunta": "LOS CA_ACOL_S SON LENT_S",
+				"respuesta": ["R","E","O"],
+				"opciones": [
+					"W", "Y", "N",
+					"A", "J"
+				]
+			},
+			{
+				"pregunta": "LAS L_EB_ES SON RÁ_IDAS",
+				"respuesta": ["I","R","P"],
+				"opciones": [
+					"Q", "T", "H",
+					"A", "V"
+				]
+			},
+			{
+				"pregunta": "SIN _OMBR_RO NO HAY VA_UERO",
+				"respuesta": ["S","E","Q"],
+				"opciones": [
+					"R", "P", "G",
+					"X", "H"
+				]
+			},
+			{
+				"pregunta": "NO HAS SAL_ADO EST_MOS AGRA_ECIDOS",
+				"respuesta": ["V","A","D"],
+				"opciones": [
+					"T", "S", "P",
+					"F", "N"
+				]
+			},
+			{
+				"pregunta": "ER_S UN JU_UE_E",
+				"respuesta": ["E","G","T"],
+				"opciones": [
+					"W", "F", "H",
+					"N", "X"
+				]
+			},
+			{
+				"pregunta": "YO S_Y TU _MIGO FIE_",
+				"respuesta": ["O","A","L"],
+				"opciones": [
+					"E", "T", "X",
+					"G", "P"
+				]
+			},
+			{
+				"pregunta": "COME FR_TAS Y VE_DURA_",
+				"respuesta": ["U","R","S"],
+				"opciones": [
+					"T", "F", "H",
+					"P","Z"
+				]
+			}
+		],
+		[
+			{
+				"pregunta": "UN GRAN P_DER CON_LEVA UNA GRAN RES_ONSABI_IDAD",
+				"respuesta": ["O","L","P","L"],
+				"opciones": [
+					"W", "A", "E",
+					"F"
+				]
+			},
+			{
+				"pregunta": "QUE LA _UER_A TE A_OMPA_E",
+				"respuesta": ["F","Z","C","Ñ"],
+				"opciones": [
+					"A", "E", "M",
+					"L"
+				]
+			},
+			{
+				"pregunta": "EL QUE TEME S_FRIR YA SUF_E EL _EM_R",
+				"respuesta": ["U","R","T","O"],
+				"opciones": [
+					"X", "J", "R",
+					"M"
+				]
+			},
+			{
+				"pregunta": "E_CAVA EL PO_O A_TES DE QUE TEN_AS SED",
+				"respuesta": ["X","Z","N","G"],
+				"opciones": [
+					"A", "B", "T",
+					"L"
+				]
+			},
+			{
+				"pregunta": "EL SAB_O NO DI_E LO QUE SABE, Y EL N_CIO NO SA_E LO QUE DICE",
+				"respuesta": ["I","C","E","B"],
+				"opciones": [
+					"U", "O", "V",
+					"R"
+				]
+			},
+			{
+				"pregunta": "LA MA_ERIA NO SE CREA NI SE D_STRUYE, SOLO SE TRA_SFO_MA",
+				"respuesta": ["T","E","N","R"],
+				"opciones": [
+					"X", "P", "F",
+					"M"
+				]
+			},
+			{
+				"pregunta": "LAS HA_BURG_ESAS SON DE_ICIO_AS",
+				"respuesta": ["M","U","L","S"],
+				"opciones": [
+					"Q", "X", "A",
+					"O"
+				]
+			},
+			{
+				"pregunta": "SOLO EL TI_MPO ME D_RÁ LA RES_UESTA QUE HOY BUSC_",
+				"respuesta": ["E","A","P","O"],
+				"opciones": [
+					"H", "P", "L",
+					"R"
+				]
+			},
+			{
+				"pregunta": "TODO G_AN VI_JE COMIE_ZA CON PEQ_EÑOS PASOS",
+				"respuesta": ["R","A","N","U"],
+				"opciones": [
+					"J", "X", "E",
+					"O"
+				]
+			},
+			{
+				"pregunta": "SI BU_CAS RESULT_DOS DIS_INTOS, NO HAGAS SIEM_RE LO MISMO",
+				"respuesta": ["S","A","T","P"],
+				"opciones": [
+					"Q", "M", "I",
+					"F"
 				]
 			}
 		]

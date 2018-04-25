@@ -6,9 +6,9 @@ class Main extends React.Component {
             seleccionNivel: true,
             inicio: false,
             fin: false,
-            porcentaje: null
+            porcentaje: null            
         }
-
+        this.datos_nivel = null;
         this.iniciar = this.iniciar.bind(this);
         this.terminar = this.terminar.bind(this);
         this.reiniciar = this.reiniciar.bind(this);
@@ -40,6 +40,7 @@ class Main extends React.Component {
     }
 
     seleccionarNivel(nivel){
+        this.datos_nivel = this.props.datos[nivel-1];
         this.nivel = nivel;
         this.setState({
             seleccionNivel: false
@@ -67,7 +68,7 @@ class Main extends React.Component {
         }else if(this.state.inicio){
             return(
                 <Bloque nombre={this.props.nombre}>
-                    <Ejercicio nivel={this.nivel} terminar={this.terminar} parte2={this.props.parte2} />
+                    <Ejercicio nivel={this.nivel} datos_nivel={this.datos_nivel} terminar={this.terminar}/>
                 </Bloque>
             );
         }else{
@@ -82,18 +83,24 @@ class Main extends React.Component {
 	}
 }
 
+
+function getDatos(nivel,callback){
+    d3.json("./data/config.json", function(error,datos){
+        callback(datos["niveles"][nivel]);
+    });
+}
 function getInfo(callback){
     d3.json("./data/config.json", function(error, datos){
         d3.json("./data/info.json", function(error, instrucciones){
         	d3.json("./meta.json", function(error, nombre){
-            	callback(nombre["nombre"], instrucciones["instrucciones"], datos["niveles"][0]);
+            	callback(nombre["nombre"], instrucciones["instrucciones"],datos["niveles"]);
         	});
         });
     });
 }
 
 $(document).ready(function(){
-    getInfo(function(nombre, instrucciones, datos){
+    getInfo(function(nombre, instrucciones,datos){
 
         ReactDOM.render(<Main 
             nombre={nombre} instrucciones={instrucciones} datos={datos}/>, document.getElementById('main'));
