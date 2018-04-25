@@ -36,11 +36,11 @@ class Nivel extends React.Component{
                     </div>
                 </div>
                 <div className="row text-center">
-                    <div className={niveles[0]} onClick={()=>{this.setState({ index: 1 })}}>Fácil</div>
+                    <button className={niveles[0]} onClick={()=>{this.setState({ index: 1 })}}>Fácil</button>
 
-                    <div className={niveles[1]} onClick={()=>{this.setState({ index: 2 })}}>Medio</div>
+                    <button className={niveles[1]} onClick={()=>{this.setState({ index: 2 })}}>Medio</button>
 
-                    <div className={niveles[2]} onClick={()=>{this.setState({ index: 3 })}}>Difícil</div>
+                    <button className={niveles[2]} onClick={()=>{this.setState({ index: 3 })}}>Difícil</button>
                 </div>
                 <div className="row">
                     <div className="col-4 text-center mt-3">
