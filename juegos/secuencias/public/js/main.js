@@ -4,7 +4,7 @@ class Fin extends React.Component{
         super(props);
 
         Consulta.post('/paciente/registrar/avance/', {
-                juego: 'evocacionCategorial', 
+                juego: 'secuencias', 
                 paciente: this.props.paciente,
                 porcentaje: this.props.porcentaje,
                 nivel: this.props.nivel,
@@ -145,11 +145,13 @@ class Ejercicio extends React.Component {
 			index: null
 		}
 		//this.generarEjercicios();
+        this.total_preguntas = 7;
 		this.siguiente = this.siguiente.bind(this);
 		this.seleccionar = this.seleccionar.bind(this);
 	}
 
 	seleccionar(index) {
+        console.log(index);
 		this.setState({
 			index: index
 		});
@@ -159,24 +161,21 @@ class Ejercicio extends React.Component {
 		if (this.state.index == null) {
 			toastr("No has seleccionado una opción");
 		} else {
-			if (this.state.index == 'r') {
-				this.setState({
-					aciertos: this.state.aciertos + 1,
-					pregunta: this.state.pregunta + 1,
-					index: null
-				});
-			} else {
-				this.setState({
-					pregunta: this.state.pregunta + 1,
-					index: null
-				});
-			}
+            var aciertos = this.state.aciertos + this.state.index;
+            console.log(aciertos);
+            this.setState({
+                aciertos: aciertos,
+                pregunta: this.state.pregunta + 1,
+                index: null
+            });
 		}
 	}
 
 	render() {
-		if (this.state.pregunta == 2) {
-			var porcentaje = this.state.aciertos / this.state.pregunta * 100;
+		if (this.state.pregunta >= this.total_preguntas) {
+            var total_aciertos = this.total_preguntas * 4;
+            var porcentaje = Math.round(this.state.aciertos / total_aciertos * 100);
+            console.log(total_aciertos);
 			this.props.terminar(porcentaje);
             return(<div></div>);
 		} else {
@@ -185,45 +184,37 @@ class Ejercicio extends React.Component {
 				<div>
 					<div className="offset-2 col-8">
 						<Img
-							url={"./img/" + carpeta + "/escena.jpg"}
+							url={"./img/" + carpeta + "/secuencia.jpg"}
 							/>
 					</div>
 
-					<div className="row mt-3">
-						<div onClick={() => {this.seleccionar(0)}} className="offset-1 col-2">
-							<Img
-								seleccionado={this.state.index}
-								index={0}
-								url={"./img/" + carpeta + "/0.png"} />
-						</div>
+                    <div className="alert alert-success row mt-3">
+                        <div className="offset-1 col-2">
+                            <button onClick={() => {this.seleccionar(0)}} className="btn btn-danger">Muy mal</button>
+                        </div>
 
-						<div onClick={() => {this.seleccionar(1)}} className="offset-1 col">
-							<Img
-								seleccionado={this.state.index}
-								index={1}
-								url={"./img/" + carpeta + "/1.png"} />
-						</div>
+                        <div className="col-2">
+                            <button onClick={() => {this.seleccionar(1)}} className="btn btn-warning">Mal</button>
+                        </div>
 
-						<div onClick={() => {this.seleccionar(2)}} className="offset-1 col">
-							<Img
-								seleccionado={this.state.index}
-								index={2}
-								url={"./img/" + carpeta + "/2.png"} />
-						</div>
+                        <div className="col-2">
+                            <button onClick={() => {this.seleccionar(2)}} className="btn btn-info">Regular</button>
+                        </div>
 
-						<div onClick={() => {this.seleccionar('r')}}className="offset-1 col">
-							<Img
-								seleccionado={this.state.index}
-								index={'r'}
-								url={"./img/" + carpeta + "/r.png"} />
-						</div>
-					</div>
+                        <div className="col-2">
+                            <button onClick={() => {this.seleccionar(3)}} className="btn btn-primary">Bien</button>
+                        </div>
 
-					<div className="row mt-3">
-						<div className="col-2 offset-10">
-							<button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
-						</div>
-					</div>
+                        <div className="col-2">
+                            <button onClick={() => {this.seleccionar(4)}} className="btn btn-success">Muy bien</button>
+                        </div>
+                    </div>
+
+                    <div className="row mt-3">
+                        <div className="col-2 offset-10">
+                            <button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
+                        </div>
+                    </div>
 				</div>
 			);
 		}
