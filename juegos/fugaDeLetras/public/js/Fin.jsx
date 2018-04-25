@@ -3,8 +3,6 @@ class Fin extends React.Component{
     constructor(props){
         super(props);
 
-        console.log("HOLA");
-        console.log(this.props);
         Consulta.post('/paciente/registrar/avance/', {
                 juego: 'fugaDeLetras', 
                 paciente: this.props.paciente,
