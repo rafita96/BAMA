@@ -47,13 +47,15 @@ exports.agregar = function(data, callback){
     });
 }
 
-exports.evaluar = function(data, callback){
+exports.evaluar = function(id, data, callback){
     var info = {
+        paciente: id,
         terapeuta:data.terapeuta,
         objetivo: data.objetivo,
         subjetivo: data.subjetivo,
         diagnostico:data.diagnostico,
-        plan:data.plan
+        plan:data.plan,
+        fecha: new Date()
     };
     dbManager.insertar('notas', info, function(error){
         callback(error);
@@ -162,20 +164,10 @@ function findRecord(id, callback){
 
         callback(newRecord);
     });
-    // dbManager.find("juegos", {paciente: id, categorias: "O"}, function(orientacion){
-    //     record["O"] = getPromedio(orientacion);
-    //     dbManager.find("juegos", {paciente: id, categorias: "L"}, function(lenguaje){
-    //         record["L"] = getPromedio(lenguaje);
-    //         dbManager.find("juegos", {paciente: id, categorias: "M"}, function(memoria){
-    //             record["M"] = getPromedio(memoria);
-    //             dbManager.find("juegos", {paciente: id, categorias: "C"}, function(calculo){
-    //                 record["C"] = getPromedio(calculo);
-    //                 dbManager.find("juegos", {paciente: id, categorias: "P"}, function(praxias){
-    //                     record["P"] = getPromedio(praxias);
-    //                     callback(record);
-    //                 });
-    //             });
-    //         });
-    //     });
-    // });
+}
+
+exports.getNotas = function(id, callback){
+    dbManager.find("notas", {paciente: id}, function(notas){
+        callback(notas);
+    });
 }

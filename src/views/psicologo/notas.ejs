@@ -1,0 +1,122 @@
+<html lang="es">
+    <head>
+         <meta charset="UTF-8"> 
+         <title>Notas</title>
+
+        <% include ../layouts/header %>
+        <script src="/public/common/js/d3/d3.min.js"></script>
+    
+        <style type="text/css">
+            .legend {
+                    font-family: 'Arial', sans-serif;
+                    fill: #333333;
+                }
+        </style>
+
+    </head>
+
+    <body class="bg-light text-dark">
+        <% include ../layouts/nav %>
+        <% include ../layouts/toast %>
+        
+        <% include ../layouts/title %>
+        <div class="container">
+                
+            <div class="row m-3">
+                <div class="col-12">
+                    <div class="card bg-principal">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-1">
+                                    <a class="btn btn-principal" href="/paciente/perfil">Perfil</a>
+                                </div>
+                                <div class="col-sm-6 col-md-10 text-center">
+                                    <h3><b class="text-accent">Paciente actual: </b><span id="paciente_actual" class="text-dark">No has seleccionado a un paciente</span></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% for(var i = notas.length - 1; i >= 0; i--){ let nota = notas[i]; %>
+            
+            <% let clase = i%2 ? "bg-secundario text-white": "bg-principal text-accent" %>
+            
+            <div class="row m-3">
+                <div class="col-12 border rounded px-3 <%= clase %>" 
+                    data-toggle="collapse" 
+                    href="#collapse_<%= i %>" 
+                    aria-expanded="false">
+                    <h1 class="unselectable"><%= nota.fecha.toLocaleString('en-GB') %></h1>
+                </div>
+
+                <div class="col-12 border p-3 rounded">
+                    <div class="collapse" id="collapse_<%= i %>">
+                        <div class="row m-2">
+                            <div class="col-3">
+                                <h3 class="text-accent">Terapeuta</h3>
+                            </div>
+                            <div class="col-9">
+                                <input class="form-control" type="text" value="<%= nota.terapeuta %>" readonly/>
+                            </div>
+                        </div>
+
+                        <div class="row m-2">
+                            <div class="col-3">
+                                <h3 class="text-accent">Análisis subjetivo</h3>
+                            </div>
+                            <div class="col-9">
+                                <textarea class="form-control" readonly><%= nota.subjetivo %></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row m-2">
+                            <div class="col-3">
+                                <h3 class="text-accent">Análisis objetivo</h3>
+                            </div>
+                            <div class="col-9">
+                                <textarea class="form-control" readonly><%= nota.objetivo %></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row m-2">
+                            <div class="col-3">
+                                <h3 class="text-accent">Diagnóstico</h3>
+                            </div>
+                            <div class="col-9">
+                                <textarea class="form-control" readonly><%= nota.diagnostico %></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row m-2">
+                            <div class="col-3">
+                                <h3 class="text-accent">Plan de tratamiento</h3>
+                            </div>
+                            <div class="col-9">
+                                <textarea class="form-control" readonly><%= nota.plan %></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }; %>
+                
+        </div>
+        
+        <script type="text/javascript">
+            getPacienteActual(function(data){
+                if(data != null){
+                    mostrarPerfil(data);
+
+                    var fechaNacimiento = data["fechaNacimiento"].split("/");
+                    var fecha = new Date(fechaNacimiento[2], fechaNacimiento[1], fechaNacimiento[0]);
+                    var edad = _calculateAge(fecha);
+                    $("#edad").text(edad);
+                }else{
+                    $("#paciente_actual").text("No hay un paciente seleccionado.");
+                }
+            });
+        </script>
+    </body>
+</html>

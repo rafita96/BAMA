@@ -69,15 +69,17 @@ router.get('/actual', function(req, res){
 });
 
 router.get('/evaluar', function(req, res){
-    res.render('psicologo/evaluar', {titulo: "Nota Clínica"});
+    res.render('psicologo/evaluar', {titulo: "Agregar Nota Clínica"});
 });
 
 router.post('/evaluar', function(req, res){
-    userManager.evaluar(req.body.data, function(error){
+    userManager.evaluar(req.session.pacienteId,req.body.data, function(error){
         if(error){
-            res.send('error');
+            req.flash('error', 'No se pudo guardar la nota.');
+            res.redirect('/');
         }else{
-            res.redirect('/paciente/perfil');
+            req.flash('success', "La nota se ha registrado con exito.")
+            res.redirect('/paciente/notas');
         }
     });
 });
@@ -127,6 +129,12 @@ router.get('/record', function(req, res){
         req.flash('error', 'No has seleccionado un paciente.');
         res.redirect('/');
     }
+});
+
+router.get('/notas', function(req, res){
+    userManager.getNotas(req.session.pacienteId, function(notas){
+        res.render('psicologo/notas', {success: req.flash('success'), titulo: "Notas Clínicas", notas: notas});
+    });
 });
 
 module.exports = router;
