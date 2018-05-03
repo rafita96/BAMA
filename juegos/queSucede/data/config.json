@@ -1,0 +1,54 @@
+{
+	"niveles": [
+		[
+			{
+				"respuesta": ["Lavando"],
+				"opciones": [
+					"Brincando", "Comiendo", "Leyendo, Lavando"
+				]
+			},
+			{
+				"respuesta": ["Leyendo"],
+				"opciones": [
+					"Pintando", "Oliendo", "Brincando, Leyendo"
+				]
+			},
+			{
+				"respuesta": ["Oliendo"],
+				"opciones": [
+					"Lavando", "Leyendo", "Comiendo, Oliendo"
+				]
+			},
+			{
+				"respuesta": ["Comiendo"],
+				"opciones": [
+					"Oliendo", "Brincando", "Lavando, Comiendo"
+				]
+			},
+			{
+				"respuesta": ["Peinandose"],
+				"opciones": [
+					"Resbalandose", "Leyendo", "Lavando, Peinandose"
+				]
+			},
+			{
+				"respuesta": ["Pintando"],
+				"opciones": [
+					"Leyendo", "Peinandose", "Comiendo, Pintando"
+				]
+			},
+			{
+				"respuesta": ["Brincando"],
+				"opciones": [
+					"Comiendo", "Pintando", "Leyendo, Brincando"
+				]
+			},
+			{
+				"respuesta": ["Resbalandose"],
+				"opciones": [
+					"Peinandose", "Brincando", "Comiendo, Resbalandose"
+				]
+			}
+		]
+	]
+}
