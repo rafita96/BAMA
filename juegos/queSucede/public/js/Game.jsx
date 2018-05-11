@@ -3,7 +3,7 @@ class Game extends React.Component {
 		super(props);
 
 		this.state = {
-			inicio: false,
+			inicio: true,
 			fin: false,
 			porcentaje: null,
 		}
