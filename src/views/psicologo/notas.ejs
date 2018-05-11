@@ -47,7 +47,11 @@
                 <div class="col-12 border rounded px-3 <%= clase %>" 
                     data-toggle="collapse" 
                     href="#collapse_<%= i %>" 
-                    aria-expanded="false">
+                    aria-expanded="false"
+                    onclick="myToogle(this)" >
+                    <div class="pt-2">
+                    <i data-estado="0" class="fa fa-chevron-circle-down float-right fa-2x"></i>
+                    </div>
                     <h1 class="unselectable"><%= nota.fecha.toLocaleString('en-GB') %></h1>
                 </div>
 
@@ -108,15 +112,21 @@
             getPacienteActual(function(data){
                 if(data != null){
                     mostrarPerfil(data);
-
-                    var fechaNacimiento = data["fechaNacimiento"].split("/");
-                    var fecha = new Date(fechaNacimiento[2], fechaNacimiento[1], fechaNacimiento[0]);
-                    var edad = _calculateAge(fecha);
-                    $("#edad").text(edad);
                 }else{
                     $("#paciente_actual").text("No hay un paciente seleccionado.");
                 }
             });
+
+            function myToogle(div){
+                var icon = $(div).find("i")[0];
+                if(icon.dataset.estado == "0"){
+                    icon.setAttribute('class', "fa fa-chevron-circle-down float-right fa-2x fa-rotate-180");
+                    icon.dataset.estado = "1";
+                }else{
+                    icon.setAttribute('class', "fa fa-chevron-circle-down float-right fa-2x");
+                    icon.dataset.estado = "0";
+                }
+            }
         </script>
     </body>
 </html>

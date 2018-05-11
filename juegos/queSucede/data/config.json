@@ -2,51 +2,59 @@
 	"niveles": [
 		[
 			{
+				"carpeta": 0,
 				"respuesta": ["Lavando"],
 				"opciones": [
-					"Brincando", "Comiendo", "Leyendo, Lavando"
+					"Brincando", "Comiendo", "Leyendo", "Lavando"
 				]
 			},
 			{
+				"carpeta": 1,
 				"respuesta": ["Leyendo"],
 				"opciones": [
-					"Pintando", "Oliendo", "Brincando, Leyendo"
+					"Pintando", "Oliendo", "Brincando", "Leyendo"
 				]
 			},
 			{
-				"respuesta": ["Oliendo"],
-				"opciones": [
-					"Lavando", "Leyendo", "Comiendo, Oliendo"
-				]
-			},
-			{
+				"carpeta": 2,
 				"respuesta": ["Comiendo"],
 				"opciones": [
-					"Oliendo", "Brincando", "Lavando, Comiendo"
+					"Lavando", "Leyendo", "Comiendo", "Oliendo"
 				]
 			},
 			{
+				"carpeta": 3,
+				"respuesta": ["Oliendo"],
+				"opciones": [
+					"Oliendo", "Brincando", "Lavando", "Comiendo"
+				]
+			},
+			{
+				"carpeta": 4,
 				"respuesta": ["Peinandose"],
 				"opciones": [
-					"Resbalandose", "Leyendo", "Lavando, Peinandose"
+					"Resbalandose", "Leyendo", "Lavando", "Peinandose"
 				]
 			},
 			{
+				"carpeta": 5,
 				"respuesta": ["Pintando"],
 				"opciones": [
-					"Leyendo", "Peinandose", "Comiendo, Pintando"
+					"Leyendo", "Peinandose", "Comiendo", "Pintando"
 				]
 			},
 			{
+				"carpeta": 6,
 				"respuesta": ["Brincando"],
 				"opciones": [
-					"Comiendo", "Pintando", "Leyendo, Brincando"
+					"Comiendo", "Pintando", "Leyendo", "Brincando"
 				]
 			},
 			{
+				"carpeta": 7,
 				"respuesta": ["Resbalandose"],
 				"opciones": [
-					"Peinandose", "Brincando", "Comiendo, Resbalandose"
+					"Peinandose", "Brincando", "Comiendo", "Resbalandose"
 				]
 			}
 		]
