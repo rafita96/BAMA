@@ -106,29 +106,28 @@ class Ejercicio extends React.Component {
 					</div>
 					<div className="col-12"><hr/></div>
 					<div className="row text-center">
-						<div className="col-2"></div> 
-						<div className="col-2 mx-2 p-2 rounded bg-verde">
+						<div className="col">
 						    <Img 
 						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[0]+".png"} 
 						    	id={this.ejercicios[this.state.pregunta].opciones[0]} 
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
 						</div>
-						<div className="col-2 mx-2 p-2 rounded bg-verde">
+						<div className="col ">
 						    <Img 
 						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[1]+".png"} 
 						    	id={this.ejercicios[this.state.pregunta].opciones[1]} 
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
 						</div>
-						<div className="col-2 mx-2 p-2 rounded bg-verde">
+						<div className="col">
 						    <Img 
 						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[2]+".png"} 
 						    	id={this.ejercicios[this.state.pregunta].opciones[2]} 
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
 						</div>
-						<div className="col-2 mx-2 p-2 rounded bg-verde">
+						<div className="col">
 						    <Img 
 						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[3]+".png"} 
 						    	id={this.ejercicios[this.state.pregunta].opciones[3]} 
