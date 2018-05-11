@@ -52,7 +52,7 @@ class Ejercicio extends React.Component {
 			var opciones = [ejercicio.respuesta];
 			for (var j=1; j<=3; j++){
 				if (this.props.nivel == 1){
-					var fig = figuras[Math.floor(Math.random()*figuras.length)];
+					var fig = figuras.splice(Math.floor(Math.random()*figuras.length),1)[0];
 				} else if (this.props.nivel == 2){
 					var fig = figuras.splice(Math.floor(Math.random()*figuras.length),1)[0];
 					var color = colores[Math.floor(Math.random()*colores.length)];
