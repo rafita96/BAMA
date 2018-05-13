@@ -4,7 +4,7 @@ class Fin extends React.Component{
         super(props);
 
         Consulta.post('/paciente/registrar/avance/', {
-                juego: 'figurasSimetricas', 
+                juego: this.props.juego, 
                 paciente: this.props.paciente,
                 porcentaje: this.props.porcentaje,
                 nivel: this.props.nivel,
@@ -31,7 +31,7 @@ class Fin extends React.Component{
             <div>
                 <div className={"row border rounded " + clase}>
                     <div className="col-6 offset-3 text-center text-white">
-                        <h1 className="display-1">{this.props.porcentaje}%</h1>
+                        <h1 className="display-1">{this.props.porcentaje.toFixed(2)}%</h1>
                     </div>
                 </div>
                 <div className="row mt-3">
