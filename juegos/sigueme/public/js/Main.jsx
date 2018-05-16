@@ -12,8 +12,8 @@ class Main extends React.Component{
         }
 
         this.state = {
-            // estado: this.constantes["instrucciones"],
-            estado: this.constantes["ejercicio"],
+            estado: this.constantes["instrucciones"],
+            // estado: this.constantes["ejercicio"],
             porcentaje: null
         }
 
@@ -102,7 +102,8 @@ class Main extends React.Component{
             case this.constantes["fin"]:
                 return(
                     <Bloque nombre={this.props.nombre}>
-                        <Fin 
+                        <Fin
+                            juego="sigueme" 
                             fechaInicio={this.fechaInicio} 
                             nivel={this.nivel} 
                             paciente={this.props.paciente} 

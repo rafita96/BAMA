@@ -18,143 +18,230 @@ class Ejercicio extends React.Component{
     constructor(props){
         super(props);
 
-        this.estados = {"secuencia": 0, "espera": 1, "mensaje": 2};
-        this.mensajes = {"observa": "Observa", "sigueme": "Vamos!"};
-        this.tiempoMuestra = 1;
+        this.colores = shuffle(["#c0392b", "#27ae60", "#8e44ad", "#f1c40f", "#1abc9c", "#e84393", "#6D214F"]);
 
-        this.numBotones = [3, 5, 7];
-        this.colores = ["#3366cc", "#dc3912", "#ff9900", "#109618", "#651067", "#5574a6", "#3b3eac"];
+        this.estados = {secuencia: 0, espera: 1, fin: 2};
+        this.mensaje = {observa: "Observa", siguieme: "Vamos"};
+        this.tiempoMuestra = 1000;
 
-        this.botones = [];
-        this.seleccionados = [];
+        this.ejercicio = 0;
+        this.correctos = 0;
+
+        let botonesPorNivel = [3,4,5];
+        this.numBotones = botonesPorNivel[this.props.nivel-1];
 
         var secuencia = [];
-        // No olvidar poner el props.nivel en lugar de la constante
-        for(var i = 0; i < this.numBotones[0]; i++){
-            var boton = (
-                <div className="col py-5 mx-1 bg-light border border-dark rounded"></div>
-                );
-
-            this.botones.push(boton);
+        for(var i = 0; i < this.numBotones; i++){
             secuencia.push(i);
         }
-            
-        this.mensaje = this.mensajes["observa"];
+        this.secuencia = shuffle(secuencia);
 
-        this.state = {
-            ejercicio: 0,
-            estado: this.estados["mensaje"],
-            secuencia: shuffle(secuencia),
-            index: 0
-        };
+        this.state={
+            mostrarMensaje: true,
+            estado: this.estados["secuencia"],
+            indexSecuencia: 0,
+            seleccionados: []
+        }
+
+        this.seleccionar = this.seleccionar.bind(this);
+        this.deseleccionar = this.deseleccionar.bind(this);
+
+        this.mostrarSecuencia = this.mostrarSecuencia.bind(this);
+        this.crearBotones = this.crearBotones.bind(this);
+        this.siguiente = this.siguiente.bind(this);
     }
 
-    mostrarActual(){
-        let index = this.state.index;
-        if(this.state.index < this.numBotones[0]){
+    mostrarSecuencia(){
+        if(this.state.indexSecuencia < this.numBotones){
+            let index = this.state.indexSecuencia + 1;
 
-            this.botones[this.state.secuencia[this.state.index]] = (
-                <div className="col py-5 mx-1 bg-success border border-dark rounded"></div>
-            );
-            var contador = 0;
-            let tiempoMuestra = this.tiempoMuestra;
-            var myInterval = setInterval(function(){
-                if(contador == tiempoMuestra){
-                    limpiar(index+1);
-                }
-                else{
-                    contador++;
-                }
-
-            },1000);
-
-            var limpiar = (function(index){
-                clearInterval(myInterval);
-                this.botones[this.state.secuencia[index-1]] = (
-                    <div className="col py-5 mx-1 bg-light border border-dark rounded"></div>
-                );
+            setTimeout((function(){
                 this.setState({
-                    index: index
+                    indexSecuencia: index
                 });
-            }).bind(this);
+            }).bind(this),this.tiempoMuestra);
 
         }else{
-            this.botones[this.state.secuencia[index-1]] = (
-                <div className="col py-5 mx-1 bg-light border border-dark rounded"></div>
-            );
-
             this.setState({
-                index: 0,
-                estado: this.estados["mensaje"]
+                indexSecuencia: 0,
+                estado: this.estados["espera"],
+                mostrarMensaje: true
             });
-
         }
-    }
-
-    quitarMensaje(siguiente){
-        this.setState({
-            estado: this.estados[siguiente]
-        });
     }
 
     seleccionar(index){
-        this.seleccionados.push(index);
+        let seleccionados = this.state.seleccionados;
+        seleccionados.push(index);
         this.setState({
-
+            seleccionados: seleccionados
         });
     }
 
-    render(){
-        switch(this.state.estado){
-            case this.estados["mensaje"]:
-                var quitarMensaje = this.quitarMensaje.bind(this);
-                var paso = false;
+    deseleccionar(index){
+        var seleccionados = this.state.seleccionados;
+        seleccionados.splice(seleccionados.indexOf(index), 1);
+        this.setState({
+            seleccionados: seleccionados
+        });
+    }
 
-                var mensaje = this.mensaje;
-                if(this.mensaje == this.mensajes["observa"]){
-                    this.mensaje = this.mensajes["sigueme"];
-                    var siguiente = "secuencia";
-                }else{
-                    this.mensaje = this.mensajes["observa"];
-                    var siguiente = "espera";
-                }
+    crearBotones(mensajes){
+        this.botones = [];
+        for(var i = 0; i < this.numBotones; i++){
+            if(!mensajes && i == this.secuencia[this.state.indexSecuencia]){
+                var seleccionado = true;
+            }else{
+                var seleccionado = false;
+            }
 
-                var intervalo = setInterval(function(){
-                    if(paso){
-                        quitarMensaje(siguiente);
-                        limpiar();
-                    }else{
-                        paso = true;
-                    }
-                },1000);
-
-                function limpiar(){
-                    clearInterval(intervalo);
-                }
-
-                return(
-                    <div>
-                        <div className="row">
-                            <Mensaje mensaje={mensaje} />
-                        </div>
-                        <div className="row equal mt-3">
-                            {this.botones}
-                        </div>
-                    </div>
+            let boton = (
+                <Boton 
+                    seleccionar={this.seleccionar} 
+                    deseleccionar={this.deseleccionar} 
+                    index={i} 
+                    seleccionado={seleccionado} 
+                    color={this.colores[i]} />
                 );
 
-            case this.estados["secuencia"]:
-                this.mostrarActual();
+            this.botones.push(boton);
+        }
+    }
 
-            case this.estados["espera"]:
-                return(
-                    <div>
-                        <div className="row equal mt-3">
-                            {this.botones}
-                        </div>
-                    </div>
+    siguiente(){
+        if(this.ejercicio < 3){
+            this.ejercicio++;
+
+            for(var i = 0; i < this.numBotones; i++){
+                if(this.secuencia[i] == this.state.seleccionados[i]){
+                    this.correctos++;
+                }
+            }
+
+            var secuencia = [];
+            for(var i = 0; i < this.numBotones; i++){
+                secuencia.push(i);
+            }
+            this.secuencia = shuffle(secuencia);
+
+            this.setState({
+                mostrarMensaje: true,
+                estado: this.estados["secuencia"],
+                indexSecuencia: 0,
+                seleccionados: []
+            });
+        }else{
+            for(var i = 0; i < this.numBotones; i++){
+                if(this.secuencia[i] == this.state.seleccionados[i]){
+                    this.correctos++;
+                }
+            }
+
+            this.props.fin((this.correctos/((this.ejercicio+1)*this.numBotones))*100);
+        }
+    }
+
+    render(){
+        
+        if(this.state.mostrarMensaje){
+            setTimeout((function(){this.setState({mostrarMensaje: false})}).bind(this), 1000);
+
+            switch(this.state.estado){
+                case this.estados["secuencia"]:
+                    var mensaje = this.mensaje["observa"];
+                    break;
+
+                case this.estados["espera"]:
+                    var mensaje = this.mensaje["siguieme"];
+                    break;
+            }
+            this.botones = [];
+            for(var i = 0; i < this.numBotones; i++){
+                let boton = (
+                    <Boton 
+                        seleccionar={this.seleccionar} 
+                        deseleccionar={this.deseleccionar} 
+                        index={i} 
+                        seleccionado={false} 
+                        color={this.colores[i]}
+                        posicion={-1} />
                     );
-                break;
+
+                this.botones.push(boton);
+            }
+
+            return(
+                <div>
+                    <div className="row equal mt-3">{this.botones}</div>
+                    <Mensaje mensaje={mensaje} />
+                </div>
+            );
+        }else{
+            switch(this.state.estado){
+                case this.estados["secuencia"]:
+                    this.mostrarSecuencia();
+
+                    this.botones = [];
+                    for(var i = 0; i < this.numBotones; i++){
+                        if(i == this.secuencia[this.state.indexSecuencia]){
+                            var seleccionado = true;
+                        }else{
+                            var seleccionado = false;
+                        }
+
+                        let boton = (
+                            <Boton 
+                                seleccionar={()=>{}} 
+                                deseleccionar={()=>{}} 
+                                index={i} 
+                                seleccionado={seleccionado} 
+                                color={this.colores[i]} 
+                                posicion={-1} />
+                            );
+
+                        this.botones.push(boton);
+                    }
+                    return(
+                        <div className="row equal mt-3">{this.botones}</div>
+                    );
+                    break;
+
+                case this.estados["espera"]:
+                    this.botones = [];
+                    for(var i = 0; i < this.numBotones; i++){
+
+                        let posicion = this.state.seleccionados.indexOf(i);
+
+                        let boton = (
+                            <Boton 
+                                seleccionar={this.seleccionar} 
+                                deseleccionar={this.deseleccionar} 
+                                index={i} 
+                                seleccionado={false} 
+                                color={this.colores[i]} 
+                                posicion={posicion} />
+                            );
+
+                        this.botones.push(boton);
+                    }
+
+                    if(this.state.seleccionados.length == this.numBotones){
+                        var siguiente = (<button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>);
+                    }else{
+                        var siguiente = (<button className="btn btn-principal" onClick={()=>{toastr("No has terminado")}}>Siguiente</button>);
+                    }
+                    return(
+                            <div className="row">
+                                <div className="col-12">
+                                    <div className="row equal mt-3">{this.botones}</div>
+                                </div>
+                                <div className="col-2 offset-10 mt-2">
+                                    {siguiente}
+                                </div>
+                            </div>
+                        );
+                    break;
+            }
         }
     }
 }
