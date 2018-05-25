@@ -1,49 +1,69 @@
-# VolverAEmpezar
-Rehabilitación cognitiva
+# Volver a empezar
 
-## Inicialización 
-Para tener un usuario administrador es necesario ejecutar el archivo [init.js](init.js), este archivo se encargará de crear el usuario administrador con una clave. Esta configuración se encuentra en el archivo [conf.js](serverfiles/conf.js).
+Sistema de administración de pacientes con un conjunto de ejercicios y juegos para la rehabilitación cognitiva en las áreas de orientación, lenguaje, praxias, memoria y cálculo.
+
+## Getting Started
+
+Estas instrucciones te mostrarán como tener una copia del proyecto funcionando en tu máquina local.
+
+### Pre-requisitos
+
+Instalar NodeJS, npm y MongoDB correspondiente al sistema operativo.
+Ojo: npm ya viene cuando se instala NodeJS
+
+```
+[NodeJS](https://nodejs.org/en/)
+[MongoDB](https://www.mongodb.com/)
+```
+
+Asegurarse que el comando mongod, node y npm se puedan ejecutar en cualquier ruta desde la línea de comandos. De no ser así, por comodidad, se recomienda agregar estos comandos a las variables de entorno, sino, es necesario ejecutarlos con la ruta completa de cada comando.
+
+### Instalación
+
+Descargar este proyecto en una carpeta reconocible, por ejemplo, "Documentos/PIPOV2".
+Existen 2 formas de descargarlo:
+
+- El botón de download de github, o
+- con git
+
+#### El botón de download de github
+
+Presionar el botón y esperar a que termine la descarga. Después se debe descomprimir el archivo.
+
+#### Descarga con git
+
+Recuerde posicionarse en la carpeta mencionada anteriormente. Ejecutar el comando en la línea de comandos
+
+```
+git clone https://github.com/rafita96/VolverAEmpezar
+```
+
+## Inicialización
+Esta es la inicialización del proyecto, solamente se tiene que hacer cuando se descarga por primera vez. 
+Para que estos comandos funcionen es necesario estar dentro de la carpeta VolverAEmpezar correspondiente al proyecto.
+
+Primero hay que instalar las dependencias del sistema con el siguiente comando
+```
+npm install
+```
+
+En el archivo [conf.js](/src/conf.js) se encuentran los parámetros para la base de datos y las credenciales de la cuenta de administrador.
+
+Para crear la cuenta de administrador se debe ejecutar el siguiente comando.
+
 ```
 node init.js
 ```
 
-## [common](/common)
+### Recibir conexiones externas
+Configurar el firewall en la computadora cliente para aceptar el puerto 8080.
 
-En esa caarpeta deben de ir las librerías que se utilizan comunmente en los diferentes juegos, por ejemplo react.js, bootstrap.
-Se creó esta carpeta para no tener archivos repetidos, de igual forma pueden tener sus librerías de forma local en cada carpeta.
+## Ejecución del sistema
 
-## [data](/data)
+Ejecutar el comando
+```
+node server.js
+```
 
-Carpeta que contiene la base de datos.
-
-## [juegos](/juegos)
-
-Aquí se guardarán todos los juegos que se pretendan utilizar en la plataforma, y la forma de acceder a ellos es mediante la URI
-localhost:8080/juegos/{nombre del juego}/
-  
-  
-### /juegos/{nombre del juego}/
-
-  Los juegos tendrán recursos locales, y para acceder a ellos de forma local se necesita poner un "." al inicio de la ruta, por
-  ejemplo: ./public/js/main.js para un archivo en la carpeta public que se encuentra en la carpeta del juego 
-  (/juegos/{nombre del juego}/public/), si se desea acceder a los archivos de la raíz no es necesario el ".", por ejemplo,
-  /common/js/react.js
-
-
-## [general](/general)
-
-Aquí van los archivos que pertenecen al sistema general, es decir, no pertenecen a un juego
-en especifico, sino que es para paginas de administracion general.
-    
-### [views](/general/views)
-Vistas generales del sistema organizadas en carpetas
-
-## [server.js](server.js)
-Servidor en Nodejs, se quiere mantener este programa tan general como sea posible, de forma que se puedan agregar juegos extras
-sin problema, por lo tanto, se necesita tener un patron de diseño de cada juego que se quiera agregar.
-
-## [serverfiles](/serverfiles)
-Código del servidor modularizado.
-
-### [routers](/serverfiles/routers)
-Aquí van la lógica para las diferentes rutas en el sistema.
+Después entrar al navegador y poner la url localhost:8080.
+Si se desea entrar en alguna otra computadora cliente se necesita cambiar la palabra localhost por la ip correspondiente a la computadora en la que se encuentra el servicio. No olvidar agregar el puerto 8080.
