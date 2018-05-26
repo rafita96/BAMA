@@ -11,8 +11,8 @@ Estas instrucciones te mostrarán como tener una copia del proyecto funcionando 
 Instalar NodeJS, npm y MongoDB correspondiente al sistema operativo.
 Ojo: npm ya viene cuando se instala NodeJS
 
-[NodeJS](https://nodejs.org/en/)
-[MongoDB](https://www.mongodb.com/)
+-[NodeJS](https://nodejs.org/en/)
+-[MongoDB](https://www.mongodb.com/)
 
 Asegurarse que el comando mongod, node y npm se puedan ejecutar en cualquier ruta desde la línea de comandos. De no ser así, por comodidad, se recomienda agregar estos comandos a las variables de entorno, sino, es necesario ejecutarlos con la ruta completa de cada comando.
 
