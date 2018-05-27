@@ -11,10 +11,8 @@ Estas instrucciones te mostrarán como tener una copia del proyecto funcionando 
 Instalar NodeJS, npm y MongoDB correspondiente al sistema operativo.
 Ojo: npm ya viene cuando se instala NodeJS
 
-```
-[NodeJS](https://nodejs.org/en/)
-[MongoDB](https://www.mongodb.com/)
-```
+- [NodeJS](https://nodejs.org/en/)
+- [MongoDB](https://www.mongodb.com/)
 
 Asegurarse que el comando mongod, node y npm se puedan ejecutar en cualquier ruta desde la línea de comandos. De no ser así, por comodidad, se recomienda agregar estos comandos a las variables de entorno, sino, es necesario ejecutarlos con la ruta completa de cada comando.
 
@@ -67,3 +65,19 @@ node server.js
 
 Después entrar al navegador y poner la url localhost:8080.
 Si se desea entrar en alguna otra computadora cliente se necesita cambiar la palabra localhost por la ip correspondiente a la computadora en la que se encuentra el servicio. No olvidar agregar el puerto 8080.
+
+## Organización del proyecto
+
+### [/juegos](/juegos)
+
+Se encuentran los ejercicios disponibles en el sistema, cada uno de ellos se encuentra en una carpeta con un nombre único para que el servidor pueda encontrarlos.
+Cada ejercicio debe tener su propio index.ejs para que conserve la plantilla de los otros ejercicios.
+En el archivo meta.json se encuentra el nombre del ejercicio, el nombre de la imágen de muestra y las categorías a las que pertenece.
+
+### [/public](/public)
+
+Aquí se encuentran los archivos públicos como son los archivos css, javascript e imágenes generales.
+
+### [/src](/src)
+
+Se encuentran los archivos correspondientes al servidor, dividos en 3 carpetas, controllers, routers y views.
