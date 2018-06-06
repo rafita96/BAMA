@@ -9,6 +9,7 @@ class Main extends React.Component {
 			porcentaje: null,
 		}
 
+		this.juego = "figuras"; // Nombre de la carpeta.
 		this.iniciar = this.iniciar.bind(this);
 		this.seleccionarNivel = this.seleccionarNivel.bind(this);
 		this.terminar = this.terminar.bind(this);
@@ -55,7 +56,8 @@ class Main extends React.Component {
 		} else if (this.state.fin) {
 			return(
                 <Bloque nombre={this.props.nombre}>
-                    <Fin 
+                    <Fin
+                    	juego={this.juego} 
                         fechaInicio={this.fechaInicio} 
                         nivel={this.nivel} 
                         paciente={this.props.paciente} 
@@ -97,7 +99,7 @@ function getInfo(callback) {
 }
 
 $(document).ready(function(){
-    getInfo(function(paciente, nombre, instrucciones, datos) {
+    getInfo(function(paciente, nombre, instrucciones) {
         ReactDOM.render(<Main 
             paciente={paciente}
             nombre={nombre} 

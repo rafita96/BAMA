@@ -78,7 +78,6 @@ class Ejercicio extends React.Component {
 			ejercicio.opciones = opciones;
 			this.ejercicios.push(ejercicio);
 		}
-		//console.log(this.ejercicios);
 	}
 
 	seleccionar(seleccionado) {
@@ -92,7 +91,6 @@ class Ejercicio extends React.Component {
 			toastr("No has seleccionado una opción");
 		} else {
 			if (this.state.seleccionado == this.ejercicios[this.state.pregunta].respuesta) {
-				console.log(this.state.seleccionado == this.ejercicios[this.state.pregunta].respuesta);
 				this.setState({
 					aciertos: this.state.aciertos + 1,
 					pregunta: this.state.pregunta + 1,
@@ -113,7 +111,6 @@ class Ejercicio extends React.Component {
 			this.props.terminar(porcentaje);
 			return (<div></div>);
 		} else {
-			console.log(this.state.aciertos);
 			return (
 				<div>
 					<div className="row text-center">
