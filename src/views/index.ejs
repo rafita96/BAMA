@@ -1,4 +1,5 @@
 <html lang="es">
+<!-- Lista de pacientes registrados -->
     <head>
          <meta charset="UTF-8"> 
          <title>Inicial</title>
@@ -46,7 +47,7 @@
                                             <th class="col-1 text-accent">Acción</th>
                                         </thead>
                                         <tbody>
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -97,7 +98,7 @@
                         </div>
                         <div class="modal-footer">
                                 <div class="form-group">
-                                    <button class="btn btn-vino" id="guardar" type="submit">Guardar</button>
+                                    <button class="btn btn-principal" id="guardar" type="submit">Guardar</button>
                                 </div>
                             </form>
                         </div>
@@ -106,6 +107,9 @@
             </div>
         </div>
         
+        <script type="text/javascript">
+            var users = <%- JSON.stringify(pacientes) %>;
+        </script>
         <script type="text/javascript" src="/public/js/user/perfil.js"></script>
         <script type="text/javascript" src="/public/js/index.js"></script>
     </body>

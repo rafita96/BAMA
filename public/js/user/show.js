@@ -22,7 +22,7 @@ $(document).ready(function() {
                 axes: [
                     {axis: 'Orientación', value: record["O"]},
                     {axis: 'Lenguaje', value: record["L"]},
-                    {axis: 'Paxias', value: record["P"]},
+                    {axis: 'Praxias', value: record["P"]},
                     {axis: 'Memoria', value: record["M"]},
                     {axis: 'Cálculo', value: record["C"]}
                 ]

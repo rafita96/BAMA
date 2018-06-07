@@ -1,4 +1,4 @@
-var users = [];
+// var users = [];
 $(document).ready(function() {
 
     $('#datepicker').datepicker({
@@ -7,10 +7,10 @@ $(document).ready(function() {
         language: 'es'
     });
     // Obtiene todos los pacientes registrados
-    Consulta.get('/database/get/users/{}', function(data){
-        users = data;
-        fillTable(data); 
-    });
+    // Consulta.get('/database/get/users/{}', function(data){
+    //     users = data;
+    fillTable(users); 
+    // });
 
     // Si ya eligio un usuario anteriormente, entonces muestra que ya fue
     // seleccionado
@@ -72,6 +72,12 @@ function fillTable(data){
         b.innerHTML = "Seleccionar";
         cell.appendChild(b);
     }
+}
+
+function seleccionarPaciente(id){
+    Consulta.post('/paciente/actual/', {paciente: id}, function(res){
+        window.location.href = '/paciente/perfil/';
+    });
 }
 
 // busca el paciente que cumpla en el criterio de busqueda

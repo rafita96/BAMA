@@ -1,3 +1,7 @@
+/**
+* @author   Rafael Peralta Blanco <rafael.peralta.blanco@gmail.com>
+*/
+
 /*
     En la parte de database se encuentra el nombre de la base de datos 'volveraempezar', 
     el host 'localhost' y el puerto '27017'.
