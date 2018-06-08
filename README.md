@@ -65,7 +65,6 @@ node server.js
 
 Después entrar al navegador y poner la url localhost:8080.
 Si se desea entrar en alguna otra computadora cliente se necesita cambiar la palabra localhost por la ip correspondiente a la computadora en la que se encuentra el servicio. No olvidar agregar el puerto 8080.
-<<<<<<< HEAD
 
 ## Organización del proyecto
 

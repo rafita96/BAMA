@@ -13,38 +13,57 @@ $(document).ready(function() {
     });
 
     Consulta.get('/paciente/record/', function(record){
-        var margin = { top: 50, right: 80, bottom: 50, left: 80 },
-            width = Math.min(700, window.innerWidth / 4) - margin.left - margin.right,
-            height = Math.min(width, window.innerHeight - margin.top - margin.bottom);
 
-        var data = [
-            { name: 'Habilidades',
-                axes: [
-                    {axis: 'Orientación', value: record["O"]},
-                    {axis: 'Lenguaje', value: record["L"]},
-                    {axis: 'Paxias', value: record["P"]},
-                    {axis: 'Memoria', value: record["M"]},
-                    {axis: 'Cálculo', value: record["C"]}
-                ]
+        var configBien = {
+            circleColor: "#4caf50",
+            textColor: "#43a047",
+            waveTextColor: "#a5d6a7",
+            waveColor: "#4caf50",
+            waveAnimateTime: 2000,
+            fillWithGradient: true,
+            gradientPoints: [0.2, 0, 0.9, 1],
+            gradientFromColor: "#43a047",
+            gradientToColor: "#66bb6a"
+        }
+        var configMedio = {
+            circleColor: "#facf09",
+            textColor: "#ffc300",
+            waveTextColor: "#fff300",
+            waveColor: "#facf09",
+            waveAnimateTime: 2000,
+            fillWithGradient: true,
+            gradientPoints: [0.2, 0, 0.9, 1],
+            gradientFromColor: "#ffc300",
+            gradientToColor: "#ff8633"
+        }
+        var configMal = {
+            circleColor: "#f44336",
+            textColor: "#e53935",
+            waveTextColor: "#ef9a9a",
+            waveColor: "#f44336",
+            waveAnimateTime: 2000,
+            fillWithGradient: true,
+            gradientPoints: [0.2, 0, 0.9, 1],
+            gradientFromColor: "#e53935",
+            gradientToColor: "#ef5350"
+        }
+
+        function findConfig(record){
+            if(record > 50){
+                return configBien;
+            }else if(record > 25){
+                return configMedio;
             }
-        ];
-
-            
-        var radarChartOptions = {
-          w: 360,
-          h: 360,
-          margin: margin,
-          maxValue: 100,
-          levels: 5,
-          roundStrokes: true,
-            format: '.0f'
-        };
-
-            
-        RadarChart(".radarChart", data, radarChartOptions);
+            return configMal;
+        }
+        d3.select("#orientacion").call(d3.liquidfillgauge, record["O"], findConfig(record["O"]));
+        d3.select("#lenguaje").call(d3.liquidfillgauge, record["L"], findConfig(record["L"]));
+        d3.select("#praxias").call(d3.liquidfillgauge, record["P"], findConfig(record["P"]));
+        d3.select("#memoria").call(d3.liquidfillgauge, record["M"], findConfig(record["M"]));
+        d3.select("#calculo").call(d3.liquidfillgauge, record["C"], findConfig(record["C"]));
     });
 
-    dibujarNotas();
+    // dibujarNotas();
 });
 
 function _calculateAge(birthday) { // birthday is a date

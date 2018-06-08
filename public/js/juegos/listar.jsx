@@ -1,13 +1,17 @@
 class Img extends React.Component{
 
     componentDidMount(){
-        const img = this.refs.image
+        const img = this.refs.image;
     }
 
 
   render(){
     return(
-      <img ref="image" src={this.props.url} />
+        <div>
+            <a href={this.props.urlJuego}>
+                <img ref="image" src={this.props.url} />
+            </a>
+        </div>
     )
   }
 }
@@ -21,7 +25,7 @@ class Bloque extends React.Component{
             <div className="col-3">
                 <div className="row">
                     <div className="col-12">
-                        <Img url={url} />
+                        <Img url={url} urlJuego={"/"+this.props.ejercicio["dir"]+"/"} />
                     </div>
                 </div>
                 <div className="row">

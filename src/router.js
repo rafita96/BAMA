@@ -1,10 +1,27 @@
-var express = require('express');
-var router = express.Router();
+/**
+* @author   Rafael Peralta Blanco <rafael.peralta.blanco@gmail.com>
+*/
 
+var express = require('express');   // Se encarga de leer los encabezados http
+var router = express.Router();      // va a estar al pendiente de una ruta
+
+// Los routers de cada módulo
 var security = require('./routers/security');
-var database = require('./routers/database');
 var juegos = require('./routers/juegos');
 var usuarios = require('./routers/usuarios');
+
+var dbManager = require('./controllers/database');
+
+router.get('/', function(req, res){
+    var users = dbManager.find('users',{}, function(data){
+        res.render('index', {
+            success: req.flash('success'), 
+            error: req.flash('error'), 
+            titulo: "Pacientes",
+            pacientes: data
+        });
+    });
+});
 
 /** Manejo de sesion **/
 router.use('/', security);
@@ -16,10 +33,6 @@ router.use('/paciente', usuarios);
 
 /** Url para los juegos **/
 router.use('/juegos', juegos);
-/**  **/
-
-/** Manejo de base de datos **/
-router.use('/database', database);
 /**  **/
 
 module.exports = router;

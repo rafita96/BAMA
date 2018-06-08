@@ -1,3 +1,7 @@
+/*
+    Archivo de configuración para el módulo webpack.
+    esto permite compilar los archivos que esten escritos en ReactJS
+*/
 module.exports = {
     module: {
         rules:[
