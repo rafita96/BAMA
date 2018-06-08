@@ -267,7 +267,11 @@ exports.getRecord = function(id, callback){
         for(categoria in record){
             // Divide el promedio que suman todos los resultados de los juegos
             // con esa categoría y lo divide sobre el número de juegos con esa categoría
-            newRecord[categoria] = record[categoria][0]/record[categoria][1];
+            if(record[categoria][1] == 0){
+                newRecord[categoria] = 0;
+            }else{
+                newRecord[categoria] = record[categoria][0]/record[categoria][1];
+            }
         }
 
         // Envía los resultados generales de aciertos en cada categoría.
