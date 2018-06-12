@@ -23,6 +23,8 @@ exports.conf = {
         saltRounds: 10,
         username: "admin",
         password: "psicologo",
-        collection: "admins"
+        collection: "admins",
+        algorithm: 'aes-256-ctr',
+        secret: 'volveraempezar'
     }
 };

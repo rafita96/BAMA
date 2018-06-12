@@ -1,0 +1,41 @@
+<html lang="es">
+    <head>
+         <meta charset="UTF-8"> 
+         <title>Puntos de vista</title>
+        
+        <style type="text/css">
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        </style>        
+        <link rel="stylesheet" type="text/css" href="./public/css/extra_fa.css">
+
+        <% include ../../src/views/layouts/header %>
+        <script src="/public/common/js/d3/d3.min.js"></script>
+        <script src="/public/common/js/react.js"></script>
+        <script src="/public/common/js/react-dom.js"></script>
+        <!-- <script src="/public/common/js/browser.js"></script> -->
+    </head>
+
+    <body class="bg-light text-dark">
+        <% include ../../src/views/layouts/nav %>
+        
+        <div class="container">
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <h3><b class="text-accent">Paciente actual: </b><span id="paciente_actual"></span></h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div id="main"></div>
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript" src="./public/js/Main.min.js"></script>
+    </body>
+    
+</html>

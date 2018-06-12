@@ -16,7 +16,15 @@ var dbManager = require('./../controllers/database');
 // el nombre de la collección en donde se encuentran los administradores
 var adminConf = require('./../conf').conf["session"];
 // Permite cifrar la contraseña para luego compararla
-var bcrypt = require('bcrypt');
+var crypto = require('crypto');
+
+// Cifra la contraseña
+function encrypt(text){
+  var cipher = crypto.createCipher(adminConf["algorithm"], adminConf["secret"])
+  var crypted = cipher.update(text,'utf8','hex')
+  crypted += cipher.final('hex');
+  return crypted;
+}
 
 // Vista del login
 router.get('/login/', function(req, res) {
@@ -36,22 +44,20 @@ router.post('/login/', function(req, res) {
                 req.flash('error', 'Usuario o contraseña incorrectos');
                 res.redirect('/login/');
             }else{
-                // El usuario existe, ahora hay que comparar la clave
-                bcrypt.compare(req.body.password, users[0]["password"]).then(function(pass) {
-                    if(pass){
-                        // Si las contraseñas coinciden entonces registramos el id del
-                        // administrador en la variable de sesión
-                        req.flash('success', 'Bienvenido');
-                        req.session.userId = users[0]["_id"];
-                        // Y lo enviamos a la página principal
-                        res.redirect('/'); 
-                    }else{
-                        // La contraseña no es correcta
-                        req.flash('error', 'Usuario o contraseña incorrectos');
-                        // Entonces lo regresamos a la vista de login
-                        res.redirect('/login/');
-                    }
-                });
+                let compare = encrypt(req.body.password);
+                if(compare == users[0]["password"]){
+                    // Si las contraseñas coinciden entonces registramos el id del
+                    // administrador en la variable de sesión
+                    req.flash('success', 'Bienvenido');
+                    req.session.userId = users[0]["_id"];
+                    // Y lo enviamos a la página principal
+                    res.redirect('/'); 
+                }else{
+                    // La contraseña no es correcta
+                    req.flash('error', 'Usuario o contraseña incorrectos');
+                    // Entonces lo regresamos a la vista de login
+                    res.redirect('/login/');
+                }
             }
         });
 });
