@@ -1,12 +1,18 @@
+import Bloque from '../../../../public/common/js/juegos/compiled/Bloque.jsx';
+import Instrucciones from '../../../../public/common/js/juegos/compiled/Instrucciones.jsx';
+import Nivel from '../../../../public/common/js/juegos/compiled/Nivel.jsx';
+import Fin from '../../../../public/common/js/juegos/compiled/Fin.jsx';
+import Ejercicio from './Ejercicio.jsx';
+
 class Main extends React.Component {
 	constructor(props) {
 		super(props);
 		this.juego = "elGlobo";
 
 		this.state = {
-			inicio: true,
+			inicio: false,
 			fin: false,
-			seleccionNivel: false,
+			seleccionNivel: true,
 			porcentaje: null,
 		}
 

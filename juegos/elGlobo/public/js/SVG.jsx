@@ -8,3 +8,5 @@ class SVG extends React.Component{
         </svg>);
     }
 }
+
+export default SVG;
