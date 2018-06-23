@@ -1,116 +1,133 @@
 <html lang="es">
 <!-- Lista de pacientes registrados -->
-    <head>
-         <meta charset="UTF-8"> 
-         <title>Inicial</title>
+<head>
+  <meta charset="UTF-8"> 
+  <title>Inicial</title>
 
-        <% include layouts/header %>
-    </head>
+  <% include layouts/header %>
+  <script src="/public/common/js/bootstrap/datepicker/bootstrap-datepicker.js"></script>
+  <script src="/public/common/js/bootstrap/datepicker/bootstrap-datepicker.es.min.js"></script>
+</head>
 
-    <body class="bg-light text-dark">
-        <% include layouts/nav %>
-        <% include layouts/toast %>
-        <script src="/public/common/js/bootstrap/datepicker/bootstrap-datepicker.js"></script>
-        <script src="/public/common/js/bootstrap/datepicker/bootstrap-datepicker.es.min.js"></script>
-            
-        <% include layouts/title %>
+<body class="bg-light text-dark">
+  <% include layouts/nav %>
+  <% include layouts/toast %>
+  
+  <% include layouts/title %>
 
-        <div class="container">
-            
-            <div class="row my-4">
-                <div class="col-12">
-                    <div class="card text-dark bg-principal mb-3">
-                        <div class="card-header">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h3><b class="text-accent">Paciente actual: </b><span id="paciente_actual"></span></h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-8 col-md-10 text-center">
-                                    <input class="form-control" type="text" name="buscar" id="buscar" placeholder="Buscar" />
-                                </div>
-                                <div class="col-2 text-center">
-                                    <button type="button" class="btn btn-principal" data-toggle="modal" data-target="#modal">Agregar paciente</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <!-- <div class="col-12"> -->
-                                    <table class="table text-center col-12" id="pacientes">
-                                        <thead>
-                                            <th class="col-2 text-accent">No. Expediente</th>
-                                            <th class="col-3 text-accent">Nombre</th>
-                                            <th class="col-3 text-accent">Apellido Paterno</th>
-                                            <th class="col-3 text-accent">Apellido Materno</th>
-                                            <th class="col-1 text-accent">Acción</th>
-                                        </thead>
-                                        <tbody>
+<div class="container">
 
-                                        </tbody>
-                                    </table>
-                                <!-- </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="row my-4">
+    <div class="col-12">
+      <div class="card text-dark bg-principal mb-3">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-12">
+              <h3><b class="text-accent">Paciente actual: </b><span id="paciente_actual"></span></h3>
             </div>
-            
-            <div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3 class="modal-title text-accent">Agregar Paciente</h3>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        
-                        <div class="modal-body">
-                            <form class="form" id="target" method="POST" enctype='application/json' action="/paciente/agregar">
+          </div>
 
-                                <div class="form-group">
-                                    <label for="noExpediente">Número de expediente</label>
-                                    <input class="form-control" id="noExpediente" type="text" name="data[noExpediente]" required minlength="2">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="nombre">Nombre</label>
-                                    <input class="form-control" id="nombre" type="text" name="data[nombre]" required minlength="2">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="aPaterno">Apellido Paterno</label>
-                                    <input class="form-control" id="aPaterno" type="text" name="data[aPaterno]" required minlength="2">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="aMaterno">Apellido Materno</label>
-                                    <input class="form-control" id="aMaterno" type="text" name="data[aMaterno]" required minlength="2">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="datepicker">Fecha de Nacimiento</label>
-                                    <input id="datepicker" class="form-control" type="text" name="data[fechaNacimiento]" required>
-                                </div>
-                                
-                        </div>
-                        <div class="modal-footer">
-                                <div class="form-group">
-                                    <button class="btn btn-principal" id="guardar" type="submit">Guardar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+          <div class="row">
+            <div class="col-sm-8 col-md-10 text-center">
+              <input class="form-control" type="text" name="buscar" id="buscar" placeholder="Buscar" />
             </div>
+
+            <div class="col-sm-1 col-md-2 text-center">
+              <button type="button" 
+                      class="btn btn-principal" 
+                      data-toggle="modal" 
+                      data-target="#modal">Agregar paciente</button>
+            </div>
+          </div>
         </div>
-        
-        <script type="text/javascript">
-            var users = <%- JSON.stringify(pacientes) %>;
-        </script>
-        <script type="text/javascript" src="/public/js/user/perfil.js"></script>
-        <script type="text/javascript" src="/public/js/index.js"></script>
-    </body>
+
+        <div class="card-body">
+          <div class="row text-center">
+            <div class="col-2 offset-1 text-accent">No. Expediente</div>
+            <div class="col-2 text-accent">Nombre</div>
+            <div class="col-2 text-accent">Apellido Paterno</div>
+            <div class="col-2 text-accent">Apellido Materno</div>
+
+            <div class="col-2 text-accent">Acción</div>
+          </div>
+
+          <div id="pacientes"></div>
+<!-- 
+              <table class="table text-center" id="pacientes">
+                <thead>
+                  <th class="col-2 text-accent">No. Expediente</th>
+                  <th class="col-3 text-accent">Nombre</th>
+                  <th class="col-3 text-accent">Apellido Paterno</th>
+                  <th class="col-3 text-accent">Apellido Materno</th>
+                  <th class="col-1 text-accent">Acción</th>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title text-accent">Agregar Paciente</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form class="form" id="target" method="POST" enctype='application/json' action="/paciente/agregar">
+
+            <div class="form-group">
+              <label for="noExpediente">Número de expediente</label>
+              <input class="form-control" id="noExpediente" type="text" name="data[noExpediente]" required minlength="2">
+            </div>
+
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input class="form-control" id="nombre" type="text" name="data[nombre]" required minlength="2">
+            </div>
+
+            <div class="form-group">
+              <label for="aPaterno">Apellido Paterno</label>
+              <input class="form-control" id="aPaterno" type="text" name="data[aPaterno]" required minlength="2">
+            </div>
+
+            <div class="form-group">
+              <label for="aMaterno">Apellido Materno</label>
+              <input class="form-control" id="aMaterno" type="text" name="data[aMaterno]" required minlength="2">
+            </div>
+
+            <div class="form-group">
+              <label for="datepicker">Fecha de Nacimiento</label>
+              <input id="datepicker" class="form-control" type="text" name="data[fechaNacimiento]" required>
+            </div>
+
+        </div>
+  
+        <div class="modal-footer">
+          <div class="form-group">
+            <button class="btn btn-principal" id="guardar" type="submit">Guardar</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  <script type="text/javascript">
+  var users = <%- JSON.stringify(pacientes) %>;
+  </script>
+  <script type="text/javascript" src="/public/js/user/perfil.js"></script>
+  <script type="text/javascript" src="/public/js/index.js"></script>
+</body>
 </html>

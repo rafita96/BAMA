@@ -38,28 +38,40 @@ $(document).ready(function() {
 
 // Dada una lista de pacientes, vacia y llena una tabla escribiendo sus nombres
 function fillTable(data){
-    var tabla = document.getElementById('pacientes').getElementsByTagName('tbody')[0];
+    var tabla = document.getElementById('pacientes');
     $(tabla).empty();
     for(var i = 0; i < data.length; i++){
-        var row = tabla.insertRow(tabla.rows.length);
+        var row = document.createElement("div");
+        row.setAttribute("class","row text-center border-bottom my-3");
 
-        var cell = row.insertCell();
+        var cell = document.createElement("div");
+        cell.setAttribute("class", "col-2 offset-1");
+
         var text = document.createTextNode(data[i].noExpediente);
         cell.appendChild(text);
+        row.appendChild(cell);
 
-        cell = row.insertCell();
+        var cell = document.createElement("div");
+        cell.setAttribute("class", "col-2");
+
         text = document.createTextNode(data[i].nombre.capitalize());
         cell.appendChild(text);
+        row.appendChild(cell);
 
-        cell = row.insertCell();
+        var cell = document.createElement("div");
+        cell.setAttribute("class", "col-2");
         text = document.createTextNode(data[i].aPaterno.capitalize());
         cell.appendChild(text);
+        row.appendChild(cell);
 
-        cell = row.insertCell();
+        var cell = document.createElement("div");
+        cell.setAttribute("class", "col-2");
         text = document.createTextNode(data[i].aMaterno.capitalize());
         cell.appendChild(text);
+        row.appendChild(cell);
 
-        cell = row.insertCell();
+        var cell = document.createElement("div");
+        cell.setAttribute("class", "col-2");
         var b = document.createElement('button');
         b.setAttribute('class', 'btn btn-principal');
 
@@ -71,6 +83,9 @@ function fillTable(data){
         });
         b.innerHTML = "Seleccionar";
         cell.appendChild(b);
+        row.appendChild(cell);
+
+        tabla.appendChild(row);
     }
 }
 

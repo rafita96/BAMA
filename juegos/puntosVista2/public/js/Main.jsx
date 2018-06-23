@@ -10,9 +10,9 @@ class Main extends React.Component {
         this.juego = "puntosVista2";
 
         this.state = {
-            inicio: true,
+            inicio: false,
             fin: false,
-            seleccionNivel: false,
+            seleccionNivel: true,
             porcentaje: null,
         }
 

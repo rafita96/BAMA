@@ -1,26 +1,48 @@
-import Instrucciones from './Instrucciones.jsx';
-import Img from './Img.jsx';
-import Camaras from './Camaras.jsx';
-import BloqueImg from './BloqueImg.jsx';
+import Img from '../../../../public/common/js/juegos/compiled/Img.jsx';
+import Camara from './Camara.jsx';
 
 class Ejercicio extends React.Component{
 
     constructor(props){
         super(props);
 
+        this.puntaje = 0;
+        this.numeroPreguntas = 4;
+
         this.state = {
-            pregunta: 0,
-            aciertos: 0,
-            pausa: false,
-            index: null
+            seleccionado: -1,
+            pregunta: 0
         }
 
-        this.numeroPreguntas = 8;
-
         this.seleccionarEjercicios();
-        this.siguiente = this.siguiente.bind(this);
+
         this.seleccionar = this.seleccionar.bind(this);
-        this.seguir = this.seguir.bind(this);
+        this.siguiente = this.siguiente.bind(this);
+    }
+
+    seleccionar(index){
+        this.setState({
+            seleccionado: index
+        });
+    }
+
+    siguiente(){
+        if(this.state.seleccionado != -1){
+            if(this.state.seleccionado*45 == this.ejercicios[this.state.pregunta][1]){
+                this.puntaje += 1;
+            }
+    
+            if(this.state.pregunta + 1 == this.numeroPreguntas){
+                this.props.terminar((this.puntaje/this.numeroPreguntas)*100);
+            }else{
+                this.setState({
+                    seleccionado: -1,
+                    pregunta: this.state.pregunta+1
+                });
+            }
+        }else{
+            toastr("No has seleccionado una respuesta");
+        }
     }
 
     seleccionarEjercicios(){
@@ -62,107 +84,54 @@ class Ejercicio extends React.Component{
         }
     }
 
-    seleccionar(index){
-        this.setState({
-            index: index
-        });
-    }
-
-    seguir(){
-        this.setState({
-            pausa: false
-        });
-    }
-
-    siguiente(){
-        if(this.state.index == null){
-            toastr("No has seleccionado una opción.");
-        }else{
-            var respuesta = this.ejercicios[this.state.pregunta][1]/45;
-            var pausa = this.state.pregunta == this.numeroPreguntas/2 - 1;
-
-            if(this.state.index == respuesta){
-                this.setState({
-                    aciertos: this.state.aciertos+1,
-                    pregunta: this.state.pregunta + 1,
-                    index: null,
-                    pausa: pausa
-                });
-            }else{
-                this.setState({
-                    pregunta: this.state.pregunta + 1,
-                    index: null,
-                    pausa: pausa
-                });
-            }
-
-            
-        }
-    }
-
     render(){
-        if(this.state.pausa){
-            return(<Instrucciones 
-                        regresar={false} 
-                        iniciar={this.seguir} 
-                        instrucciones={this.props.parte2} />);
-        }
-        else if(this.state.pregunta >= this.ejercicios.length){
 
-            var porcentaje = this.state.aciertos/this.ejercicios.length * 100;
-            this.props.terminar(porcentaje);
-            return(<div></div>);
-        }else{
-            var carpeta = this.ejercicios[this.state.pregunta][0];
-            var imagen = this.ejercicios[this.state.pregunta][1];
+        let carpeta = this.props.nivel + "/" + this.ejercicios[this.state.pregunta][0];
 
-            if(this.state.pregunta < this.numeroPreguntas/2){
-                return(
-                    <div>
-                        <div className="row mt-3">
-                            <div className="col-sm-12 col-md-6">
-                                <Img url={"./img/"+this.props.nivel+"/"+carpeta+"/"+imagen+".png"} />
-                            </div>
+        var imagenSeleccionada = "./../../../../public/common/img/puntosVista/"+ carpeta + "/" + this.ejercicios[this.state.pregunta][1] + ".png"
 
-                            <div className="col-sm-12 col-md-6">
-                                <Camaras index={this.state.index} seleccionar={this.seleccionar} url={"./img/"+this.props.nivel+"/"+carpeta+"/aereo.png"} />
-                            </div>
-                        </div>
-                        <div className="row mt-3">
-                            <div className="col-2 offset-10">
-                                <button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
-                            </div>
-                        </div>
+        return(<div className="row">
+            <div className="col-12">
+                <div className="row">
+                    <div className="col-6">
+                    <Img url={imagenSeleccionada} />
                     </div>
-                );
-            }else{
-                var imagenSeleccionada = <Img url={"./img/notselected.jpg"} />;
-                if(this.state.index != null){
-                    var imagenSeleccionada = <Img url={"./img/"+this.props.nivel+"/"+carpeta+"/"+(this.state.index*45)+".png"} />;
-                }
-                return(
-                    <div>
-                        <div className="row mt-3">
-                            <div className="col-sm-12 col-md-6">
-                               {imagenSeleccionada}
-                            </div>
 
-                            <div className="col-sm-12 col-md-6">
-                                <Camaras index={imagen/45} url={"./img/"+this.props.nivel+"/"+carpeta+"/aereo.png"} />
-                            </div>
-                        </div>
-                        <div className="row mt-3">
-                            <div className="col-10">
-                                <BloqueImg carpeta={this.props.nivel+"/"+carpeta} seleccionar={this.seleccionar} />
-                            </div>
-                            <div className="col-2">
-                                <button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
-                            </div>
-                        </div>
+                    <div className="col-6">
+                        <svg viewBox="0 0 100 60">
+                            <image y="10" 
+                                width="100" height="40" 
+                                href={"./../../../../public/common/img/puntosVista/"+carpeta+"/aereo.png"} />
+                            
+                            <Camara seleccionado={this.state.seleccionado} seleccionar={this.seleccionar} 
+                                    indice={5} angulo={135} cx={29} cy={10} r={2} />
+                            <Camara seleccionado={this.state.seleccionado} seleccionar={this.seleccionar} 
+                                    indice={4} angulo={180} cx={50} cy={6} r={2} />
+                            <Camara seleccionado={this.state.seleccionado} seleccionar={this.seleccionar} 
+                                    indice={3} angulo={225} cx={71} cy={10} r={2} />
+
+                            <Camara seleccionado={this.state.seleccionado} seleccionar={this.seleccionar} 
+                                    indice={6} angulo={90} cx={25} cy={29} r={2} />
+                            <Camara seleccionado={this.state.seleccionado} seleccionar={this.seleccionar} 
+                                    indice={2} angulo={270} cx={75} cy={29} r={2} />
+
+                            <Camara seleccionado={this.state.seleccionado} seleccionar={this.seleccionar} 
+                                    indice={7} angulo={45} cx={29} cy={50} r={2} />
+                            <Camara seleccionado={this.state.seleccionado} seleccionar={this.seleccionar} 
+                                    indice={0} angulo={0} cx={50} cy={54} r={2} />
+                            <Camara seleccionado={this.state.seleccionado} seleccionar={this.seleccionar} 
+                                    indice={1} angulo={315} cx={71} cy={50} r={2} />
+                        </svg>
                     </div>
-                );
-            }
-        }
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-10"></div>
+                <div className="col-2">
+                    <button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
+                </div>
+            </div>
+        </div>);
     }
 }
 
