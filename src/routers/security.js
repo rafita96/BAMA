@@ -12,7 +12,7 @@ var path = require("path");
 // Manejador de la base de datos
 var dbManager = require('./../controllers/database');
 
-// Archivo de configuración en donde se encuentra 
+// Archivo de configuración en donde se encuentra
 // el nombre de la collección en donde se encuentran los administradores
 var adminConf = require('./../conf').conf["session"];
 // Permite cifrar la contraseña para luego compararla
@@ -28,7 +28,7 @@ function encrypt(text){
 
 // Vista del login
 router.get('/login/', function(req, res) {
-    res.render('seguridad/login', { 
+    res.render('seguridad/login', {
         error: req.flash('error')
     });
 });
@@ -51,7 +51,7 @@ router.post('/login/', function(req, res) {
                     req.flash('success', 'Bienvenido');
                     req.session.userId = users[0]["_id"];
                     // Y lo enviamos a la página principal
-                    res.redirect('/'); 
+                    res.redirect('/');
                 }else{
                     // La contraseña no es correcta
                     req.flash('error', 'Usuario o contraseña incorrectos');
@@ -62,7 +62,13 @@ router.post('/login/', function(req, res) {
         });
 });
 
-// Elimina la variable de sesión para que no pueda seguir entrando al sistema 
+router.get('/administradores/registrar', function(req, res) {
+    res.render('seguridad/administradores/registrar', {
+        'titulo': 'Registrar administrador'
+    });
+});
+
+// Elimina la variable de sesión para que no pueda seguir entrando al sistema
 router.get('/logout/', function(req, res){
     if(req.session){
         req.session.destroy(function(err){
