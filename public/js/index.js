@@ -9,7 +9,7 @@ $(document).ready(function() {
     // Obtiene todos los pacientes registrados
     // Consulta.get('/database/get/users/{}', function(data){
     //     users = data;
-    fillTable(users); 
+    fillTable(users);
     // });
 
     // Si ya eligio un usuario anteriormente, entonces muestra que ya fue
@@ -40,6 +40,7 @@ $(document).ready(function() {
 function fillTable(data){
     var tabla = document.getElementById('pacientes');
     $(tabla).empty();
+
     for(var i = 0; i < data.length; i++){
         var row = document.createElement("div");
         row.setAttribute("class","row text-center border-bottom my-3");
@@ -108,7 +109,7 @@ function buscar(criterio){
             var candidato = true;
             for(j in criterio){
                 var texto = criterio[j].toLowerCase();
-                candidato = candidato && (users[i].nombre.includes(texto) || 
+                candidato = candidato && (users[i].nombre.includes(texto) ||
                 users[i].aPaterno.includes(texto) ||
                 users[i].aMaterno.includes(texto) ||
                 users[i].noExpediente.includes(texto));
@@ -121,4 +122,3 @@ function buscar(criterio){
         fillTable(encontrados);
     }
 }
-

@@ -10,7 +10,6 @@ class Ejercicio extends React.Component {
 		this.state = {
 			pregunta: 0,
 			aciertos: 0,
-			hool :3;
 			respuesta: Array(this.n).fill(0).map(valor => Array(this.n).fill(0).map(valor => 0)),
 		}
 
