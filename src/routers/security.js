@@ -62,9 +62,39 @@ router.post('/login/', function(req, res) {
         });
 });
 
+router.get('/administradores', function(req, res) {
+    // Consulta por el usuario
+    dbManager.find(adminConf["collection"], { }, function(users){
+        res.render('seguridad/administradores/lista', {
+            'titulo': 'Administradores',
+            'users': users
+        });
+    });
+});
+
 router.get('/administradores/registrar', function(req, res) {
     res.render('seguridad/administradores/registrar', {
         'titulo': 'Registrar administrador'
+    });
+});
+
+router.post('/administradores/registrar', function(req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    dbManager.find(adminConf["collection"], { 'username': username }, function(users){
+        if (users.length > 0) {
+            res.render('seguridad/administradores/registrar', {
+                'titulo': 'Registrar administrador',
+                'error' : 'El usuario ' + username + ' ya existe'
+            });
+        } else {
+            dbManager.insertar(adminConf["collection"], {
+                'username': username,
+                'password': encrypt(password)
+            }, function() {
+                res.redirect('/administradores')
+            });
+        }
     });
 });
 
