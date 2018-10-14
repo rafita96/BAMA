@@ -10,10 +10,11 @@ class Ejercicio extends React.Component {
 		this.state = {
 			pregunta: 0,
 			aciertos: 0,
+			hool :3;
 			respuesta: Array(this.n).fill(0).map(valor => Array(this.n).fill(0).map(valor => 0)),
 		}
 
-		
+
 		this.generarEjercicios();
 		this.siguiente = this.siguiente.bind(this);
 		this.seleccionar = this.seleccionar.bind(this);
@@ -33,7 +34,7 @@ class Ejercicio extends React.Component {
 	generarDibujo(){
 		let dibujo = Array(this.n).fill(0).map(valor => Array(this.n).fill(0).map(valor => 0)); //Crea la matriz de ceros
 		let cantidad = Math.floor(Math.random() * (this.n**2-(this.n) - this.props.nivel + 1) + this.props.nivel);
-		let ren_col = []; 
+		let ren_col = [];
 		for (let i=0; i < cantidad; i++){
 			var ren = Math.floor(Math.random() * this.n),
 				col = Math.floor(Math.random() * this.n);
@@ -95,11 +96,11 @@ class Ejercicio extends React.Component {
 					let boton = (<Boton
 						tipo={1}
 						seleccionar={this.seleccionar}
-                    	ren={i} col={j} 
+                    	ren={i} col={j}
                     	color={this.ejercicios[this.state.pregunta].color}
                     	respuesta={this.ejercicios[this.state.pregunta].dibujo}
                     />);
-					botones.push(boton);	
+					botones.push(boton);
 				}
 				renglon.push(<div className="row">{botones}</div>);
 				dibujo.push(renglon);
@@ -110,14 +111,14 @@ class Ejercicio extends React.Component {
 				renglon = [];
 				botones = [];
 				for (j=0; j < this.n; j++){
-					let boton = (<Boton 
+					let boton = (<Boton
 						tipo={0}
-                    	seleccionar={this.seleccionar} 
-                    	ren={i} col={j} 
+                    	seleccionar={this.seleccionar}
+                    	ren={i} col={j}
                     	color={this.ejercicios[this.state.pregunta].color}
                     	respuesta={this.state.respuesta}
                     />);
-					botones.push(boton);	
+					botones.push(boton);
 				}
 				renglon.push(<div className="row">{botones}</div>);
 				cuadricula.push(renglon);
@@ -139,7 +140,7 @@ class Ejercicio extends React.Component {
 						</div>
 					</div>
 				</div>
-			);	
+			);
 		}
 	}
 }
