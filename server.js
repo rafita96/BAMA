@@ -13,7 +13,7 @@ var bodyParser = require('body-parser'); 		// Permite recibir contenido json env
 
 // Archivo de configuración local
 var appConfig = require('./src/conf').conf;
-// Middleware que verifica que exista una cuenta activa 	
+// Middleware que verifica que exista una cuenta activa
 var firewall = require('./src/controllers/firewall').firewall;
 
 // Permite manejar la sesión
@@ -38,7 +38,7 @@ app.use(session({
 	secret: 'keyboard god',
 	resave: false,
 	saveUninitialized: true,
-	cookie: { 
+	cookie: {
 		secure: false
 	},
 	store: new MongoStore({
@@ -64,4 +64,4 @@ app.use('/', router);
 /**  **/
 
 // Para acceder al sistema desde el navegador se hace mediante el puerto 8080
-app.listen(8080); 
+app.listen(5850); 
