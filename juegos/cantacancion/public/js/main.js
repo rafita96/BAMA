@@ -145,17 +145,19 @@ class Ejercicio extends React.Component {
 		this.state = {
 			pregunta: 0,
 			aciertos: 0,
-			index: null
+			index: null,
+      cancion_index : null
 		}
-		//this.generarEjercicios();
-
-    this.total_preguntas = 1 + this.props.nivel;
+    switch (this.props.nivel) {
+      case 1:this.total_preguntas = 4; break;
+      case 2:this.total_preguntas = 6; break;
+      case 3:this.total_preguntas = 7; break;
+    }
 		this.siguiente = this.siguiente.bind(this);
 		this.seleccionar = this.seleccionar.bind(this);
 	}
 
 	seleccionar(index) {
-        console.log(index);
 		this.setState({
 			index: index
 		});
@@ -170,7 +172,8 @@ class Ejercicio extends React.Component {
             this.setState({
                 aciertos: aciertos,
                 pregunta: this.state.pregunta + 1,
-                index: null
+                index: null,
+                cancion_index : null
             });
 		}
 	}
@@ -179,24 +182,32 @@ class Ejercicio extends React.Component {
 		if (this.state.pregunta >= this.total_preguntas) {
             var total_aciertos = this.total_preguntas * 4;
             var porcentaje = Math.round(this.state.aciertos / total_aciertos * 100);
-            console.log(total_aciertos);
-			this.props.terminar(porcentaje);
+			      this.props.terminar(porcentaje);
             return(<div></div>);
 		} else {
-			var carpeta = this.state.pregunta;
+
       var canciones;
       switch (this.props.nivel) {
-        case 1: canciones = ['rosa', 'arbol', 'zapatos', 'dulce'];
-        case 2: canciones = ['rosa', 'arbol', 'zapatos', 'dulce'];
-        case 3: canciones = ['rosa', 'arbol', 'zapatos', 'dulce'];
+        case 1: canciones = ['día', 'noche', 'corazón', 'mujer', 'sol', 'mar', 'azul', 'ojos', 'labios'];
+        break;
+        case 2: canciones = ['flor', 'zapatos', 'puerta', 'árbol', 'niña', 'camino', 'beso', 'baila', 'cama'];
+        break;
+        case 3: canciones = ['día', 'noche', 'corazón', 'mujer', 'sol', 'mar', 'azul', 'ojos', 'labios','flor', 'zapatos', 'puerta', 'árbol', 'niña', 'camino', 'beso', 'baila', 'cama'];
+        break;
       }
+      if(this.state.cancion_index == null) {
+        this.state.cancion_index = Math.floor((Math.random() * (canciones.length-1)))
+      }
+
+      var text = (this.props.nivel == 3) ? '' : canciones[this.state.cancion_index];
+
 
 			return (
 				<div>
 					<div className="offset-2 col-8">
 						<Img
-							url={'./img/' + canciones[carpeta] + '.jpg'}
-              text={canciones[carpeta]}
+							url={'./img/' + canciones[this.state.cancion_index] + '.png'}
+              text={text}
 							/>
 					</div>
 
