@@ -1,0 +1,327 @@
+{
+	"niveles": [
+		[
+			{
+			  "pregunta": "A BUEN ENTENDEDOR, POCAS _____.",
+			  "respuesta": ["PALABRAS"],
+			  "opciones": [
+			    "INTENCIONES", "EXPLICACIONES",
+			    "DECISIONES"
+			  ]
+			},
+		  {
+		    "pregunta": "QUIEN _____, DIOS LE AYUDA.",
+		    "respuesta": ["MADRUGA"],
+		    "opciones": [
+		      "ACTUA BIEN", "AYUDA",
+		      "BAILA"
+		    ]
+		  },
+		  {
+		    "pregunta": "PIENSA MAL Y _____.",
+		    "respuesta": ["ACERTARÁS"],
+		    "opciones": [
+		      "HAZ MAL", "FALLARÁS",
+		      "JUZGARÁS"
+		    ]
+		  },
+		  {
+		    "pregunta": "A MAL TIEMPO, BUENA _____",
+		    "respuesta": ["CARA"],
+		    "opciones": [
+		      "DECISIÓN", "FUERZA",
+		      "ACTITUD"
+		    ]
+		  },
+		  {
+		    "pregunta": "MÁS VALE _____ QUE NUNCA.",
+		    "respuesta": ["TARDE"],
+		    "opciones": [
+		      "TEMPRANO", "RÁPIDO",
+		      "LENTO"
+		    ]
+		  },
+			{
+				"pregunta": "MÁS VALE _____ QUE LAMENTAR.",
+				"respuesta": ["PREVENIR"],
+				"opciones": [
+					"VER", "PENSAR",
+					"ANALIZAR"
+				]
+			},
+			{
+				"pregunta": "SI EL RÍO SUENA, _____ LLEVA.",
+				"respuesta": ["AGUA"],
+				"opciones": [
+					"RUIDO", "CORRIENTE",
+					"CAFÉ"
+				]
+			},
+			{
+				"pregunta": "EL QUE CALLA, _____.",
+				"respuesta": ["OTORGA"],
+				"opciones": [
+					"ESCUCHA", "HABLA",
+					"GANA"
+				]
+			},
+			{
+				"pregunta": "A PALABRAS NECIAS, OÍDOS _____.",
+				"respuesta": ["SORDOS"],
+				"opciones": [
+					"CERRADOS", "CEGADOS",
+					"ABIERTOS"
+				]
+			},
+			{
+				"pregunta": "PERRO QUE _____, NO MUERDE.",
+				"respuesta": ["LADRA"],
+				"opciones": [
+					"MUERDE", "GRITA",
+					"RABIA"
+				]
+			},
+			{
+				"pregunta": "EL QUE NADA DEBE, NADA _____.",
+				"respuesta": ["TEME"],
+				"opciones": [
+					"DEBE", "PIERDE", "GANA"
+				]
+			},
+			{
+				"pregunta": "QUERER ES _____.",
+				"respuesta": ["PODER"],
+				"opciones": [
+					"QUERER", "GANAR",
+					"HACER"
+				]
+			},
+			{
+				"pregunta": "NO HAY MAL QUE POR _____ NO VENGA.",
+				"respuesta": ["BIEN"],
+				"opciones": [
+					"DECISIONES", "ACCIONES",
+					"OPCIONES"
+				]
+			},
+			{
+				"pregunta": "NO TODO LO QUE BRILLA, ES _____.",
+				"respuesta": ["ORO"],
+				"opciones": [
+					"BUENO", "BRILLANTE",
+					"PLATA"
+				]
+			}
+		],
+		[
+			{
+			  "pregunta": "A BUEN ENTENDEDOR, __________.",
+			  "respuesta": ["POCAS PALABRAS"],
+			  "opciones": [
+			    "NO SE EXPLICA", "POCAS EXPLICACIONES",
+			    "POCAS DECISIONES"
+			  ]
+			},
+		  {
+		    "pregunta": "_____________, DIOS LE AYUDA.",
+		    "respuesta": ["QUIEN MADRUGA"],
+		    "opciones": [
+		      "ACTUA BIEN", "QUIEN TRABAJA",
+		      "AL BUENO"
+		    ]
+		  },
+		  {
+		    "pregunta": "__________ Y ACERTARÁS.",
+		    "respuesta": ["PIENSA MAL"],
+		    "opciones": [
+		      "ESTUDIA", "PIENSA BIEN",
+		      "PREGUNTA"
+		    ]
+		  },
+		  {
+		    "pregunta": "A MAL TIEMPO, __________",
+		    "respuesta": ["BUENA CARA"],
+		    "opciones": [
+		      "BUENA DECISIÓN", "USA FUERZA",
+		      "BUENA ACTITUD"
+		    ]
+		  },
+		  {
+		    "pregunta": "MÁS VALE TARDE __________.",
+		    "respuesta": ["QUE NUNCA"],
+		    "opciones": [
+		      "QUE MAS TARDE", "NUNCA",
+		      "QUE JAMÁS"
+		    ]
+		  },
+			{
+				"pregunta": "MÁS VALE PREVENIR __________.",
+				"respuesta": ["QUE LAMENTAR"],
+				"opciones": [
+					"QUE VER", "QUE LLORAR",
+					"PARA GANAR"
+				]
+			},
+			{
+				"pregunta": "SI EL RÍO SUENA, __________.",
+				"respuesta": ["AGUA LLEVA"],
+				"opciones": [
+					"RUIDO HACE", "CORRIENTE LLEVA",
+					"CAFÉ RICO"
+				]
+			},
+			{
+				"pregunta": "A __________, OÍDOS SORDOS.",
+				"respuesta": ["PALABRAS NECIAS"],
+				"opciones": [
+					"OJOS CEGADOS", "MALAS PALABRAS",
+					"MENTIRAS"
+				]
+			},
+			{
+				"pregunta": "PERRO QUE LADRA, __________.",
+				"respuesta": ["NO MUERDE"],
+				"opciones": [
+					"RUIDO HACE", "ALGO VIÓ",
+					"TIENE RABIA"
+				]
+			},
+			{
+				"pregunta": "EL QUE NADA DEBE, .",
+				"respuesta": ["NADA TEME"],
+				"opciones": [
+					"NADA DEBE", "NADA PIERDE", "NADA GANA"
+				]
+			},
+			{
+				"pregunta": "QUERER ES _____.",
+				"respuesta": ["PODER"],
+				"opciones": [
+					"QUERER", "GANAR",
+					"HACER"
+				]
+			},
+			{
+				"pregunta": "NO HAY MAL QUE POR __________ .",
+				"respuesta": ["BIEN NO VENGA"],
+				"opciones": [
+					"NOS AFECTE", "NOSOTROS PASE",
+					"BIEN NO TENGA"
+				]
+			},
+			{
+				"pregunta": "NO TODO LO QUE BRILLA,  _____.",
+				"respuesta": ["ES ORO"],
+				"opciones": [
+					"ES BUENO", "ES REFLEJANTE",
+					"ES POROSO"
+				]
+			}
+		],
+		[
+			{
+			  "pregunta": "A CABALLO REGALADO NO SE LE __________.",
+			  "respuesta": ["MIRAN LOS DIENTES"],
+			  "opciones": [
+			    "CRITICA", "EXIGE MUCHO",
+			    "PUEDE DEVOLVER"
+			  ]
+			},
+		  {
+		    "pregunta": "__________, SE LO LLEVA LA CORRIENTE.",
+		    "respuesta": ["CAMARÓN QUE SE DUERME"],
+		    "opciones": [
+		      "CAMARÓN QUE SE QUEDA", "UNA PANGA EN EL RIO",
+		      "PEZ QUE SE DUERME"
+		    ]
+		  },
+		  {
+		    "pregunta": "ESTE ARROZ __________.",
+		    "respuesta": ["YA SE COCIÓ"],
+		    "opciones": [
+		      "ESTA SABROSO", "ES BLANCO",
+		      "ES REGALADO"
+		    ]
+		  },
+		  {
+		    "pregunta": "EL QUE PARTE Y REPARTE, SE QUEDA CON __________.",
+		    "respuesta": ["LA MEJOR PARTE"],
+		    "opciones": [
+		      "LA RESPONSABILIDAD", "EL CUCHILLO",
+		      "UNA PARTE"
+		    ]
+		  },
+		  {
+		    "pregunta": "SALIÓ MÁS CARO __________ QUE LAS ALBÓNDIGAS.",
+		    "respuesta": ["EL CALDO"],
+		    "opciones": [
+		      "EL CALDO", "EL COCIDO",
+		      "EL ESTOFADO"
+		    ]
+		  },
+			{
+				"pregunta": "EL QUE SE FUE A LA VILLA, __________",
+				"respuesta": ["PERDIÓ SU SILLA"],
+				"opciones": [
+					"COMPRANDO ANDA", "TRABAJANDO ESTÁ",
+					"PRONTO VOLVERÁ"
+				]
+			},
+			{
+				"pregunta": "__________ Y TE COMERÁN LOS OJOS.",
+				"respuesta": ["CRÍA CUERVOS"],
+				"opciones": [
+					"JUEGA CON LEONES", "TEN GALLINAS",
+					"CRÍA POLLOS"
+				]
+			},
+			{
+				"pregunta": "EL MUERTO Y __________, A LOS TRES DÍAS APESTAN.",
+				"respuesta": ["EL ARRIMADO"],
+				"opciones": [
+					"EL QUESO", "EL MUERTO",
+					"EL CONCHA"
+				]
+			},
+			{
+				"pregunta": "MÁS VALE MALO POR CONOCIDO, QUE __________.",
+				"respuesta": ["BUENO POR CONOCER"],
+				"opciones": [
+					"BUENO CONOCIDO", "MALO SIN CONOCER",
+					"EL DIABLO VIEJO"
+				]
+			},
+			{
+				"pregunta": "NI TANTO QUE __________, NI TAN POCO QUE NO LO ALUMBRE.",
+				"respuesta": ["QUEME AL SANTO"],
+				"opciones": [
+					"ENCANDILE", "BRILLE MUCHO", "ENCHILE AL SANTO"
+				]
+			},
+			{
+				"pregunta": "NO HAY MAL QUE _____________, NI CUERPO QUE LOS AGUANTE.",
+				"respuesta": ["DURE CIEN AÑOS"],
+				"opciones": [
+					"PESE MIL KILOS", "SEA INFINITO",
+					"DURE MIL SIGLOS"
+				]
+			},
+			{
+				"pregunta": "TANTO PECA EL QUE MATA LA VACA, COMO EL QUE LE __________.",
+				"respuesta": ["AGARRA LA PATA"],
+				"opciones": [
+					"AMARRA LA VACA", "CORTA LA PATA",
+					"DUERME LA VACA"
+				]
+			},
+			{
+				"pregunta": "ÁRBOL QUE CRECE TORCIDO, JAMÁS SU __________.",
+				"respuesta": ["TRONCO ENDEREZA"],
+				"opciones": [
+					"CAMINO COMIENZA", "VIDA RECOMPENSA",
+					"VIDA APEREZA"
+				]
+			}
+		]
+	]
+}
