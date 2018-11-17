@@ -136,6 +136,7 @@ class Ejercicio extends React.Component {
         this.clear = this.clear.bind(this);
         this.redraw = this.redraw.bind(this);
         this.continuarDibujo = this.continuarDibujo.bind(this);
+        this.clean = this.clean.bind(this);
 	}
 
 	seleccionar(index) {
@@ -164,6 +165,15 @@ class Ejercicio extends React.Component {
         });
         this.addClick(x, y);
         this.redraw();
+    }
+
+    clean () {
+        var canvas = document.querySelector('#canvas');
+        var context = canvas.getContext('2d');
+        context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+        this.setState({
+            path: []
+        });
     }
 
     redraw() {
@@ -210,7 +220,8 @@ class Ejercicio extends React.Component {
             var aciertos = this.state.aciertos + this.state.index;
             console.log(aciertos);
             var used = this.state.used.map(x => x)
-            used.push(this.state.palabra_index)
+            used.push(this.state.palabra_index);
+            this.clean();
             this.setState({
                 aciertos: aciertos,
                 pregunta: this.state.pregunta + 1,
