@@ -120,7 +120,9 @@ class Ejercicio extends React.Component {
 			aciertos: 0,
 			index: null,
             palabra_index : null,
-            used : []
+            used : [],
+            paint: false,
+            path: []
 		}
     switch (this.props.nivel) {
       case 1:this.total_preguntas = 4; break;
@@ -128,14 +130,78 @@ class Ejercicio extends React.Component {
       case 3:this.total_preguntas = 7; break;
     }
 		this.siguiente = this.siguiente.bind(this);
-		this.seleccionar = this.seleccionar.bind(this);
+        this.seleccionar = this.seleccionar.bind(this);
+        this.dibujar = this.dibujar.bind(this);
+        this.addClick = this.addClick.bind(this);
+        this.clear = this.clear.bind(this);
+        this.redraw = this.redraw.bind(this);
+        this.continuarDibujo = this.continuarDibujo.bind(this);
 	}
 
 	seleccionar(index) {
 		this.setState({
 			index: index
 		});
-	}
+    }
+    
+    addClick(x, y, drag) {
+        console.log(x, y, drag);
+        this.setState({
+            path: this.state.path.concat({
+                x: x,
+                y: y,
+                drag: drag
+            })
+        });
+    }
+
+    dibujar(event) {
+        var rect = event.target.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+        this.setState({
+            paint: true
+        });
+        this.addClick(x, y);
+        this.redraw();
+    }
+
+    redraw() {
+        var canvas = document.querySelector('#canvas');
+        var context = canvas.getContext('2d');
+        context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+        
+        context.strokeStyle = "#df4b26";
+        context.lineJoin = "round";
+        context.lineWidth = 5;
+                  
+        for(var i=0; i < this.state.path.length; i++) {
+            context.beginPath();
+            if (this.state.path[i].drag && i) {
+                context.moveTo(this.state.path[i-1].x, this.state.path[i-1].y);
+            } else {
+                context.moveTo(this.state.path[i].x - 1, this.state.path[i].y);
+            }
+            context.lineTo(this.state.path[i].x, this.state.path[i].y);
+            context.closePath();
+            context.stroke();
+        }
+      }
+
+    continuarDibujo(event) {
+        if (!this.state.paint) return;
+        var rect = event.target.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+        this.addClick(x, y, true);
+        this.redraw();
+    }
+
+    clear() {
+        this.setState({
+            paint: false
+        });
+    }
 
 	siguiente() {
 		if (this.state.index == null) {
@@ -184,8 +250,8 @@ class Ejercicio extends React.Component {
 			return (
 				<div>
 					<div className="offset-2 col-8 text-center text-bold">
-                        <img src={image} /> <br />
-                        <h3>{text}</h3>
+                        <h3>{text}</h3> <br />
+                        <canvas id="canvas" width={300} height={300} style={{ background: 'white' }} onMouseDown={this.dibujar} onMouseMove={this.continuarDibujo} onMouseUp={this.clear} onMouseLeave={this.clear} />
 					</div>
 
                     <div className="alert alert-success row mt-3">
