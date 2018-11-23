@@ -27,7 +27,13 @@
                                     <% users.forEach(function(user) { %>
                                     <tr>
                                         <td><%= user.username %></td>
-                                        <td></td>
+                                        <td>
+                                            <% if (['admin', 'manuel'].indexOf(username) >= 0 && ['admin', 'manuel'].indexOf(user.username) < 0) { %>
+                                            <form action="<%= '/administradores/borrar/' + user._id %>" method="POST">
+                                                <button class="btn btn-danger">Eliminar</button>
+                                            </form>
+                                            <% } %>
+                                        </td>
                                     </tr>
                                     <% }) %>
                                 </tbody>

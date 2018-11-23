@@ -18,6 +18,8 @@ var adminConf = require('./../conf').conf["session"];
 // Permite cifrar la contraseña para luego compararla
 var crypto = require('crypto');
 
+var ObjectID = require('mongodb').ObjectID;
+
 // Cifra la contraseña
 function encrypt(text){
   var cipher = crypto.createCipher(adminConf["algorithm"], adminConf["secret"])
@@ -50,6 +52,7 @@ router.post('/login/', function(req, res) {
                     // administrador en la variable de sesión
                     req.flash('success', 'Bienvenido');
                     req.session.userId = users[0]["_id"];
+                    req.session.username = users[0]['username'];
                     // Y lo enviamos a la página principal
                     res.redirect('/');
                 }else{
@@ -66,8 +69,9 @@ router.get('/administradores', function(req, res) {
     // Consulta por el usuario
     dbManager.find(adminConf["collection"], { }, function(users){
         res.render('seguridad/administradores/lista', {
-            'titulo': 'Administradores',
-            'users': users
+            'titulo': 'Terapeutas',
+            'users': users,
+            'username' : req.session.username
         });
     });
 });
@@ -95,6 +99,12 @@ router.post('/administradores/registrar', function(req, res) {
                 res.redirect('/administradores')
             });
         }
+    });
+});
+
+router.post('/administradores/borrar/:admin', function(req, res) {
+    dbManager.eliminar(adminConf['collection'], { '_id': new ObjectID(req.params.admin) }, function() {
+        res.redirect('/administradores')
     });
 });
 
