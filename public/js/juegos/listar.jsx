@@ -30,7 +30,7 @@ class Bloque extends React.Component{
                 </div>
                 <div className="row">
                     <div className="col-12 text-center">
-                        <h4><a className="a-principal" href={"/"+this.props.ejercicio["dir"]+"/"}>
+                        <h4 class="black"><a className="a-principal" href={"/"+this.props.ejercicio["dir"]+"/"}>
                             {this.props.ejercicio["nombre"]}
                         </a></h4>
                     </div>
@@ -106,11 +106,11 @@ $(document).ready(function(){
     Consulta.get('/juegos/todos/los/nombres', function(data){
         var juegos = data["juegos"];
 
-        ReactDOM.render(<Main 
-            orientacion={juegos["O"]} 
-            lenguaje={juegos["L"]} 
-            praxias={juegos["P"]} 
-            memoria={juegos["M"]} 
+        ReactDOM.render(<Main
+            orientacion={juegos["O"]}
+            lenguaje={juegos["L"]}
+            praxias={juegos["P"]}
+            memoria={juegos["M"]}
             calculo={juegos["C"]} />, document.getElementById('juegos'));
     });
-}); 
+});

@@ -10,7 +10,6 @@ class Ejercicio extends React.Component {
 			shuffled : false
 		}
 		this.seleccionarEjercicios();
-		console.log(this.ejercicios)
 		for (var i in this.ejercicios){
 			for (var j in this.ejercicios[i].respuesta) {
 				var idx = Math.floor(Math.random()*this.ejercicios[i].opciones.length);
@@ -37,7 +36,6 @@ class Ejercicio extends React.Component {
 			}
 			this.losIndices[i] = index;
 			indices.push(index);
-			console.log(this.props.datos_nivel[index])
 			this.ejercicios.push(this.props.datos_nivel[index])
 		}
 	}

@@ -27,50 +27,18 @@ class Ejercicio extends React.Component {
 			var ejercicio = new Object();
 			// En esta parte se selecciona la pregunta
 			var config = this.recuperarConfig()
-			var pregunta = config[this.props.nivel].splice(Math.floor(Math.random() * config[this.props.nivel].length), 1)[0];
+			var pregunta = config[this.props.nivel].splice(Math.floor(Math.random() * config[this.props.nivel].length), 1)[0]
 
 			// Creamos la pregunta que será mostrada al usuario.
-			ejercicio.pregunta = pregunta.pregunta;
+			ejercicio.pregunta = pregunta.pregunta
 
-			// El primer nivel será la respuesta del mismo color
-			// y las opciones de un solo color diferente.
-			if (this.props.nivel == 1) {
-				var lim_inf = 9;
-				var opciones = [];
-				for (var j = 0; j < 4; j++) {
-					var opcion = lim_inf+j;
-					opciones.push(opcion);
-				}
-			} else if (this.props.nivel == 2) {
-				// El segundo nivel se mostrará la respuesta del mismo color
-				// y las opciones de varios colores diferentes.
-				ejercicio.respuesta = pregunta.respuesta;
-				var opciones = [];
-				for (var j = 0; j < 3; j++) {
-					var opcion = Math.floor(Math.random() * (config[this.props.nivel].length-1))+1;
-					while(opciones.includes(opcion) || opcion == ejercicio.respuesta){
-						opcion = Math.floor(Math.random() * (config[this.props.nivel].length-1))+1;
-					}
-					opciones.push(opcion);
-				}
-				opciones.push(ejercicio.respuesta);
-			} else if (this.props.nivel == 3) {
-				// El tercer nivel son todos los colores aleatorios
-				var color_respuesta = colores.splice(Math.floor(Math.random() * colores.length), 1)[0];
-				var respuesta = this.generarCadena(figura_pregunta, color_respuesta);
-				ejercicio.respuesta = respuesta;
-				var opciones = [];
-				for (var j = 0; j < 3; j++) {
-					var figura = figuras.splice(Math.floor(Math.random() * figuras.length), 1)[0];
-					var color = colores.splice(Math.floor(Math.random() * colores.length), 1)[0];
-					var opcion = this.generarCadena(figura, color);
-					opciones.push(opcion);
-				}
-				opciones.push(ejercicio.respuesta);
-			}
-			opciones = shuffle(opciones);
-			ejercicio.opciones = opciones;
-			this.ejercicios.push(ejercicio);
+			ejercicio.respuesta = pregunta.respuesta
+			var opciones = pregunta.opciones
+			opciones.push(ejercicio.respuesta)
+
+			opciones = shuffle(opciones)
+			ejercicio.opciones = opciones
+			this.ejercicios.push(ejercicio)
 		}
 	}
 
@@ -161,56 +129,115 @@ class Ejercicio extends React.Component {
 		var config = {
 			1 : [
 				{
-		      pregunta: "tira7",
-		      respuesta: "9"
+		      pregunta: "1-1",
+		      respuesta: "1",
+					opciones : ["3", "2", "4"]
 		    },
 				{
-		      pregunta: "tira8",
-		      respuesta: "9"
+		      pregunta: "1-2",
+		      respuesta: "1",
+					opciones : ["8", "3", "5"]
 		    },
 				{
-		      pregunta: "tira9",
-		      respuesta: "9"
+		      pregunta: "1-3",
+		      respuesta: "3",
+					opciones : ["5", "6", "7"]
 		    },
 				{
-		      pregunta: "tira10",
-		      respuesta: "11"
+		      pregunta: "1-4",
+		      respuesta: "14",
+					opciones : ["16", "15", "13"]
+		    },
+		    {
+		      pregunta: "1-5",
+		      respuesta: "15",
+					opciones : ["12", "13", "14"]
 		    },
 				{
-		      pregunta: "tira11",
-		      respuesta: "10"
+		      pregunta: "1-6",
+		      respuesta: "13",
+					opciones : ["16", "14", "15"]
+		    },
+		    {
+		      pregunta: "1-7",
+		      respuesta: "14",
+					opciones : ["15", "13", "14"]
 		    },
 				{
-		      pregunta: "tira12",
-		      respuesta: "12"
+		      pregunta: "1-8",
+		      respuesta: "14",
+					opciones : ["16", "13", "15"]
 		    },
+		    {
+		      pregunta: "1-9",
+		      respuesta: "15",
+					opciones : ["16", "13", "14"]
+		    }
 			],
 		  2 : [
 		    {
-		      pregunta: "tira1",
-		      respuesta: "1"
+		      pregunta: "2-1",
+		      respuesta: "9",
+					opciones : ["8", "10", "11"]
 		    },
 		    {
-		      pregunta: "tira2",
-		      respuesta: "1"
+		      pregunta: "2-2",
+		      respuesta: "12",
+					opciones : ["9", "10", "11"]
 		    },
 		    {
-		      pregunta: "tira3",
-		      respuesta: "5"
+		      pregunta: "2-3",
+		      respuesta: "9",
+					opciones : ["12", "10", "11"]
 		    },
 		    {
-		      pregunta: "tira4",
-		      respuesta: "3"
+		      pregunta: "2-4",
+		      respuesta: "11",
+					opciones : ["9", "10", "12"]
 		    },
 		    {
-		      pregunta: "tira5",
-		      respuesta: "3"
+		      pregunta: "2-5",
+		      respuesta: "10",
+					opciones : ["9", "12", "11"]
 		    },
 		    {
-		      pregunta: "tira6",
-		      respuesta: "8"
+		      pregunta: "2-6",
+		      respuesta: "12",
+					opciones : ["9", "10", "11"]
 		    }
-		  ]
+		  ],
+			3 : [
+				{
+		      pregunta: "3-1",
+		      respuesta: "8",
+					opciones : ["1", "4", "5"]
+		    },
+		    {
+		      pregunta: "3-2",
+		      respuesta: "7",
+					opciones : ["6", "5", "4"]
+		    },
+				{
+		      pregunta: "3-3",
+		      respuesta: "3",
+					opciones : ["6", "2", "4"]
+		    },
+		    {
+		      pregunta: "3-4",
+		      respuesta: "7",
+					opciones : ["6", "1", "8"]
+		    },
+				{
+		      pregunta: "3-5",
+		      respuesta: "5",
+					opciones : ["7", "6", "2"]
+		    },
+		    {
+		      pregunta: "3-6",
+		      respuesta: "4",
+					opciones : ["2", "3", "6"]
+		    }
+			]
 		}
 		return config
 	}

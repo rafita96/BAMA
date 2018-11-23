@@ -4,13 +4,13 @@ class Fin extends React.Component{
         super(props);
 
         Consulta.post('/paciente/registrar/avance/', {
-                juego: 'fugaDeLetras', 
+                juego: 'completaRefran',
                 paciente: this.props.paciente,
                 porcentaje: this.props.porcentaje,
                 nivel: this.props.nivel,
                 fechaInicio: this.props.fechaInicio,
                 fechaFin: new Date()
-            }, 
+            },
             function(error){
                 console.log(error);
             }
