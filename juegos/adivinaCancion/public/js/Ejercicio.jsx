@@ -77,7 +77,7 @@ class Ejercicio extends React.Component {
 				<div>
 					<div className="row text-center">
 						<div className="col-12">
-							<CoverImg url={"./img/"+this.ejercicios[this.state.pregunta].pregunta + ".png"} />
+							<Img url={"./img/"+this.ejercicios[this.state.pregunta].pregunta + ".png"} />
 						</div>
 					</div>
 					<div className="col-12"><hr/></div>

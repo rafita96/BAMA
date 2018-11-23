@@ -77,14 +77,14 @@ class Ejercicio extends React.Component {
 				<div>
 					<div className="row text-center">
 						<div className="col-12">
-							<CoverImg url={"./img/"+this.ejercicios[this.state.pregunta].pregunta + ".png"} />
+							<h1>{ this.ejercicios[this.state.pregunta].pregunta }</h1>
 						</div>
 					</div>
 					<div className="col-12"><hr/></div>
 					<div className="row text-center">
 						<div className="col">
 						    <Img
-						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[0]+".png"}
+						    	url={this.ejercicios[this.state.pregunta].opciones[0]}
 						    	id={this.ejercicios[this.state.pregunta].opciones[0]}
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
@@ -92,7 +92,7 @@ class Ejercicio extends React.Component {
 
 						<div className="col">
 						    <Img
-						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[1]+".png"}
+						    	url={this.ejercicios[this.state.pregunta].opciones[1]}
 						    	id={this.ejercicios[this.state.pregunta].opciones[1]}
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
@@ -100,7 +100,7 @@ class Ejercicio extends React.Component {
 
 						<div className="col">
 						    <Img
-						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[2]+".png"}
+						    	url={this.ejercicios[this.state.pregunta].opciones[2]}
 						    	id={this.ejercicios[this.state.pregunta].opciones[2]}
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
@@ -108,7 +108,7 @@ class Ejercicio extends React.Component {
 
 						<div className="col">
 						    <Img
-						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[3]+".png"}
+						    	url={this.ejercicios[this.state.pregunta].opciones[3]}
 						    	id={this.ejercicios[this.state.pregunta].opciones[3]}
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
@@ -129,47 +129,47 @@ class Ejercicio extends React.Component {
 		var config = {
 			1 : [
 				{
-		      pregunta: "1-1",
+		      pregunta: "3 x 5 = ",
 		      respuesta: "1",
 					opciones : ["3", "2", "4"]
 		    },
 				{
-		      pregunta: "1-2",
+		      pregunta: "3 x 5 = ",
 		      respuesta: "1",
 					opciones : ["8", "3", "5"]
 		    },
 				{
-		      pregunta: "1-3",
+		      pregunta: "3 x 5 = ",
 		      respuesta: "3",
 					opciones : ["5", "6", "7"]
 		    },
 				{
-		      pregunta: "1-4",
+		      pregunta: "3 x 5 = ",
 		      respuesta: "14",
 					opciones : ["16", "15", "13"]
 		    },
 		    {
-		      pregunta: "1-5",
+		      pregunta: "3 x 5 = ",
 		      respuesta: "15",
 					opciones : ["12", "13", "14"]
 		    },
 				{
-		      pregunta: "1-6",
+		      pregunta: "3 x 5 = ",
 		      respuesta: "13",
 					opciones : ["16", "14", "15"]
 		    },
 		    {
-		      pregunta: "1-7",
+		      pregunta: "3 x 5 = ",
 		      respuesta: "14",
 					opciones : ["15", "13", "14"]
 		    },
 				{
-		      pregunta: "1-8",
+		      pregunta: "3 x 5 = ",
 		      respuesta: "14",
 					opciones : ["16", "13", "15"]
 		    },
 		    {
-		      pregunta: "1-9",
+		      pregunta: "3 x 5 = ",
 		      respuesta: "15",
 					opciones : ["16", "13", "14"]
 		    }
