@@ -2,7 +2,6 @@ class Opciones extends React.Component {
 
 	constructor(props){
         super(props);
-
         this.seleccionar = this.seleccionar.bind(this);
     }
 
@@ -13,7 +12,7 @@ class Opciones extends React.Component {
 	render() {
 		return(
 			<div>
-				<div class="row text-center" style={{ "padding-bottom":"20px"}}>
+				<div class="row text-center" style={{ "padding-bottom":"20px" }}>
 					<div class="col col-md-2"/>
 					<div class="col col-md-8"><Opcion seleccionados={this.props.indices} seleccionar={this.seleccionar} indice={0} texto={this.props.opciones[0]}/></div>
 					<div class="col col-md-2"/>

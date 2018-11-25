@@ -9,7 +9,7 @@ class Main extends React.Component {
 			porcentaje: null,
 		}
 
-		this.juego = "figuras"; // Nombre de la carpeta.
+		this.juego = "series"; // Nombre de la carpeta.
 		this.iniciar = this.iniciar.bind(this);
 		this.seleccionarNivel = this.seleccionarNivel.bind(this);
 		this.terminar = this.terminar.bind(this);
@@ -57,11 +57,11 @@ class Main extends React.Component {
 			return(
                 <Bloque nombre={this.props.nombre}>
                     <Fin
-                    	juego={this.juego} 
-                        fechaInicio={this.fechaInicio} 
-                        nivel={this.nivel} 
-                        paciente={this.props.paciente} 
-                        reiniciar={this.reiniciar} 
+                    	juego={this.juego}
+                        fechaInicio={this.fechaInicio}
+                        nivel={this.nivel}
+                        paciente={this.props.paciente}
+                        reiniciar={this.reiniciar}
                         porcentaje={this.state.porcentaje} />
                 </Bloque>
             );
@@ -100,9 +100,9 @@ function getInfo(callback) {
 
 $(document).ready(function(){
     getInfo(function(paciente, nombre, instrucciones) {
-        ReactDOM.render(<Main 
+        ReactDOM.render(<Main
             paciente={paciente}
-            nombre={nombre} 
+            nombre={nombre}
             instrucciones={instrucciones}/>, document.getElementById('main'));
     })
 });
