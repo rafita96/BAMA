@@ -74,12 +74,17 @@ class Ejercicio extends React.Component {
 			this.props.terminar(porcentaje);
 			return (<div></div>);
 		} else {
+			var audio = $("#player")
+			if(audio[0] != undefined){
+				audio[0].pause()
+				audio[0].load()
+			}
 			return (
 				<div>
 					<div className="row text-center">
 						<div className="col-12">
-							<audio controls>
-								<source src={'./songs/'+this.ejercicios[this.state.pregunta].pregunta+'.mp3'} type="audio/mpeg">
+							<audio id="player" controls>
+								<source src={'./songs/'+this.ejercicios[this.state.pregunta].pregunta+this.props.nivel+'.mp3'} type="audio/mpeg">
 								</source>
 									Your browser does not support the audio element.
 								</audio>
@@ -139,109 +144,155 @@ class Ejercicio extends React.Component {
 					opciones : ["Ni dada la quiero", "Mi complice", "La puerta negra"]
 		    },
 				{
-		      pregunta: "belleza",
-		      respuesta: "3",
-					opciones : ["1", "2", "4"]
+		      pregunta: "amor eterno",
+		      respuesta: "Amor eterno",
+					opciones : ["La incondicional", "Eres", "Amor inolvidable"]
 		    },
 				{
-		      pregunta: "belleza",
-		      respuesta: "3",
-					opciones : ["1", "2", "4"]
+		      pregunta: "carnaval",
+		      respuesta: "La vida es un carnaval",
+					opciones : ["Azul", "Tiene espinas el rosal", "Salsa"]
 		    },
 				{
-		      pregunta: "belleza",
-		      respuesta: "3",
-					opciones : ["1", "2", "4"]
+		      pregunta: "celos",
+		      respuesta: "Estos celos",
+					opciones : ["La vaca", "El rey", "México"]
 		    },
 				{
-		      pregunta: "belleza",
-		      respuesta: "3",
-					opciones : ["1", "2", "4"]
+		      pregunta: "compre una cantina",
+		      respuesta: "Compré una cantina",
+					opciones : ["Tragos de amargo licor", "Culpable o no", "Mi cómplice"]
 		    },
 				{
-		      pregunta: "belleza",
-		      respuesta: "3",
-					opciones : ["1", "2", "4"]
+		      pregunta: "el rey",
+		      respuesta: "El rey",
+					opciones : ["Sigo siendo el rey", "Llorar y llorar", "Nadie que me comprenda"]
 		    },
 				{
-		      pregunta: "belleza",
-		      respuesta: "3",
-					opciones : ["1", "2", "4"]
+		      pregunta: "mi complice",
+		      respuesta: "Mi cómplice",
+					opciones : ["Inolvidable", "En la cantina", "Belleza de cantina"]
 		    },
 				{
-		      pregunta: "belleza",
-		      respuesta: "3",
-					opciones : ["1", "2", "4"]
+		      pregunta: "para que regreses",
+		      respuesta: "Para que regreses",
+					opciones : ["La papa", "Para que vuelvas", "La número 20"]
 		    },
 				{
-		      pregunta: "belleza",
-		      respuesta: "3",
-					opciones : ["1", "2", "4"]
+		      pregunta: "rata de dos patas",
+		      respuesta: "Rata de dos patas",
+					opciones : ["Eres", "Te odio", "Tres veces te engañé"]
+		    },
+				{
+		      pregunta: "rayando el sol",
+		      respuesta: "Rayando el sol",
+					opciones : ["La puerta negra", "Puerto de san blas", "Me vale"]
+		    },
+				{
+		      pregunta: "si nos dejan",
+		      respuesta: "Si nos dejan",
+					opciones : ["La chica del uno", "La incondicional", "Inolvidable"]
+		    },
+				{
+		      pregunta: "te quiero asi",
+		      respuesta: "Te quiero así",
+					opciones : ["Para que continuar", "A mis enemigos", "Vete ya"]
+		    },
+				{
+		      pregunta: "y como es el",
+		      respuesta: "Y cómo es él",
+					opciones : ["No tengas miedo", "Tienes algo nuevo", "Amiga mía"]
+		    },
+				{
+		      pregunta: "yo no fui",
+		      respuesta: "Yo no fuí",
+					opciones : ["Eslabṕn por eslabón", "Soy quien soy", "El venado"]
+		    },
+				{
+		      pregunta: "yo soy el aventurero",
+		      respuesta: "Yo soy el aventurero",
+					opciones : ["Me gustan", "El mundo me importa poco", "Cumbia río"]
 		    }
 			],
 		  2 : [
-		    {
-		      pregunta: "3 x 5 = ",
-		      respuesta: "15",
-					opciones : ["8", "21", "11"]
+				{
+		      pregunta: "belleza",
+		      respuesta: "Belleza de cantina",
+					opciones : ["Ni dada la quiero", "Mi complice", "La puerta negra"]
 		    },
-		    {
-		      pregunta: "7 x 7 = ",
-		      respuesta: "49",
-					opciones : ["14", "0", "59"]
+				{
+		      pregunta: "amor eterno",
+		      respuesta: "Amor eterno",
+					opciones : ["La incondicional", "Eres", "Amor inolvidable"]
 		    },
-		    {
-		      pregunta: "60 / 5 = ",
-		      respuesta: "12",
-					opciones : ["3", "10", "30"]
+				{
+		      pregunta: "carnaval",
+		      respuesta: "La vida es un carnaval",
+					opciones : ["Azul", "Tiene espinas el rosal", "Salsa"]
 		    },
-		    {
-		      pregunta: "6 x 5 = ",
-		      respuesta: "30",
-					opciones : ["11", "50", "60"]
+				{
+		      pregunta: "celos",
+		      respuesta: "Estos celos",
+					opciones : ["La vaca", "El rey", "México"]
 		    },
-		    {
-		      pregunta: "108 / 12 = ",
-		      respuesta: "9",
-					opciones : ["7", "12", "11"]
+				{
+		      pregunta: "compre una cantina",
+		      respuesta: "Compré una cantina",
+					opciones : ["Tragos de amargo licor", "Culpable o no", "Mi cómplice"]
 		    },
-		    {
-		      pregunta: "36 / 2 = ",
-		      respuesta: "18",
-					opciones : ["38", "75", "11"]
+				{
+		      pregunta: "el rey",
+		      respuesta: "El rey",
+					opciones : ["Sigo siendo el rey", "Llorar y llorar", "Nadie que me comprenda"]
+		    },
+				{
+		      pregunta: "mi complice",
+		      respuesta: "Mi cómplice",
+					opciones : ["Inolvidable", "En la cantina", "Belleza de cantina"]
+		    },
+				{
+		      pregunta: "para que regreses",
+		      respuesta: "Para que regreses",
+					opciones : ["La papa", "Para que vuelvas", "La número 20"]
+		    },
+				{
+		      pregunta: "rata de dos patas",
+		      respuesta: "Rata de dos patas",
+					opciones : ["Eres", "Te odio", "Tres veces te engañé"]
+		    },
+				{
+		      pregunta: "rayando el sol",
+		      respuesta: "Rayando el sol",
+					opciones : ["La puerta negra", "Puerto de san blas", "Me vale"]
+		    },
+				{
+		      pregunta: "si nos dejan",
+		      respuesta: "Si nos dejan",
+					opciones : ["La chica del uno", "La incondicional", "Inolvidable"]
+		    },
+				{
+		      pregunta: "te quiero asi",
+		      respuesta: "Te quiero así",
+					opciones : ["Para que continuar", "A mis enemigos", "Vete ya"]
+		    },
+				{
+		      pregunta: "y como es el",
+		      respuesta: "Y cómo es él",
+					opciones : ["No tengas miedo", "Tienes algo nuevo", "Amiga mía"]
+		    },
+				{
+		      pregunta: "yo no fui",
+		      respuesta: "Yo no fuí",
+					opciones : ["Eslabṕn por eslabón", "Soy quien soy", "El venado"]
+		    },
+				{
+		      pregunta: "yo soy el aventurero",
+		      respuesta: "Yo soy el aventurero",
+					opciones : ["Me gustan", "El mundo me importa poco", "Cumbia río"]
 		    }
 		  ],
 			3 : [
-				{
-		      pregunta: "Tenemos 182 bombones y tenemos que repartirlos entre 26 personas ¿Cuántos bombones le tocan a cada persona?",
-		      respuesta: "7",
-					opciones : ["6", "8", "5"]
-		    },
-		    {
-		      pregunta: "360 / 120 =",
-		      respuesta: "3",
-					opciones : ["2", "120", "1"]
-		    },
-				{
-		      pregunta: "495 / 5 = ",
-		      respuesta: "99",
-					opciones : ["6", "2", "4"]
-		    },
-		    {
-		      pregunta: "11 x 12 = ",
-		      respuesta: "132",
-					opciones : ["112", "114", "120"]
-		    },
-				{
-		      pregunta: "Si una docena de huevos vale 200 pesos. ¿Cuánto valen 5 docenas?",
-		      respuesta: "1000",
-					opciones : ["205", "12", "1200"]
-		    },
-		    {
-		      pregunta: "Si vamos a comprar el mandado y el costo total es de 357, si pagamos con un billete de 500 ¿Cuánto nos sobrará?",
-		      respuesta: "143",
-					opciones : ["153", "413", "103"]
-		    }
+
 			]
 		}
 		return config
