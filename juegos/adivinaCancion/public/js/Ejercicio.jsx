@@ -78,9 +78,13 @@ class Ejercicio extends React.Component {
 				<div>
 					<div className="row text-center">
 						<div className="col-12">
-							<h1>{ this.ejercicios[this.state.pregunta].pregunta }</h1>
-						</div>
-					</div>
+							<audio controls>
+								<source src={'./songs/'+this.ejercicios[this.state.pregunta].pregunta+'.mp3'} type="audio/mpeg">
+								</source>
+									Your browser does not support the audio element.
+								</audio>
+							</div>
+							</div>
 					<div className="col-12"><hr/></div>
 					<div className="row text-center">
 						<div className="col">
@@ -130,49 +134,49 @@ class Ejercicio extends React.Component {
 		var config = {
 			1 : [
 				{
-		      pregunta: "2 + 1 = ",
+		      pregunta: "belleza",
+		      respuesta: "Belleza de cantina",
+					opciones : ["Ni dada la quiero", "Mi complice", "La puerta negra"]
+		    },
+				{
+		      pregunta: "belleza",
 		      respuesta: "3",
 					opciones : ["1", "2", "4"]
 		    },
 				{
-		      pregunta: "2 - 1 = ",
-		      respuesta: "1",
-					opciones : ["3", "0", "5"]
+		      pregunta: "belleza",
+		      respuesta: "3",
+					opciones : ["1", "2", "4"]
 		    },
 				{
-		      pregunta: "7 + 3 = ",
-		      respuesta: "10",
-					opciones : ["13", "73", "7"]
+		      pregunta: "belleza",
+		      respuesta: "3",
+					opciones : ["1", "2", "4"]
 		    },
 				{
-		      pregunta: "12 + 13 = ",
-		      respuesta: "25",
-					opciones : ["15", "26", "13"]
-		    },
-		    {
-		      pregunta: "5 - 5 = ",
-		      respuesta: "0",
-					opciones : ["1", "10", "14"]
+		      pregunta: "belleza",
+		      respuesta: "3",
+					opciones : ["1", "2", "4"]
 		    },
 				{
-		      pregunta: "10 + 10 = ",
-		      respuesta: "20",
-					opciones : ["0", "14", "15"]
-		    },
-		    {
-		      pregunta: "3 x 5 = ",
-		      respuesta: "14",
-					opciones : ["15", "13", "14"]
+		      pregunta: "belleza",
+		      respuesta: "3",
+					opciones : ["1", "2", "4"]
 		    },
 				{
-		      pregunta: "26 - 13 = ",
-		      respuesta: "13",
-					opciones : ["16", "10", "15"]
+		      pregunta: "belleza",
+		      respuesta: "3",
+					opciones : ["1", "2", "4"]
 		    },
-		    {
-		      pregunta: "26 + 43 = ",
-		      respuesta: "69",
-					opciones : ["72", "70", "67"]
+				{
+		      pregunta: "belleza",
+		      respuesta: "3",
+					opciones : ["1", "2", "4"]
+		    },
+				{
+		      pregunta: "belleza",
+		      respuesta: "3",
+					opciones : ["1", "2", "4"]
 		    }
 			],
 		  2 : [
