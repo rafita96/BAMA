@@ -161,7 +161,7 @@ class Ejercicio extends React.Component {
 				{
 		      pregunta: "compre una cantina",
 		      respuesta: "Compré una cantina",
-					opciones : ["Tragos de amargo licor", "Culpable o no", "Mi cómplice"]
+					opciones : ["Tragos de amargo licor", "Culpable o no", "Mi complice"]
 		    },
 				{
 		      pregunta: "el rey",
@@ -170,7 +170,7 @@ class Ejercicio extends React.Component {
 		    },
 				{
 		      pregunta: "mi complice",
-		      respuesta: "Mi cómplice",
+		      respuesta: "Mi complice",
 					opciones : ["Inolvidable", "En la cantina", "Belleza de cantina"]
 		    },
 				{
@@ -238,7 +238,7 @@ class Ejercicio extends React.Component {
 				{
 		      pregunta: "compre una cantina",
 		      respuesta: "Compré una cantina",
-					opciones : ["Tragos de amargo licor", "Culpable o no", "Mi cómplice"]
+					opciones : ["Tragos de amargo licor", "Culpable o no", "Mi complice"]
 		    },
 				{
 		      pregunta: "el rey",
@@ -247,7 +247,7 @@ class Ejercicio extends React.Component {
 		    },
 				{
 		      pregunta: "mi complice",
-		      respuesta: "Mi cómplice",
+		      respuesta: "Mi complice",
 					opciones : ["Inolvidable", "En la cantina", "Belleza de cantina"]
 		    },
 				{
@@ -315,7 +315,7 @@ class Ejercicio extends React.Component {
 				{
 		      pregunta: "compre una cantina",
 		      respuesta: "Compré una cantina",
-					opciones : ["Tragos de amargo licor", "Culpable o no", "Mi cómplice"]
+					opciones : ["Tragos de amargo licor", "Culpable o no", "Mi complice"]
 		    },
 				{
 		      pregunta: "el rey",
@@ -324,7 +324,7 @@ class Ejercicio extends React.Component {
 		    },
 				{
 		      pregunta: "mi complice",
-		      respuesta: "Mi cómplice",
+		      respuesta: "Mi complice",
 					opciones : ["Inolvidable", "En la cantina", "Belleza de cantina"]
 		    },
 				{
