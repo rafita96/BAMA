@@ -22,11 +22,12 @@ class Ejercicio extends React.Component {
 	generarEjercicios() {
 		this.ejercicios = [];
 		//config tiene la estructura config[nivel][indice].{tira,respuesta}
+		var config = this.recuperarConfig()
 		for (var i = 0; i < this.numeroPreguntas; i++) {
 
 			var ejercicio = new Object();
 			// En esta parte se selecciona la pregunta
-			var config = this.recuperarConfig()
+
 			var pregunta = config[this.props.nivel].splice(Math.floor(Math.random() * config[this.props.nivel].length), 1)[0]
 
 			// Creamos la pregunta que será mostrada al usuario.
@@ -161,7 +162,7 @@ class Ejercicio extends React.Component {
 		    {
 		      pregunta: "1-7",
 		      respuesta: "14",
-					opciones : ["15", "13", "14"]
+					opciones : ["15", "13", "16"]
 		    },
 				{
 		      pregunta: "1-8",

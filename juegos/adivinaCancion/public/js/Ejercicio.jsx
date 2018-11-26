@@ -22,11 +22,12 @@ class Ejercicio extends React.Component {
 	generarEjercicios() {
 		this.ejercicios = [];
 		//config tiene la estructura config[nivel][indice].{tira,respuesta}
+		// En esta parte se selecciona la pregunta
+		var config = this.recuperarConfig()
 		for (var i = 0; i < this.numeroPreguntas; i++) {
 
 			var ejercicio = new Object();
-			// En esta parte se selecciona la pregunta
-			var config = this.recuperarConfig()
+
 			var pregunta = config[this.props.nivel].splice(Math.floor(Math.random() * config[this.props.nivel].length), 1)[0]
 
 			// Creamos la pregunta que será mostrada al usuario.
@@ -77,14 +78,14 @@ class Ejercicio extends React.Component {
 				<div>
 					<div className="row text-center">
 						<div className="col-12">
-							<Img url={"./img/"+this.ejercicios[this.state.pregunta].pregunta + ".png"} />
+							<h1>{ this.ejercicios[this.state.pregunta].pregunta }</h1>
 						</div>
 					</div>
 					<div className="col-12"><hr/></div>
 					<div className="row text-center">
 						<div className="col">
 						    <Img
-						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[0]+".png"}
+						    	url={this.ejercicios[this.state.pregunta].opciones[0]}
 						    	id={this.ejercicios[this.state.pregunta].opciones[0]}
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
@@ -92,7 +93,7 @@ class Ejercicio extends React.Component {
 
 						<div className="col">
 						    <Img
-						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[1]+".png"}
+						    	url={this.ejercicios[this.state.pregunta].opciones[1]}
 						    	id={this.ejercicios[this.state.pregunta].opciones[1]}
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
@@ -100,7 +101,7 @@ class Ejercicio extends React.Component {
 
 						<div className="col">
 						    <Img
-						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[2]+".png"}
+						    	url={this.ejercicios[this.state.pregunta].opciones[2]}
 						    	id={this.ejercicios[this.state.pregunta].opciones[2]}
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
@@ -108,7 +109,7 @@ class Ejercicio extends React.Component {
 
 						<div className="col">
 						    <Img
-						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[3]+".png"}
+						    	url={this.ejercicios[this.state.pregunta].opciones[3]}
 						    	id={this.ejercicios[this.state.pregunta].opciones[3]}
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
@@ -129,113 +130,113 @@ class Ejercicio extends React.Component {
 		var config = {
 			1 : [
 				{
-		      pregunta: "1-1",
-		      respuesta: "1",
-					opciones : ["3", "2", "4"]
-		    },
-				{
-		      pregunta: "1-2",
-		      respuesta: "1",
-					opciones : ["8", "3", "5"]
-		    },
-				{
-		      pregunta: "1-3",
+		      pregunta: "2 + 1 = ",
 		      respuesta: "3",
-					opciones : ["5", "6", "7"]
+					opciones : ["1", "2", "4"]
 		    },
 				{
-		      pregunta: "1-4",
-		      respuesta: "14",
-					opciones : ["16", "15", "13"]
-		    },
-		    {
-		      pregunta: "1-5",
-		      respuesta: "15",
-					opciones : ["12", "13", "14"]
+		      pregunta: "2 - 1 = ",
+		      respuesta: "1",
+					opciones : ["3", "0", "5"]
 		    },
 				{
-		      pregunta: "1-6",
-		      respuesta: "13",
-					opciones : ["16", "14", "15"]
+		      pregunta: "7 + 3 = ",
+		      respuesta: "10",
+					opciones : ["13", "73", "7"]
+		    },
+				{
+		      pregunta: "12 + 13 = ",
+		      respuesta: "25",
+					opciones : ["15", "26", "13"]
 		    },
 		    {
-		      pregunta: "1-7",
+		      pregunta: "5 - 5 = ",
+		      respuesta: "0",
+					opciones : ["1", "10", "14"]
+		    },
+				{
+		      pregunta: "10 + 10 = ",
+		      respuesta: "20",
+					opciones : ["0", "14", "15"]
+		    },
+		    {
+		      pregunta: "3 x 5 = ",
 		      respuesta: "14",
 					opciones : ["15", "13", "14"]
 		    },
 				{
-		      pregunta: "1-8",
-		      respuesta: "14",
-					opciones : ["16", "13", "15"]
+		      pregunta: "26 - 13 = ",
+		      respuesta: "13",
+					opciones : ["16", "10", "15"]
 		    },
 		    {
-		      pregunta: "1-9",
-		      respuesta: "15",
-					opciones : ["16", "13", "14"]
+		      pregunta: "26 + 43 = ",
+		      respuesta: "69",
+					opciones : ["72", "70", "67"]
 		    }
 			],
 		  2 : [
 		    {
-		      pregunta: "2-1",
-		      respuesta: "9",
-					opciones : ["8", "10", "11"]
+		      pregunta: "3 x 5 = ",
+		      respuesta: "15",
+					opciones : ["8", "21", "11"]
 		    },
 		    {
-		      pregunta: "2-2",
+		      pregunta: "7 x 7 = ",
+		      respuesta: "49",
+					opciones : ["14", "0", "59"]
+		    },
+		    {
+		      pregunta: "60 / 5 = ",
 		      respuesta: "12",
-					opciones : ["9", "10", "11"]
+					opciones : ["3", "10", "30"]
 		    },
 		    {
-		      pregunta: "2-3",
+		      pregunta: "6 x 5 = ",
+		      respuesta: "30",
+					opciones : ["11", "50", "60"]
+		    },
+		    {
+		      pregunta: "108 / 12 = ",
 		      respuesta: "9",
-					opciones : ["12", "10", "11"]
+					opciones : ["7", "12", "11"]
 		    },
 		    {
-		      pregunta: "2-4",
-		      respuesta: "11",
-					opciones : ["9", "10", "12"]
-		    },
-		    {
-		      pregunta: "2-5",
-		      respuesta: "10",
-					opciones : ["9", "12", "11"]
-		    },
-		    {
-		      pregunta: "2-6",
-		      respuesta: "12",
-					opciones : ["9", "10", "11"]
+		      pregunta: "36 / 2 = ",
+		      respuesta: "18",
+					opciones : ["38", "75", "11"]
 		    }
 		  ],
 			3 : [
 				{
-		      pregunta: "3-1",
-		      respuesta: "8",
-					opciones : ["1", "4", "5"]
+		      pregunta: "Tenemos 182 bombones y tenemos que repartirlos entre 26 personas ¿Cuántos bombones le tocan a cada persona?",
+		      respuesta: "7",
+					opciones : ["6", "8", "5"]
 		    },
 		    {
-		      pregunta: "3-2",
-		      respuesta: "7",
-					opciones : ["6", "5", "4"]
+		      pregunta: "360 / 120 =",
+		      respuesta: "3",
+					opciones : ["2", "120", "1"]
 		    },
 				{
-		      pregunta: "3-3",
-		      respuesta: "3",
+		      pregunta: "495 / 5 = ",
+		      respuesta: "99",
 					opciones : ["6", "2", "4"]
 		    },
 		    {
-		      pregunta: "3-4",
-		      respuesta: "7",
-					opciones : ["6", "1", "8"]
+		      pregunta: "11 x 12 = ",
+		      respuesta: "132",
+					opciones : ["112", "114", "120"]
 		    },
 				{
-		      pregunta: "3-5",
-		      respuesta: "5",
-					opciones : ["7", "6", "2"]
+		      pregunta: "Si una docena de huevos vale 200 pesos. ¿Cuánto valen 5 docenas?",
+		      respuesta: "1000",
+					opciones : ["205", "12", "1200"]
 		    },
 		    {
-		      pregunta: "3-6",
-		      respuesta: "4",
-					opciones : ["2", "3", "6"]
+		      pregunta: "Si vamos a comprar el mandado y el costo total es de 357, si pagamos con un billete de 500 ¿Cuánto nos sobrará?",
+		      respuesta: "143",
+					opciones : ["153", "413", "103"]
 		    }
 			]
 		}
