@@ -292,7 +292,81 @@ class Ejercicio extends React.Component {
 		    }
 		  ],
 			3 : [
-
+				{
+		      pregunta: "belleza",
+		      respuesta: "Belleza de cantina",
+					opciones : ["Ni dada la quiero", "Mi complice", "La puerta negra"]
+		    },
+				{
+		      pregunta: "amor eterno",
+		      respuesta: "Amor eterno",
+					opciones : ["La incondicional", "Eres", "Amor inolvidable"]
+		    },
+				{
+		      pregunta: "carnaval",
+		      respuesta: "La vida es un carnaval",
+					opciones : ["Azul", "Tiene espinas el rosal", "Salsa"]
+		    },
+				{
+		      pregunta: "celos",
+		      respuesta: "Estos celos",
+					opciones : ["La vaca", "El rey", "México"]
+		    },
+				{
+		      pregunta: "compre una cantina",
+		      respuesta: "Compré una cantina",
+					opciones : ["Tragos de amargo licor", "Culpable o no", "Mi cómplice"]
+		    },
+				{
+		      pregunta: "el rey",
+		      respuesta: "El rey",
+					opciones : ["Sigo siendo el rey", "Llorar y llorar", "Nadie que me comprenda"]
+		    },
+				{
+		      pregunta: "mi complice",
+		      respuesta: "Mi cómplice",
+					opciones : ["Inolvidable", "En la cantina", "Belleza de cantina"]
+		    },
+				{
+		      pregunta: "para que regreses",
+		      respuesta: "Para que regreses",
+					opciones : ["La papa", "Para que vuelvas", "La número 20"]
+		    },
+				{
+		      pregunta: "rata de dos patas",
+		      respuesta: "Rata de dos patas",
+					opciones : ["Eres", "Te odio", "Tres veces te engañé"]
+		    },
+				{
+		      pregunta: "rayando el sol",
+		      respuesta: "Rayando el sol",
+					opciones : ["La puerta negra", "Puerto de san blas", "Me vale"]
+		    },
+				{
+		      pregunta: "si nos dejan",
+		      respuesta: "Si nos dejan",
+					opciones : ["La chica del uno", "La incondicional", "Inolvidable"]
+		    },
+				{
+		      pregunta: "te quiero asi",
+		      respuesta: "Te quiero así",
+					opciones : ["Para que continuar", "A mis enemigos", "Vete ya"]
+		    },
+				{
+		      pregunta: "y como es el",
+		      respuesta: "Y cómo es él",
+					opciones : ["No tengas miedo", "Tienes algo nuevo", "Amiga mía"]
+		    },
+				{
+		      pregunta: "yo no fui",
+		      respuesta: "Yo no fuí",
+					opciones : ["Eslabṕn por eslabón", "Soy quien soy", "El venado"]
+		    },
+				{
+		      pregunta: "yo soy el aventurero",
+		      respuesta: "Yo soy el aventurero",
+					opciones : ["Me gustan", "El mundo me importa poco", "Cumbia río"]
+		    }
 			]
 		}
 		return config
