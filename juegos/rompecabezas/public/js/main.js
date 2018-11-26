@@ -4,7 +4,7 @@ class Fin extends React.Component{
         super(props);
 
         Consulta.post('/paciente/registrar/avance/', {
-                juego: 'dibujaPalabra',
+                juego: 'rompecabezas',
                 paciente: this.props.paciente,
                 porcentaje: this.props.porcentaje,
                 nivel: this.props.nivel,
@@ -113,185 +113,140 @@ class Nivel extends React.Component{
 
 class Ejercicio extends React.Component {
 	constructor(props) {
-
-		super(props);
-		this.state = {
-			pregunta: 0,
-			aciertos: 0,
-			index: null,
-            palabra_index : null,
-            used : [],
-            paint: false,
-            path: []
-		}
-        this.total_preguntas = 5;
-		this.siguiente = this.siguiente.bind(this);
-        this.seleccionar = this.seleccionar.bind(this);
-        this.dibujar = this.dibujar.bind(this);
-        this.addClick = this.addClick.bind(this);
-        this.clear = this.clear.bind(this);
-        this.redraw = this.redraw.bind(this);
-        this.continuarDibujo = this.continuarDibujo.bind(this);
-        this.clean = this.clean.bind(this);
-	}
-
-	seleccionar(index) {
-		this.setState({
-			index: index
-		});
-    }
-    
-    addClick(x, y, drag) {
-        console.log(x, y, drag);
-        this.setState({
-            path: this.state.path.concat({
-                x: x,
-                y: y,
-                drag: drag
-            })
-        });
-    }
-
-    dibujar(event) {
-        var rect = event.target.getBoundingClientRect();
-        var x = event.clientX - rect.left;
-        var y = event.clientY - rect.top;
-        this.setState({
-            paint: true
-        });
-        this.addClick(x, y);
-        this.redraw();
-    }
-
-    clean () {
-        var canvas = document.querySelector('#canvas');
-        var context = canvas.getContext('2d');
-        context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-        this.setState({
-            path: []
-        });
-    }
-
-    redraw() {
-        var canvas = document.querySelector('#canvas');
-        var context = canvas.getContext('2d');
-        context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-        
-        context.strokeStyle = "#df4b26";
-        context.lineJoin = "round";
-        context.lineWidth = 5;
-                  
-        for(var i=0; i < this.state.path.length; i++) {
-            context.beginPath();
-            if (this.state.path[i].drag && i) {
-                context.moveTo(this.state.path[i-1].x, this.state.path[i-1].y);
-            } else {
-                context.moveTo(this.state.path[i].x - 1, this.state.path[i].y);
-            }
-            context.lineTo(this.state.path[i].x, this.state.path[i].y);
-            context.closePath();
-            context.stroke();
+        super(props);
+        this.generarPiezas = this.generarPiezas.bind(this);
+        this.colocarPieza = this.colocarPieza.bind(this);
+        this.n = 4;
+        this.total = this.n * this.n;
+        this.rompecabezas = 'frutas';
+        var piezas = this.generarPiezas();
+        this.state = {
+            selected: {
+                x: -1,
+                y: -1
+            },
+            done: [
+                [ false, false, false, false ],
+                [ false, false, false, false ],
+                [ false, false, false, false ],
+                [ false, false, false, false ]
+            ],
+            puzzle: [
+                [ false, false, false, false ],
+                [ false, false, false, false ],
+                [ false, false, false, false ],
+                [ false, false, false, false ]
+            ],
+            movimientos: 0,
+            piezas: piezas
         }
-      }
-
-    continuarDibujo(event) {
-        if (!this.state.paint) return;
-        var rect = event.target.getBoundingClientRect();
-        var x = event.clientX - rect.left;
-        var y = event.clientY - rect.top;
-        this.addClick(x, y, true);
-        this.redraw();
     }
 
-    clear() {
+    generarPiezas () {
+        // https://pinetools.com/es/partir-imagenes
+        var piezas = [];
+        for (var i = 0; i < this.n; i++) {
+            var row = [];
+            for (var j = 0; j < this.n; j++) {
+                var n = Math.floor(Math.random() * this.n);
+                while (row.indexOf(n) >= 0) {
+                    n = Math.floor(Math.random() * this.n);
+                }
+                row.push(n);
+            }
+            piezas.push(row);
+        }
+        return piezas;
+    }
+
+    colocarPieza (i, j) {
+        var done = this.state.done.map(x => x.map(y => y));
+        var puzzle = this.state.puzzle.map(x => x.map(y => y));
+        done[i][j] = this.state.selected.x >= 0 && this.state.selected.y == i && this.state.piezas[i][this.state.selected.x] == j;
+        switch (this.props.nivel) {
+            case 1:
+                puzzle[i][j] = done[i][j];
+                break;
+            case 2:
+                puzzle[i][j] = done[i][j] || !puzzle[i][j];
+                break;
+            case 3:
+                puzzle[i][j] = !puzzle[i][j];
+                break;
+        }
         this.setState({
-            paint: false
+            done: done,
+            movimientos: this.state.movimientos + 1,
+            selected: {
+                x: -1,
+                y: -1
+            }
+        }, () => {
+            if (this.state.done.every(x => x.every(y => y))) {
+                var puntaje = 100 - (this.state.movimientos - this.total - this.n) * 3;
+                puntaje = Math.max(0, puntaje);
+                puntaje = Math.min(100, puntaje);
+                this.props.terminar(puntaje);
+            }
         });
     }
-
-	siguiente() {
-		if (this.state.index == null) {
-			toastr("No has seleccionado una opción");
-		} else {
-            var aciertos = this.state.aciertos + this.state.index;
-            console.log(aciertos);
-            var used = this.state.used.map(x => x)
-            used.push(this.state.palabra_index);
-            this.clean();
-            this.setState({
-                aciertos: aciertos,
-                pregunta: this.state.pregunta + 1,
-                index: null,
-                palabra_index : null,
-                used: used
-            });
-		}
-	}
 
 	render() {
-		if (this.state.pregunta >= this.total_preguntas) {
-            var total_aciertos = this.total_preguntas * 4;
-            var porcentaje = Math.round(this.state.aciertos / total_aciertos * 100);
-			      this.props.terminar(porcentaje);
-            return(<div></div>);
-		} else {
-            var palabras;
-            switch (this.props.nivel) {
-                case 1: palabras = ['Pelota', 'Manzana', 'Corazón', 'Sol', 'Luna', 'Nube', 'Bota', 'Pez'];
-                break;
-                case 2: palabras = ['Flor', 'Palmera', 'Árbol', 'Estrella', 'Automóvil', 'Silla', 'Sombrilla'];
-                break;
-                case 3: palabras = ['Playa', 'Ciudad', 'Atardecer', 'Amanecer', 'Deporte', 'Casa', 'Película', 'Granja'];
-                break;
-            }
-            if(this.state.palabra_index == null) {
-              var p = Math.floor((Math.random() * (palabras.length-1)))
-              while (this.state.used.indexOf(p) >= 0) {
-                  p = Math.floor((Math.random() * (palabras.length-1)))
-              }
-              this.state.palabra_index = p
-            }
-
-            var text = palabras[this.state.palabra_index];
-			return (
-				<div>
-					<div className="offset-2 col-8 text-center text-bold">
-                        <h3>{text}</h3> <br />
-                        <canvas id="canvas" width={300} height={300} style={{ background: 'white' }} onMouseDown={this.dibujar} onMouseMove={this.continuarDibujo} onMouseUp={this.clear} onMouseLeave={this.clear} />
-					</div>
-
-                    <div className="alert alert-success row mt-3">
-                        <div className="offset-1 col-2">
-                            <button onClick={() => {this.seleccionar(0)}} className="btn btn-danger">Muy mal</button>
-                        </div>
-
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(1)}} className="btn btn-warning">Mal</button>
-                        </div>
-
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(2)}} className="btn btn-info">Regular</button>
-                        </div>
-
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(3)}} className="btn btn-primary">Bien</button>
-                        </div>
-
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(4)}} className="btn btn-success">Muy bien</button>
-                        </div>
+        let puzzle = [];
+        for (let i = 0; i < this.n; i++) {
+            let row = [];
+            for (let j = 0; j < this.n; j++) {
+                let content = this.state.done[i][j]
+                    ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".png"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
+                    : '';
+                row.push(
+                    <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '25%' }} onClick={() => {
+                        this.colocarPieza(i, j);
+                    }}>
+                        {content}
                     </div>
-
-                    <div className="row mt-3">
-                        <div className="col-2 offset-10">
-                            <button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
-                        </div>
+                );
+            }
+            puzzle.push(<div style={{ borderCollapse: 'collapse' }}>{row}</div>);
+        }
+        var piezas = this.state.piezas.map((row, i) => {
+            var grid = row.map((pieza, j) => {
+                var active = this.state.selected.x == j && this.state.selected.y == i;
+                var content = this.state.done[i][pieza] ? '' : <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (pieza + 1) + ".png"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} onClick={() => {
+                    this.setState({
+                        selected: {
+                            x: j,
+                            y: i
+                        }
+                    });
+                }} />;
+                return (
+                    <div style={{ background: '#fffdd0', border: 'solid ' + (active ? 'red' : 'black') + ' 2px', float: 'left', height: '80px', width: '25%' }}>
+                        {content}
                     </div>
-				</div>
-			);
-		}
-	}
+                );
+            });
+            return (
+                <div style={{ borderCollapse: 'collapse' }}>{grid}</div>
+            );
+        });
+        return (
+            <div className="row">
+                <div className="col-sm-4">
+                    {piezas}
+                </div>
+                <div className="col-sm-4">
+                    {puzzle}
+                </div>
+                <div className="col-sm-4">
+                    <h3>Resultado</h3>
+                    <img src={"./img/" + this.rompecabezas + ".png"} style={{ maxWidth: '100%', minWidth: '100%' }} />
+                </div>
+            </div>
+        );
+    }
 }
+
 class Instrucciones extends React.Component {
 	render() {
 		return (
