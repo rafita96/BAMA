@@ -213,23 +213,23 @@ class Ejercicio extends React.Component {
 
                     <div className="alert alert-success row mt-3">
                         <div className="offset-1 col-2">
-                            <button onClick={() => {this.seleccionar(0)}} className="btn btn-danger">Muy mal</button>
+                            <button onClick={() => {this.seleccionar(0)}} className="btn btn-danger">1</button>
                         </div>
 
                         <div className="col-2">
-                            <button onClick={() => {this.seleccionar(1)}} className="btn btn-warning">Mal</button>
+                            <button onClick={() => {this.seleccionar(1)}} className="btn btn-warning">2</button>
                         </div>
 
                         <div className="col-2">
-                            <button onClick={() => {this.seleccionar(2)}} className="btn btn-info">Regular</button>
+                            <button onClick={() => {this.seleccionar(2)}} className="btn btn-info">3</button>
                         </div>
 
                         <div className="col-2">
-                            <button onClick={() => {this.seleccionar(3)}} className="btn btn-primary">Bien</button>
+                            <button onClick={() => {this.seleccionar(3)}} className="btn btn-primary">4</button>
                         </div>
 
                         <div className="col-2">
-                            <button onClick={() => {this.seleccionar(4)}} className="btn btn-success">Muy bien</button>
+                            <button onClick={() => {this.seleccionar(4)}} className="btn btn-success">5</button>
                         </div>
                     </div>
 
