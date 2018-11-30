@@ -14,9 +14,34 @@ class Ejercicio extends React.Component {
 		this.seleccionar = this.seleccionar.bind(this);
 	}
 
-	generarCadena(figura, color) {
-		var cadena = figura + "_" + color;
-		return cadena
+	generarAleatorio(min, max) {
+		return Math.floor(Math.random() * (max - min + 1) + min)
+	}
+
+	randomBool(){
+		return Math.random() >= 0.5
+	}
+
+	generarOpcion (min, max) {
+		if(this.props.nivel == 1) {
+			if(this.randomBool()) {
+				return this.generarAleatorio(min, max)
+			}else {
+				return (this.randomBool()) ? '+' : '-'
+			}
+		} else {
+			if(this.randomBool()) {
+				return this.generarAleatorio(min, max)
+			}else {
+				var operadores = ['+', '-', 'x', '/']
+				return operadores[this.generarAleatorio(0,3)]
+			}
+		}
+	}
+
+	generarOperador() {
+		var operadores = ['+', '-', 'x','/']
+		return operadores[this.generarAleatorio(0,3)]
 	}
 
 	generarEjercicios() {
@@ -27,15 +52,103 @@ class Ejercicio extends React.Component {
 		for (var i = 0; i < this.numeroPreguntas; i++) {
 
 			var ejercicio = new Object();
+			switch (this.props.nivel) {
+				//Se generan ejercicios dependiento del nivel de dificultad
+				//En el nivel más fácil son solamente sumas y restas
+				case 1:
+					var operando1 =  this.generarAleatorio(0,10)// numeros de un dígito
+					var operando2 = this.generarAleatorio(0,10)
+					var operador = this.randomBool() ? '+' : '-'
+					var resultado = (operador=='+') ? operando1 + operando2 : operando1 - operando2
+					//Generar escondido
+					switch (this.generarAleatorio(0,3)) {
+						case 0:
+							ejercicio.respuesta = operando1
+							operando1 = '_'
+							break;
+						case 1:
+						ejercicio.respuesta = operador
+						operador = '_'
+							break;
+						case 2:
+						ejercicio.respuesta = operador
+						operador = '_'
+							break;
+						case 3:
+						ejercicio.respuesta = resultado
+						resultado = '_'
+							break;
+					}
+					ejercicio.pregunta = operando1 + operador + operando2 + '=' + resultado
 
-			var pregunta = config[this.props.nivel].splice(Math.floor(Math.random() * config[this.props.nivel].length), 1)[0]
+					var opciones = []
+					var j;
+					for(j=0;j < 3; j++) {
+						let opcion = this.generarOpcion(0,10)
+						while(opciones.includes(opcion) || ejercicio.respuesta == opcion){
+							opcion = this.generarOpcion(0,10)
+						}
+						opciones.push(opcion)
+					}
+					opciones.push(ejercicio.respuesta)
 
-			// Creamos la pregunta que será mostrada al usuario.
-			ejercicio.pregunta = pregunta.pregunta
+					break;
+					//En el nivel medio se realizan multiplicaciones y divisiones
+				case 2:
+				var operando1 =  this.generarAleatorio(0,10)// numeros de un dígito
+				var operando2 = this.generarAleatorio(0,10)
+				var operador = this.generarOperador()
+				var resultado
+				switch (operador) {
+					case '+':
+						resultado = operando1 + operando2
+						break;
+					case '-':
+					resultado = operando1 - operando2
+					break;
+					case 'x':
+					resultado = operando1 * operando2
+					break;
+					case '/':
+					resultado = operando1 / operando2
+					break;
+				}
+				//Generar escondido
+				switch (this.generarAleatorio(0,3)) {
+					case 0:
+						ejercicio.respuesta = operando1
+						operando1 = '_'
+						break;
+					case 1:
+					ejercicio.respuesta = operador
+					operador = '_'
+						break;
+					case 2:
+					ejercicio.respuesta = operador
+					operador = '_'
+						break;
+					case 3:
+					ejercicio.respuesta = resultado
+					resultado = '_'
+						break;
+				}
+				ejercicio.pregunta = operando1 + operador + operando2 + '=' + resultado
 
-			ejercicio.respuesta = pregunta.respuesta
-			var opciones = pregunta.opciones
-			opciones.push(ejercicio.respuesta)
+				var opciones = []
+				var j;
+				for(j=0;j < 3; j++) {
+					let opcion = this.generarOpcion(0,10)
+					if(opciones.includes(opcion) || ejercicio.respuesta == opcion){
+						opcion = this.generarOpcion(0,10)
+					}
+					opciones.push(opcion)
+				}
+				opciones.push(ejercicio.respuesta)
+					break;
+					//En el nivel difícil se crean problemas escritos utilizando sumas y restas
+				case 3:
+					break;
+			}
 
 			opciones = shuffle(opciones)
 			ejercicio.opciones = opciones
