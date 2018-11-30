@@ -110,9 +110,14 @@ class Ejercicio extends React.Component {
 					resultado = operando1 * operando2
 					break;
 					case '/':
+					while(operando2 == 0) {
+						operando2 = this.generarAleatorio(0,10)
+					}
 					resultado = operando1 / operando2
+					resultado = Number((resultado).toFixed(3))
 					break;
 				}
+
 				//Generar escondido
 				switch (this.generarAleatorio(0,3)) {
 					case 0:
@@ -132,6 +137,7 @@ class Ejercicio extends React.Component {
 					resultado = '_'
 						break;
 				}
+
 				ejercicio.pregunta = operando1 + operador + operando2 + '=' + resultado
 
 				var opciones = []
