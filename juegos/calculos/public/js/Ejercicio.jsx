@@ -22,25 +22,25 @@ class Ejercicio extends React.Component {
 		return Math.random() >= 0.5
 	}
 
-	generarOpcion (min, max) {
+	generarOpcion (min, max, operador_escondido) {
 		if(this.props.nivel == 1) {
-			if(this.randomBool()) {
+			if(!operador_escondido) {
 				return this.generarAleatorio(min, max)
 			}else {
 				return (this.randomBool()) ? '+' : '-'
 			}
 		} else {
-			if(this.randomBool()) {
+			if(!operador_escondido) {
 				return this.generarAleatorio(min, max)
 			}else {
-				var operadores = ['+', '-', 'x', '/']
+				var operadores = ['+', '-', 'x', '➗']
 				return operadores[this.generarAleatorio(0,3)]
 			}
 		}
 	}
 
 	generarOperador() {
-		var operadores = ['+', '-', 'x','/']
+		var operadores = ['+', '-', 'x','➗']
 		return operadores[this.generarAleatorio(0,3)]
 	}
 
@@ -48,6 +48,25 @@ class Ejercicio extends React.Component {
 		var min = num - 10
 		var max = num + 10
 		return this.generarAleatorio(min, max)
+	}
+
+	generarOpciones(operador_escondido, respuesta) {
+		let opciones = []
+		if(operador_escondido){
+			opciones = ['+', '-', 'x','➗']
+		} else {
+			var j
+			for(j=0;j < 3; j++) {
+				let opcion = this.generarAleatorio(0,10)
+				while(opciones.includes(opcion) || respuesta == opcion){
+					opcion = this.generarAleatorio(0,10)
+				}
+				opciones.push(opcion)
+			}
+			opciones.push(respuesta)
+		}
+
+		return opciones
 	}
 
 	generarEjercicios() {
@@ -66,18 +85,20 @@ class Ejercicio extends React.Component {
 					var operador = this.randomBool() ? '+' : '-'
 					var resultado = (operador=='+') ? operando1 + operando2 : operando1 - operando2
 					//Generar escondido
+					var operador_escondido = false
 					switch (this.generarAleatorio(0,3)) {
 						case 0:
 							ejercicio.respuesta = operando1
 							operando1 = '_'
 							break;
 						case 1:
+						operador_escondido = true
 						ejercicio.respuesta = operador
 						operador = '_'
 							break;
 						case 2:
-						ejercicio.respuesta = operador
-						operador = '_'
+						ejercicio.respuesta = operando2
+						operando2 = '_'
 							break;
 						case 3:
 						ejercicio.respuesta = resultado
@@ -85,17 +106,8 @@ class Ejercicio extends React.Component {
 							break;
 					}
 					ejercicio.pregunta = operando1 + operador + operando2 + '=' + resultado
-
-					var opciones = []
-					var j;
-					for(j=0;j < 3; j++) {
-						let opcion = this.generarOpcion(0,10)
-						while(opciones.includes(opcion) || ejercicio.respuesta == opcion){
-							opcion = this.generarOpcion(0,10)
-						}
-						opciones.push(opcion)
-					}
-					opciones.push(ejercicio.respuesta)
+					//generar opciones
+					var opciones = this.generarOpciones(operador_escondido, ejercicio.respuesta)
 
 					break;
 					//En el nivel medio se realizan multiplicaciones y divisiones
@@ -114,28 +126,32 @@ class Ejercicio extends React.Component {
 					case 'x':
 					resultado = operando1 * operando2
 					break;
-					case '/':
-					while(operando2 == 0) {
+					case '➗':
+					while(operando2 == 0 ) {
 						operando2 = this.generarAleatorio(0,10)
 					}
-					resultado = operando1 / operando2
-					resultado = Number((resultado).toFixed(3))
+					resultado = operando1 * operando2
+					var temp = operando1
+					operando1 = resultado
+					resultado = temp
 					break;
 				}
 
 				//Generar escondido
+				var operador_escondido = false
 				switch (this.generarAleatorio(0,3)) {
 					case 0:
 						ejercicio.respuesta = operando1
 						operando1 = '_'
 						break;
 					case 1:
+					operador_escondido = true
 					ejercicio.respuesta = operador
 					operador = '_'
 						break;
 					case 2:
-					ejercicio.respuesta = operador
-					operador = '_'
+					ejercicio.respuesta = operando2
+					operando2 = '_'
 						break;
 					case 3:
 					ejercicio.respuesta = resultado
@@ -143,46 +159,53 @@ class Ejercicio extends React.Component {
 						break;
 				}
 
+
 				ejercicio.pregunta = operando1 + operador + operando2 + '=' + resultado
 
-				var opciones = []
-				var j;
-				for(j=0;j < 3; j++) {
-					let opcion = this.generarOpcion(0,10)
-					if(opciones.includes(opcion) || ejercicio.respuesta == opcion){
-						opcion = this.generarOpcion(0,10)
-					}
-					opciones.push(opcion)
-				}
-				opciones.push(ejercicio.respuesta)
+				//generar opciones
+				var opciones = this.generarOpciones(operador_escondido, ejercicio.respuesta)
 					break;
 					//En el nivel difícil se crean problemas escritos utilizando sumas y restas
 				case 3:
-				var operando1 =  this.generarAleatorio(0,10)// numeros de un dígito
-				var operando2 = this.generarAleatorio(0,10)
+				var operando1 =  this.generarAleatorio(1,10)// numeros de un dígito
+				var operando2 = this.generarAleatorio(1,10)
 				var operador = this.generarOperador()
 				var resultado
 				var enunciado
+				var objetos = ['banana','galleta', 'pieza', 'pluma']
+				var objeto1 = objetos[this.generarAleatorio(0, objetos.length-1)]
+				var objeto2 = (operando2 == 1) ? objeto1 : objeto1+'s'
+				objeto1 = (operando1 == 1) ? objeto1 : objeto1+'s'
 				switch (operador) {
 					case '+':
 						resultado = operando1 + operando2
-						enunciado = 'Si tengo ' + operando1 + ' piezas y sumo ' +operando2 + ' piezas. ¿Cuántas tengo?'
+						enunciado = 'Si tengo ' + operando1 + ' ' + objeto1 + ' y compro ' +operando2 + ' '+objeto2+' más. ¿Cuántas tengo?'
 						break;
 					case '-':
+					var limite = operando1 - operando2
+					if(limite < 0) {
+						limite = limite*(-1)
+						operando1 += (limite + this.generarAleatorio(0, 10))
+						operando2 += (limite + this.generarAleatorio(0, 10))
+					}
 					resultado = operando1 - operando2
-					enunciado = 'Si tengo ' + operando1 + ' piezas y resto ' +operando2 + ' piezas. ¿Cuántas tengo?'
+					enunciado = 'Si tengo ' + operando1 + ' ' + objeto1 + ' y regalo ' +operando2 + ' '+objeto2+'. ¿Cuántas tengo?'
 					break;
 					case 'x': //problemas de
 					resultado = operando1 * operando2
-					enunciado = 'Si tengo ' + operando1 + ' piezas y multiplico ' +operando2 + ' piezas. ¿Cuántas tengo?'
+					objeto2 = (operando2 == 1) ? 'canasta' : 'canastas'
+					enunciado = 'Si tengo ' + operando2 + ' ' + objeto2 + ' con ' +operando1 + ' '+objeto1+' cada una. ¿Cuántas '+objeto1+' tengo en total?'
 					break;
-					case '/':// PRoblemas de reparticion
+					case '➗':// PRoblemas de reparticion
 					while(operando2 == 0) {
 						operando2 = this.generarAleatorio(0,10)
 					}
-					resultado = operando1 / operando2
-					resultado = Number((resultado).toFixed(3))
-					enunciado = 'Si tengo ' + operando1 + ' piezas y reparto ' +operando2 + ' piezas. ¿Cuántas tengo?'
+					resultado = operando1 * operando2
+					var temp = operando1
+					operando1 = resultado
+					resultado = temp
+					objeto2 = (operando2 == 1) ? 'canasta' : 'canastas'
+					enunciado = 'Si tengo ' + operando1 + ' ' + objeto1 + ' y coloco en ' +operando2 + ' '+objeto2+'. ¿Cuántas hay en cada una?'
 					break;
 				}
 				ejercicio.pregunta = enunciado

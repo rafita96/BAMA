@@ -139,233 +139,248 @@ class Ejercicio extends React.Component {
 		var config = {
 			1 : [
 				{
-		      pregunta: "belleza",
-		      respuesta: "Belleza de cantina",
-					opciones : ["Ni dada la quiero", "Mi complice", "La puerta negra"]
+		      pregunta: "alma corazon y vida",
+		      respuesta: "Alma, corazón y vida",
+					opciones : ["A lo loco", "Ay que me vuelvo loca", "Cerezo"]
 		    },
 				{
-		      pregunta: "amor eterno",
-		      respuesta: "Amor eterno",
-					opciones : ["La incondicional", "Eres", "Amor inolvidable"]
+		      pregunta: "a lo loco",
+		      respuesta: "A lo loco",
+					opciones : ["Alma, corazón y vida", "Ay que me vuelvo loca", "Cerezo"]
 		    },
 				{
-		      pregunta: "carnaval",
-		      respuesta: "La vida es un carnaval",
-					opciones : ["Azul", "Tiene espinas el rosal", "Salsa"]
+		      pregunta: "ay que me vuelvo loca",
+		      respuesta: "Ay que me vuelvo loca",
+					opciones : ["Desde Santurce a bilbao", "Cerezo", "Jambalaya"]
 		    },
 				{
-		      pregunta: "celos",
-		      respuesta: "Estos celos",
-					opciones : ["La vaca", "El rey", "México"]
+		      pregunta: "cerezo",
+		      respuesta: "Cerezo",
+					opciones : ["Eso es amor", "Alma, corazón y vida", "Jambalaya"]
 		    },
 				{
-		      pregunta: "compre una cantina",
-		      respuesta: "Compré una cantina",
-					opciones : ["Tragos de amargo licor", "Culpable o no", "Mi complice"]
+		      pregunta: "desde santurce a bilbao",
+		      respuesta: "Desde santurce a bilbao",
+					opciones : ["Jambalaya", "Eso es amor", "Jambalaya"]
 		    },
 				{
-		      pregunta: "el rey",
-		      respuesta: "El rey",
-					opciones : ["Sigo siendo el rey", "Llorar y llorar", "Nadie que me comprenda"]
+		      pregunta: "eso es amor",
+		      respuesta: "Eso es amor",
+					opciones : ["Jambalaya", "Eso es amor", "Madrecita"]
 		    },
 				{
-		      pregunta: "mi complice",
-		      respuesta: "Mi complice",
-					opciones : ["Inolvidable", "En la cantina", "Belleza de cantina"]
+		      pregunta: "jambalaya",
+		      respuesta: "Jambalaya",
+					opciones : ["Madrecita", "Amor", "Belleza de cantina"]
 		    },
 				{
-		      pregunta: "para que regreses",
-		      respuesta: "Para que regreses",
-					opciones : ["La papa", "Para que vuelvas", "La número 20"]
+		      pregunta: "madrecita",
+		      respuesta: "Madrecita",
+					opciones : ["Jambalaya", "Cereza", "La número 20"]
 		    },
 				{
-		      pregunta: "rata de dos patas",
-		      respuesta: "Rata de dos patas",
-					opciones : ["Eres", "Te odio", "Tres veces te engañé"]
+		      pregunta: "menudo menu",
+		      respuesta: "Menudo menú",
+					opciones : ["Eres", "Te odio", "Menudo"]
 		    },
 				{
-		      pregunta: "rayando el sol",
-		      respuesta: "Rayando el sol",
-					opciones : ["La puerta negra", "Puerto de san blas", "Me vale"]
+		      pregunta: "mi ovejita lucera",
+		      respuesta: "Mi ovejita lucera",
+					opciones : ["La puerta negra", "Puerto de san blas", "Madrecita"]
 		    },
 				{
-		      pregunta: "si nos dejan",
-		      respuesta: "Si nos dejan",
-					opciones : ["La chica del uno", "La incondicional", "Inolvidable"]
+		      pregunta: "piel canela",
+		      respuesta: "Piel canela",
+					opciones : ["Si nos dejan", "La incondicional", "Inolvidable"]
 		    },
 				{
-		      pregunta: "te quiero asi",
-		      respuesta: "Te quiero así",
-					opciones : ["Para que continuar", "A mis enemigos", "Vete ya"]
+		      pregunta: "que bonita es barcelona",
+		      respuesta: "Que bonita es barcelona",
+					opciones : ["Menudo menú", "Inolvidable", "Esto es amor"]
 		    },
 				{
-		      pregunta: "y como es el",
-		      respuesta: "Y cómo es él",
-					opciones : ["No tengas miedo", "Tienes algo nuevo", "Amiga mía"]
+		      pregunta: "santander",
+		      respuesta: "Santander",
+					opciones : ["No tengas miedo", "Madrecita", "Amiga mía"]
 		    },
 				{
-		      pregunta: "yo no fui",
-		      respuesta: "Yo no fuí",
-					opciones : ["Eslabṕn por eslabón", "Soy quien soy", "El venado"]
+		      pregunta: "solamente una vez",
+		      respuesta: "Solamente una vez",
+					opciones : ["Esto es amor", "Soy quien soy", "El venado"]
 		    },
 				{
-		      pregunta: "yo soy el aventurero",
-		      respuesta: "Yo soy el aventurero",
-					opciones : ["Me gustan", "El mundo me importa poco", "Cumbia río"]
+		      pregunta: "tiro liro",
+		      respuesta: "Tiro liro",
+					opciones : ["Me gustan", "Solamente una vez", "Santander"]
+		    },
+				{
+		      pregunta: "yo te dire",
+		      respuesta: "Yo te diré",
+					opciones : ["Tiro liro", "A lo loco", "Santander"]
 		    }
 			],
 		  2 : [
 				{
-		      pregunta: "belleza",
-		      respuesta: "Belleza de cantina",
-					opciones : ["Ni dada la quiero", "Mi complice", "La puerta negra"]
+		      pregunta: "alma corazon y vida",
+		      respuesta: "Alma, corazón y vida",
+					opciones : ["A lo loco", "Ay que me vuelvo loca", "Cerezo"]
 		    },
 				{
-		      pregunta: "amor eterno",
-		      respuesta: "Amor eterno",
-					opciones : ["La incondicional", "Eres", "Amor inolvidable"]
+		      pregunta: "a lo loco",
+		      respuesta: "A lo loco",
+					opciones : ["Alma, corazón y vida", "Ay que me vuelvo loca", "Cerezo"]
 		    },
 				{
-		      pregunta: "carnaval",
-		      respuesta: "La vida es un carnaval",
-					opciones : ["Azul", "Tiene espinas el rosal", "Salsa"]
+		      pregunta: "ay que me vuelvo loca",
+		      respuesta: "Ay que me vuelvo loca",
+					opciones : ["Desde Santurce a bilbao", "Cerezo", "Jambalaya"]
 		    },
 				{
-		      pregunta: "celos",
-		      respuesta: "Estos celos",
-					opciones : ["La vaca", "El rey", "México"]
+		      pregunta: "cerezo",
+		      respuesta: "Cerezo",
+					opciones : ["Eso es amor", "Alma, corazón y vida", "Jambalaya"]
 		    },
 				{
-		      pregunta: "compre una cantina",
-		      respuesta: "Compré una cantina",
-					opciones : ["Tragos de amargo licor", "Culpable o no", "Mi complice"]
+		      pregunta: "desde santurce a bilbao",
+		      respuesta: "Desde santurce a bilbao",
+					opciones : ["Jambalaya", "Eso es amor", "Jambalaya"]
 		    },
 				{
-		      pregunta: "el rey",
-		      respuesta: "El rey",
-					opciones : ["Sigo siendo el rey", "Llorar y llorar", "Nadie que me comprenda"]
+		      pregunta: "eso es amor",
+		      respuesta: "Eso es amor",
+					opciones : ["Jambalaya", "Eso es amor", "Madrecita"]
 		    },
 				{
-		      pregunta: "mi complice",
-		      respuesta: "Mi complice",
-					opciones : ["Inolvidable", "En la cantina", "Belleza de cantina"]
+		      pregunta: "jambalaya",
+		      respuesta: "Jambalaya",
+					opciones : ["Madrecita", "Amor", "Belleza de cantina"]
 		    },
 				{
-		      pregunta: "para que regreses",
-		      respuesta: "Para que regreses",
-					opciones : ["La papa", "Para que vuelvas", "La número 20"]
+		      pregunta: "madrecita",
+		      respuesta: "Madrecita",
+					opciones : ["Jambalaya", "Cereza", "La número 20"]
 		    },
 				{
-		      pregunta: "rata de dos patas",
-		      respuesta: "Rata de dos patas",
-					opciones : ["Eres", "Te odio", "Tres veces te engañé"]
+		      pregunta: "menudo menu",
+		      respuesta: "Menudo menú",
+					opciones : ["Eres", "Te odio", "Menudo"]
 		    },
 				{
-		      pregunta: "rayando el sol",
-		      respuesta: "Rayando el sol",
-					opciones : ["La puerta negra", "Puerto de san blas", "Me vale"]
+		      pregunta: "mi ovejita lucera",
+		      respuesta: "Mi ovejita lucera",
+					opciones : ["La puerta negra", "Puerto de san blas", "Madrecita"]
 		    },
 				{
-		      pregunta: "si nos dejan",
-		      respuesta: "Si nos dejan",
-					opciones : ["La chica del uno", "La incondicional", "Inolvidable"]
+		      pregunta: "piel canela",
+		      respuesta: "Piel canela",
+					opciones : ["Si nos dejan", "La incondicional", "Inolvidable"]
 		    },
 				{
-		      pregunta: "te quiero asi",
-		      respuesta: "Te quiero así",
-					opciones : ["Para que continuar", "A mis enemigos", "Vete ya"]
+		      pregunta: "que bonita es barcelona",
+		      respuesta: "Que bonita es barcelona",
+					opciones : ["Menudo menú", "Inolvidable", "Esto es amor"]
 		    },
 				{
-		      pregunta: "y como es el",
-		      respuesta: "Y cómo es él",
-					opciones : ["No tengas miedo", "Tienes algo nuevo", "Amiga mía"]
+		      pregunta: "santander",
+		      respuesta: "Santander",
+					opciones : ["No tengas miedo", "Madrecita", "Amiga mía"]
 		    },
 				{
-		      pregunta: "yo no fui",
-		      respuesta: "Yo no fuí",
-					opciones : ["Eslabṕn por eslabón", "Soy quien soy", "El venado"]
+		      pregunta: "solamente una vez",
+		      respuesta: "Solamente una vez",
+					opciones : ["Esto es amor", "Soy quien soy", "El venado"]
 		    },
 				{
-		      pregunta: "yo soy el aventurero",
-		      respuesta: "Yo soy el aventurero",
-					opciones : ["Me gustan", "El mundo me importa poco", "Cumbia río"]
+		      pregunta: "tiro liro",
+		      respuesta: "Tiro liro",
+					opciones : ["Me gustan", "Solamente una vez", "Santander"]
+		    },
+				{
+		      pregunta: "yo te dire",
+		      respuesta: "Yo te diré",
+					opciones : ["Tiro liro", "A lo loco", "Santander"]
 		    }
-		  ],
+			],
 			3 : [
 				{
-		      pregunta: "belleza",
-		      respuesta: "Belleza de cantina",
-					opciones : ["Ni dada la quiero", "Mi complice", "La puerta negra"]
+		      pregunta: "alma corazon y vida",
+		      respuesta: "Alma, corazón y vida",
+					opciones : ["A lo loco", "Ay que me vuelvo loca", "Cerezo"]
 		    },
 				{
-		      pregunta: "amor eterno",
-		      respuesta: "Amor eterno",
-					opciones : ["La incondicional", "Eres", "Amor inolvidable"]
+		      pregunta: "a lo loco",
+		      respuesta: "A lo loco",
+					opciones : ["Alma, corazón y vida", "Ay que me vuelvo loca", "Cerezo"]
 		    },
 				{
-		      pregunta: "carnaval",
-		      respuesta: "La vida es un carnaval",
-					opciones : ["Azul", "Tiene espinas el rosal", "Salsa"]
+		      pregunta: "ay que me vuelvo loca",
+		      respuesta: "Ay que me vuelvo loca",
+					opciones : ["Desde Santurce a bilbao", "Cerezo", "Jambalaya"]
 		    },
 				{
-		      pregunta: "celos",
-		      respuesta: "Estos celos",
-					opciones : ["La vaca", "El rey", "México"]
+		      pregunta: "cerezo",
+		      respuesta: "Cerezo",
+					opciones : ["Eso es amor", "Alma, corazón y vida", "Jambalaya"]
 		    },
 				{
-		      pregunta: "compre una cantina",
-		      respuesta: "Compré una cantina",
-					opciones : ["Tragos de amargo licor", "Culpable o no", "Mi complice"]
+		      pregunta: "desde santurce a bilbao",
+		      respuesta: "Desde santurce a bilbao",
+					opciones : ["Jambalaya", "Eso es amor", "Jambalaya"]
 		    },
 				{
-		      pregunta: "el rey",
-		      respuesta: "El rey",
-					opciones : ["Sigo siendo el rey", "Llorar y llorar", "Nadie que me comprenda"]
+		      pregunta: "eso es amor",
+		      respuesta: "Eso es amor",
+					opciones : ["Jambalaya", "Eso es amor", "Madrecita"]
 		    },
 				{
-		      pregunta: "mi complice",
-		      respuesta: "Mi complice",
-					opciones : ["Inolvidable", "En la cantina", "Belleza de cantina"]
+		      pregunta: "jambalaya",
+		      respuesta: "Jambalaya",
+					opciones : ["Madrecita", "Amor", "Belleza de cantina"]
 		    },
 				{
-		      pregunta: "para que regreses",
-		      respuesta: "Para que regreses",
-					opciones : ["La papa", "Para que vuelvas", "La número 20"]
+		      pregunta: "madrecita",
+		      respuesta: "Madrecita",
+					opciones : ["Jambalaya", "Cereza", "La número 20"]
 		    },
 				{
-		      pregunta: "rata de dos patas",
-		      respuesta: "Rata de dos patas",
-					opciones : ["Eres", "Te odio", "Tres veces te engañé"]
+		      pregunta: "menudo menu",
+		      respuesta: "Menudo menú",
+					opciones : ["Eres", "Te odio", "Menudo"]
 		    },
 				{
-		      pregunta: "rayando el sol",
-		      respuesta: "Rayando el sol",
-					opciones : ["La puerta negra", "Puerto de san blas", "Me vale"]
+		      pregunta: "mi ovejita lucera",
+		      respuesta: "Mi ovejita lucera",
+					opciones : ["La puerta negra", "Puerto de san blas", "Madrecita"]
 		    },
 				{
-		      pregunta: "si nos dejan",
-		      respuesta: "Si nos dejan",
-					opciones : ["La chica del uno", "La incondicional", "Inolvidable"]
+		      pregunta: "piel canela",
+		      respuesta: "Piel canela",
+					opciones : ["Si nos dejan", "La incondicional", "Inolvidable"]
 		    },
 				{
-		      pregunta: "te quiero asi",
-		      respuesta: "Te quiero así",
-					opciones : ["Para que continuar", "A mis enemigos", "Vete ya"]
+		      pregunta: "que bonita es barcelona",
+		      respuesta: "Que bonita es barcelona",
+					opciones : ["Menudo menú", "Inolvidable", "Esto es amor"]
 		    },
 				{
-		      pregunta: "y como es el",
-		      respuesta: "Y cómo es él",
-					opciones : ["No tengas miedo", "Tienes algo nuevo", "Amiga mía"]
+		      pregunta: "santander",
+		      respuesta: "Santander",
+					opciones : ["No tengas miedo", "Madrecita", "Amiga mía"]
 		    },
 				{
-		      pregunta: "yo no fui",
-		      respuesta: "Yo no fuí",
-					opciones : ["Eslabṕn por eslabón", "Soy quien soy", "El venado"]
+		      pregunta: "solamente una vez",
+		      respuesta: "Solamente una vez",
+					opciones : ["Esto es amor", "Soy quien soy", "El venado"]
 		    },
 				{
-		      pregunta: "yo soy el aventurero",
-		      respuesta: "Yo soy el aventurero",
-					opciones : ["Me gustan", "El mundo me importa poco", "Cumbia río"]
+		      pregunta: "tiro liro",
+		      respuesta: "Tiro liro",
+					opciones : ["Me gustan", "Solamente una vez", "Santander"]
+		    },
+				{
+		      pregunta: "yo te dire",
+		      respuesta: "Yo te diré",
+					opciones : ["Tiro liro", "A lo loco", "Santander"]
 		    }
 			]
 		}
