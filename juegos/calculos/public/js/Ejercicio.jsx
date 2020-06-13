@@ -89,23 +89,23 @@ class Ejercicio extends React.Component {
 					switch (this.generarAleatorio(0,3)) {
 						case 0:
 							ejercicio.respuesta = operando1
-							operando1 = '_'
+							operando1 = ' __ '
 							break;
 						case 1:
 						operador_escondido = true
 						ejercicio.respuesta = operador
-						operador = '_'
+						operador = ' __ '
 							break;
 						case 2:
 						ejercicio.respuesta = operando2
-						operando2 = '_'
+						operando2 = ' __ '
 							break;
 						case 3:
 						ejercicio.respuesta = resultado
-						resultado = '_'
+						resultado = ' __ '
 							break;
 					}
-					ejercicio.pregunta = operando1 + operador + operando2 + '=' + resultado
+					ejercicio.pregunta = operando1 + ' '  +  operador + ' '  +  operando2 + ' '  +  ' = '  +  resultado
 					//generar opciones
 					var opciones = this.generarOpciones(operador_escondido, ejercicio.respuesta)
 
@@ -142,25 +142,25 @@ class Ejercicio extends React.Component {
 				switch (this.generarAleatorio(0,3)) {
 					case 0:
 						ejercicio.respuesta = operando1
-						operando1 = '_'
+						operando1 = ' __ '
 						break;
 					case 1:
 					operador_escondido = true
 					ejercicio.respuesta = operador
-					operador = '_'
+					operador = ' __ '
 						break;
 					case 2:
 					ejercicio.respuesta = operando2
-					operando2 = '_'
+					operando2 = ' __ '
 						break;
 					case 3:
 					ejercicio.respuesta = resultado
-					resultado = '_'
+					resultado = ' __ '
 						break;
 				}
 
 
-				ejercicio.pregunta = operando1 + operador + operando2 + '=' + resultado
+				ejercicio.pregunta = operando1 + ' ' + operador + ' ' + operando2 + ' = ' + resultado
 
 				//generar opciones
 				var opciones = this.generarOpciones(operador_escondido, ejercicio.respuesta)
@@ -172,7 +172,7 @@ class Ejercicio extends React.Component {
 				var operador = this.generarOperador()
 				var resultado
 				var enunciado
-				var objetos = ['banana','galleta', 'pieza', 'pluma']
+				var objetos = ['banana', 'galleta', 'pieza', 'pluma', 'chocolate', 'dulce', 'zapato']
 				var objeto1 = objetos[this.generarAleatorio(0, objetos.length-1)]
 				var objeto2 = (operando2 == 1) ? objeto1 : objeto1+'s'
 				objeto1 = (operando1 == 1) ? objeto1 : objeto1+'s'
@@ -182,6 +182,7 @@ class Ejercicio extends React.Component {
 						enunciado = 'Si tengo ' + operando1 + ' ' + objeto1 + ' y compro ' +operando2 + ' '+objeto2+' más. ¿Cuántas tengo?'
 						break;
 					case '-':
+					if(operando1 < operando2)operando1=operando1+operando2
 					var limite = operando1 - operando2
 					if(limite < 0) {
 						limite = limite*(-1)
@@ -205,7 +206,7 @@ class Ejercicio extends React.Component {
 					operando1 = resultado
 					resultado = temp
 					objeto2 = (operando2 == 1) ? 'canasta' : 'canastas'
-					enunciado = 'Si tengo ' + operando1 + ' ' + objeto1 + ' y coloco en ' +operando2 + ' '+objeto2+'. ¿Cuántas hay en cada una?'
+					enunciado = 'Si tengo ' + operando1 + ' ' + objeto1 + ' y las coloco en ' +operando2 + ' '+objeto2+'. ¿Cuántas hay en cada una?'
 					break;
 				}
 				ejercicio.pregunta = enunciado
