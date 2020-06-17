@@ -22,10 +22,11 @@ class Ejercicio extends React.Component {
 	generarEjercicios() {
 		var indices = [];
 		this.ejercicios = [];
+		var n = this.props.datos["niveles"][this.props.nivel-1].length;
 		for (var i = 0; i < this.numeroPreguntas; i++) {
-			var index = Math.floor(Math.random() * this.numeroPreguntas);
+			var index = Math.floor(Math.random() * n);
 			while(indices.indexOf(index) != -1) {
-                index = Math.floor(Math.random() * this.numeroPreguntas);
+                index = Math.floor(Math.random() * n);
             }
             indices.push(index);
 			this.ejercicios.push(this.props.datos["niveles"][this.props.nivel-1][index]);
