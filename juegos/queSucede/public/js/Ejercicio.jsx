@@ -22,14 +22,13 @@ class Ejercicio extends React.Component {
 	generarEjercicios() {
 		var indices = [];
 		this.ejercicios = [];
-		var n = this.props.datos["niveles"][this.props.nivel-1].length;
 		for (var i = 0; i < this.numeroPreguntas; i++) {
-			var index = Math.floor(Math.random() * n);
+			var index = Math.floor(Math.random() * this.numeroPreguntas);
 			while(indices.indexOf(index) != -1) {
-                index = Math.floor(Math.random() * n);
+                index = Math.floor(Math.random() * this.numeroPreguntas);
             }
             indices.push(index);
-			this.ejercicios.push(this.props.datos["niveles"][this.props.nivel-1][index]);
+			this.ejercicios.push(this.props.datos["niveles"][0][index]);
 		}
 	}
 
@@ -58,7 +57,7 @@ class Ejercicio extends React.Component {
 			this.props.terminar(porcentaje);
 			return(<div></div>);
 		} else {
-			var carpeta = (this.props.nivel-1) + "/" + this.ejercicios[this.state.pregunta].carpeta;
+			var carpeta = this.ejercicios[this.state.pregunta].carpeta;
 			this.respuestas = this.ejercicios[this.state.pregunta].opciones;
 			return (
 				<div>
@@ -72,29 +71,29 @@ class Ejercicio extends React.Component {
 					</div>
 					<div className="row">
 						<div className="offset-1 col ">
-							<button onClick={() => this.seleccionar([this.respuestas[0]])} className="btn btn-success">
+							<button onClick={() => this.seleccionar([this.respuestas[0]])} className="btn btn-success btn-lg">
 								{this.respuestas[0]}
 							</button>
 						</div>
 						<div className="col ">
-							<button onClick={() => this.seleccionar([this.respuestas[1]])} className="btn btn-success">
+							<button onClick={() => this.seleccionar([this.respuestas[1]])} className="btn btn-success btn-lg">
 								{this.respuestas[1]}
 							</button>
 						</div>
 						<div className="col ">
-							<button onClick={() => this.seleccionar([this.respuestas[2]])} className="btn btn-success">
+							<button onClick={() => this.seleccionar([this.respuestas[2]])} className="btn btn-success btn-lg">
 								{this.respuestas[2]}
 							</button>
 						</div>
 						<div className="col ">
-							<button onClick={() => this.seleccionar([this.respuestas[3]])} className="btn btn-success">
+							<button onClick={() => this.seleccionar([this.respuestas[3]])} className="btn btn-success btn-lg">
 								{this.respuestas[3]}
 							</button>
 						</div>
 					</div>
 					<div className="row mt-3">
 						<div className="col-2 offset-10">
-							<button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
+							<button className="btn btn-principal btn-lg" onClick={this.siguiente}>Siguiente</button>
 						</div>
 					</div>
 				</div>
