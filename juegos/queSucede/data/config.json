@@ -57,6 +57,122 @@
 					"Peinandose", "Brincando", "Comiendo", "Resbalandose"
 				]
 			}
+		],
+		[
+			{
+				"carpeta": 0,
+				"respuesta": ["Lavando"],
+				"opciones": [
+					"Brincando", "Comiendo", "Leyendo", "Lavando"
+				]
+			},
+			{
+				"carpeta": 1,
+				"respuesta": ["Leyendo"],
+				"opciones": [
+					"Pintando", "Oliendo", "Brincando", "Leyendo"
+				]
+			},
+			{
+				"carpeta": 2,
+				"respuesta": ["Comiendo"],
+				"opciones": [
+					"Lavando", "Leyendo", "Comiendo", "Oliendo"
+				]
+			},
+			{
+				"carpeta": 3,
+				"respuesta": ["Oliendo"],
+				"opciones": [
+					"Oliendo", "Brincando", "Lavando", "Comiendo"
+				]
+			},
+			{
+				"carpeta": 4,
+				"respuesta": ["Peinandose"],
+				"opciones": [
+					"Resbalandose", "Leyendo", "Lavando", "Peinandose"
+				]
+			},
+			{
+				"carpeta": 5,
+				"respuesta": ["Pintando"],
+				"opciones": [
+					"Leyendo", "Peinandose", "Comiendo", "Pintando"
+				]
+			},
+			{
+				"carpeta": 6,
+				"respuesta": ["Brincando"],
+				"opciones": [
+					"Comiendo", "Pintando", "Leyendo", "Brincando"
+				]
+			},
+			{
+				"carpeta": 7,
+				"respuesta": ["Resbalandose"],
+				"opciones": [
+					"Peinandose", "Brincando", "Comiendo", "Resbalandose"
+				]
+			}
+		],
+		[
+			{
+				"carpeta": 0,
+				"respuesta": ["Lavando"],
+				"opciones": [
+					"Brincando", "Comiendo", "Leyendo", "Lavando"
+				]
+			},
+			{
+				"carpeta": 1,
+				"respuesta": ["Leyendo"],
+				"opciones": [
+					"Pintando", "Oliendo", "Brincando", "Leyendo"
+				]
+			},
+			{
+				"carpeta": 2,
+				"respuesta": ["Comiendo"],
+				"opciones": [
+					"Lavando", "Leyendo", "Comiendo", "Oliendo"
+				]
+			},
+			{
+				"carpeta": 3,
+				"respuesta": ["Oliendo"],
+				"opciones": [
+					"Oliendo", "Brincando", "Lavando", "Comiendo"
+				]
+			},
+			{
+				"carpeta": 4,
+				"respuesta": ["Peinandose"],
+				"opciones": [
+					"Resbalandose", "Leyendo", "Lavando", "Peinandose"
+				]
+			},
+			{
+				"carpeta": 5,
+				"respuesta": ["Pintando"],
+				"opciones": [
+					"Leyendo", "Peinandose", "Comiendo", "Pintando"
+				]
+			},
+			{
+				"carpeta": 6,
+				"respuesta": ["Brincando"],
+				"opciones": [
+					"Comiendo", "Pintando", "Leyendo", "Brincando"
+				]
+			},
+			{
+				"carpeta": 7,
+				"respuesta": ["Resbalandose"],
+				"opciones": [
+					"Peinandose", "Brincando", "Comiendo", "Resbalandose"
+				]
+			}
 		]
 	]
 }

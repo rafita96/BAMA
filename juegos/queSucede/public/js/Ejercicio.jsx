@@ -28,7 +28,7 @@ class Ejercicio extends React.Component {
                 index = Math.floor(Math.random() * this.numeroPreguntas);
             }
             indices.push(index);
-			this.ejercicios.push(this.props.datos["niveles"][0][index]);
+			this.ejercicios.push(this.props.datos["niveles"][this.props.nivel-1][index]);
 		}
 	}
 
@@ -57,7 +57,7 @@ class Ejercicio extends React.Component {
 			this.props.terminar(porcentaje);
 			return(<div></div>);
 		} else {
-			var carpeta = this.ejercicios[this.state.pregunta].carpeta;
+			var carpeta = (this.props.nivel-1) + "/" + this.ejercicios[this.state.pregunta].carpeta;
 			this.respuestas = this.ejercicios[this.state.pregunta].opciones;
 			return (
 				<div>
