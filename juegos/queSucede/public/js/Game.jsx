@@ -44,6 +44,7 @@ class Game extends React.Component {
 		this.setState({
 			seleccionNivel: false
 		});
+		this.fechaInicio = new Date();
 	}
 
     render() {
