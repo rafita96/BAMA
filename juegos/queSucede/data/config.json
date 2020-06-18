@@ -61,116 +61,116 @@
 		[
 			{
 				"carpeta": 0,
-				"respuesta": ["Lavando"],
+				"respuesta": ["Subiendo"],
 				"opciones": [
-					"Brincando", "Comiendo", "Leyendo", "Lavando"
+					"Brincando", "Caminando", "Leyendo", "Subiendo"
 				]
 			},
 			{
 				"carpeta": 1,
-				"respuesta": ["Leyendo"],
+				"respuesta": ["Durmiendo"],
 				"opciones": [
-					"Pintando", "Oliendo", "Brincando", "Leyendo"
+					"Pintando", "Durmiendo", "Brincando", "Leyendo"
 				]
 			},
 			{
 				"carpeta": 2,
-				"respuesta": ["Comiendo"],
+				"respuesta": ["Riendo"],
 				"opciones": [
-					"Lavando", "Leyendo", "Comiendo", "Oliendo"
+					"Riendo", "Leyendo", "Divirtiendo", "Oliendo"
 				]
 			},
 			{
 				"carpeta": 3,
 				"respuesta": ["Oliendo"],
 				"opciones": [
-					"Oliendo", "Brincando", "Lavando", "Comiendo"
+					"Oliendo", "Brincando", "Conociendo", "Comiendo"
 				]
 			},
 			{
 				"carpeta": 4,
-				"respuesta": ["Peinandose"],
+				"respuesta": ["Tosiendo"],
 				"opciones": [
-					"Resbalandose", "Leyendo", "Lavando", "Peinandose"
+					"Tosiendo", "Estornudando", "Lavando", "Peinandose"
 				]
 			},
 			{
 				"carpeta": 5,
-				"respuesta": ["Pintando"],
+				"respuesta": ["Saliendo"],
 				"opciones": [
-					"Leyendo", "Peinandose", "Comiendo", "Pintando"
+					"Leyendo", "Saliendo", "Comiendo", "Abriendo"
 				]
 			},
 			{
 				"carpeta": 6,
-				"respuesta": ["Brincando"],
+				"respuesta": ["Abriendo"],
 				"opciones": [
-					"Comiendo", "Pintando", "Leyendo", "Brincando"
+					"Encontrando", "Pintando", "Abriendo", "Brincando"
 				]
 			},
 			{
 				"carpeta": 7,
-				"respuesta": ["Resbalandose"],
+				"respuesta": ["Llorando"],
 				"opciones": [
-					"Peinandose", "Brincando", "Comiendo", "Resbalandose"
+					"Abrazando", "Brincando", "Llorando", "Resbalandose"
 				]
 			}
 		],
 		[
 			{
 				"carpeta": 0,
-				"respuesta": ["volando"],
+				"respuesta": ["Volando"],
 				"opciones": [
-					"Brincando", "Comiendo", "Leyendo", "volando"
+					"Brincando", "Comiendo", "Cantando", "Volando"
 				]
 			},
 			{
 				"carpeta": 1,
 				"respuesta": ["Observando"],
 				"opciones": [
-					"Pintando", "Oliendo", "Brincando", "Observando"
+					"Conversando", "Volando", "Brincando", "Observando"
 				]
 			},
 			{
 				"carpeta": 2,
 				"respuesta": ["Escalando"],
 				"opciones": [
-					"Lavando", "Leyendo", "Escalando", "Oliendo"
+					"Marchando", "Leyendo", "Escalando", "Caminando"
 				]
 			},
 			{
 				"carpeta": 3,
 				"respuesta": ["Bebiendo"],
 				"opciones": [
-					"Bebiendo", "Brincando", "Lavando", "Comiendo"
+					"Bebiendo", "Brincando", "Lavando", "Durmiendo"
 				]
 			},
 			{
 				"carpeta": 4,
 				"respuesta": ["Jugando"],
 				"opciones": [
-					"Resbalandose", "Leyendo", "Lavando", "Jugando"
+					"Resbalandose", "Moviendose", "Descansando", "Jugando"
 				]
 			},
 			{
 				"carpeta": 5,
 				"respuesta": ["Pintando"],
 				"opciones": [
-					"Leyendo", "Peinandose", "Comiendo", "Pintando"
+					"Jugando", "Corriendo", "Comiendo", "Pintando"
 				]
 			},
 			{
 				"carpeta": 6,
 				"respuesta": ["Escuchando"],
 				"opciones": [
-					"Comiendo", "Pintando", "Leyendo", "Escuchando"
+					"Comiendo", "Pintando", "Descansando", "Escuchando"
 				]
 			},
 			{
 				"carpeta": 7,
 				"respuesta": ["Alimentando"],
 				"opciones": [
-					"Peinandose", "Brincando", "Comiendo", "Alimentando"
+					"Sentandose", "Brincando", "Comiendo", "Alimentando"
 				]
 			}
 		]
