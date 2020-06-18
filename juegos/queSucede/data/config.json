@@ -119,37 +119,37 @@
 		[
 			{
 				"carpeta": 0,
-				"respuesta": ["Lavando"],
+				"respuesta": ["volando"],
 				"opciones": [
-					"Brincando", "Comiendo", "Leyendo", "Lavando"
+					"Brincando", "Comiendo", "Leyendo", "volando"
 				]
 			},
 			{
 				"carpeta": 1,
-				"respuesta": ["Leyendo"],
+				"respuesta": ["Observando"],
 				"opciones": [
-					"Pintando", "Oliendo", "Brincando", "Leyendo"
+					"Pintando", "Oliendo", "Brincando", "Observando"
 				]
 			},
 			{
 				"carpeta": 2,
-				"respuesta": ["Comiendo"],
+				"respuesta": ["Escalando"],
 				"opciones": [
-					"Lavando", "Leyendo", "Comiendo", "Oliendo"
+					"Lavando", "Leyendo", "Escalando", "Oliendo"
 				]
 			},
 			{
 				"carpeta": 3,
-				"respuesta": ["Oliendo"],
+				"respuesta": ["Bebiendo"],
 				"opciones": [
-					"Oliendo", "Brincando", "Lavando", "Comiendo"
+					"Bebiendo", "Brincando", "Lavando", "Comiendo"
 				]
 			},
 			{
 				"carpeta": 4,
-				"respuesta": ["Peinandose"],
+				"respuesta": ["Jugando"],
 				"opciones": [
-					"Resbalandose", "Leyendo", "Lavando", "Peinandose"
+					"Resbalandose", "Leyendo", "Lavando", "Jugando"
 				]
 			},
 			{
@@ -161,16 +161,16 @@
 			},
 			{
 				"carpeta": 6,
-				"respuesta": ["Brincando"],
+				"respuesta": ["Escuchando"],
 				"opciones": [
-					"Comiendo", "Pintando", "Leyendo", "Brincando"
+					"Comiendo", "Pintando", "Leyendo", "Escuchando"
 				]
 			},
 			{
 				"carpeta": 7,
-				"respuesta": ["Resbalandose"],
+				"respuesta": ["Alimentando"],
 				"opciones": [
-					"Peinandose", "Brincando", "Comiendo", "Resbalandose"
+					"Peinandose", "Brincando", "Comiendo", "Alimentando"
 				]
 			}
 		]
