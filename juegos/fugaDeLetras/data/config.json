@@ -2,7 +2,7 @@
 	"niveles": [
 		[
 			{
-				"pregunta": "ES FÁCIL TR_S_ASAR MI JARDÍN", 0
+				"pregunta": "ES FÁCIL TR_S_ASAR MI JARDÍN",
 				"respuesta": ["A","P"],
 				"opciones": [
 					"E", "O", "U",
@@ -10,7 +10,7 @@
 				]
 			},
 			{
-				"pregunta": "HARÉ UN _U_SADO PARA COMER", 1
+				"pregunta": "HARÉ UN _U_SADO PARA COMER",
 				"respuesta": ["G","I"],
 				"opciones": [
 					"Q", "P", "F",
@@ -18,7 +18,7 @@
 				]
 			},
 			{
-				"pregunta": "EL CA_RU_EL ME DA RISA", 2
+				"pregunta": "EL CA_RU_EL ME DA RISA",
 				"respuesta": ["R","S"],
 				"opciones": [
 					"X", "N", "L",
@@ -26,7 +26,7 @@
 				]
 			},
 			{
-				"pregunta": "ES TIEMPO DE COMER B_CADIL_OS", 3
+				"pregunta": "ES TIEMPO DE COMER B_CADIL_OS",
 				"respuesta": ["O","L"],
 				"opciones": [
 					"A", "U", "I",
@@ -34,7 +34,7 @@
 				]
 			},
 			{
-				"pregunta": "LAS _BE_AS SON MUY TRABAJADORAS", 4
+				"pregunta": "LAS _BE_AS SON MUY TRABAJADORAS",
 				"respuesta": ["A","J"],
 				"opciones": [
 					"O", "U", "I",
@@ -42,7 +42,7 @@
 				]
 			},
 			{
-				"pregunta": "LA C_IAN_A TOMA MUCHO TIEMPO", 5
+				"pregunta": "LA C_IAN_A TOMA MUCHO TIEMPO",
 				"respuesta": ["R","Z"],
 				"opciones": [
 					"V", "P", "Q",
@@ -50,7 +50,7 @@
 				]
 			},
 			{
-				"pregunta": "ESTE LIBRO _BAR_A MUCHOS TEMAS", 6
+				"pregunta": "ESTE LIBRO _BAR_A MUCHOS TEMAS",
 				"respuesta": ["A","C"],
 				"opciones": [
 					"O", "U", "E",
@@ -58,7 +58,7 @@
 				]
 			},
 			{
-				"pregunta": "EN I_GLAT_RRA HAY MUCHAS LLUVIAS", 7
+				"pregunta": "EN I_GLAT_RRA HAY MUCHAS LLUVIAS",
 				"respuesta": ["N","E"],
 				"opciones": [
 					"M", "S", "B",
@@ -66,7 +66,7 @@
 				]
 			},
 			{
-				"pregunta": "LA GRIPE AFECTA TUS P_L_ONES", 8
+				"pregunta": "LA GRIPE AFECTA TUS P_L_ONES",
 				"respuesta": ["U","M"],
 				"opciones": [
 					"I", "O", "A",
@@ -74,7 +74,7 @@
 				]
 			},
 			{
-				"pregunta": "UNA CARAVANA TRANSPORTA ME_CAN_ÍA", 9
+				"pregunta": "UNA CARAVANA TRANSPORTA ME_CAN_ÍA",
 				"respuesta": ["R","C"],
 				"opciones": [
 					"N", "A", "T",
@@ -82,7 +82,7 @@
 				]
 			},
 			{
-				"pregunta": "LOS TIBURONES BLANCOS _E_ORAN HUMANOS", 10
+				"pregunta": "LOS TIBURONES BLANCOS _E_ORAN HUMANOS",
 				"respuesta": ["D","V"],
 				"opciones": [
 					"C", "T", "S",
@@ -90,7 +90,7 @@
 				]
 			},
 			{
-				"pregunta": "UN AUT_MÓ_IL PUEDE SER CARO", 11
+				"pregunta": "UN AUT_MÓ_IL PUEDE SER CARO",
 				"respuesta": ["O","V"],
 				"opciones": [
 					"A", "U", "I",
@@ -98,7 +98,7 @@
 				]
 			},
 			{
-				"pregunta": "EN ASIA VIVEN LOS _I_RES", 12
+				"pregunta": "EN ASIA VIVEN LOS _I_RES",
 				"respuesta": ["T","G"],
 				"opciones": [
 					"K", "P", "R",
@@ -106,7 +106,7 @@
 				]
 			},
 			{
-				"pregunta": "TOMAR CAFÉ PUEDE SER DA_IN_", 13
+				"pregunta": "TOMAR CAFÉ PUEDE SER DA_IN_",
 				"respuesta": ["Ñ","O"],
 				"opciones": [
 					"N", "M", "L",
@@ -114,7 +114,7 @@
 				]
 			},
 			{
-				"pregunta": "LOS _USU_MANES ADORAN A ALLAH", 14
+				"pregunta": "LOS _USU_MANES ADORAN A ALLAH",
 				"respuesta": ["M","L"],
 				"opciones": [
 					"N", "C", "B",
