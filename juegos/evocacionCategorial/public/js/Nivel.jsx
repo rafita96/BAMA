@@ -47,7 +47,7 @@ class Nivel extends React.Component{
                 <div className="row">
                     <div className="col-4 text-center mt-3">
                         <a
-                            className="btn btn-principal btn-lg" 
+                            className="btn btn-principal btn-lg"
                             href="/juegos/">
                             Lista de juegos
                         </a>

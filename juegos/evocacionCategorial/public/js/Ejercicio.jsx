@@ -8,8 +8,28 @@ class Ejercicio extends React.Component {
 			index: null
 		}
 		//this.generarEjercicios();
+		this.plusCarpetas=4;
+		this.preg=0
+		this.cargarNiveles();
 		this.siguiente = this.siguiente.bind(this);
 		this.seleccionar = this.seleccionar.bind(this);
+	}
+
+	cargarNiveles(){
+		if (this.props.nivel == 1){
+			this.state.pregunta = 0;
+			//toastr("Hola");
+		}
+		else if (this.props.nivel == 2) {
+			this.state.pregunta = 4;
+			this.plusCarpetas = this.state.pregunta + 4;
+			//toastr("Hola");
+		}
+		else if (this.props.nivel == 3){
+			this.state.pregunta = 11;
+			this.plusCarpetas = this.state.pregunta + 4;
+			//toastr("Hola");
+		}
 	}
 
 	seleccionar(index) {
@@ -38,12 +58,15 @@ class Ejercicio extends React.Component {
 	}
 
 	render() {
-		if (this.state.pregunta == 2) {
+		if (this.state.pregunta == this.plusCarpetas) {
+			this.state.pregunta = 4;
 			var porcentaje = this.state.aciertos / this.state.pregunta * 100;
 			this.props.terminar(porcentaje);
             return(<div></div>);
 		} else {
+
 			var carpeta = this.state.pregunta;
+
 			return (
 				<div>
 					<div className="offset-2 col-8">
@@ -90,5 +113,5 @@ class Ejercicio extends React.Component {
 				</div>
 			);
 		}
-	}	
+	}
 }
