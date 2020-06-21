@@ -4,286 +4,231 @@
 			{
 				"pregunta": "ES FÁCIL TR_S_ASAR MI JARDÍN",
 				"respuesta": ["A","P"],
-				"opciones": [
-					"E", "O", "U",
-					"B", "K", "F"
-				]
+				"opciones": ["E", "O", "U", "B", "K", "F"]
 			},
 			{
 				"pregunta": "HARÉ UN _U_SADO PARA COMER",
 				"respuesta": ["G","I"],
-				"opciones": [
-					"Q", "P", "F",
-					"O", "E", "A"
-				]
+				"opciones": ["Q", "P", "F", "O", "E", "A"]
 			},
 			{
 				"pregunta": "EL CA_RU_EL ME DA RISA",
 				"respuesta": ["R","S"],
-				"opciones": [
-					"X", "N", "L",
-					"P", "O", "A"
-				]
+				"opciones": ["X", "N", "L", "P", "O", "A"]
 			},
 			{
 				"pregunta": "ES TIEMPO DE COMER B_CADIL_OS",
 				"respuesta": ["O","L"],
-				"opciones": [
-					"A", "U", "I",
-					"N", "M", "S"
-				]
+				"opciones": ["A", "U", "I", "N", "M", "S"]
 			},
 			{
 				"pregunta": "LAS _BE_AS SON MUY TRABAJADORAS",
 				"respuesta": ["A","J"],
-				"opciones": [
-					"O", "U", "I",
-					"H", "F", "G"
-				]
+				"opciones": ["O", "U", "I", "H", "F", "G"]
 			},
 			{
 				"pregunta": "LA C_IAN_A TOMA MUCHO TIEMPO",
 				"respuesta": ["R","Z"],
-				"opciones": [
-					"V", "P", "Q",
-					"S", "C", "T"
-				]
+				"opciones": ["V", "P", "Q", "S", "C", "T"]
 			},
 			{
 				"pregunta": "ESTE LIBRO _BAR_A MUCHOS TEMAS",
 				"respuesta": ["A","C"],
-				"opciones": [
-					"O", "U", "E",
-					"K", "T", "S"
-				]
+				"opciones": ["O", "U", "E", "K", "T", "S"]
 			},
 			{
 				"pregunta": "EN I_GLAT_RRA HAY MUCHAS LLUVIAS",
 				"respuesta": ["N","E"],
-				"opciones": [
-					"M", "S", "B",
-					"I", "U", "E"
-				]
+				"opciones": ["M", "S", "B", "I", "U", "E"]
 			},
 			{
 				"pregunta": "LA GRIPE AFECTA TUS P_L_ONES",
 				"respuesta": ["U","M"],
-				"opciones": [
-					"I", "O", "A",
-					"N", "P", "F"
-				]
+				"opciones": ["I", "O", "A", "N", "P", "F"]
 			},
 			{
 				"pregunta": "UNA CARAVANA TRANSPORTA ME_CAN_ÍA",
 				"respuesta": ["R","C"],
-				"opciones": [
-					"N", "A", "T",
-					"S", "Z", "F"
-				]
+				"opciones": ["N", "A", "T", "S", "Z", "F"]
 			},
 			{
 				"pregunta": "LOS TIBURONES BLANCOS _E_ORAN HUMANOS",
 				"respuesta": ["D","V"],
-				"opciones": [
-					"C", "T", "S",
-					"W", "Q", "F"
-				]
+				"opciones": ["C", "T", "S", "W", "Q", "F"]
 			},
 			{
 				"pregunta": "UN AUT_MÓ_IL PUEDE SER CARO",
 				"respuesta": ["O","V"],
-				"opciones": [
-					"A", "U", "I",
-					"B", "L", "M"
-				]
+				"opciones": ["A", "U", "I", "B", "L", "M"]
 			},
 			{
 				"pregunta": "EN ASIA VIVEN LOS _I_RES",
 				"respuesta": ["T","G"],
-				"opciones": [
-					"K", "P", "R",
-					"S", "N", "L"
-				]
+				"opciones": ["K", "P", "R", "S", "N", "L"]
 			},
 			{
 				"pregunta": "TOMAR CAFÉ PUEDE SER DA_IN_",
 				"respuesta": ["Ñ","O"],
-				"opciones": [
-					"N", "M", "L",
-					"A", "U", "I"
-				]
+				"opciones": ["N", "M", "L", "A", "U", "I"]
 			},
 			{
 				"pregunta": "LOS _USU_MANES ADORAN A ALLAH",
 				"respuesta": ["M","L"],
-				"opciones": [
-					"N", "C", "B",
-					"I", "A", "T"
-				]
+				"opciones": ["N", "C", "B", "I", "A", "T"]
 			}
 		],
 		[
 			{
-				"pregunta": "HAY U_A SE_PIEN_E EN MI BOTA",
-				"respuesta": ["N","R","T"],
-				"opciones": [
-					"A", "D", "K",
-					"P", "O"
-				]
+				"pregunta": "A VECES _ECE_I_AMOS DESCANSAR",
+				"respuesta": ["C","S","A"],
+				"opciones": ["Z", "M", "X", "U", "O"]
 			},
 			{
-				"pregunta": "LA NI_VE ES FRÍ_ Y DE_ICIOSA",
-				"respuesta": ["E","A","L"],
-				"opciones": [
-					"F", "N", "H",
-					"Z", "P"
-				]
+				"pregunta": "DI_T_N_AS MANZANAS PUEDEN SABER IGUAL",
+				"respuesta": ["S","I","T"],
+				"opciones": ["C", "N", "V", "U", "E"]
 			},
 			{
-				"pregunta": "LOS P_CES VIVE_ EN EL A_UA",
-				"respuesta": ["E","N","G"],
-				"opciones": [
-					"R", "X", "Ñ",
-					"W", "T"
-				]
+				"pregunta": "GRAN VIAJE TOMA MUCHO E_F_ER_O",
+				"respuesta": ["S","Z","U"],
+				"opciones": ["C", "X", "O", "W", "A"]
 			},
 			{
-				"pregunta": "LOS CA_ACOL_S SON LENT_S",
-				"respuesta": ["R","E","O"],
-				"opciones": [
-					"W", "Y", "N",
-					"A", "J"
-				]
+				"pregunta": "_SFOR_ÁN_OSE OBTIENES BUENOS RESULTADOS",
+				"respuesta": ["E","Z","D"],
+				"opciones": ["C", "S", "N", "X", "T"]
 			},
 			{
-				"pregunta": "LAS L_EB_ES SON RÁ_IDAS",
-				"respuesta": ["I","R","P"],
-				"opciones": [
-					"Q", "T", "H",
-					"A", "V"
-				]
+				"pregunta": "PASASTE CON UNA CALIFICACIÓN _AT_SFA_TORIA",
+				"respuesta": ["S","I","C"],
+				"opciones": ["Z", "O", "U", "A", "K"]
 			},
 			{
-				"pregunta": "SIN _OMBR_RO NO HAY VA_UERO",
-				"respuesta": ["S","E","Q"],
-				"opciones": [
-					"R", "P", "G",
-					"X", "H"
-				]
+				"pregunta": "E_CA_A EL PO_O MÁS RÁPIDO",
+				"respuesta": ["X","V","Z"],
+				"opciones": ["S", "C", "K", "W", "N"]
 			},
 			{
-				"pregunta": "NO HAS SAL_ADO EST_MOS AGRA_ECIDOS",
-				"respuesta": ["V","A","D"],
-				"opciones": [
-					"T", "S", "P",
-					"F", "N"
-				]
+				"pregunta": "COCINAR _ELI_IO_O NOS ES FÁCIL",
+				"respuesta": ["D","C","S"],
+				"opciones": ["F", "Z", "X", "T", "N"]
 			},
 			{
-				"pregunta": "ER_S UN JU_UE_E",
-				"respuesta": ["E","G","T"],
-				"opciones": [
-					"W", "F", "H",
-					"N", "X"
-				]
+				"pregunta": "UN ATLETA _E_U_ERE ALIMENTACIÓN SANA",
+				"respuesta": ["R","Q","I"],
+				"opciones": ["T", "K", "C", "O", "U"]
 			},
 			{
-				"pregunta": "YO S_Y TU _MIGO FIE_",
-				"respuesta": ["O","A","L"],
-				"opciones": [
-					"E", "T", "X",
-					"G", "P"
-				]
+				"pregunta": "EXISTEN MUCHOS A_QU_TI_OS DE PERSONALIDAD",
+				"respuesta": ["R","E","P"],
+				"opciones": ["T", "A", "O", "C", "L"]
 			},
 			{
-				"pregunta": "COME FR_TAS Y VE_DURA_",
-				"respuesta": ["U","R","S"],
-				"opciones": [
-					"T", "F", "H",
-					"P","Z"
-				]
+				"pregunta": "LOS GRANDES DE_CU_RI_IENTOS SON INTERESANTES",
+				"respuesta": ["S","B","M"],
+				"opciones": ["C", "N", "V", "T", "O"]
+			},
+			{
+				"pregunta": "LOS _A_ALL_ROS PORTAN ARMADURA PESADA",
+				"respuesta": ["C","B","E"],
+				"opciones": ["S", "K", "A", "U", "V"]
+			},
+			{
+				"pregunta": "UN E_T_FA_OR NO ES SINCERO",
+				"respuesta": ["S","A","D"],
+				"opciones": ["C", "Z", "O", "U", "T"]
+			},
+			{
+				"pregunta": "TODO _ER_EG_IDOR DEBE CORRER RÁPIDO",
+				"respuesta": ["P","S","U"],
+				"opciones": ["K", "R", "C", "Z", "O"]
+			},
+			{
+				"pregunta": "E_T_D_AR Y APRENDER NO ES LO MISMO",
+				"respuesta": ["S","U","I"],
+				"opciones": ["C", "Z", "O", "A", "E"]
+			},
+			{
+				"pregunta": "CUALQUIER _LE_A_OR ES MUY SEGURO",
+				"respuesta": ["E","V","D"],
+				"opciones": ["O", "A", "B", "T","B"]
 			}
 		],
 		[
 			{
-				"pregunta": "UN GRAN P_DER CON_LEVA UNA GRAN RES_ONSABI_IDAD",
-				"respuesta": ["O","L","P","L"],
-				"opciones": [
-					"W", "A", "E",
-					"F"
-				]
+				"pregunta": "LA _AT_R_LE_A PUEDE SER SALVAJE",
+				"respuesta": ["N","U","A","Z"],
+				"opciones": ["M", "E", "O", "S"]
 			},
 			{
-				"pregunta": "QUE LA _UER_A TE A_OMPA_E",
-				"respuesta": ["F","Z","C","Ñ"],
-				"opciones": [
-					"A", "E", "M",
-					"L"
-				]
+				"pregunta": "LOS VIAJES _NT_RE_PA_IALES SON LARGOS",
+				"respuesta": ["I","E","S","C"],
+				"opciones": ["U", "O", "Z", "V"]
 			},
 			{
-				"pregunta": "EL QUE TEME S_FRIR YA SUF_E EL _EM_R",
-				"respuesta": ["U","R","T","O"],
-				"opciones": [
-					"X", "J", "R",
-					"M"
-				]
+				"pregunta": "LA MÚSICA _R_N_M_TE ALGÚN MENSAJE",
+				"respuesta": ["T","A","S","I"],
+				"opciones": ["R", "U", "C", "O"]
 			},
 			{
-				"pregunta": "E_CAVA EL PO_O A_TES DE QUE TEN_AS SED",
-				"respuesta": ["X","Z","N","G"],
-				"opciones": [
-					"A", "B", "T",
-					"L"
-				]
+				"pregunta": "PENSAR POSITIVO _I_M_N_YE LAS ANSIAS",
+				"respuesta": ["D","S","I","U"],
+				"opciones": ["T", "C", "A", "E"]
 			},
 			{
-				"pregunta": "EL SAB_O NO DI_E LO QUE SABE, Y EL N_CIO NO SA_E LO QUE DICE",
-				"respuesta": ["I","C","E","B"],
-				"opciones": [
-					"U", "O", "V",
-					"R"
-				]
+				"pregunta": "LA CAPACIDAD _O_N_TI_A ES ENTRENABLE",
+				"respuesta": ["C","G","I","V"],
+				"opciones": ["K", "T", "U", "B"]
 			},
 			{
-				"pregunta": "LA MA_ERIA NO SE CREA NI SE D_STRUYE, SOLO SE TRA_SFO_MA",
-				"respuesta": ["T","E","N","R"],
-				"opciones": [
-					"X", "P", "F",
-					"M"
-				]
+				"pregunta": "LOS GANADORES MERECEN _R_F_O_",
+				"respuesta": ["T","O","E","S"],
+				"opciones": ["R", "U", "A", "C"]
 			},
 			{
-				"pregunta": "LAS HA_BURG_ESAS SON DE_ICIO_AS",
-				"respuesta": ["M","U","L","S"],
-				"opciones": [
-					"Q", "X", "A",
-					"O"
-				]
+				"pregunta": "COCODRILOS Y _I_A_A_ SON ANIMALES",
+				"respuesta": ["J","R","F","S"],
+				"opciones": ["H", "D", "C", "Z"]
 			},
 			{
-				"pregunta": "SOLO EL TI_MPO ME D_RÁ LA RES_UESTA QUE HOY BUSC_",
-				"respuesta": ["E","A","P","O"],
-				"opciones": [
-					"H", "P", "L",
-					"R"
-				]
+				"pregunta": "_E_O_MÉ_ICA ESTÁ LLENA DE MISTERIOS",
+				"respuesta": ["M","S","A","R"],
+				"opciones": ["N", "C", "O", "T"]
 			},
 			{
-				"pregunta": "TODO G_AN VI_JE COMIE_ZA CON PEQ_EÑOS PASOS",
-				"respuesta": ["R","A","N","U"],
-				"opciones": [
-					"J", "X", "E",
-					"O"
-				]
+				"pregunta": "EL CUERPO HUMANO _E_R_T_ FEROMONAS",
+				"respuesta": ["S","C","E","A"],
+				"opciones": ["Z", "K", "U", "O"]
 			},
 			{
-				"pregunta": "SI BU_CAS RESULT_DOS DIS_INTOS, NO HAGAS SIEM_RE LO MISMO",
-				"respuesta": ["S","A","T","P"],
-				"opciones": [
-					"Q", "M", "I",
-					"F"
-				]
+				"pregunta": "LA E_P_R_N_A NO SE MUERE",
+				"respuesta": ["S","E","A","Z"],
+				"opciones": ["C", "U", "O", "X"]
+			},
+			{
+				"pregunta": "LA _A_I_NC_A ES MUY IMPORTANTE",
+				"respuesta": ["P","C","E","I"],
+				"opciones": ["K", "S", "Z", "A"]
+			},
+			{
+				"pregunta": "E_E_TR_MA_NETISMO ES UNA RAMA DE FÍSICA",
+				"respuesta": ["L","C","O","G"],
+				"opciones": ["M", "A", "U", "H"]
+			},
+			{
+				"pregunta": "_E_O_RAC_A ES VOZ DEL PUEBLO",
+				"respuesta": ["D","M","C","I"],
+				"opciones": ["F", "N", "S", "O"]
+			},
+			{
+				"pregunta": "NO SALTES SIN UN _A_A_AÍ_AS",
+				"respuesta": ["P","R","C","D"],
+				"opciones": ["T", "G", "S", "Z"]
+			},
+			{
+				"pregunta": "LA ARTILLERÍA DESTRUYE _O_T_LE_AS ENEMIGAS",
+				"respuesta": ["F","R","A","Z"],
+				"opciones": ["T", "G", "U", "S"]
 			}
 		]
 	]
