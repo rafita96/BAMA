@@ -2,83 +2,123 @@
 	"niveles": [
 		[
 			{
-				"pregunta": "EL PE_RO ES NE_RO",
-				"respuesta": ["R","G"],
+				"pregunta": "ES FÁCIL TR_S_ASAR MI JARDÍN",
+				"respuesta": ["A","P"],
 				"opciones": [
-					"A", "Z", "X",
-					"B", "H", "T"
+					"E", "O", "U",
+					"B", "K", "F"
 				]
 			},
 			{
-				"pregunta": "MI G_TO ES COLOR CA_É",
-				"respuesta": ["A","F"],
+				"pregunta": "HARÉ UN _U_SADO PARA COMER",
+				"respuesta": ["G","I"],
 				"opciones": [
-					"J", "X", "P",
-					"M", "L", "K"
+					"Q", "P", "F",
+					"O", "E", "A"
 				]
 			},
 			{
-				"pregunta": "EL CI_LO ES A_UL",
-				"respuesta": ["E","Z"],
-				"opciones": [
-					"A", "B", "T",
-					"X", "Y", "S"
-				]
-			},
-			{
-				"pregunta": "ME GUSTA_ LAS MAN_ANAS",
-				"respuesta": ["N","Z"],
-				"opciones": [
-					"L", "Ñ", "T",
-					"X", "R", "D"
-				]
-			},
-			{
-				"pregunta": "LAS SAN_ÍAS SON V_RDES",
-				"respuesta": ["D","E"],
-				"opciones": [
-					"X", "L", "I",
-					"T", "P", "O"
-				]
-			},
-			{
-				"pregunta": "EL PERR_ L_DRA",
-				"respuesta": ["O","A"],
-				"opciones": [
-					"K", "D", "Q",
-					"S", "F", "H"
-				]
-			},
-			{
-				"pregunta": "LOS _ATOS MAÚL_AN",
-				"respuesta": ["G","L"],
-				"opciones": [
-					"T", "U", "F",
-					"K", "C", "M"
-				]
-			},
-			{
-				"pregunta": "AL INI_INITO Y MÁS _LLÁ",
-				"respuesta": ["F","A"],
-				"opciones": [
-					"C", "T", "K",
-					"M", "O", "L"
-				]
-			},
-			{
-				"pregunta": "SE_ O NO _ER",
+				"pregunta": "EL CA_RU_EL ME DA RISA",
 				"respuesta": ["R","S"],
 				"opciones": [
-					"G", "E", "K",
-					"Z", "V", "X"
+					"X", "N", "L",
+					"P", "O", "A"
 				]
 			},
 			{
-				"pregunta": "ME G_STA EL PA_TEL",
-				"respuesta": ["U","S"],
+				"pregunta": "ES TIEMPO DE COMER B_CADIL_OS",
+				"respuesta": ["O","L"],
 				"opciones": [
-					"H", "R", "B",
-					"A", "P", "L"
+					"A", "U", "I",
+					"N", "M", "S"
+				]
+			},
+			{
+				"pregunta": "LAS _BE_AS SON MUY TRABAJADORAS",
+				"respuesta": ["A","J"],
+				"opciones": [
+					"O", "U", "I",
+					"H", "F", "G"
+				]
+			},
+			{
+				"pregunta": "LA C_IAN_A TOMA MUCHO TIEMPO",
+				"respuesta": ["R","Z"],
+				"opciones": [
+					"V", "P", "Q",
+					"S", "C", "T"
+				]
+			},
+			{
+				"pregunta": "ESTE LIBRO _BAR_A MUCHOS TEMAS",
+				"respuesta": ["A","C"],
+				"opciones": [
+					"O", "U", "E",
+					"K", "T", "S"
+				]
+			},
+			{
+				"pregunta": "EN I_GLAT_RRA HAY MUCHAS LLUVIAS",
+				"respuesta": ["N","E"],
+				"opciones": [
+					"M", "S", "B",
+					"I", "U", "E"
+				]
+			},
+			{
+				"pregunta": "LA GRIPE AFECTA TUS P_L_ONES",
+				"respuesta": ["U","M"],
+				"opciones": [
+					"I", "O", "A",
+					"N", "P", "F"
+				]
+			},
+			{
+				"pregunta": "UNA CARAVANA TRANSPORTA ME_CAN_ÍA",
+				"respuesta": ["R","C"],
+				"opciones": [
+					"N", "A", "T",
+					"S", "Z", "F"
+				]
+			},
+			{
+				"pregunta": "LOS TIBURONES BLANCOS _E_ORAN HUMANOS",
+				"respuesta": ["D","V"],
+				"opciones": [
+					"C", "T", "S",
+					"W", "Q", "F"
+				]
+			},
+			{
+				"pregunta": "UN AUT_MÓ_IL PUEDE SER CARO",
+				"respuesta": ["O","V"],
+				"opciones": [
+					"A", "U", "I",
+					"B", "L", "M"
+				]
+			},
+			{
+				"pregunta": "EN ASIA VIVEN LOS _I_RES",
+				"respuesta": ["T","G"],
+				"opciones": [
+					"K", "P", "R",
+					"S", "N", "L"
+				]
+			},
+			{
+				"pregunta": "TOMAR CAFÉ PUEDE SER DA_IN_",
+				"respuesta": ["Ñ","O"],
+				"opciones": [
+					"N", "M", "L",
+					"A", "U", "I"
+				]
+			},
+			{
+				"pregunta": "LOS _USU_MANES ADORAN A ALLAH",
+				"respuesta": ["M","L"],
+				"opciones": [
+					"N", "C", "B",
+					"I", "A", "T"
 				]
 			}
 		],
