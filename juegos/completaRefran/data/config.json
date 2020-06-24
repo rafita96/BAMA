@@ -1,6 +1,6 @@
 {
 	"niveles": [
-		[
+		[//Facil
 			{
 			  "pregunta": "A BUEN ENTENDEDOR, POCAS _____.",
 			  "respuesta": ["PALABRAS"],
@@ -111,9 +111,49 @@
 					"BUENO", "BRILLANTE",
 					"PLATA"
 				]
+			},//Nuevo
+			{
+				"pregunta": "QUIEN _____ MUCHO, POCO APRENDE.",
+				"respuesta": ["DUERME"],
+				"opciones": [
+					"LLORA", "BAILA",
+					"COME"
+				]
+			},
+			{
+				"pregunta": "QUIEN NO CORRE, _____.",
+				"respuesta": ["VUELA"],
+				"opciones": [
+					"CAMINA", "NADA",
+					"FLOTA"
+				]
+			},
+			{
+				"pregunta": "CUANDO EL RÍO SUENA, _____ LLEVA."
+				"respuesta": ["PIEDRAS"],
+				"opciones": [
+					"TRONCOS", "PECES",
+					"CÁCTUS"
+				]
+			},
+			{
+				"pregunta": "CUANDO EL GATO SE VA, LOS _____ HACEN FIESTA."
+				"respuesta": ["RATONES"],
+				"opciones": [
+					"SALMONES", "OSOS",
+					"CAMARONES"
+				]
+			},
+			{
+				"pregunta": "DINERO QUE PRESTASTE, _____ QUE TE ECHASTE."
+				"respuesta": ["ENEMIGO"],
+				"opciones": [
+					"AMIGO", "ANIMAL",
+					"CARRO"
+				]
 			}
 		],
-		[
+		[//Normal
 			{
 			  "pregunta": "A BUEN ENTENDEDOR, __________.",
 			  "respuesta": ["POCAS PALABRAS"],
@@ -216,9 +256,49 @@
 					"ES BUENO", "ES REFLEJANTE",
 					"ES POROSO"
 				]
+			},//Nuevos
+			{
+				"pregunta": "EL PEZ _____ POR LA _____.",
+				"respuesta": ["MUERE, BOCA"],
+				"opciones": [
+					"VIVE, BRANQUIA", "DUERME, NOCHE",
+					"COME, BOCA"
+				]
+			},
+			{
+				"pregunta": "DIME CON QUIÉN _____ Y TE DIRÉ QUIÉN _____."
+				"respuesta": ["ANDAS, ERES"],
+				"opciones": [
+					"VIVES, DUERME", "COMES, COCINA",
+					"LLORAS, SUFRE"
+				]
+			},
+			{
+				"pregunta": "QUIEN TIENE _____ SE _____."
+				"respuesta": ["BOCA, EQUIVOCA"],
+				"opciones": [
+					"COLA, PISA", "MASCOTAS, LA VIVE FELIZ",
+					"HAMBRE, COME UN PAN"
+				]
+			},
+			{
+				"pregunta": "EN _____ NI TE CASES NI TE _____."
+				"respuesta": ["MARTES, EMBARQUES"],
+				"opciones": [
+					"LUNES, VAYAS", "VIERNES, DUERMAS",
+					"MIERCOLES, EMBRIAGUES"
+				]
+			},
+			{
+				"pregunta": "HAZ _____ Y NO MIRES A _____."
+				"respuesta": ["BIEN, QUIEN"],
+				"opciones": [
+					"MAL, ATRÁS", "COMIDA, NADIE",
+					"TRAVESURAS, PAPÁ"
+				]
 			}
 		],
-		[
+		[//Dificil
 			{
 			  "pregunta": "A CABALLO REGALADO NO SE LE __________.",
 			  "respuesta": ["MIRAN LOS DIENTES"],
@@ -320,6 +400,46 @@
 				"opciones": [
 					"CAMINO COMIENZA", "VIDA RECOMPENSA",
 					"VIDA APEREZA"
+				]
+			},//Nuevo
+			{
+				"pregunta": "A TODO _____ LE LLEGA SU __________.",
+				"respuesta": ["MARRANO, NOCHE BUENA"],
+				"opciones": [
+					"HOMBRE, QUINCENA", "PERRO, HUESO",
+					"GATO, PESCADO"
+				]
+			},
+			{
+				"pregunta": "EL HOMBRE Y EL OSO, CUANTO MÁS FEO MÁS HERMOSO."
+				"respuesta": ["HOMBRE, OSO"],
+				"opciones": [
+					"NIÑO, PADRE", "PERRO, GATO",
+					"CACTUS, NOPAL"
+				]
+			},
+			{
+				"pregunta": "CADA LOCO CON SU TEMA Y CADA LOBO POR SU SENDA."
+				"respuesta": ["LOCO, TEMA, LOBO, SENDA"],
+				"opciones":[
+					"TEMA, LOBO, SENDA, LOCO", "LOBO, LOCO, SENDA, TEMA",
+					"SENDA, TEMA, LOBO, LOCO"
+				]
+			},
+			{
+				"pregunta": "BUENOS Y MALOS MARTES LOS HAY EN TODAS PARTES."
+				"respuesta": ["BUENOS, MALOS, MARTES"],
+				"opciones": [
+					"MALOS, BUENOS, LUNES", "LOCOS, SANOS, MIERCOLES",
+					"RICOS, DELICIOSOS, DESAYUNOS"
+				]
+			},
+			{
+				"pregunta": "CON EL TIEMPO Y LA PACIENCIA SE ADQUIERE LA CIENCIA."
+				"respuesta": ["TIEMPO, PACIENCIA, CIENCIA"],
+				"opciones": [
+					"PERRO, CORREA, CARRERA", "CARRO, CARTERA, COMIDA",
+					"VASO, BEBIDA, HIDRATACIÓN"
 				]
 			}
 		]
