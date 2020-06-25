@@ -129,7 +129,7 @@
 				]
 			},
 			{
-				"pregunta": "CUANDO EL RÍO SUENA, _____ LLEVA."
+				"pregunta": "CUANDO EL RÍO SUENA, _____ LLEVA.",
 				"respuesta": ["PIEDRAS"],
 				"opciones": [
 					"TRONCOS", "PECES",
@@ -137,7 +137,7 @@
 				]
 			},
 			{
-				"pregunta": "CUANDO EL GATO SE VA, LOS _____ HACEN FIESTA."
+				"pregunta": "CUANDO EL GATO SE VA, LOS _____ HACEN FIESTA.",
 				"respuesta": ["RATONES"],
 				"opciones": [
 					"SALMONES", "OSOS",
@@ -145,11 +145,51 @@
 				]
 			},
 			{
-				"pregunta": "DINERO QUE PRESTASTE, _____ QUE TE ECHASTE."
+				"pregunta": "DINERO QUE PRESTASTE, _____ QUE TE ECHASTE.",
 				"respuesta": ["ENEMIGO"],
 				"opciones": [
 					"AMIGO", "ANIMAL",
 					"CARRO"
+				]
+			},//
+			{
+				"pregunta": "EN CASA DE HERRERO, AZADÓN DE _____.",
+				"respuesta": ["PALO"],
+				"opciones": [
+					"HIERRO", "MADERA",
+					"TUBERIA"
+				]
+			},
+			{
+				"pregunta": "NO HAY PEOR _____ QUE EL QUE NO QUIERE VER.",
+				"respuesta": ["CIEGO"],
+				"opciones": [
+					"PERSONA", "PERRO",
+					"NECIO"
+				]
+			},
+			{
+				"pregunta": "HIERBA _____ NUNCA MUERE.",
+				"respuesta": ["MALA"],
+				"opciones": [
+					"BUENA", "SECA",
+					"VERDE"
+				]
+			},
+			{
+				"pregunta": "EL QUE MUCHO ABARCA POCO _____.",
+				"respuesta": ["APRIETA"],
+				"opciones": [
+					"ABRAZA", "ALCANZA",
+					"COME"
+				]
+			},
+			{
+				"pregunta": "EN BOCA DEL _____, LO CIERTO ES DUDOSO.",
+				"respuesta": ["MENTIROSO"],
+				"opciones": [
+					"GATO", "NIÑO",
+					"PARLANCHÍN"
 				]
 			}
 		],
@@ -266,7 +306,7 @@
 				]
 			},
 			{
-				"pregunta": "DIME CON QUIÉN _____ Y TE DIRÉ QUIÉN _____."
+				"pregunta": "DIME CON QUIÉN _____ Y TE DIRÉ QUIÉN _____.",
 				"respuesta": ["ANDAS, ERES"],
 				"opciones": [
 					"VIVES, DUERME", "COMES, COCINA",
@@ -274,7 +314,7 @@
 				]
 			},
 			{
-				"pregunta": "QUIEN TIENE _____ SE _____."
+				"pregunta": "QUIEN TIENE _____ SE _____.",
 				"respuesta": ["BOCA, EQUIVOCA"],
 				"opciones": [
 					"COLA, PISA", "MASCOTAS, LA VIVE FELIZ",
@@ -282,7 +322,7 @@
 				]
 			},
 			{
-				"pregunta": "EN _____ NI TE CASES NI TE _____."
+				"pregunta": "EN _____ NI TE CASES NI TE _____.",
 				"respuesta": ["MARTES, EMBARQUES"],
 				"opciones": [
 					"LUNES, VAYAS", "VIERNES, DUERMAS",
@@ -290,11 +330,51 @@
 				]
 			},
 			{
-				"pregunta": "HAZ _____ Y NO MIRES A _____."
+				"pregunta": "HAZ _____ Y NO MIRES A _____.",
 				"respuesta": ["BIEN, QUIEN"],
 				"opciones": [
 					"MAL, ATRÁS", "COMIDA, NADIE",
 					"TRAVESURAS, PAPÁ"
+				]
+			},//
+			{
+				"pregunta": "AUNQUE LA MONA SE VISTA DE _____, _____ SE QUEDA.",
+				"respuesta": ["SEDA, MONA"],
+				"opciones": [
+					"ORO, FEA", "PERLAS, EN CASA",
+					"NIÑA, ANIMAL"
+				]
+			},
+			{
+				"pregunta": "_____ CUERVOS Y TE _____ LOS OJOS.",
+				"respuesta": ["CRÍA, SACARÁN"],
+				"opciones": [
+					"ALIMENTA, MIRARÁN", "MIRA, PICARÁN",
+					"COME, ARDERÁN"
+				]
+			},
+			{
+				"pregunta": "MÁS VALE ESTAR _____ QUE MAL _____,",
+				"respuesta": ["SOLO, ACOMPAÑADO"],
+				"opciones": [
+					"LEJOS, ENCAMINADO", "DERECHO, PARADO",
+					"GORDITO, ALIMENTADO"
+				]
+			},
+			{
+				"pregunta": "DEL DICHO AL _____ HAY MUCHO _____",
+				"respuesta": ["HECHO, TRECHO"],
+				"opciones": [
+					"PECHO, ECO", "TECHO, HUECO",
+					"QUESO, LIENZO"
+				]
+			},
+			{
+				"pregunta": "EL _____ DEL AMO _____ AL CABALLO",
+				"respuesta": ["OJO, ENGORDA"],
+				"opciones": [
+					"ALIMENTO, LLENA", "GOLPE, LASTIMA",
+					"CASTIGO, ENSEÑA"
 				]
 			}
 		],
@@ -411,7 +491,7 @@
 				]
 			},
 			{
-				"pregunta": "EL HOMBRE Y EL OSO, CUANTO MÁS FEO MÁS HERMOSO."
+				"pregunta": "EL _____ Y EL _____, CUANTO MÁS FEO MÁS HERMOSO.",
 				"respuesta": ["HOMBRE, OSO"],
 				"opciones": [
 					"NIÑO, PADRE", "PERRO, GATO",
@@ -419,7 +499,7 @@
 				]
 			},
 			{
-				"pregunta": "CADA LOCO CON SU TEMA Y CADA LOBO POR SU SENDA."
+				"pregunta": "CADA _____ CON SU _____ Y CADA _____ POR SU _____.",
 				"respuesta": ["LOCO, TEMA, LOBO, SENDA"],
 				"opciones":[
 					"TEMA, LOBO, SENDA, LOCO", "LOBO, LOCO, SENDA, TEMA",
@@ -427,19 +507,59 @@
 				]
 			},
 			{
-				"pregunta": "BUENOS Y MALOS MARTES LOS HAY EN TODAS PARTES."
-				"respuesta": ["BUENOS, MALOS, MARTES"],
+				"pregunta": "_____ Y __________ LOS HAY EN TODAS PARTES.",
+				"respuesta": ["BUENOS, MALOS MARTES"],
 				"opciones": [
-					"MALOS, BUENOS, LUNES", "LOCOS, SANOS, MIERCOLES",
-					"RICOS, DELICIOSOS, DESAYUNOS"
+					"MALOS, BUENOS LUNES", "LOCOS, SANOS MIERCOLES",
+					"RICOS, DELICIOSOS DESAYUNOS"
 				]
 			},
 			{
-				"pregunta": "CON EL TIEMPO Y LA PACIENCIA SE ADQUIERE LA CIENCIA."
+				"pregunta": "CON EL _____ Y LA _____ SE ADQUIERE LA _____.",
 				"respuesta": ["TIEMPO, PACIENCIA, CIENCIA"],
 				"opciones": [
 					"PERRO, CORREA, CARRERA", "CARRO, CARTERA, COMIDA",
 					"VASO, BEBIDA, HIDRATACIÓN"
+				]
+			},//
+			{
+				"pregunta": "AL _____, _____ Y AL _____, _____.",
+				"respuesta": ["PAN, PAN, VINO, VINO"],
+				"opciones": [
+					"PAN, VINO, PAN, VINO", "VINO, VINO, PAN, PAN",
+					"VINO, PAN, PAN, VINO"
+				]
+			},
+			{
+				"pregunta": "_____ NO SON MONTÓN, PERO _____ YA LO SON",
+				"respuesta": ["CINCO, SIETE"],
+				"opciones": [
+					"CUATRO, SEIS", "TRES, DOS",
+					"SIETE, OCHO"
+				]
+			},
+			{
+				"pregunta": "EL _____ ES _____",
+				"respuesta": ["DIABLO, PUERCO"],
+				"opciones": [
+					"PADRE, BUENO", "ANGEL, BONDADOSO",
+					"CERDO, LISTO"
+				]
+			},
+			{
+				"pregunta": "DE LOS _____ SALEN LOS _____.",
+				"respuesta": ["ESCARMENTADOS, AVISPADOS"],
+				"opciones": [
+					"HOSPITALES, VIVOS", "ESCOMBROS, FUERTES",
+					"FALLOS, LOGROS"
+				]
+			},
+			{
+				"pregunta": "DONDE MANDA _____, NO MANDA _____",
+				"respuesta": ["CAPITÁN, MARINERO"],
+				"opciones": [
+					"PAPÁ, HIJO", "JEFE, EMPLEADO",
+					"LEON, CACHORRO"
 				]
 			}
 		]
