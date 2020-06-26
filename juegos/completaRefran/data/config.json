@@ -191,6 +191,46 @@
 					"GATO", "NIÑO",
 					"PARLANCHÍN"
 				]
+			},//
+			{
+				"pregunta": "BARRIGA LLENA, _____ CONTENTO.",
+				"respuesta": ["CORAZÓN"],
+				"opciones": [
+					"HIGADO", "HIJO",
+					"YO"
+				]
+			},
+			{
+				"pregunta": "CREA _____ Y ÉCHATE A LA CAMA.",
+				"respuesta": ["FAMA"],
+				"opciones": [
+					"LANA", "ROPA",
+					"COMIDA"
+				]
+			},
+			{
+				"pregunta": "EL QUE BUSCA _____.",
+				"respuesta": ["ENCUENTRA"],
+				"opciones": [
+					"DISFRUTA", "DESCANSA",
+					"COME"
+				]
+			},
+			{
+				"pregunta": "DONDE HUBO _____, CENIZAS QUEDAN.",
+				"respuesta": ["FUEGO"],
+				"opciones": [
+					"AIRE", "TIERRA",
+					"AGUA"
+				]
+			},
+			{
+				"pregunta": "EL QUE RÍE ÚLTIMO, RÍE _____.",
+				"respuesta": ["MEJOR"],
+				"opciones": [
+					"PEOR", "FELIZ",
+					"ASUSTADO"
+				]
 			}
 		],
 		[//Normal
@@ -267,7 +307,7 @@
 				]
 			},
 			{
-				"pregunta": "EL QUE NADA DEBE, .",
+				"pregunta": "EL QUE NADA DEBE, __________.",
 				"respuesta": ["NADA TEME"],
 				"opciones": [
 					"NADA DEBE", "NADA PIERDE", "NADA GANA"
@@ -375,6 +415,46 @@
 				"opciones": [
 					"ALIMENTO, LLENA", "GOLPE, LASTIMA",
 					"CASTIGO, ENSEÑA"
+				]
+			},//
+			{
+				"pregunta": "EL QUE TIENE _____ QUE LA ATIENDA Y SINO QUE LA _____.",
+				"respuesta": ["TIENDA, VENDA"],
+				"opciones": [
+					"MASCOTA, REGALE", "HAMBRE, TERMINE",
+					"LEÑA, QUEME"
+				]
+			},
+			{
+				"pregunta": "GALLO QUE NO _____ ALGO TIENE EN LA _____.",
+				"respuesta": ["CANTA, GARGANTA"],
+				"opciones": [
+					"LADRA, PATA", "CACAREA, CRESTA",
+					"COME, PANZA"
+				]
+			},
+			{
+				"pregunta": "LA ESPERANZA ES LO _____ QUE SE _____.",
+				"respuesta": ["ÚLTIMO, PIERDE"],
+				"opciones": [
+					"PRIMERO, GANA", "PRIMORDIAL, ADQUIERE",
+					"MEJOR, OBTIENE"
+				]
+			},
+			{
+				"pregunta": "FAVOR CON _____ SE _____.",
+				"respuesta": ["FAVOR, PAGA"],
+				"opciones": [
+					"ESFUERZO, TERMINA", "AMOR, GANA",
+					"LAGRIMAS, HACE"
+				]
+			},
+			{
+				"pregunta": "LA DICHA DE LA _____, LA _____ LO DESEA.",
+				"respuesta": ["FEA, BONITA"],
+				"opciones": [
+					"GATA, PERRA", "COMIDA, SEÑORA",
+					"CIENCIA, GENTE"
 				]
 			}
 		],
@@ -560,6 +640,46 @@
 				"opciones": [
 					"PAPÁ, HIJO", "JEFE, EMPLEADO",
 					"LEON, CACHORRO"
+				]
+			},//
+			{
+				"pregunta": "QUIEN HACE LA _____, HACE LA _____.",
+				"respuesta": ["LEY, TRAMPA"],
+				"opciones": [
+					"COMIDA, CENA", "PAZ, GUERRA",
+					"CURA, ENFERMEDAD"
+				]
+			},
+			{
+				"pregunta": "EL QUE NO _____ NO _____.",
+				"respuesta": ["LLORA, MAMA"],
+				"opciones": [
+					"DUERME, DESCANZA", "BAILA, DISFRUTA",
+					"QUIERE, AMA"
+				]
+			},
+			{
+				"pregunta": "DE _____ TODOS LOS _____ SON _____S.",
+				"respuesta": ["NOCHE, GATOS, PARDOS"],
+				"opciones": [
+					"DÍA, PERROS, BUENOS", "NOCHE, SERES, VISIBLES",
+					"DÍA, ANIMALES, AMIGABLES"
+				]
+			},
+			{
+				"pregunta": "_____ Y _____ HASTA LA _____.",
+				"respuesta": ["GENIO, FIGURA, SEPULTURA"],
+				"opciones": [
+					"MARIDO, MUJER, MUERTE", "TONTO, BOBO, MEDULA",
+					"VALIENTE, LISTO, CABEZA"
+				]
+			},
+			{
+				"pregunta": "LAS _____ _____ Y EL _____ _____",
+				"respuesta": ["CUENTAS, CLARAS, CHOCOLATE, ESPESO"],
+				"opciones": [
+					"CLARAS, CHOCOLATE, ESPESO, CUENTAS", "CUENTAS, CHOCOLATE, ESPESO, CLARAS",
+					"CHOCOLATE, CLARAS, CUENTAS, ESPESO"
 				]
 			}
 		]
