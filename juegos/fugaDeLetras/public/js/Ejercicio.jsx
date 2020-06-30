@@ -27,9 +27,15 @@ class Ejercicio extends React.Component {
 		var indices = [];
         // 6 ejercicios
         for (var i = 0; i < 6; i++) {
+<<<<<<< HEAD
             var index = Math.floor(Math.random() * 40);
             while(indices.indexOf(index) != -1){
                 index = Math.floor(Math.random() * 40);
+=======
+            var index = Math.floor(Math.random() * 15);
+            while(indices.indexOf(index) != -1){
+                index = Math.floor(Math.random() * 15);
+>>>>>>> master
             }
             this.losIndices[i] = index;
             indices.push(index);
