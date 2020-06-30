@@ -1,7 +1,6 @@
 class Ejercicio extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			pregunta: 0,
 			aciertos: 0,
@@ -19,18 +18,17 @@ class Ejercicio extends React.Component {
 	}
 
 	generarCadena(figura,color,lado){
-		var cadena = figura+"_"+color;
-		if (figura != "cuadrado")
-			cadena += "_"+lado; 
+		var cadena = figura+"-"+color+"-"+lado;
 		return cadena
 	}
 
 	generarEjercicios(){
 		this.ejercicios = [];
+
 		for (var i=0;i<5;i++){
-			var colores = ["rojo","azul","verde","naranja","amarillo"];
-			var figuras = ["circulo","triangulo","cuadrado","pentagono","estrella"];
-			var lados = ["der","izq"];
+			var figuras = ["Circulo","Triangulo","Cuadrado","Rectangulo","Rombo","Pentagono","Estrella","Hexagono","Octagono"];
+			var colores = ["Rojo","Azul","Verde","Naranja","Amarillo","Añil","Violeta"];
+			var lados = ["Der","Izq"];
 			var ejercicio = new Object();
 
 			var color_c = colores.splice(Math.floor(Math.random()*colores.length),1)[0];
@@ -48,19 +46,20 @@ class Ejercicio extends React.Component {
 			}
 
 			if (this.props.nivel == 1)
-				var color = colores.splice(Math.floor(Math.random()*colores.length),1)[0];
+			var color = colores.splice(Math.floor(Math.random()*colores.length),1)[0];
 			var opciones = [ejercicio.respuesta];
+
 			for (var j=1; j<=3; j++){
-				if (this.props.nivel == 1){
-					var fig = figuras.splice(Math.floor(Math.random()*figuras.length),1)[0];
-				} else if (this.props.nivel == 2){
+				if (this.props.nivel == 1) var fig = figuras.splice(Math.floor(Math.random()*figuras.length),1)[0];
+				else if (this.props.nivel == 2) {
 					var fig = figuras.splice(Math.floor(Math.random()*figuras.length),1)[0];
 					var color = colores[Math.floor(Math.random()*colores.length)];
-				} else{
+				}
+				else{
 					var fig = figuras.splice(Math.floor(Math.random()*figuras.length),1)[0];
 					var color = colores.splice(Math.floor(Math.random()*colores.length),1)[0];
 				}
-				var lado = lados[Math.round(Math.random())];
+				var lado = lado_op;
 				opciones.push(this.generarCadena(fig,color,lado));
 			}
 
@@ -68,6 +67,7 @@ class Ejercicio extends React.Component {
 			ejercicio.opciones = opciones;
 			this.ejercicios.push(ejercicio);
 		}
+		
 		console.log(this.ejercicios);
 	}
 
@@ -101,39 +101,39 @@ class Ejercicio extends React.Component {
 				<div>
 					<div className="row text-center">
 					    <div className="col-12">
-					        <Img url={"./img/"+this.ejercicios[this.state.pregunta].pregunta+".png"} />
-					    </div>    
+					        <Img url={"./img/"+this.ejercicios[this.state.pregunta].pregunta+".jpg"} />
+					    </div>
 					</div>
 					<div className="col-12"><hr/></div>
 					<div className="row text-center">
 						<div className="col">
-						    <Img 
-						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[0]+".png"} 
-						    	id={this.ejercicios[this.state.pregunta].opciones[0]} 
+						    <Img
+						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[0]+".jpg"}
+						    	id={this.ejercicios[this.state.pregunta].opciones[0]}
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
 						</div>
 						<div className="col ">
-						    <Img 
-						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[1]+".png"} 
-						    	id={this.ejercicios[this.state.pregunta].opciones[1]} 
+						    <Img
+						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[1]+".jpg"}
+						    	id={this.ejercicios[this.state.pregunta].opciones[1]}
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
 						</div>
 						<div className="col">
-						    <Img 
-						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[2]+".png"} 
-						    	id={this.ejercicios[this.state.pregunta].opciones[2]} 
+						    <Img
+						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[2]+".jpg"}
+						    	id={this.ejercicios[this.state.pregunta].opciones[2]}
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
 						</div>
 						<div className="col">
-						    <Img 
-						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[3]+".png"} 
-						    	id={this.ejercicios[this.state.pregunta].opciones[3]} 
+						    <Img
+						    	url={"./img/"+this.ejercicios[this.state.pregunta].opciones[3]+".jpg"}
+						    	id={this.ejercicios[this.state.pregunta].opciones[3]}
 						    	seleccionado={this.state.seleccionado}
 						    	seleccionar={this.seleccionar} />
-						</div>	
+						</div>
 					</div>
 
 					<div className="row mt-3">
@@ -144,5 +144,5 @@ class Ejercicio extends React.Component {
 				</div>
 			);
 		}
-	}	
+	}
 }
