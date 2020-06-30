@@ -501,7 +501,7 @@
 				"respuesta": ["M","L"],
 				"opciones": ["N", "C", "B", "I", "A", "T"]
 			}
-		],-------------------------------------
+		],
 		[
 			{
 				"pregunta": "A VECES _ECE_I_AMOS DESCANSAR",
@@ -1003,7 +1003,7 @@
 				"respuesta": ["E","V","D"],
 				"opciones": ["O", "A", "B", "T","B"]
 			}
-		],----------------------------------------
+		],
 		[
 			{
 				"pregunta": "ES FÁCIL _R_S_A_AR MI JARDÍN",
