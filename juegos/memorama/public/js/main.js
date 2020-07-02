@@ -212,7 +212,7 @@ class Ejercicio extends React.Component {
 	render() {
         var cartas = this.state.cartas.map((carta, i) =>
             <div style={{ float: 'left', padding: '20px', width: '25%' }}>
-                <img style={{ border: this.state.done.indexOf(i) >= 0 ? 'solid 5px green' : '', cursor: 'pointer', height: '300px', objectFit: 'cover', minHeight: '300px', maxWidth: '100%', width: '100%' }} src={'./img/' + (this.state.activo[i] ? carta : 'tarjeta') + '.jpg'} onClick={() => {
+                <img style={{ border: this.state.done.indexOf(i) >= 0 ? 'solid 5px green' : '', cursor: 'pointer', height: '300px', objectFit: 'cover', minHeight: '300px', maxWidth: '100%', width: '100%' }} src={'./img/' + (this.state.activo[i] ? carta : 'tarjeta') + '.png'} onClick={() => {
                     if (this.state.locked || this.state.done.indexOf(i) >= 0) return;
                     var activo = this.state.activo.map(x => x);
                     activo[i] = true;
