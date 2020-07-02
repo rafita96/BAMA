@@ -22,7 +22,7 @@ class Opcion extends React.Component {
 	    }else{
 	    	return(
 		        <div class="center">
-		            <button onClick={this.seleccionar} className="btn" style={{ height: "75px", width: "100%" ,color: "#009432"}}><h1>{this.props.texto}</h1></button>
+		            <button onClick={this.seleccionar} className="btn" style={{ height: "75px", width: "100%" ,color: "#ff1414"}}><h1>{this.props.texto}</h1></button>
 		        </div>
 	        );
 	    }

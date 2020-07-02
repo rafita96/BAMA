@@ -71,22 +71,23 @@ class Ejercicio extends React.Component {
 					</div>
 					<div className="row">
 						<div className="offset-1 col ">
-							<button onClick={() => this.seleccionar([this.respuestas[0]])} className="btn btn-success btn-lg">
+							<button onClick={() => this.seleccionar([this.respuestas[0]])} className="btn btn-success btn-lg"> style={color: "#ff1414"}
 								{this.respuestas[0]}
+							}
 							</button>
 						</div>
 						<div className="col ">
-							<button onClick={() => this.seleccionar([this.respuestas[1]])} className="btn btn-success btn-lg">
+							<button onClick={() => this.seleccionar([this.respuestas[1]])} className="btn btn-success btn-lg"> style={color: "#ff1414"}
 								{this.respuestas[1]}
 							</button>
 						</div>
 						<div className="col ">
-							<button onClick={() => this.seleccionar([this.respuestas[2]])} className="btn btn-success btn-lg">
+							<button onClick={() => this.seleccionar([this.respuestas[2]])} className="btn btn-success btn-lg"> style={color: "#ff1414"}
 								{this.respuestas[2]}
 							</button>
 						</div>
 						<div className="col ">
-							<button onClick={() => this.seleccionar([this.respuestas[3]])} className="btn btn-success btn-lg">
+							<button onClick={() => this.seleccionar([this.respuestas[3]])} className="btn btn-success btn-lg"> style={color: "#ff1414"}
 								{this.respuestas[3]}
 							</button>
 						</div>
