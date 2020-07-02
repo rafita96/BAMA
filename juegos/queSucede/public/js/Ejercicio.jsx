@@ -1,7 +1,6 @@
 class Ejercicio extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			pregunta: 0,
 			aciertos: 0,
@@ -56,7 +55,8 @@ class Ejercicio extends React.Component {
 			var porcentaje = this.state.aciertos / this.numeroPreguntas * 100
 			this.props.terminar(porcentaje);
 			return(<div></div>);
-		} else {
+		}
+		else {
 			var carpeta = this.ejercicios[this.state.pregunta].carpeta;
 			this.respuestas = this.ejercicios[this.state.pregunta].opciones;
 			return (
@@ -71,30 +71,29 @@ class Ejercicio extends React.Component {
 					</div>
 					<div className="row">
 						<div className="offset-1 col ">
-							<button onClick={() => this.seleccionar([this.respuestas[0]])} className="btn btn-success btn-lg"> style={{border: "ff1414"}}
+							<button onClick={() => this.seleccionar([this.respuestas[0]])} className="btn btn-success">
 								{this.respuestas[0]}
-							}
 							</button>
 						</div>
 						<div className="col ">
-							<button onClick={() => this.seleccionar([this.respuestas[1]])} className="btn btn-success btn-lg"> style={{border: "ff1414"}}
+							<button onClick={() => this.seleccionar([this.respuestas[1]])} className="btn btn-success">
 								{this.respuestas[1]}
 							</button>
 						</div>
 						<div className="col ">
-							<button onClick={() => this.seleccionar([this.respuestas[2]])} className="btn btn-success btn-lg"> style={{border: "ff1414"}}
+							<button onClick={() => this.seleccionar([this.respuestas[2]])} className="btn btn-success">
 								{this.respuestas[2]}
 							</button>
 						</div>
 						<div className="col ">
-							<button onClick={() => this.seleccionar([this.respuestas[3]])} className="btn btn-success btn-lg"> style={{border: "ff1414"}}
+							<button onClick={() => this.seleccionar([this.respuestas[3]])} className="btn btn-success">
 								{this.respuestas[3]}
 							</button>
 						</div>
 					</div>
 					<div className="row mt-3">
 						<div className="col-2 offset-10">
-							<button className="btn btn-principal btn-lg" onClick={this.siguiente}>Siguiente</button>
+							<button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
 						</div>
 					</div>
 				</div>
