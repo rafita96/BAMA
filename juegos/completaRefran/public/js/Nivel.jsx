@@ -51,7 +51,7 @@ class Nivel extends React.Component{
                         </a>
                     </div>
                     <div className="col-4 offset-4 text-center mt-3">
-                        <button onClick={this.seleccionar} className="btn btn-principal">Continuar</button>
+                        <button onClick={this.seleccionar} className="btn btn-principal btn-lg">Continuar</button>
                     </div>
                 </div>
             </div>

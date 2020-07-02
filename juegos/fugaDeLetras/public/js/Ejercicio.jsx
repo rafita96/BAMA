@@ -27,9 +27,9 @@ class Ejercicio extends React.Component {
 		var indices = [];
         // 6 ejercicios
         for (var i = 0; i < 6; i++) {
-            var index = Math.floor(Math.random() * 10);
+            var index = Math.floor(Math.random() * 100);
             while(indices.indexOf(index) != -1){
-                index = Math.floor(Math.random() * 10);
+                index = Math.floor(Math.random() * 100);
             }
             this.losIndices[i] = index;
             indices.push(index);
@@ -39,7 +39,7 @@ class Ejercicio extends React.Component {
 
     seleccionar(indice){
         var nuevoArreglo = this.state.indices;
-        var idx = nuevoArreglo.indexOf(indice); 
+        var idx = nuevoArreglo.indexOf(indice);
         if (idx != -1) {
             nuevoArreglo.splice(idx,1);
         } else{
@@ -67,7 +67,7 @@ class Ejercicio extends React.Component {
                     pregunta: this.state.pregunta+1,
                     indices: []
                 });
-            }       
+            }
         }
     }
 
@@ -82,8 +82,8 @@ class Ejercicio extends React.Component {
                     </div>
                     <div>
                         <Opciones opciones={this.ejercicios[this.state.pregunta].opciones} indices={this.state.indices} seleccionar={this.seleccionar}/>
-                    </div>  
-                    
+                    </div>
+
                     <button class="btn btn-principal float-right" onClick={this.siguiente}>Siguiente</button>
                 </div>
             );
@@ -92,6 +92,6 @@ class Ejercicio extends React.Component {
             this.props.terminar(porcentaje);
             return(<div></div>);;
         }
-            
+
 	}
 }

@@ -16,3 +16,7 @@ class Bloque extends React.Component {
         );
     }
 }
+
+git branch temporal
+git checkout temporal
+git checkout master 

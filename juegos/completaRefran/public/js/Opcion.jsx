@@ -16,7 +16,7 @@ class Opcion extends React.Component {
 		if(this.props.seleccionados.indexOf(this.props.indice) != -1){
 	        return(
 		        <div class="center">
-		            <button onClick={this.seleccionar} className="btn" style={{ height: "75px", width: "100%" ,color: "#F0b894"}}><h1>{this.props.texto}</h1></button>
+		            <button onClick={this.seleccionar} className="btn" style={{ height: "75px", width: "100%" ,color: "#F0b894", border: "#ff1414"}}><h1>{this.props.texto}</h1></button>
 		        </div>
 	        );
 	    }else{

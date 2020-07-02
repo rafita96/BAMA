@@ -102,13 +102,37 @@ class Nivel extends React.Component{
                     </div>
 
                     <div className="col-4 offset-4 text-center mt-3">
-                        <button onClick={this.seleccionar} className="btn btn-principal">Continuar</button>
+                        <button onClick={this.seleccionar} className="btn btn-principal btn-lg">Continuar</button>
                     </div>
 
                 </div>
             </div>
         );
     }
+}
+
+class Img extends React.Component{
+
+	constructor(props) {
+		super(props);
+	}
+
+  componentDidMount(){
+    const img = this.refs.image;
+  }
+
+  render(){
+  	if (this.props.index == null || this.props.seleccionado == null) {
+  	} else if (this.props.index == this.props.seleccionado) {
+  		return (
+  			<img className="border border-success" ref="image" src={this.props.url} />
+  		);
+  	}
+
+  	return (
+  		<img ref="image" src={this.props.url} />
+  	);
+  }
 }
 
 class Ejercicio extends React.Component {
@@ -200,8 +224,8 @@ class Ejercicio extends React.Component {
                     ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".png"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
                     : '';
                 row.push(
-                    <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '25%' }} onClick={() => {
-                        this.colocarPieza(i, j);
+                  <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '25%' }} onClick={() => {
+                     this.colocarPieza(i, j);
                     }}>
                         {content}
                     </div>
@@ -359,7 +383,7 @@ class Game extends React.Component {
 		} else if (this.state.inicio) {
 			return (
 				<Bloque nombre={this.props.nombre}>
-					<Ejercicio terminar={this.terminar} nivel={this.nivel}/>
+					<Ejercicio terminar={this.terminar}/>
 				</Bloque>
 			);
 		} else {
