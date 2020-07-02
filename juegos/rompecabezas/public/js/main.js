@@ -200,8 +200,10 @@ class Ejercicio extends React.Component {
                     ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".png"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
                     : '';
                 row.push(
-                    <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '25%' }} onClick={() => {
-                        this.colocarPieza(i, j);
+                    <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '25%' }} onClick={() => { style={{border: "ff1414"}}
+                        this.colocarPieza(i, j); 
+                    }
+                    }
                     }}>
                         {content}
                     </div>
