@@ -114,13 +114,22 @@ class Nivel extends React.Component{
 class Ejercicio extends React.Component {
 	constructor(props) {
         super(props);
-        this.n = 4;
+        if (this.props.nivel == 1) {
+          this.n = 3;
+        }
+        if (this.props.nivel == 2) {
+          this.n = 4;
+        }
+        if (this.props.nivel == 3) {
+          this.n = 5;
+        }
+        this.m = 4;
         this.generarCartas = this.generarCartas.bind(this);
         this.generarCarta = this.generarCarta.bind(this);
         this.revisar = this.revisar.bind(this);
         var cartas = this.generarCartas();
         var activo = [];
-        for (var i = 0; i < this.n * this.n; i++) {
+        for (var i = 0; i < this.n * this.m; i++) {
             activo.push(false);
         }
         this.state = {
@@ -135,8 +144,17 @@ class Ejercicio extends React.Component {
 
     generarCartas() {
         var cartas = [];
-        var disponibles = ['abrikos', 'cherno', 'dunia', 'fresa', 'kiwi', 'manzana'];
+        if (this.props.nivel == 1) {
+          var disponibles = ['abrikos', 'cherno', 'dunia', 'fresa', 'kiwi', 'manzana'];
+        }
+        if (this.props.nivel == 2) {
+          var disponibles = ['abrikos', 'cherno', 'dunia', 'fresa', 'kiwi', 'manzana', 'naranja', 'pera'];
+        }
+        if (this.props.nivel == 3) {
+          var disponibles = ['abrikos', 'cherno', 'dunia', 'fresa', 'kiwi', 'manzana', 'naranja', 'pera', 'platano', 'sandia'];
+        }
         var self = this;
+
         disponibles.forEach(function(disponible) {
             for (var i = 0; i < 2; i++) {
                 var carta = self.generarCarta(cartas);
@@ -147,9 +165,9 @@ class Ejercicio extends React.Component {
     }
 
     generarCarta(cartas) {
-        var carta = Math.floor(Math.random() * this.n * this.n);
+        var carta = Math.floor(Math.random() * this.n * this.m);
         while (cartas[carta]) {
-            var carta = Math.floor(Math.random() * this.n * this.n);
+            var carta = Math.floor(Math.random() * this.n * this.m);
         }
         return carta;
     }
@@ -170,7 +188,7 @@ class Ejercicio extends React.Component {
                 done: done,
                 selected: -1
             });
-            if (done.length == this.n * this.n) {
+            if (done.length == this.n * this.m) {
                 this.props.terminar(Math.max(0, 100 - (this.state.movimientos - 2) * this.props.nivel * 3));
             }
         } else {
