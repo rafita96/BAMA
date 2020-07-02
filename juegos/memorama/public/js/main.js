@@ -132,10 +132,10 @@ class Ejercicio extends React.Component {
             locked: false
         }
     }
-    
+
     generarCartas() {
         var cartas = [];
-        var disponibles = ['aguacate', 'banana', 'fresa', 'manzana', 'naranja', 'pera', 'pina', 'zanahoria'];
+        var disponibles = ['abrikos', 'cherno', 'dunia', 'fresa', 'kiwi', 'manzana'];
         var self = this;
         disponibles.forEach(function(disponible) {
             for (var i = 0; i < 2; i++) {
@@ -194,7 +194,7 @@ class Ejercicio extends React.Component {
 	render() {
         var cartas = this.state.cartas.map((carta, i) =>
             <div style={{ float: 'left', padding: '20px', width: '25%' }}>
-                <img style={{ border: this.state.done.indexOf(i) >= 0 ? 'solid 5px green' : '', cursor: 'pointer', height: '300px', objectFit: 'cover', minHeight: '300px', maxWidth: '100%', width: '100%' }} src={'./img/' + (this.state.activo[i] ? carta : 'tarjeta') + '.png'} onClick={() => {
+                <img style={{ border: this.state.done.indexOf(i) >= 0 ? 'solid 5px green' : '', cursor: 'pointer', height: '300px', objectFit: 'cover', minHeight: '300px', maxWidth: '100%', width: '100%' }} src={'./img/' + (this.state.activo[i] ? carta : 'tarjeta') + '.jpg'} onClick={() => {
                     if (this.state.locked || this.state.done.indexOf(i) >= 0) return;
                     var activo = this.state.activo.map(x => x);
                     activo[i] = true;
