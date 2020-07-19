@@ -1,6 +1,3 @@
-import Img from '../../../../public/common/js/juegos/compiled/Img.jsx';
-import Camara from './Camara.jsx';
-
 class Ejercicio extends React.Component{
 
     constructor(props){
@@ -33,7 +30,7 @@ class Ejercicio extends React.Component{
             if(this.state.seleccionado*45 == this.ejercicios[this.state.pregunta][1]){
                 this.puntaje += 1;
             }
-    
+
             if(this.state.pregunta + 1 == this.numeroPreguntas){
                 this.props.terminar((this.puntaje/this.numeroPreguntas)*100);
             }else{
@@ -56,7 +53,7 @@ class Ejercicio extends React.Component{
             // 10 carpetas, y 8 imagenes por carpeta
             // Entre 0 y 9
             var carpeta = Math.floor(Math.random() * 10);
-            if(carpeta == 10){ 
+            if(carpeta == 10){
                 carpeta--
             };
             carpeta++;
@@ -71,7 +68,7 @@ class Ejercicio extends React.Component{
 
             while(index != -1 && this.ejercicios[index].indexOf(imagen) != -1){
                 var carpeta = Math.floor(Math.random() * 10);
-                if(carpeta == 10){ 
+                if(carpeta == 10){
                     carpeta--
                 };
                 carpeta++;
@@ -95,7 +92,7 @@ class Ejercicio extends React.Component{
         let imagenUrlBase = "./../../../../public/common/img/puntosVista/"+ carpeta;
 
         if(this.state.seleccionado == -1){
-            var imagenSeleccionada = "./../../../../public/common/img/puntosVista/notselected.jpg"; 
+            var imagenSeleccionada = "./../../../../public/common/img/puntosVista/notselected.jpg";
         }else{
             var imagenSeleccionada = imagenUrlBase + "/" + this.state.seleccionado*45 + ".png";
         }
@@ -108,27 +105,27 @@ class Ejercicio extends React.Component{
 
                 <div className="col-6">
                     <svg viewBox="0 0 100 60">
-                        <image y="10" 
-                            width="100" height="40" 
+                        <image y="10"
+                            width="100" height="40"
                             href={"./../../../../public/common/img/puntosVista/"+carpeta+"/aereo.png"} />
-                        
-                        <Camara seleccionado={camaraSeleccionada} 
+
+                        <Camara seleccionado={camaraSeleccionada}
                                 indice={5} angulo={135} cx={29} cy={10} r={2} />
-                        <Camara seleccionado={camaraSeleccionada} 
+                        <Camara seleccionado={camaraSeleccionada}
                                 indice={4} angulo={180} cx={50} cy={6} r={2} />
-                        <Camara seleccionado={camaraSeleccionada} 
+                        <Camara seleccionado={camaraSeleccionada}
                                 indice={3} angulo={225} cx={71} cy={10} r={2} />
 
-                        <Camara seleccionado={camaraSeleccionada} 
+                        <Camara seleccionado={camaraSeleccionada}
                                 indice={6} angulo={90} cx={25} cy={29} r={2} />
-                        <Camara seleccionado={camaraSeleccionada} 
+                        <Camara seleccionado={camaraSeleccionada}
                                 indice={2} angulo={270} cx={75} cy={29} r={2} />
 
-                        <Camara seleccionado={camaraSeleccionada} 
+                        <Camara seleccionado={camaraSeleccionada}
                                 indice={7} angulo={45} cx={29} cy={50} r={2} />
-                        <Camara seleccionado={camaraSeleccionada} 
+                        <Camara seleccionado={camaraSeleccionada}
                                 indice={0} angulo={0} cx={50} cy={54} r={2} />
-                        <Camara seleccionado={camaraSeleccionada} 
+                        <Camara seleccionado={camaraSeleccionada}
                                 indice={1} angulo={315} cx={71} cy={50} r={2} />
                     </svg>
                 </div>

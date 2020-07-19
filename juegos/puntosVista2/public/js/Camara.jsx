@@ -4,6 +4,16 @@ Math.radians = function(degrees) {
 
 class Camara extends React.Component{
 
+    constructor(props){
+        super(props);
+
+        this.seleccionar = this.seleccionar.bind(this);
+    }
+
+    seleccionar(){
+        this.props.seleccionar(this.props.indice);
+    }
+
     render(){
         // let angulo = Math.tan(this.props.angulo);
         let x21 = Math.cos(Math.radians(this.props.angulo-45))*10 + this.props.cx;
@@ -21,7 +31,7 @@ class Camara extends React.Component{
         return(<g>
             <line x1={this.props.cx} y1={this.props.cy} x2={x21} y2={y21} stroke={color} stroke-width="1" />
             <line x1={this.props.cx} y1={this.props.cy} x2={x22} y2={y22} stroke={color} stroke-width="1" />
-            <circle cx={this.props.cx} cy={this.props.cy} r={this.props.r} fill={color}/>
+            <circle cx={this.props.cx} cy={this.props.cy} r={this.props.r} fill={color} onClick={this.seleccionar} />
         </g>);
     }
 }
