@@ -1,4 +1,4 @@
-class Bloque extends React.Component{
+class Bloque extends React.Component {
     constructor(props) {
         super(props);
     }

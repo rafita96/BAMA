@@ -1,6 +1,6 @@
 {
 	"niveles": [
-		[//Facil
+		[
 			{
 			  "pregunta": "A BUEN ENTENDEDOR, POCAS _____.",
 			  "respuesta": ["PALABRAS"],
@@ -111,7 +111,7 @@
 					"BUENO", "BRILLANTE",
 					"PLATA"
 				]
-			},//Nuevo
+			},
 			{
 				"pregunta": "QUIEN _____ MUCHO, POCO APRENDE.",
 				"respuesta": ["DUERME"],
@@ -151,7 +151,7 @@
 					"AMIGO", "ANIMAL",
 					"CARRO"
 				]
-			},//
+			},
 			{
 				"pregunta": "EN CASA DE HERRERO, AZADÓN DE _____.",
 				"respuesta": ["PALO"],
@@ -191,7 +191,7 @@
 					"GATO", "NIÑO",
 					"PARLANCHÍN"
 				]
-			},//
+			},
 			{
 				"pregunta": "BARRIGA LLENA, _____ CONTENTO.",
 				"respuesta": ["CORAZÓN"],
@@ -233,7 +233,7 @@
 				]
 			}
 		],
-		[//Normal
+		[
 			{
 			  "pregunta": "A BUEN ENTENDEDOR, __________.",
 			  "respuesta": ["POCAS PALABRAS"],
@@ -336,7 +336,7 @@
 					"ES BUENO", "ES REFLEJANTE",
 					"ES POROSO"
 				]
-			},//Nuevos
+			},
 			{
 				"pregunta": "EL PEZ _____ POR LA _____.",
 				"respuesta": ["MUERE, BOCA"],
@@ -376,7 +376,7 @@
 					"MAL, ATRÁS", "COMIDA, NADIE",
 					"TRAVESURAS, PAPÁ"
 				]
-			},//
+			},
 			{
 				"pregunta": "AUNQUE LA MONA SE VISTA DE _____, _____ SE QUEDA.",
 				"respuesta": ["SEDA, MONA"],
@@ -416,7 +416,7 @@
 					"ALIMENTO, LLENA", "GOLPE, LASTIMA",
 					"CASTIGO, ENSEÑA"
 				]
-			},//
+			},
 			{
 				"pregunta": "EL QUE TIENE _____ QUE LA ATIENDA Y SINO QUE LA _____.",
 				"respuesta": ["TIENDA, VENDA"],
@@ -458,7 +458,7 @@
 				]
 			}
 		],
-		[//Dificil
+		[
 			{
 			  "pregunta": "A CABALLO REGALADO NO SE LE __________.",
 			  "respuesta": ["MIRAN LOS DIENTES"],
@@ -561,7 +561,7 @@
 					"CAMINO COMIENZA", "VIDA RECOMPENSA",
 					"VIDA APEREZA"
 				]
-			},//Nuevo
+			},
 			{
 				"pregunta": "A TODO _____ LE LLEGA SU __________.",
 				"respuesta": ["MARRANO, NOCHE BUENA"],
@@ -601,7 +601,7 @@
 					"PERRO, CORREA, CARRERA", "CARRO, CARTERA, COMIDA",
 					"VASO, BEBIDA, HIDRATACIÓN"
 				]
-			},//
+			},
 			{
 				"pregunta": "AL _____, _____ Y AL _____, _____.",
 				"respuesta": ["PAN, PAN, VINO, VINO"],
@@ -641,7 +641,7 @@
 					"PAPÁ, HIJO", "JEFE, EMPLEADO",
 					"LEON, CACHORRO"
 				]
-			},//
+			},
 			{
 				"pregunta": "QUIEN HACE LA _____, HACE LA _____.",
 				"respuesta": ["LEY, TRAMPA"],

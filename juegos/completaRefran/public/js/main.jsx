@@ -1,12 +1,13 @@
 class Main extends React.Component {
 	constructor(props){
         super(props);
-        // El inicio debe estar en false para mostrar las instrucciones
+				this.juego = "completaRefran";
+
         this.state = {
             seleccionNivel: true,
             inicio: false,
             fin: false,
-            porcentaje: null            
+            porcentaje: null
         }
         this.datos_nivel = null;
         this.iniciar = this.iniciar.bind(this);
@@ -57,11 +58,11 @@ class Main extends React.Component {
         }else if(this.state.fin){
             return(
                 <Bloque nombre={this.props.nombre}>
-                    <Fin 
-                        fechaInicio={this.fechaInicio} 
-                        nivel={this.nivel} 
-                        paciente={this.props.paciente} 
-                        reiniciar={this.reiniciar} 
+                    <Fin
+                        fechaInicio={this.fechaInicio}
+                        nivel={this.nivel}
+                        paciente={this.props.paciente}
+                        reiniciar={this.reiniciar}
                         porcentaje={this.state.porcentaje} />
                 </Bloque>
             );
@@ -74,8 +75,8 @@ class Main extends React.Component {
         }else{
             return(
                 <Bloque nombre={this.props.nombre}>
-                    <Instrucciones 
-                        iniciar={this.iniciar} 
+                    <Instrucciones
+                        iniciar={this.iniciar}
                         instrucciones={this.props.instrucciones} />
                 </Bloque>
             );
@@ -109,10 +110,10 @@ function getInfo(callback){
 $(document).ready(function(){
     getInfo(function(paciente,nombre,instrucciones,datos){
 
-        ReactDOM.render(<Main 
+        ReactDOM.render(<Main
             paciente={paciente}
-            nombre={nombre} 
-            instrucciones={instrucciones} 
+            nombre={nombre}
+            instrucciones={instrucciones}
             datos={datos}/>, document.getElementById('main'));
     })
-}); 
+});
