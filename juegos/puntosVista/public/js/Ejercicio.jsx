@@ -38,7 +38,7 @@ class Ejercicio extends React.Component{
                 });
             }
         }else{
-            toastr("No has seleccionado una respuesta");
+            toastr("¡Usted no ha seleccionado una respuesta!");
         }
     }
 

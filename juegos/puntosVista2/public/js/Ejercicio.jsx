@@ -42,7 +42,7 @@ class Ejercicio extends React.Component{
                 this.respuesta = shuffle([0,1,2,3,4,5,6,7]);
             }
         }else{
-            toastr("No has seleccionado una respuesta");
+            toastr("¡Usted no ha seleccionado una respuesta!");
         }
     }
 

@@ -3,14 +3,14 @@ class Instrucciones extends React.Component {
 		return (
 			<div>
 				<div className="row border rounder my-3">
-					<div className="col-12 text-justify bg-white">
+					<div className="col-12 text-center bg-white">
 						<p>{this.props.instrucciones}</p>
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12 text-center">
-						<button 
+						<button
 							className="btn btn-principal btn-lg"
 							onClick={this.props.iniciar}>
 							Iniciar Juego

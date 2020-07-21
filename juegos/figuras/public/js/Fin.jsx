@@ -31,12 +31,12 @@ class Fin extends React.Component{
             <div>
                 <div className={"row border rounded " + clase}>
                     <div className="col-6 offset-3 text-center text-white">
-                        <h1 className="display-1">{this.props.porcentaje}%</h1>
+                        <h1 className="display-1">{this.props.porcentaje.toFixed(2)}%</h1>
                     </div>
                 </div>
                 <div className="row mt-3">
                     <div className="col-4">
-                        <a href="/juegos/" className="btn btn-principal">Lista de juegos</a>
+                        <a href="/juegos/" className="btn btn-principal">Regresar</a>
                     </div>
                     <div className="col-4 text-center">
                         <button onClick={this.props.reiniciar} className="btn btn-principal">Volver a jugar</button>

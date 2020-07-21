@@ -1,9 +1,9 @@
 <html lang="es">
     <head>
-         <meta charset="UTF-8">
-         <title>Rompecabezas</title>
+        <meta charset="UTF-8">
+        <title>Rompecabezas</title>
 
-         <style type="text/css">
+        <style type="text/css">
              img {
                 max-width: 100%;
                 max-height: 100%;
@@ -11,8 +11,8 @@
              .thumbnail {
                 background-color: transparent;
              }
-         </style>
-         <link rel="stylesheet" href="./public/css/juego1.css">
+        </style>
+        <link rel="stylesheet" href="./public/css/rompe.css">
 
         <script src="/public/common/js/d3/d3.min.js"></script>
         <script src="/public/common/js/react.js"></script>
@@ -25,6 +25,12 @@
         <% include ../../src/views/layouts/nav %>
 
         <div class="container">
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <h3><b class="text-accent">Paciente actual: </b><span id="paciente_actual"></span></h3>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-12">
                     <div id="main"></div>
@@ -33,6 +39,7 @@
         </div>
 
         <script type="text/babel" src="./public/js/main.js"></script>
+        
     </body>
 
 </html>

@@ -214,7 +214,7 @@
                             -1 != this.state.seleccionado
                                 ? (45 * this.state.seleccionado == this.ejercicios[this.state.pregunta][1] && (this.puntaje += 1),
                                   this.state.pregunta + 1 == this.numeroPreguntas ? this.props.terminar((this.puntaje / this.numeroPreguntas) * 100) : this.setState({ seleccionado: -1, pregunta: this.state.pregunta + 1 }))
-                                : toastr("No has seleccionado una respuesta");
+                                : toastr("¡Usted no ha seleccionado una respuesta!");
                         },
                     },
                     {
@@ -331,8 +331,8 @@
                                     React.createElement(
                                         "div",
                                         { className: "row mt-3" },
-                                        React.createElement("div", { className: "col-4" }, React.createElement("a", { href: "/juegos/", className: "btn btn-principal" }, "Lista de juegos")),
-                                        React.createElement("div", { className: "col-4 text-center" }, React.createElement("button", { onClick: this.props.reiniciar, className: "btn btn-principal" }, "Volver a jugar"))
+                                        React.createElement("div", { className: "col-4" }, React.createElement("a", { href: "/juegos/", className: "btn btn-principal btn-lg" }, "Regresar")),
+                                        React.createElement("div", { className: "col-4 text-center" }, React.createElement("button", { onClick: this.props.reiniciar, className: "btn btn-principal btn-lg" }, "Volver a jugar"))
                                     )
                                 )
                             );
@@ -378,7 +378,7 @@
                     {
                         key: "seleccionar",
                         value: function () {
-                            0 == this.state.index ? toastr("No has seleccionado un nivel.") : this.props.seleccionar(this.state.index);
+                            0 == this.state.index ? toastr("¡Usted no ha seleccionado un nivel de dificultad!") : this.props.seleccionar(this.state.index);
                         },
                     },
                     {
@@ -388,7 +388,7 @@
                             return React.createElement(
                                 "div",
                                 null,
-                                React.createElement("div", { className: "row" }, React.createElement("div", { className: "col-6 offset-3 text-center" }, React.createElement("h3", null, "Selecciona el nivel de dificultad"))),
+                                React.createElement("div", { className: "row" }, React.createElement("div", { className: "col-6 offset-3 text-center" }, React.createElement("h3", null, "Seleccione el nivel de dificultad"))),
                                 React.createElement(
                                     "div",
                                     { className: "row text-center" },
@@ -426,8 +426,8 @@
                                 React.createElement(
                                     "div",
                                     { className: "row" },
-                                    React.createElement("div", { className: "col-4 text-center mt-3" }, React.createElement("a", { className: "btn btn-principal btn-lg", href: "/juegos/" }, "Lista de juegos")),
-                                    React.createElement("div", { className: "col-4 offset-4 text-center mt-3" }, React.createElement("button", { onClick: this.seleccionar, className: "btn btn-principal" }, "Continuar"))
+                                    React.createElement("div", { className: "col-4 text-center mt-3" }, React.createElement("a", { className: "btn btn-principal btn-lg", href: "/juegos/" }, "Regresar")),
+                                    React.createElement("div", { className: "col-4 offset-4 text-center mt-3" }, React.createElement("button", { onClick: this.seleccionar, className: "btn btn-principal btn-lg" }, "Continuar"))
                                 )
                             );
                         },
@@ -475,19 +475,16 @@
                         value: function () {
                             var e;
                             return (
-                                (e =
-                                    void 0 === this.props.regresar
-                                        ? React.createElement("div", { className: "col-4" }, React.createElement("a", { className: "btn btn-principal btn-lg", href: "/juegos/" }, "Lista de juegos"))
-                                        : React.createElement("div", { className: "col-4" })),
+
                                 React.createElement(
                                     "div",
                                     null,
-                                    React.createElement("div", { className: "row border rounder my-3" }, React.createElement("div", { className: "col-12 text-justify bg-white" }, React.createElement("p", null, this.props.instrucciones))),
+                                    React.createElement("div", { className: "row border rounder my-3" }, React.createElement("div", { className: "col-12 text-center bg-white" }, React.createElement("p", null, this.props.instrucciones))),
                                     React.createElement(
                                         "div",
                                         { className: "row" },
                                         e,
-                                        React.createElement("div", { className: "col-4 text-center" }, React.createElement("button", { className: "btn btn-principal btn-lg", onClick: this.props.iniciar }, "Iniciar Juego"))
+                                        React.createElement("div", { className: "col-12 text-center" }, React.createElement("button", { className: "btn btn-principal btn-lg", onClick: this.props.iniciar }, "Iniciar Juego"))
                                     )
                                 )
                             );

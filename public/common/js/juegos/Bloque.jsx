@@ -5,7 +5,7 @@ class Bloque extends React.Component {
 
     render() {
         return (
-            <div className="row mt-3 border rounded p-3 bg-principal">
+            <div className="row my-3 border rounded p-3 bg-principal">
                 <div className="col-6 offset-3 text-center">
                     <h1>{this.props.nombre}</h1>
                 </div>
@@ -16,7 +16,3 @@ class Bloque extends React.Component {
         );
     }
 }
-
-git branch temporal
-git checkout temporal
-git checkout master

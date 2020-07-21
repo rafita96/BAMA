@@ -12,7 +12,7 @@ class Nivel extends React.Component{
 
     seleccionar() {
         if (this.state.index == 0) {
-            toastr("No has seleccionado un nivel.");
+            toastr("¡Usted no ha seleccionado un nivel de dificultad!");
         } else {
             this.props.seleccionar(this.state.index);
         }
@@ -22,9 +22,9 @@ class Nivel extends React.Component{
         var niveles = [];
         for(var i = 0; i < 3; i++){
             if(this.state.index == i+1) {
-                niveles.push("col-4 bg-verde border text-white py-3 unselectable");
+                niveles.push("col-4 bg-verde border text-white py-3");
             } else {
-                niveles.push("col-4 bg-light border py-3 unselectable")
+                niveles.push("col-4 bg-light border py-3")
             }
         }
 
@@ -47,9 +47,9 @@ class Nivel extends React.Component{
                 <div className="row">
                     <div className="col-4 text-center mt-3">
                         <a
-                            className="btn btn-principal btn-lg" 
+                            className="btn btn-principal btn-lg"
                             href="/juegos/">
-                            Lista de juegos
+                            Regresar
                         </a>
                     </div>
 

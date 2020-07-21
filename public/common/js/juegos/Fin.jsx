@@ -4,13 +4,13 @@ class Fin extends React.Component{
         super(props);
 
         Consulta.post('/paciente/registrar/avance/', {
-                juego: this.props.juego, 
+                juego: this.props.juego,
                 paciente: this.props.paciente,
                 porcentaje: this.props.porcentaje,
                 nivel: this.props.nivel,
                 fechaInicio: this.props.fechaInicio,
                 fechaFin: new Date()
-            }, 
+            },
             function(error){
                 console.log(error);
             }
@@ -36,7 +36,7 @@ class Fin extends React.Component{
                 </div>
                 <div className="row mt-3">
                     <div className="col-4">
-                        <a href="/juegos/" className="btn btn-principal">Lista de juegos</a>
+                        <a href="/juegos/" className="btn btn-principal">Regresar</a>
                     </div>
                     <div className="col-4 text-center">
                         <button onClick={this.props.reiniciar} className="btn btn-principal">Volver a jugar</button>
