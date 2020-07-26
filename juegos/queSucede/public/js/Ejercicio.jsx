@@ -1,11 +1,13 @@
 class Ejercicio extends React.Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			pregunta: 0,
 			aciertos: 0,
 			index: null
 		}
+
 		this.numeroPreguntas = 8;
 		this.generarEjercicios();
 		this.siguiente = this.siguiente.bind(this);
@@ -27,13 +29,13 @@ class Ejercicio extends React.Component {
                 index = Math.floor(Math.random() * this.numeroPreguntas);
             }
             indices.push(index);
-			this.ejercicios.push(this.props.datos["niveles"][0][index]);
+						this.ejercicios.push(this.props.datos["niveles"][0][index]);
 		}
 	}
 
 	siguiente() {
 		if (this.state.index == null) {
-			toastr("No has seleccionado una opción");
+			toastr("¡Usted no ha seleccionado una respuesta!");
 		} else {
 			if (Responder(0, this.ejercicios[this.state.pregunta].carpeta, this.state.index)) {
 				this.setState({

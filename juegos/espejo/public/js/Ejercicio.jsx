@@ -64,7 +64,7 @@ class Ejercicio extends React.Component {
 
 	siguiente() {
 		if (JSON.stringify(this.state.respuesta) == JSON.stringify(this.cuadricula_vacia)) {
-			toastr("No has seleccionado una opción");
+			toastr("¡Usted no ha seleccionado una respuesta!");
 		} else {
 			if (this.validarRespuesta()) {
 				this.setState({
@@ -135,7 +135,7 @@ class Ejercicio extends React.Component {
 					</div>
 					<div className="row mt-3">
 						<div className="col-2 offset-10">
-							<button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
+							<button className="btn btn-principal btn-lg" onClick={this.siguiente}>Siguiente</button>
 						</div>
 					</div>
 				</div>

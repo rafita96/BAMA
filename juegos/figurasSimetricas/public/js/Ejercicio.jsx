@@ -1,11 +1,13 @@
 class Ejercicio extends React.Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			pregunta: 0,
 			aciertos: 0,
 			seleccionado: null
 		}
+
 		this.generarEjercicios();
 		this.siguiente = this.siguiente.bind(this);
 		this.seleccionar = this.seleccionar.bind(this);
@@ -67,13 +69,13 @@ class Ejercicio extends React.Component {
 			ejercicio.opciones = opciones;
 			this.ejercicios.push(ejercicio);
 		}
-		
+
 		console.log(this.ejercicios);
 	}
 
 	siguiente() {
 		if (this.state.seleccionado == null) {
-			toastr("No has seleccionado una opción");
+			toastr("¡Usted no ha seleccionado una respuesta!");
 		} else {
 			if (this.state.seleccionado == this.ejercicios[this.state.pregunta].respuesta) {
 				this.setState({

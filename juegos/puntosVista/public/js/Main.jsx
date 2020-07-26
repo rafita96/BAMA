@@ -240,9 +240,7 @@
                             return React.createElement(
                                 "div",
                                 null,
-                                React.createElement(
-                                    "div",
-                                    { className: "col-12" },
+
                                     React.createElement(
                                         "div",
                                         { className: "row" },
@@ -264,9 +262,8 @@
                                                 React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 1, angulo: 315, cx: 71, cy: 50, r: 2 })
                                             )
                                         )
-                                    )
                                 ),
-                                React.createElement("div", { className: "row mt-3" }, React.createElement("div", { className: "col-2 offset-10" }, React.createElement("button", { className: "btn btn-principal", onClick: this.siguiente }, "Siguiente")))
+                                React.createElement("div", { className: "row mt-3" }, React.createElement("div", { className: "col-2 offset-10" }, React.createElement("button", { className: "btn btn-principal btn-lg", onClick: this.siguiente }, "Siguiente")))
                             );
                         },
                     },

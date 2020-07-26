@@ -32,7 +32,7 @@ class Nivel extends React.Component{
             <div>
                 <div className="row">
                     <div className="col-6 offset-3 text-center">
-                        <h3>Selecciona el nivel de dificultad</h3>
+                        <h3>Seleccione el nivel de dificultad</h3>
                     </div>
                 </div>
 

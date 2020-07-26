@@ -97,11 +97,12 @@ class Ejercicio extends React.Component{
             var imagenSeleccionada = imagenUrlBase + "/" + this.state.seleccionado*45 + ".png";
         }
 
-        return(<div>
-            <div className="row">
-                <div className="col-6">
+        return(<div className="row">
+            <div className="col-12">
+                <div className="row">
+                    <div className="col-6">
                     <Img url={imagenSeleccionada} />
-                </div>
+                    </div>
 
                 <div className="col-6">
                     <svg viewBox="0 0 100 60">
@@ -129,6 +130,7 @@ class Ejercicio extends React.Component{
                                 indice={1} angulo={315} cx={71} cy={50} r={2} />
                     </svg>
                 </div>
+            </div>
             </div>
             <div className="row">
                 <div className="col-2" onClick={()=>{this.seleccionar(this.respuesta[0])}}>

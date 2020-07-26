@@ -1,13 +1,15 @@
 class Main extends React.Component {
 	constructor(props){
         super(props);
-        // El inicio debe estar en false para mostrar las instrucciones
-        this.state = {
-            seleccionNivel: true,
-            inicio: false,
-            fin: false,
-            porcentaje: null            
-        }
+
+				this.state = {
+					inicio: false,
+					fin: false,
+					seleccionNivel: true,
+					porcentaje: null,
+				}
+
+				this.juego = "fugaDeLetras"; // Nombre de la carpeta.
         this.datos_nivel = null;
         this.iniciar = this.iniciar.bind(this);
         this.terminar = this.terminar.bind(this);
@@ -26,7 +28,8 @@ class Main extends React.Component {
 
     iniciar(){
         this.setState({
-            inicio: true
+					seleccionNivel: false,
+          inicio: true
         });
         this.fechaInicio = new Date();
     }
@@ -40,11 +43,12 @@ class Main extends React.Component {
     }
 
     seleccionarNivel(nivel){
-        this.datos_nivel = this.props.datos[nivel-1];
-        this.nivel = nivel;
-        this.setState({
-            seleccionNivel: false
-        });
+			this.nivel = nivel;
+      this.datos_nivel = this.props.datos[nivel-1];
+      this.setState({
+          seleccionNivel: false
+      });
+			this.fechaInicio = new Date();
     }
 
 	render() {
@@ -57,12 +61,13 @@ class Main extends React.Component {
         }else if(this.state.fin){
             return(
                 <Bloque nombre={this.props.nombre}>
-                    <Fin 
-                        fechaInicio={this.fechaInicio} 
-                        nivel={this.nivel} 
-                        paciente={this.props.paciente} 
-                        reiniciar={this.reiniciar} 
-                        porcentaje={this.state.porcentaje} />
+                    <Fin
+										juego={this.juego}
+                    fechaInicio={this.fechaInicio}
+                    nivel={this.nivel}
+                    paciente={this.props.paciente}
+                    reiniciar={this.reiniciar}
+                    porcentaje={this.state.porcentaje} />
                 </Bloque>
             );
         }else if(this.state.inicio){
@@ -74,8 +79,8 @@ class Main extends React.Component {
         }else{
             return(
                 <Bloque nombre={this.props.nombre}>
-                    <Instrucciones 
-                        iniciar={this.iniciar} 
+                    <Instrucciones
+                        iniciar={this.iniciar}
                         instrucciones={this.props.instrucciones} />
                 </Bloque>
             );
@@ -109,10 +114,10 @@ function getInfo(callback){
 $(document).ready(function(){
     getInfo(function(paciente,nombre,instrucciones,datos){
 
-        ReactDOM.render(<Main 
+        ReactDOM.render(<Main
             paciente={paciente}
-            nombre={nombre} 
-            instrucciones={instrucciones} 
+            nombre={nombre}
+            instrucciones={instrucciones}
             datos={datos}/>, document.getElementById('main'));
     })
-}); 
+});

@@ -38,7 +38,7 @@ class Main extends React.Component {
             fin: true,
             porcentaje: porcentaje
         });
-    }
+  }
 
 	seleccionarNivel(nivel) {
 		this.nivel = nivel;

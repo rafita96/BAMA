@@ -4,12 +4,21 @@
 	line-height: 90px;
 }
 
-body {
-	padding-top: 54px;
+hr {
+    border: none;
+    background-color: #F0b894;
 }
 
-@media (min-width: 992px) {
-	body {
-		padding-top: 56px;
-	}
+.seleccionado {
+    border-style: solid;
+    border-width: 5px;
+    border-color: #87d37c;
+    border-radius: 20px;
+}
+
+.no-seleccionado {
+    border-style: solid;
+    border-width: 5px;
+    border-color: #E0E0E0;
+    border-radius: 20px;
 }

@@ -4,13 +4,13 @@ class Fin extends React.Component{
         super(props);
 
         Consulta.post('/paciente/registrar/avance/', {
-                juego: 'secuencias', 
+                juego: 'secuencias',
                 paciente: this.props.paciente,
                 porcentaje: this.props.porcentaje,
                 nivel: this.props.nivel,
                 fechaInicio: this.props.fechaInicio,
                 fechaFin: new Date()
-            }, 
+            },
             function(error){
                 console.log(error);
             }
@@ -31,15 +31,15 @@ class Fin extends React.Component{
             <div>
                 <div className={"row border rounded " + clase}>
                     <div className="col-6 offset-3 text-center text-white">
-                        <h1 className="display-1">{this.props.porcentaje}%</h1>
+                        <h1 className="display-1">{this.props.porcentaje.toFixed(2)}%</h1>
                     </div>
                 </div>
                 <div className="row mt-3">
                     <div className="col-4">
-                        <a href="/juegos/" className="btn btn-principal">Lista de juegos</a>
+                        <a href="/juegos/" className="btn btn-principal btn-lg">Regresar</a>
                     </div>
                     <div className="col-4 text-center">
-                        <button onClick={this.props.reiniciar} className="btn btn-principal">Volver a jugar</button>
+                        <button onClick={this.props.reiniciar} className="btn btn-principal btn-lg">Volver a jugar</button>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@ class Nivel extends React.Component{
 
     seleccionar() {
         if (this.state.index == 0) {
-            toastr("No has seleccionado un nivel.");
+            toastr("¡Usted no ha seleccionado un nivel de dificultad!");
         } else {
             this.props.seleccionar(this.state.index);
         }
@@ -80,7 +80,7 @@ class Nivel extends React.Component{
             <div>
                 <div className="row">
                     <div className="col-6 offset-3 text-center">
-                        <h3>Selecciona el nivel de dificultad</h3>
+                        <h3>Seleccione el nivel de dificultad</h3>
                     </div>
                 </div>
 
@@ -95,9 +95,9 @@ class Nivel extends React.Component{
                 <div className="row">
                     <div className="col-4 text-center mt-3">
                         <a
-                            className="btn btn-principal btn-lg" 
+                            className="btn btn-principal btn-lg"
                             href="/juegos/">
-                            Lista de juegos
+                            Regresar
                         </a>
                     </div>
 
@@ -159,7 +159,7 @@ class Ejercicio extends React.Component {
 
 	siguiente() {
 		if (this.state.index == null) {
-			toastr("No has seleccionado una opción");
+			toastr("¡Usted no ha seleccionado una respuesta!");
 		} else {
             var aciertos = this.state.aciertos + this.state.index;
             console.log(aciertos);
@@ -218,21 +218,21 @@ class Ejercicio extends React.Component {
 				</div>
 			);
 		}
-	}	
+	}
 }
 class Instrucciones extends React.Component {
 	render() {
 		return (
 			<div>
 				<div className="row border rounder my-3">
-					<div className="col-12 text-justify bg-white">
+					<div className="col-12 text-center bg-white">
 						<p>{this.props.instrucciones}</p>
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12 text-center">
-						<button 
+						<button
 							className="btn btn-principal btn-lg"
 							onClick={this.props.iniciar}>
 							Iniciar Juego
@@ -321,11 +321,11 @@ class Game extends React.Component {
 		} else if (this.state.fin) {
 			return(
                 <Bloque nombre={this.props.nombre}>
-                    <Fin 
-                        fechaInicio={this.fechaInicio} 
-                        nivel={this.nivel} 
-                        paciente={this.props.paciente} 
-                        reiniciar={this.reiniciar} 
+                    <Fin
+                        fechaInicio={this.fechaInicio}
+                        nivel={this.nivel}
+                        paciente={this.props.paciente}
+                        reiniciar={this.reiniciar}
                         porcentaje={this.state.porcentaje} />
                 </Bloque>
             );
@@ -357,7 +357,7 @@ function getInfo(callback){
         		} else {
         			toastr("No has seleccionado un paciente");
         		}
-        		
+
         	});
         });
     });
