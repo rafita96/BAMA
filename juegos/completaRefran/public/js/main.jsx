@@ -1,7 +1,6 @@
 class Main extends React.Component {
 	constructor(props){
         super(props);
-				this.juego = "completaRefran";
 
         this.state = {
             seleccionNivel: true,
@@ -9,6 +8,8 @@ class Main extends React.Component {
             fin: false,
             porcentaje: null
         }
+
+				this.juego = "completaRefran";
         this.datos_nivel = null;
         this.iniciar = this.iniciar.bind(this);
         this.terminar = this.terminar.bind(this);
@@ -46,6 +47,7 @@ class Main extends React.Component {
         this.setState({
             seleccionNivel: false
         });
+				this.fechaInicio = new Date();
     }
 
 	render() {
@@ -59,6 +61,7 @@ class Main extends React.Component {
             return(
                 <Bloque nombre={this.props.nombre}>
                     <Fin
+										    juego={this.juego}
                         fechaInicio={this.fechaInicio}
                         nivel={this.nivel}
                         paciente={this.props.paciente}

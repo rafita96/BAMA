@@ -1,29 +1,39 @@
 <html lang="es">
-    <head>
-         <meta charset="UTF-8">
-         <title>Adivina la canción</title>
 
-         <style type="text/css">
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title>Adivina la canción</title>
+
+        <style type="text/css">
+
              img {
                 max-width: 100%;
                 max-height: 100%;
              }
+
              .thumbnail {
                 background-color: transparent;
              }
-         </style>
+
+        </style>
 
         <script src="/public/common/js/d3/d3.min.js"></script>
         <script src="/public/common/js/react.js"></script>
         <script src="/public/common/js/react-dom.js"></script>
         <script src="/public/common/js/browser.js"></script>
+
         <% include ../../src/views/layouts/header %>
+
     </head>
 
     <body class="bg-light text-dark">
+
         <% include ../../src/views/layouts/nav %>
 
         <div class="container">
+
             <div class="row my-3">
                 <div class="col-md-12">
                     <h3><b class="text-accent">Paciente actual: </b><span id="paciente_actual"></span></h3>
@@ -35,16 +45,20 @@
                     <div id="main"></div>
                 </div>
             </div>
+
         </div>
 
         <script type="text/babel" src="/public/common/js/juegos/Instrucciones.jsx"></script>
         <script type="text/babel" src="/public/common/js/juegos/Nivel.jsx"></script>
         <script type="text/babel" src="/public/common/js/juegos/Fin.jsx"></script>
         <script type="text/babel" src="/public/common/js/juegos/Bloque.jsx"></script>
+
         <script type="text/babel" src="./public/js/Img.jsx"></script>
         <script type="text/babel" src="./public/js/Ejercicio.jsx"></script>
         <script type="text/babel" src="./public/js/Main.jsx"></script>
+
         <script type="text/javascript" src="./public/js/shuffle.js"></script>
+        
     </body>
 
 </html>

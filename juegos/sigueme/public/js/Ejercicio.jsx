@@ -96,11 +96,11 @@ class Ejercicio extends React.Component{
             }
 
             let boton = (
-                <Boton 
-                    seleccionar={this.seleccionar} 
-                    deseleccionar={this.deseleccionar} 
-                    index={i} 
-                    seleccionado={seleccionado} 
+                <Boton
+                    seleccionar={this.seleccionar}
+                    deseleccionar={this.deseleccionar}
+                    index={i}
+                    seleccionado={seleccionado}
                     color={this.colores[i]} />
                 );
 
@@ -142,7 +142,7 @@ class Ejercicio extends React.Component{
     }
 
     render(){
-        
+
         if(this.state.mostrarMensaje){
             setTimeout((function(){this.setState({mostrarMensaje: false})}).bind(this), 1000);
 
@@ -158,11 +158,11 @@ class Ejercicio extends React.Component{
             this.botones = [];
             for(var i = 0; i < this.numBotones; i++){
                 let boton = (
-                    <Boton 
-                        seleccionar={this.seleccionar} 
-                        deseleccionar={this.deseleccionar} 
-                        index={i} 
-                        seleccionado={false} 
+                    <Boton
+                        seleccionar={this.seleccionar}
+                        deseleccionar={this.deseleccionar}
+                        index={i}
+                        seleccionado={false}
                         color={this.colores[i]}
                         posicion={-1} />
                     );
@@ -190,12 +190,12 @@ class Ejercicio extends React.Component{
                         }
 
                         let boton = (
-                            <Boton 
-                                seleccionar={()=>{}} 
-                                deseleccionar={()=>{}} 
-                                index={i} 
-                                seleccionado={seleccionado} 
-                                color={this.colores[i]} 
+                            <Boton
+                                seleccionar={()=>{}}
+                                deseleccionar={()=>{}}
+                                index={i}
+                                seleccionado={seleccionado}
+                                color={this.colores[i]}
                                 posicion={-1} />
                             );
 
@@ -213,12 +213,12 @@ class Ejercicio extends React.Component{
                         let posicion = this.state.seleccionados.indexOf(i);
 
                         let boton = (
-                            <Boton 
-                                seleccionar={this.seleccionar} 
-                                deseleccionar={this.deseleccionar} 
-                                index={i} 
-                                seleccionado={false} 
-                                color={this.colores[i]} 
+                            <Boton
+                                seleccionar={this.seleccionar}
+                                deseleccionar={this.deseleccionar}
+                                index={i}
+                                seleccionado={false}
+                                color={this.colores[i]}
                                 posicion={posicion} />
                             );
 
@@ -226,9 +226,9 @@ class Ejercicio extends React.Component{
                     }
 
                     if(this.state.seleccionados.length == this.numBotones){
-                        var siguiente = (<button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>);
+                        var siguiente = (<button className="btn btn-principal btn-lg" onClick={this.siguiente}>Siguiente</button>);
                     }else{
-                        var siguiente = (<button className="btn btn-principal" onClick={()=>{toastr("No has terminado")}}>Siguiente</button>);
+                        var siguiente = (<button className="btn btn-principal btn-lg" onClick={()=>{toastr("¡Usted no ha seleccionado una respuesta!")}}>Siguiente</button>);
                     }
                     return(
                             <div className="row">

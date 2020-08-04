@@ -495,7 +495,7 @@
 		    "pregunta": "SALIÓ MÁS CARO __________ QUE LAS ALBÓNDIGAS.",
 		    "respuesta": ["EL CALDO"],
 		    "opciones": [
-		      "EL CALDO", "EL COCIDO",
+		      "LA SOPA", "EL COCIDO",
 		      "EL ESTOFADO"
 		    ]
 		  },
