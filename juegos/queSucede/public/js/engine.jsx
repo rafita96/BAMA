@@ -10,10 +10,6 @@ var call = function(callback) {
 }
 call();
 
-/**
- * Shuffles array in place.
- * @param {Array} a items An array containing the items.
- */
 function shuffle(a) {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -34,7 +30,7 @@ function shuffle(a) {
 function Responder(nivel, pregunta, respuesta) {
 	resp = config["niveles"][nivel][pregunta]["respuesta"];
 	resp.sort();
-	respuesta.sort();	
+	respuesta.sort();
 
 	return JSON.stringify(resp) == JSON.stringify(respuesta);
 }

@@ -1,7 +1,6 @@
 class Main extends React.Component {
 	constructor(props) {
 		super(props);
-		this.juego = "espejo";
 
 		this.state = {
 			inicio: false,
@@ -10,6 +9,7 @@ class Main extends React.Component {
 			porcentaje: null,
 		}
 
+		this.juego = "espejo";
 		this.iniciar = this.iniciar.bind(this);
 		this.seleccionarNivel = this.seleccionarNivel.bind(this);
 		this.terminar = this.terminar.bind(this);
@@ -21,6 +21,7 @@ class Main extends React.Component {
 			seleccionNivel: false,
 			inicio: true,
 		});
+		this.fechaInicio = new Date();
 	}
 
 	reiniciar(){
@@ -37,13 +38,14 @@ class Main extends React.Component {
             fin: true,
             porcentaje: porcentaje
         });
-    }
+  }
 
 	seleccionarNivel(nivel) {
 		this.nivel = nivel;
 		this.setState({
 			seleccionNivel: false
 		});
+		this.fechaInicio = new Date();
 	}
 
 	render() {
@@ -56,12 +58,12 @@ class Main extends React.Component {
 		} else if (this.state.fin) {
 			return(
                 <Bloque nombre={this.props.nombre}>
-                    <Fin 
-                    	juego={this.juego}
-                        fechaInicio={this.fechaInicio} 
-                        nivel={this.nivel} 
-                        paciente={this.props.paciente} 
-                        reiniciar={this.reiniciar} 
+                    <Fin
+                    	  juego={this.juego}
+                        fechaInicio={this.fechaInicio}
+                        nivel={this.nivel}
+                        paciente={this.props.paciente}
+                        reiniciar={this.reiniciar}
                         porcentaje={this.state.porcentaje} />
                 </Bloque>
             );
@@ -100,9 +102,9 @@ function getInfo(callback) {
 
 $(document).ready(function(){
     getInfo(function(paciente, nombre, instrucciones, datos) {
-        ReactDOM.render(<Main 
+        ReactDOM.render(<Main
             paciente={paciente}
-            nombre={nombre} 
+            nombre={nombre}
             instrucciones={instrucciones}/>, document.getElementById('main'));
     })
 });

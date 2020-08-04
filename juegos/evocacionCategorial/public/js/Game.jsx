@@ -9,6 +9,7 @@ class Game extends React.Component {
 			porcentaje: null,
 		}
 
+		this.juego = "evocacionCategorial";
 		this.iniciar = this.iniciar.bind(this);
 		this.seleccionarNivel = this.seleccionarNivel.bind(this);
 		this.terminar = this.terminar.bind(this);
@@ -56,18 +57,19 @@ class Game extends React.Component {
 		} else if (this.state.fin) {
 			return(
                 <Bloque nombre={this.props.nombre}>
-                    <Fin 
-                        fechaInicio={this.fechaInicio} 
-                        nivel={this.nivel} 
-                        paciente={this.props.paciente} 
-                        reiniciar={this.reiniciar} 
+                    <Fin
+										juego={this.juego}
+                        fechaInicio={this.fechaInicio}
+                        nivel={this.nivel}
+                        paciente={this.props.paciente}
+                        reiniciar={this.reiniciar}
                         porcentaje={this.state.porcentaje} />
                 </Bloque>
             );
 		} else if (this.state.inicio) {
 			return (
 				<Bloque nombre={this.props.nombre}>
-					<Ejercicio terminar={this.terminar}/>
+					<Ejercicio nivel={this.nivel} terminar={this.terminar}/>
 				</Bloque>
 			);
 		} else {

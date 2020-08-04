@@ -1,5 +1,4 @@
 class Fin extends React.Component{
-
     constructor(props){
         super(props);
 
@@ -31,12 +30,12 @@ class Fin extends React.Component{
             <div>
                 <div className={"row border rounded " + clase}>
                     <div className="col-6 offset-3 text-center text-white">
-                        <h1 className="display-1">{this.props.porcentaje}%</h1>
+                        <h1 className="display-1">{this.props.porcentaje.toFixed(2)}%</h1>
                     </div>
                 </div>
                 <div className="row mt-3">
                     <div className="col-4">
-                        <a href="/juegos/" className="btn btn-principal">Lista de juegos</a>
+                        <a href="/juegos/" className="btn btn-principal">Regresar</a>
                     </div>
                     <div className="col-4 text-center">
                         <button onClick={this.props.reiniciar} className="btn btn-principal">Volver a jugar</button>
@@ -60,7 +59,7 @@ class Nivel extends React.Component{
 
     seleccionar() {
         if (this.state.index == 0) {
-            toastr("No has seleccionado un nivel.");
+            toastr("¡Usted no ha seleccionado un nivel de dificultad!");
         } else {
             this.props.seleccionar(this.state.index);
         }
@@ -80,7 +79,7 @@ class Nivel extends React.Component{
             <div>
                 <div className="row">
                     <div className="col-6 offset-3 text-center">
-                        <h3>Selecciona el nivel de dificultad</h3>
+                        <h3>Seleccione el nivel de dificultad</h3>
                     </div>
                 </div>
 
@@ -97,7 +96,7 @@ class Nivel extends React.Component{
                         <a
                             className="btn btn-principal btn-lg"
                             href="/juegos/">
-                            Lista de juegos
+                            Regresar
                         </a>
                     </div>
 
@@ -109,6 +108,35 @@ class Nivel extends React.Component{
             </div>
         );
     }
+}
+
+class Img extends React.Component{
+
+	constructor(props) {
+		super(props);
+    this.seleccionar = this.seleccionar.bind(this);
+	}
+
+  componentDidMount(){
+    const img = this.refs.image;
+  }
+
+  seleccionar(id) {
+    this.props.seleccionar(id);
+  }
+
+  render(){
+  	if (this.props.id == null) {
+  	} else if (this.props.id == this.props.seleccionado) {
+  		return (
+  			<img className="seleccionado" ref="image" src={this.props.url} onClick={() => this.seleccionar(this.props.id)} />
+  		);
+  	}
+
+  	return (
+  		<img className="no-seleccionado" ref="image" src={this.props.url} onClick={() => this.seleccionar(this.props.id)} />
+  	);
+  }
 }
 
 class Ejercicio extends React.Component {
@@ -200,10 +228,8 @@ class Ejercicio extends React.Component {
                     ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".png"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
                     : '';
                 row.push(
-                    <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '25%' }} onClick={() => { style={{border: "ff1414"}}
-                        this.colocarPieza(i, j); 
-                    }
-                    }
+                  <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '25%' }} onClick={() => {
+                     this.colocarPieza(i, j);
                     }}>
                         {content}
                     </div>
@@ -240,7 +266,7 @@ class Ejercicio extends React.Component {
                 <div className="col-sm-4">
                     {puzzle}
                 </div>
-                <div className="col-sm-4">
+                <div className="col-sm-4 text-center">
                     <h3>Resultado</h3>
                     <img src={"./img/" + this.rompecabezas + ".png"} style={{ maxWidth: '100%', minWidth: '100%' }} />
                 </div>
@@ -254,7 +280,7 @@ class Instrucciones extends React.Component {
 		return (
 			<div>
 				<div className="row border rounder my-3">
-					<div className="col-12 text-justify bg-white">
+					<div className="col-12 text-center bg-white">
 						<p>{this.props.instrucciones}</p>
 					</div>
 				</div>
@@ -303,6 +329,7 @@ class Game extends React.Component {
 			porcentaje: null,
 		}
 
+    this.juego = "rompecabezas"; // Nombre de la carpeta.
 		this.iniciar = this.iniciar.bind(this);
 		this.seleccionarNivel = this.seleccionarNivel.bind(this);
 		this.terminar = this.terminar.bind(this);
@@ -338,6 +365,7 @@ class Game extends React.Component {
 		this.setState({
 			seleccionNivel: false
 		});
+    this.fechaInicio = new Date();
 	}
 
 	render() {
@@ -351,6 +379,7 @@ class Game extends React.Component {
 			return(
                 <Bloque nombre={this.props.nombre}>
                     <Fin
+                        juego={this.juego}
                         fechaInicio={this.fechaInicio}
                         nivel={this.nivel}
                         paciente={this.props.paciente}
@@ -361,7 +390,7 @@ class Game extends React.Component {
 		} else if (this.state.inicio) {
 			return (
 				<Bloque nombre={this.props.nombre}>
-					<Ejercicio terminar={this.terminar} nivel={this.nivel}/>
+          <Ejercicio nivel={this.nivel} terminar={this.terminar}/>
 				</Bloque>
 			);
 		} else {
@@ -376,18 +405,17 @@ class Game extends React.Component {
 	}
 }
 
-function getInfo(callback){
+function getInfo(callback) {
     d3.json("./data/info.json", function(error, instrucciones) {
         d3.json("./meta.json", function(error, nombre) {
-        	Consulta.get('/paciente/actual/', function(data) {
-        		if (data["id"] != null) {
-        			mostrarPerfil(data);
-        			callback(data["id"], nombre["nombre"], instrucciones["instrucciones"]);
-        		} else {
-        			toastr("No has seleccionado un paciente");
-        		}
-
-        	});
+            Consulta.get('/paciente/actual/', function(data) {
+                if (data["id"] != null) {
+                    mostrarPerfil(data);
+                    callback(data["id"],nombre["nombre"], instrucciones["instrucciones"]);
+                } else {
+                    toastr("No has seleccionado un paciente");
+                }
+            });
         });
     });
 }

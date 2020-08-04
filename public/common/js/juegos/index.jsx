@@ -8,7 +8,6 @@ function getInfo(callback){
         		} else {
         			toastr("No has seleccionado un paciente");
         		}
-        		
         	});
         });
     });

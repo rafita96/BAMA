@@ -36,10 +36,10 @@ class Fin extends React.Component{
                 </div>
                 <div className="row mt-3">
                     <div className="col-4">
-                        <a href="/juegos/" className="btn btn-principal">Lista de juegos</a>
+                        <a href="/juegos/" className="btn btn-principal btn-lg">Regresar</a>
                     </div>
                     <div className="col-4 text-center">
-                        <button onClick={this.props.reiniciar} className="btn btn-principal">Volver a jugar</button>
+                        <button onClick={this.props.reiniciar} className="btn btn-principal btn-lg">Volver a jugar</button>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@ class Nivel extends React.Component{
 
     seleccionar() {
         if (this.state.index == 0) {
-            toastr("No has seleccionado un nivel.");
+            toastr("¡Usted no ha seleccionado un nivel de dificultad!");
         } else {
             this.props.seleccionar(this.state.index);
         }
@@ -80,7 +80,7 @@ class Nivel extends React.Component{
             <div>
                 <div className="row">
                     <div className="col-6 offset-3 text-center">
-                        <h3>Selecciona el nivel de dificultad</h3>
+                        <h3>Seleccione el nivel de dificultad</h3>
                     </div>
                 </div>
 
@@ -97,7 +97,7 @@ class Nivel extends React.Component{
                         <a
                             className="btn btn-principal btn-lg"
                             href="/juegos/">
-                            Lista de juegos
+                            Regresar
                         </a>
                     </div>
 
@@ -140,7 +140,7 @@ class Ejercicio extends React.Component {
 			index: index
 		});
     }
-    
+
     addClick(x, y, drag) {
         console.log(x, y, drag);
         this.setState({
@@ -176,11 +176,11 @@ class Ejercicio extends React.Component {
         var canvas = document.querySelector('#canvas');
         var context = canvas.getContext('2d');
         context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-        
+
         context.strokeStyle = "#df4b26";
         context.lineJoin = "round";
         context.lineWidth = 5;
-                  
+
         for(var i=0; i < this.state.path.length; i++) {
             context.beginPath();
             if (this.state.path[i].drag && i) {
@@ -211,7 +211,7 @@ class Ejercicio extends React.Component {
 
 	siguiente() {
 		if (this.state.index == null) {
-			toastr("No has seleccionado una opción");
+			toastr("¡Usted no ha seleccionado una respuesta!");
 		} else {
             var aciertos = this.state.aciertos + this.state.index;
             console.log(aciertos);
@@ -284,7 +284,7 @@ class Ejercicio extends React.Component {
 
                     <div className="row mt-3">
                         <div className="col-2 offset-10">
-                            <button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
+                            <button className="btn btn-principal btn-lg" onClick={this.siguiente}>Siguiente</button>
                         </div>
                     </div>
 				</div>
@@ -297,7 +297,7 @@ class Instrucciones extends React.Component {
 		return (
 			<div>
 				<div className="row border rounder my-3">
-					<div className="col-12 text-justify bg-white">
+					<div className="col-12 text-center bg-white">
 						<p>{this.props.instrucciones}</p>
 					</div>
 				</div>

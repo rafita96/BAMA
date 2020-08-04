@@ -9,10 +9,11 @@ class Game extends React.Component {
 			porcentaje: null,
 		}
 
+		this.juego = "queSucede"; // Nombre de la carpeta.
 		this.iniciar = this.iniciar.bind(this);
+		this.seleccionarNivel = this.seleccionarNivel.bind(this);
 		this.terminar = this.terminar.bind(this);
 		this.reiniciar = this.reiniciar.bind(this);
-		this.seleccionarNivel = this.seleccionarNivel.bind(this);
 	}
 
 	iniciar() {
@@ -32,14 +33,14 @@ class Game extends React.Component {
         });
     }
 
-    terminar(porcentaje) {
+  terminar(porcentaje) {
         this.setState({
             fin: true,
             porcentaje: porcentaje
         });
-    }
+  }
 
-    seleccionarNivel(nivel) {
+  seleccionarNivel(nivel) {
 		this.nivel = nivel;
 		this.setState({
 			seleccionNivel: false
@@ -54,20 +55,19 @@ class Game extends React.Component {
 					<Nivel seleccionar={this.seleccionarNivel} />
                 </Bloque>
 			);
-    	}
-    	else if (this.state.fin) {
+    	} else if (this.state.fin) {
 			return(
                 <Bloque nombre={this.props.nombre}>
-                    <Fin 
-                        fechaInicio={this.fechaInicio} 
-                        nivel={this.nivel} 
-                        paciente={this.props.paciente} 
-                        reiniciar={this.reiniciar} 
+                    <Fin
+										    juego={this.juego}
+                        fechaInicio={this.fechaInicio}
+                        nivel={this.nivel}
+                        paciente={this.props.paciente}
+                        reiniciar={this.reiniciar}
                         porcentaje={this.state.porcentaje} />
                 </Bloque>
             );
-		}
-		else if (this.state.inicio) {
+		} else if (this.state.inicio) {
 			return (
 				<Bloque nombre={this.props.nombre}>
 					<Ejercicio nivel={this.nivel} terminar={this.terminar} datos={this.props.config} />
