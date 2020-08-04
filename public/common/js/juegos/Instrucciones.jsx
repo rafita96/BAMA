@@ -16,11 +16,23 @@ class Instrucciones extends React.Component {
                 <div className="col-4"></div>
             );
         }
+        var audio = $("#player")
+			if(audio[0] != undefined){
+				audio[0].pause()
+				audio[0].load()
+			}
 		return (
 			<div>
 				<div className="row border rounder my-3">
 					<div className="col-12 text-justify bg-white">
 						<p>{this.props.instrucciones}</p>
+					</div>
+					<div className="col-13">
+						<audio id="player" controls>
+							<source src={'/audios/adivinaCancion.mp3'} type="audio/mpeg">
+							</source>
+								Your browser does not support the audio element.
+						</audio>
 					</div>
 				</div>
 
