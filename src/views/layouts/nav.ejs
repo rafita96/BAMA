@@ -7,25 +7,33 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+      <% if (locals.role == locals.roles["ROLE_PACIENTE"]) { %>
       <li class="nav-item">
-        <a class="nav-link" href="/">Pacientes</a>
+        <a class="nav-link" href="/paciente/perfil">Perfil</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Paciente
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/paciente/perfil">Perfil</a>
-          <a class="dropdown-item" href="/paciente/notas">Notas</a>
-          <a class="dropdown-item" href="/paciente/evaluar">Agregar Nota</a>
-        </div>
-      </li>
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Pacientes</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Paciente
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/paciente/perfil">Perfil</a>
+            <a class="dropdown-item" href="/paciente/notas">Notas</a>
+            <a class="dropdown-item" href="/paciente/evaluar">Agregar Nota</a>
+          </div>
+        </li>
+      <% } %>
       <li class="nav-item">
         <a class="nav-link" href="/juegos">Juegos</a>
       </li>
+      <% if (locals.role == locals.roles["ROLE_ADMIN"]) { %>
       <li class="nav-item">
           <a class="nav-link" href="/administradores">Terapeutas</a>
       </li>
+      <% } %>
       <li class="nav-item">
         <a class="nav-link" href="/logout">Cerrar sesión</a>
       </li>
