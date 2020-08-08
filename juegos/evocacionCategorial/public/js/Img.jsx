@@ -12,7 +12,7 @@ class Img extends React.Component{
   	if (this.props.index == null || this.props.seleccionado == null) {
   	} else if (this.props.index == this.props.seleccionado) {
   		return (
-  			<img className="border border-success" ref="image" src={this.props.url} />
+  			<img className="seleccionado border-success" ref="image" src={this.props.url} />
   		);
   	}
 
