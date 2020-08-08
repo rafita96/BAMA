@@ -12,7 +12,8 @@ var flash = require('express-flash'); 			// Para mandar mensajes al front-end de
 var bodyParser = require('body-parser'); 		// Permite recibir contenido json enviado por encabezados http
 
 // Archivo de configuración local
-var appConfig = require('./src/conf').conf;
+var generalConfig = require('./src/conf');
+var appConfig = generalConfig.conf;
 // Middleware que verifica que exista una cuenta activa
 var firewall = require('./src/controllers/firewall').firewall;
 
@@ -58,6 +59,15 @@ app.use(flash());
 /** Manejo de sesion **/
 // Middleware que evita acceso no autorizado
 app.use(firewall);
+
+/** Plantillas con acceso a la informacion del usuario **/
+app.use(function(req, res, next) {
+	res.locals.roles = generalConfig.roles;
+	res.locals.role = req.session.role;
+  next();
+});
+/**  **/
+
 
 // Permitimos que nuestro router maneje las rutas desde la raíz
 app.use('/', router);

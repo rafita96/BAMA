@@ -10,6 +10,10 @@ var path = require("path");
 var ObjectId = require('mongodb').ObjectId;     // Permite buscar en la base de datos por ID
 var fs = require('fs');
 
+// Informacion para insertar en base de datos
+var generalConf = require('./../conf');
+var adminConf = generalConf.conf["session"];
+
 /** 
 *   Regresa la información del paciente
 *
@@ -52,32 +56,50 @@ exports.agregar = function(data, callback){
     // Hace una busqueda en la base de datos para ver si existe un paciente con
     // ese mismo número de expediente.
     dbManager.find('users', {noExpediente: data.noExpediente}, function(consulta){
-        
-        // Si no encuentra un paciente con el mismo número, entonces lo agrega
-        if(consulta.length == 0){
-            // Se crea el objeto json con la información que debe contener un paciente
-            // Esto se hace para evitar guardar información extra
-            var info = {
-                nombre: data.nombre,    // Nombre del paciente
-                aPaterno: data.aPaterno,    // Apellido paterno del paciente
-                aMaterno: data.aMaterno,    // Apellido materno del paciente
-                fechaNacimiento: data.fechaNacimiento,  // Fecha de nacimiento del paciente (dd/mm/yyyy)
-                noExpediente: data.noExpediente     // Número de expediente del paciente
-            };
-            // Después lo guarda en la base de datos
-            dbManager.insertar('users', info, function(error){
-                // Y si hay algún error entonces se notifica en la función de callback
-                if(error){
-                    callback(error, "Error al insertar");
-                }else{
-                    // Como no hay error entonces se envía false
-                    callback(false);
-                }
-            });
-        }else{
-            // Como encontró un paciente con el mismo número entonces envía un error
-            callback(true, "Ese expediente ya está registrado.");
-        }
+        dbManager.find(adminConf["collection"], {username: data.noExpediente}, function(consulta2){
+            // Si no encuentra un paciente con el mismo número, entonces lo agrega
+            if(consulta.length == 0 && consulta2.length == 0){
+                // Se crea el objeto json con la información que debe contener un paciente
+                // Esto se hace para evitar guardar información extra
+                var info = {
+                    nombre: data.nombre,    // Nombre del paciente
+                    aPaterno: data.aPaterno,    // Apellido paterno del paciente
+                    aMaterno: data.aMaterno,    // Apellido materno del paciente
+                    fechaNacimiento: data.fechaNacimiento,  // Fecha de nacimiento del paciente (dd/mm/yyyy)
+                    noExpediente: data.noExpediente     // Número de expediente del paciente
+                };
+                // Después lo guarda en la base de datos
+                dbManager.insertar('users', info, function(error){
+                    // Y si hay algún error entonces se notifica en la función de callback
+                    if(error){
+                        callback(error, "Error al insertar");
+                    }else{
+
+                        var userData = {
+                            username: data.noExpediente,
+                            password: generalConf.encrypt(""),
+                            role: generalConf.roles["ROLE_PACIENTE"]
+                        }
+                        // Después registra el usuario
+                        dbManager.insertar(adminConf["collection"], userData, function(error){
+                            // Y si hay algún error entonces se notifica en la función de callback
+                            if(error){
+                                callback(error, "Error al insertar");
+                            }else{
+                                // Como no hay error entonces se envía false
+                                callback(false);
+                            }
+
+                        });
+                    }
+
+                });
+
+            }else{
+                // Como encontró un paciente con el mismo número entonces envía un error
+                callback(true, "Ese expediente ya está registrado.");
+            }
+        });
     });
 }
 
@@ -109,8 +131,7 @@ exports.editar = function(id, data, callback){
                 nombre: data.nombre,    // Nombre del paciente
                 aPaterno: data.aPaterno,    // Apellido paterno del paciente
                 aMaterno: data.aMaterno,    // Apellido materno del paciente
-                fechaNacimiento: data.fechaNacimiento,  // Fecha de nacimiento del paciente (dd/mm/yyyy)
-                noExpediente: data.noExpediente     // Número de expediente del paciente
+                fechaNacimiento: data.fechaNacimiento  // Fecha de nacimiento del paciente (dd/mm/yyyy)
             };
             // Busca el paciente con el id correspondiente en la base de datos y lo
             // actualiza de acuerdo a la información.
