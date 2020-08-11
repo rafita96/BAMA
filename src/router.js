@@ -9,6 +9,7 @@ var router = express.Router();      // va a estar al pendiente de una ruta
 var security = require('./routers/security');
 var juegos = require('./routers/juegos');
 var usuarios = require('./routers/usuarios');
+var api = require('./routers/api');
 
 var dbManager = require('./controllers/database');
 
@@ -41,6 +42,10 @@ router.use('/paciente', usuarios);
 
 /** Url para los juegos **/
 router.use('/juegos', juegos);
+/**  **/
+
+/** Url para los juegos **/
+router.use('/api', api);
 /**  **/
 
 module.exports = router;
