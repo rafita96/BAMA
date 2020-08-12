@@ -32,7 +32,7 @@ class Instrucciones extends React.Component {
 				<div className="row">
 					<div className="col-13">
 						<audio id="player" controls>
-							<source src={'./data/'+this.name+'.mp3'} type="audio/mpeg">
+							<source src={'./data/fugaLetras.mp3'} type="audio/mpeg">
 							</source>
 								Your browser does not support the audio element.
 						</audio>
