@@ -51,7 +51,7 @@ class Ejercicio extends React.Component {
 
 	siguiente() {
 		if (this.state.seleccionado == null) {
-			toastr("No has seleccionado una opción");
+			toastr("¡Usted no ha seleccionado una respuesta!");
 		} else {
 			if (this.state.seleccionado == this.ejercicios[this.state.pregunta].respuesta) {
 				this.setState({
@@ -118,7 +118,7 @@ class Ejercicio extends React.Component {
 
 					<div className="row mt-3">
 						<div className="col-2 offset-10">
-							<button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
+							<button className="btn btn-principal btn-lg" onClick={this.siguiente}>Siguiente</button>
 						</div>
 					</div>
 				</div>

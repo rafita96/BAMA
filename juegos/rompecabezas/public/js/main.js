@@ -35,10 +35,10 @@ class Fin extends React.Component{
                 </div>
                 <div className="row mt-3">
                     <div className="col-4">
-                        <a href="/juegos/" className="btn btn-principal">Regresar</a>
+                        <a href="/juegos/" className="btn btn-principal btn-lg">Regresar</a>
                     </div>
                     <div className="col-4 text-center">
-                        <button onClick={this.props.reiniciar} className="btn btn-principal">Volver a jugar</button>
+                        <button onClick={this.props.reiniciar} className="btn btn-principal btn-lg">Volver a jugar</button>
                     </div>
                 </div>
             </div>

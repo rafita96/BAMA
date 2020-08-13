@@ -21,6 +21,7 @@ class Main extends React.Component {
 			seleccionNivel: false,
 			inicio: true,
 		});
+		this.fechaInicio = new Date();
 	}
 
 	reiniciar(){
@@ -37,13 +38,14 @@ class Main extends React.Component {
             fin: true,
             porcentaje: porcentaje
         });
-    }
+  }
 
 	seleccionarNivel(nivel) {
 		this.nivel = nivel;
 		this.setState({
 			seleccionNivel: false
 		});
+		this.fechaInicio = new Date();
 	}
 
 	render() {
@@ -57,7 +59,7 @@ class Main extends React.Component {
 			return(
                 <Bloque nombre={this.props.nombre}>
                     <Fin
-                    	juego={this.juego}
+                      	juego={this.juego}
                         fechaInicio={this.fechaInicio}
                         nivel={this.nivel}
                         paciente={this.props.paciente}

@@ -53,7 +53,7 @@ class Ejercicio extends React.Component {
 
 	siguiente(){
 		if(this.state.indices.length <= 0){
-			toastr("No has seleccionado una opción");
+			toastr("¡Usted no ha seleccionado una respuesta!");
 		}else{
 			var nuevoArreglo = [];
 			for (var indice in this.state.indices){
@@ -101,7 +101,7 @@ class Ejercicio extends React.Component {
 						<Opciones opciones={this.shuffle(this.ejercicios[this.state.pregunta].opciones)} indices={this.state.indices} seleccionar={this.seleccionar}/>
 					</div>
 
-					<button class="btn btn-principal float-right" onClick={this.siguiente}>Siguiente</button>
+					<button class="btn btn-principal float-right btn-lg" onClick={this.siguiente}>Siguiente</button>
 				</div>
 			);
 		}else{

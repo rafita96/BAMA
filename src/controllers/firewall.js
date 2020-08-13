@@ -6,9 +6,17 @@
     Evita el acceso a rutas sin una cuenta de administrador
 */
 
+var roles = require('../conf').roles;
+
 // Rutas que se pueden acceder sin tener cuenta de administrador
 var allowFireWallPaths = [new RegExp('/login/*'), new RegExp('/common/*'),
                         new RegExp('/logout/*')];
+
+var roleNotAllows = {
+    0: {base: '/', paths: []},
+    1: {base: '/', paths: []},
+    2: {base: '/paciente/perfil', paths: [new RegExp('/')]}
+}
 
 // Verifica que una ruta se pueda acceder sin permisos
 function firewall(path){
@@ -20,6 +28,19 @@ function firewall(path){
         }
     }
     return false;
+}
+
+function isRoleAllow(path, rol){
+    if(roleNotAllows.hasOwnProperty(rol)){
+
+        for (var i = 0; i < roleNotAllows[rol]["paths"].length; i++) {
+            if(path.match(roleNotAllows[rol]["paths"][i])){
+                return false;
+            }
+        }
+    }
+
+    return true;
 }
 
 // Middleware que verifica si un usuario puede acceder a una ruta

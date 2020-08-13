@@ -36,10 +36,10 @@ class Fin extends React.Component{
                 </div>
                 <div className="row mt-3">
                     <div className="col-4">
-                        <a href="/juegos/" className="btn btn-principal">Lista de juegos</a>
+                        <a href="/juegos/" className="btn btn-principal btn-lg">Regresar</a>
                     </div>
                     <div className="col-4 text-center">
-                        <button onClick={this.props.reiniciar} className="btn btn-principal">Volver a jugar</button>
+                        <button onClick={this.props.reiniciar} className="btn btn-principal btn-lg">Volver a jugar</button>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@ class Nivel extends React.Component{
 
     seleccionar() {
         if (this.state.index == 0) {
-            toastr("No has seleccionado un nivel.");
+            toastr("¡Usted no ha seleccionado un nivel de dificultad!");
         } else {
             this.props.seleccionar(this.state.index);
         }
@@ -80,7 +80,7 @@ class Nivel extends React.Component{
             <div>
                 <div className="row">
                     <div className="col-6 offset-3 text-center">
-                        <h3>Selecciona el nivel de dificultad</h3>
+                        <h3>Seleccione el nivel de dificultad</h3>
                     </div>
                 </div>
 
@@ -97,7 +97,7 @@ class Nivel extends React.Component{
                         <a
                             className="btn btn-principal btn-lg"
                             href="/juegos/">
-                            Lista de juegos
+                            Regresar
                         </a>
                     </div>
 
@@ -210,9 +210,33 @@ class Ejercicio extends React.Component {
     }
 
 	render() {
+
+    if (this.props.nivel < 3) {
+      var cartas = this.state.cartas.map((carta, i) =>
+      <div style={{ float: 'left', padding: '5px', width: '25%' }}>
+          <img style={{ border: this.state.done.indexOf(i) >= 0 ? 'solid 5px green' : '', cursor: 'pointer', height: '280px', objectFit: 'cover', minHeight: '280px', maxWidth: '80%', width: '80%' }} src={'./img/' + (this.state.activo[i] ? carta : 'tarjeta') + '.png'} class="rounded mx-auto d-block" onClick={() => {
+                  if (this.state.locked || this.state.done.indexOf(i) >= 0) return;
+                  var activo = this.state.activo.map(x => x);
+                  activo[i] = true;
+                  if (this.state.selected == -1) {
+                      this.setState({
+                          activo: activo,
+                          selected: i
+                      });
+                  } else {
+                      this.setState({
+                          activo: activo
+                      });
+                      this.revisar(i);
+                  }
+              }} />
+          </div>
+      );
+    }
+    if (this.props.nivel == 3) {
         var cartas = this.state.cartas.map((carta, i) =>
-            <div style={{ float: 'left', padding: '20px', width: '25%' }}>
-                <img style={{ border: this.state.done.indexOf(i) >= 0 ? 'solid 5px green' : '', cursor: 'pointer', height: '300px', objectFit: 'cover', minHeight: '300px', maxWidth: '100%', width: '100%' }} src={'./img/' + (this.state.activo[i] ? carta : 'tarjeta') + '.png'} onClick={() => {
+            <div style={{ float: 'left', padding: '5px', width: '20%' }}>
+                <img style={{ border: this.state.done.indexOf(i) >= 0 ? 'solid 5px green' : '', cursor: 'pointer', height: '280px', objectFit: 'cover', minHeight: '280px', maxWidth: '100%', width: '100%' }} src={'./img/' + (this.state.activo[i] ? carta : 'tarjeta') + '.png'} class="rounded mx-auto d-block" onClick={() => {
                     if (this.state.locked || this.state.done.indexOf(i) >= 0) return;
                     var activo = this.state.activo.map(x => x);
                     activo[i] = true;
@@ -230,11 +254,12 @@ class Ejercicio extends React.Component {
                 }} />
             </div>
         );
-        return (
-            <div style={{ padding: '20px' }}>
-                {cartas}
-            </div>
-        );
+    }
+    return (
+        <div style={{ padding: '5px' }}>
+            {cartas}
+        </div>
+    );
     }
 }
 
@@ -248,7 +273,7 @@ class Instrucciones extends React.Component {
 		return (
 			<div>
 				<div className="row border rounder my-3">
-					<div className="col-12 text-justify bg-white">
+					<div className="col-12 text-center bg-white">
 						<p>{this.props.instrucciones}</p>
 					</div>
 				</div>

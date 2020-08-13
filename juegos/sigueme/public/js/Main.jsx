@@ -1,5 +1,4 @@
 class Main extends React.Component{
-
     constructor(props){
         super(props);
 
@@ -12,12 +11,13 @@ class Main extends React.Component{
         }
 
         this.state = {
-            estado: this.constantes["instrucciones"],
+            estado: this.constantes["niveles"],
             // estado: this.constantes["ejercicio"],
             porcentaje: null
         }
 
         this.verNiveles = this.verNiveles.bind(this);
+        this.comenzar = this.comenzar.bind(this);
         this.seleccionarNivel = this.seleccionarNivel.bind(this);
         this.finalizar = this.finalizar.bind(this);
         this.reiniciar = this.reiniciar.bind(this);
@@ -30,10 +30,16 @@ class Main extends React.Component{
         });
     }
 
+    comenzar(){
+        this.setState({
+            estado: this.constantes["ejercicio"]
+        });
+    }
+
     seleccionarNivel(nivel){
         this.nivel = nivel;
         this.setState({
-            estado: this.constantes["ejercicio"]
+            estado: this.constantes["instrucciones"]
         });
         this.fechaInicio = new Date();
     }
@@ -67,22 +73,23 @@ class Main extends React.Component{
     render(){
 
         switch(this.state.estado){
+
+          case this.constantes["niveles"]:
+              return(
+                  <Bloque nombre={this.props.nombre}>
+                      <Nivel
+                          seleccionar={this.seleccionarNivel}
+                      />
+                  </Bloque>
+                  );
+              break;
+
             case this.constantes["instrucciones"]:
                 return(
                     <Bloque nombre={this.props.nombre}>
-                        <Instrucciones 
-                        instrucciones={this.props.instrucciones} 
-                        iniciar={this.verNiveles}
-                        />
-                    </Bloque>
-                    );
-                break;
-
-            case this.constantes["niveles"]:
-                return(
-                    <Bloque nombre={this.props.nombre}>
-                        <Nivel 
-                            seleccionar={this.seleccionarNivel}
+                        <Instrucciones
+                        instrucciones={this.props.instrucciones}
+                        iniciar={this.comenzar}
                         />
                     </Bloque>
                     );
@@ -91,9 +98,9 @@ class Main extends React.Component{
             case this.constantes["ejercicio"]:
                 return(
                     <Bloque nombre={this.props.nombre}>
-                        <Ejercicio 
-                            nivel={this.nivel} 
-                            fin={this.finalizar} 
+                        <Ejercicio
+                            nivel={this.nivel}
+                            fin={this.finalizar}
                             pausar={this.pausar} />
                     </Bloque>
                     );
@@ -103,11 +110,11 @@ class Main extends React.Component{
                 return(
                     <Bloque nombre={this.props.nombre}>
                         <Fin
-                            juego="sigueme" 
-                            fechaInicio={this.fechaInicio} 
-                            nivel={this.nivel} 
-                            paciente={this.props.paciente} 
-                            reiniciar={this.reiniciar} 
+                            juego="sigueme"
+                            fechaInicio={this.fechaInicio}
+                            nivel={this.nivel}
+                            paciente={this.props.paciente}
+                            reiniciar={this.reiniciar}
                             porcentaje={this.porcentaje} />
                     </Bloque>
                     );
@@ -116,8 +123,8 @@ class Main extends React.Component{
             case this.constantes["pausar"]:
                 return(
                     <Bloque nombre={this.props.nombre}>
-                        <Pausa 
-                            instrucciones={this.instrucciones} 
+                        <Pausa
+                            instrucciones={this.instrucciones}
                             continuar={this.continuar} />
                     </Bloque>
                     );
@@ -146,9 +153,9 @@ function getInfo(callback){
 $(document).ready(function(){
     getInfo(function(paciente,nombre,instrucciones,datos){
 
-        ReactDOM.render(<Main 
+        ReactDOM.render(<Main
             paciente={paciente}
-            nombre={nombre} 
+            nombre={nombre}
             instrucciones={instrucciones}/>, document.getElementById('main'));
     })
-}); 
+});

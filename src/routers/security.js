@@ -14,7 +14,9 @@ var dbManager = require('./../controllers/database');
 
 // Archivo de configuración en donde se encuentra
 // el nombre de la collección en donde se encuentran los administradores
-var adminConf = require('./../conf').conf["session"];
+var generalConf = require('./../conf');
+var adminConf = generalConf.conf["session"];
+
 // Permite cifrar la contraseña para luego compararla
 var crypto = require('crypto');
 
@@ -53,8 +55,20 @@ router.post('/login/', function(req, res) {
                     req.flash('success', 'Bienvenido');
                     req.session.userId = users[0]["_id"];
                     req.session.username = users[0]['username'];
+                    req.session.role = users[0]['role'];
+
+                    if(generalConf.roles["ROLE_PACIENTE"] == users[0]['role']){
+                        dbManager.find("users", {noExpediente: req.body.username},
+                            function(users){
+                                if(users.length != 0){
+                                    req.session.pacienteId = users[0]._id;
+                                    res.redirect('/paciente/perfil');
+                                }
+                            });
+                    }else{
                     // Y lo enviamos a la página principal
-                    res.redirect('/');
+                        res.redirect('/');
+                    }
                 }else{
                     // La contraseña no es correcta
                     req.flash('error', 'Usuario o contraseña incorrectos');
@@ -85,16 +99,19 @@ router.get('/administradores/registrar', function(req, res) {
 router.post('/administradores/registrar', function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
+    var role = generalConf.roles["ROLE_PSI"];
+
     dbManager.find(adminConf["collection"], { 'username': username }, function(users){
         if (users.length > 0) {
             res.render('seguridad/administradores/registrar', {
-                'titulo': 'Registrar administrador',
-                'error' : 'El usuario ' + username + ' ya existe'
+                titulo: 'Registrar administrador',
+                error: 'El usuario ' + username + ' ya existe'
             });
         } else {
             dbManager.insertar(adminConf["collection"], {
-                'username': username,
-                'password': encrypt(password)
+                username: username,
+                password: encrypt(password),
+                role: role
             }, function() {
                 res.redirect('/administradores')
             });
