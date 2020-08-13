@@ -1,4 +1,14 @@
 class Instrucciones extends React.Component {
+
+	constructor(props) {
+		super(props);
+
+		this.audio = new Howl({
+		  src: ['./data/audio.mp3']
+		});
+		this.audio.play();
+	}
+
 	render() {
 		return (
 			<div>
