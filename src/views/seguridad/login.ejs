@@ -8,31 +8,39 @@
         
     </head>
 
-    <body class="bg-light">
+    <body class="bg-cardhead">
         <div class="container">
-            <div class="row" style="margin-top: 50px;">
+            <div class="row" style="margin-top: 150px;">
                 <div class="col-12">
 
                     <% include ../layouts/toast %>
 
-                    <div class="card col-6 offset-3 bg-principal text-white">
-                        <div class="card-header"><h3 class="text-accent">Iniciar sesión</h3></div>
-                        <div class="card-body">
-                            <form class="form" id="target" method="POST" enctype='application/json' action="/login/">
+                    <div style="border-radius: 18px;" class="card bg-card text-white">
+                        
+                        <div class="card-body" style="height: 500px;">
+                            <h3 class="text-accent" style="text-align: center; font-size: 40px;">Iniciar Sesión</h3>
+                            <div class="row">
+                            <div style="text-align: center; margin-top: 12%;" class="text-accent col-sm">   
+                                    EL LOGO VA AQUI
+                            </div>
+                            <div class="col-sm">
+                            <form style="margin-top: 55px;" class="form" id="target" method="POST" enctype='application/json' action="/login/">
                                 <div class="form-group">
-                                    <label for="username" class="text-accent">Usuario</label>
-                                    <input class="form-control" id="username" type="text" name="username">
+                                    <h5><label for="username" class="text-accent">Usuario</label></h5>
+                                    <input style="height: 50px; border-radius: 30px; font-size: 24px;" class=" bg-input input-brdr form-control" id="username" type="text" name="username">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="password" class="text-accent">Clave</label>
-                                    <input class="form-control" id="password" type="password" name="password">
+                                    <h5><label for="password" class="text-accent">Clave</label></h5> 
+                                    <input style="height: 50px; border-radius: 30px;" class=" bg-input input-brdr form-control" id="password" type="password" name="password">
                                 </div>
                             
-                                <div class="form-group">
-                                    <button class="btn btn-principal" type="submit">Iniciar sesión</button>
+                                <div style="text-align: center;" class="form-group">
+                                    <button style=" border-radius: 25px; background-color: #7ed872;" class="btn btn-principal"  type="submit"><h5>Iniciar sesión</h5></button>
                                 </div>
-                            </form>   
+                            </form>  
+                        </div>
+                        </div> 
                         </div>
                     </div>
                 </div>

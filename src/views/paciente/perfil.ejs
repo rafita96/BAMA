@@ -29,6 +29,11 @@
                 <div class="col-12">
                     <div class="card bg-principal">
                         <div class="card-header">
+                            <% if (locals.role == locals.roles["ROLE_PACIENTE"]) { %>
+                                <div class="col-sm-6 col-md-12">
+                                    <h3><b class="text-accent"><span id="paciente_actual" class="text-dark"></span></b></h3>
+                                </div>
+                            <% } else {%>
                             <div class="row">
                                 <div class="col-1">
                                     <a class="btn btn-principal" href="/">Pacientes</a>
@@ -40,6 +45,8 @@
                                     <a class="btn btn-principal" href="/paciente/editar/">Editar</a>
                                 </div>
                             </div>
+                            <% } %>
+
                         </div>
 
                         <div class="card-body">
@@ -80,10 +87,11 @@
                                 <div class="col-1">
                                     <a class="btn btn-principal" href="/juegos/">Jugar</a>
                                 </div>
-
+                                <% if (locals.role != locals.roles["ROLE_PACIENTE"]) { %>
                                 <div class="offset-10 col-1">
                                     <a class="btn btn-principal" href="/paciente/notas/">Notas</a>
                                 </div>
+                                <% } %>
                             </div>
                         </div>
                     </div>

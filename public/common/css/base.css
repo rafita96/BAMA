@@ -147,12 +147,28 @@ a:link{
     background: #bfd8d2;
 }
 
+.input-brdr{
+    border-color: #e6e6e6 !important;
+}
+
+.bg-input{
+    background-color: #e6e6e6 !important;
+}
+
+.bg-card{
+    background-color: #fff;
+}
+
+.bg-cardhead{
+    background-image: linear-gradient(90deg, #d85369, #ec9954)
+}
+
 .bg-title{
     background: #fedcd2;
 }
 
 .text-accent{
-    color: #df744a;
+    color: #2e2d2d;
 }
 
 .text-secundario{
