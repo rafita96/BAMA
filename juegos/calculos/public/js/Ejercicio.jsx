@@ -56,7 +56,7 @@ class Ejercicio extends React.Component {
 			opciones = ['+', '-', 'x','➗']
 		} else {
 			var j
-			for(j=0;j < 3; j++) {
+			for(j=0; j<3; j++) {
 				let opcion = this.generarAleatorio(0,10)
 				while(opciones.includes(opcion) || respuesta == opcion){
 					opcion = this.generarAleatorio(0,10)
@@ -108,9 +108,8 @@ class Ejercicio extends React.Component {
 					ejercicio.pregunta = operando1 + ' '  +  operador + ' '  +  operando2 + ' '  +  ' = '  +  resultado
 					//generar opciones
 					var opciones = this.generarOpciones(operador_escondido, ejercicio.respuesta)
-
 					break;
-					//En el nivel medio se realizan multiplicaciones y divisiones
+				//En el nivel medio se realizan multiplicaciones y divisiones
 				case 2:
 				var operando1 =  this.generarAleatorio(0,10)// numeros de un dígito
 				var operando2 = this.generarAleatorio(0,10)
@@ -136,7 +135,6 @@ class Ejercicio extends React.Component {
 					resultado = temp
 					break;
 				}
-
 				//Generar escondido
 				var operador_escondido = false
 				switch (this.generarAleatorio(0,3)) {
@@ -158,14 +156,10 @@ class Ejercicio extends React.Component {
 					resultado = ' __ '
 						break;
 				}
-
-
 				ejercicio.pregunta = operando1 + ' ' + operador + ' ' + operando2 + ' = ' + resultado
-
-				//generar opciones
 				var opciones = this.generarOpciones(operador_escondido, ejercicio.respuesta)
-					break;
-					//En el nivel difícil se crean problemas escritos utilizando sumas y restas
+				break;
+				//En el nivel difícil se crean problemas escritos utilizando sumas y restas
 				case 3:
 				var operando1 =  this.generarAleatorio(1,10)// numeros de un dígito
 				var operando2 = this.generarAleatorio(1,10)
