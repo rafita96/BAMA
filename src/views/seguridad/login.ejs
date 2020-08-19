@@ -10,21 +10,21 @@
 
     <body class="bg-cardhead">
         <div class="container">
-            <div class="row" style="margin-top: 150px;">
-                <div class="col-12">
+            <div class="row h-100 " >
+                <div class="col-12 my-auto">
 
                     <% include ../layouts/toast %>
 
                     <div style="border-radius: 18px;" class="card bg-card text-white">
                         
-                        <div class="card-body" style="height: 500px;">
+                        <div class="card-body">
                             <h3 class="text-accent" style="text-align: center; font-size: 40px;">Iniciar Sesión</h3>
                             <div class="row">
-                            <div style="text-align: center; margin-top: 12%;" class="text-accent col-sm">   
-                                    EL LOGO VA AQUI
+                            <div class="text-accent text-center col d-none d-lg-block" >   
+                                    <img src="../../public/common/img/login/logo.png"  style="max-width: 100%; margin: auto;">
                             </div>
-                            <div class="col-sm">
-                            <form style="margin-top: 55px;" class="form" id="target" method="POST" enctype='application/json' action="/login/">
+                            <div class="col-sm my-auto">
+                            <form  class="form" id="target" method="POST" enctype='application/json' action="/login/">
                                 <div class="form-group">
                                     <h5><label for="username" class="text-accent">Usuario</label></h5>
                                     <input style="height: 50px; border-radius: 30px; font-size: 24px;" class=" bg-input input-brdr form-control" id="username" type="text" name="username">
