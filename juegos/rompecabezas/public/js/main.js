@@ -1,4 +1,5 @@
 class Fin extends React.Component{
+
     constructor(props){
         super(props);
 
@@ -141,12 +142,37 @@ class Img extends React.Component{
 
 class Ejercicio extends React.Component {
 	constructor(props) {
-        super(props);
-        this.generarPiezas = this.generarPiezas.bind(this);
-        this.colocarPieza = this.colocarPieza.bind(this);
+      super(props);
+      this.generarPiezas = this.generarPiezas.bind(this);
+      this.colocarPieza = this.colocarPieza.bind(this);
+      if (this.props.nivel == 1) {
+        this.n = 3;
+        this.total = this.n * this.n;
+        this.rompecabezas = 'vladimir';
+        var piezas = this.generarPiezas();
+        this.state = {
+            selected: {
+                x: -1,
+                y: -1
+            },
+            done: [
+                [ false, false, false ],
+                [ false, false, false ],
+                [ false, false, false ]
+            ],
+            puzzle: [
+                [ false, false, false ],
+                [ false, false, false ],
+                [ false, false, false ]
+            ],
+            movimientos: 0,
+            piezas: piezas
+        }
+      }
+      if (this.props.nivel == 2) {
         this.n = 4;
         this.total = this.n * this.n;
-        this.rompecabezas = 'frutas';
+        this.rompecabezas = 'ping';
         var piezas = this.generarPiezas();
         this.state = {
             selected: {
@@ -168,6 +194,35 @@ class Ejercicio extends React.Component {
             movimientos: 0,
             piezas: piezas
         }
+      }
+      if (this.props.nivel == 3) {
+        this.n = 5;
+        this.total = this.n * this.n;
+        this.rompecabezas = 'cascada';
+        var piezas = this.generarPiezas();
+        this.state = {
+            selected: {
+                x: -1,
+                y: -1
+            },
+            done: [
+                [ false, false, false, false, false ],
+                [ false, false, false, false, false ],
+                [ false, false, false, false, false ],
+                [ false, false, false, false, false ],
+                [ false, false, false, false, false ]
+            ],
+            puzzle: [
+              [ false, false, false, false, false ],
+              [ false, false, false, false, false ],
+              [ false, false, false, false, false ],
+              [ false, false, false, false, false ],
+              [ false, false, false, false, false ]
+            ],
+            movimientos: 0,
+            piezas: piezas
+        }
+      }
     }
 
     generarPiezas () {
@@ -220,58 +275,168 @@ class Ejercicio extends React.Component {
     }
 
 	render() {
-        let puzzle = [];
-        for (let i = 0; i < this.n; i++) {
-            let row = [];
-            for (let j = 0; j < this.n; j++) {
-                let content = this.state.done[i][j]
-                    ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".png"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
-                    : '';
-                row.push(
-                  <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '25%' }} onClick={() => {
-                     this.colocarPieza(i, j);
-                    }}>
-                        {content}
-                    </div>
-                );
-            }
-            puzzle.push(<div style={{ borderCollapse: 'collapse' }}>{row}</div>);
-        }
-        var piezas = this.state.piezas.map((row, i) => {
-            var grid = row.map((pieza, j) => {
-                var active = this.state.selected.x == j && this.state.selected.y == i;
-                var content = this.state.done[i][pieza] ? '' : <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (pieza + 1) + ".png"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} onClick={() => {
-                    this.setState({
-                        selected: {
-                            x: j,
-                            y: i
-                        }
-                    });
-                }} />;
-                return (
-                    <div style={{ background: '#fffdd0', border: 'solid ' + (active ? 'red' : 'black') + ' 2px', float: 'left', height: '80px', width: '25%' }}>
-                        {content}
-                    </div>
-                );
-            });
-            return (
-                <div style={{ borderCollapse: 'collapse' }}>{grid}</div>
-            );
-        });
-        return (
-            <div className="row">
-                <div className="col-sm-4">
-                    {piezas}
-                </div>
-                <div className="col-sm-4">
-                    {puzzle}
-                </div>
-                <div className="col-sm-4 text-center">
-                    <h3>Resultado</h3>
-                    <img src={"./img/" + this.rompecabezas + ".png"} style={{ maxWidth: '100%', minWidth: '100%' }} />
-                </div>
-            </div>
-        );
+    if (this.props.nivel == 1) {
+      let puzzle = [];
+      for (let i = 0; i < this.n; i++) {
+          let row = [];
+          for (let j = 0; j < this.n; j++) {
+              let content = this.state.done[i][j]
+                  ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
+                  : '';
+              row.push(
+                <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '33%' }} onClick={() => {
+                   this.colocarPieza(i, j);
+                  }}>
+                      {content}
+                  </div>
+              );
+          }
+          puzzle.push(<div style={{ borderCollapse: 'collapse' }}>{row}</div>);
+      }
+      var piezas = this.state.piezas.map((row, i) => {
+          var grid = row.map((pieza, j) => {
+              var active = this.state.selected.x == j && this.state.selected.y == i;
+              var content = this.state.done[i][pieza] ? '' : <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (pieza + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} onClick={() => {
+                  this.setState({
+                      selected: {
+                          x: j,
+                          y: i
+                      }
+                  });
+              }} />;
+              return (
+                  <div style={{ background: '#fffdd0', border: 'solid ' + (active ? 'red' : 'black') + ' 2px', float: 'left', height: '80px', width: '33%' }}>
+                      {content}
+                  </div>
+              );
+          });
+          return (
+              <div style={{ borderCollapse: 'collapse' }}>{grid}</div>
+          );
+      });
+      return (
+          <div className="row">
+              <div className="col-sm-4">
+                  {piezas}
+              </div>
+              <div className="col-sm-4">
+                  {puzzle}
+              </div>
+              <div className="col-sm-4 text-center">
+                  <h3>Resultado</h3>
+                  <img src={"./img/" + this.rompecabezas + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%' }} />
+              </div>
+          </div>
+      );
+    }
+    if (this.props.nivel == 2) {
+      let puzzle = [];
+      for (let i = 0; i < this.n; i++) {
+          let row = [];
+          for (let j = 0; j < this.n; j++) {
+              let content = this.state.done[i][j]
+                  ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
+                  : '';
+              row.push(
+                <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '25%' }} onClick={() => {
+                   this.colocarPieza(i, j);
+                  }}>
+                      {content}
+                  </div>
+              );
+          }
+          puzzle.push(<div style={{ borderCollapse: 'collapse' }}>{row}</div>);
+      }
+      var piezas = this.state.piezas.map((row, i) => {
+          var grid = row.map((pieza, j) => {
+              var active = this.state.selected.x == j && this.state.selected.y == i;
+              var content = this.state.done[i][pieza] ? '' : <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (pieza + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} onClick={() => {
+                  this.setState({
+                      selected: {
+                          x: j,
+                          y: i
+                      }
+                  });
+              }} />;
+              return (
+                  <div style={{ background: '#fffdd0', border: 'solid ' + (active ? 'red' : 'black') + ' 2px', float: 'left', height: '80px', width: '25%' }}>
+                      {content}
+                  </div>
+              );
+          });
+          return (
+              <div style={{ borderCollapse: 'collapse' }}>{grid}</div>
+          );
+      });
+      return (
+          <div className="row">
+              <div className="col-sm-4">
+                  {piezas}
+              </div>
+              <div className="col-sm-4">
+                  {puzzle}
+              </div>
+              <div className="col-sm-4 text-center">
+                  <h3>Resultado</h3>
+                  <img src={"./img/" + this.rompecabezas + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%' }} />
+              </div>
+          </div>
+      );
+    }
+    if (this.props.nivel == 3) {
+      let puzzle = [];
+      for (let i = 0; i < this.n; i++) {
+          let row = [];
+          for (let j = 0; j < this.n; j++) {
+              let content = this.state.done[i][j]
+                  ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
+                  : '';
+              row.push(
+                <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '20%' }} onClick={() => {
+                   this.colocarPieza(i, j);
+                  }}>
+                      {content}
+                  </div>
+              );
+          }
+          puzzle.push(<div style={{ borderCollapse: 'collapse' }}>{row}</div>);
+      }
+      var piezas = this.state.piezas.map((row, i) => {
+          var grid = row.map((pieza, j) => {
+              var active = this.state.selected.x == j && this.state.selected.y == i;
+              var content = this.state.done[i][pieza] ? '' : <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (pieza + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} onClick={() => {
+                  this.setState({
+                      selected: {
+                          x: j,
+                          y: i
+                      }
+                  });
+              }} />;
+              return (
+                  <div style={{ background: '#fffdd0', border: 'solid ' + (active ? 'red' : 'black') + ' 2px', float: 'left', height: '80px', width: '20%' }}>
+                      {content}
+                  </div>
+              );
+          });
+          return (
+              <div style={{ borderCollapse: 'collapse' }}>{grid}</div>
+          );
+      });
+      return (
+          <div className="row">
+              <div className="col-sm-4">
+                  {piezas}
+              </div>
+              <div className="col-sm-4">
+                  {puzzle}
+              </div>
+              <div className="col-sm-4 text-center">
+                  <h3>Resultado</h3>
+                  <img src={"./img/" + this.rompecabezas + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%' }} />
+              </div>
+          </div>
+      );
+    }
     }
 }
 
@@ -377,7 +542,6 @@ class Game extends React.Component {
 		this.setState({
 			seleccionNivel: false
 		});
-    this.fechaInicio = new Date();
 	}
 
 	render() {
@@ -402,7 +566,7 @@ class Game extends React.Component {
 		} else if (this.state.inicio) {
 			return (
 				<Bloque nombre={this.props.nombre}>
-          <Ejercicio nivel={this.nivel} terminar={this.terminar}/>
+          <Ejercicio terminar={this.terminar} nivel={this.nivel}/>
 				</Bloque>
 			);
 		} else {
@@ -420,14 +584,14 @@ class Game extends React.Component {
 function getInfo(callback) {
     d3.json("./data/info.json", function(error, instrucciones) {
         d3.json("./meta.json", function(error, nombre) {
-            Consulta.get('/paciente/actual/', function(data) {
-                if (data["id"] != null) {
-                    mostrarPerfil(data);
-                    callback(data["id"],nombre["nombre"], instrucciones["instrucciones"]);
-                } else {
-                    toastr("No has seleccionado un paciente");
-                }
-            });
+          Consulta.get('/paciente/actual/', function(data) {
+            if (data["id"] != null) {
+              mostrarPerfil(data);
+              callback(data["id"], nombre["nombre"], instrucciones["instrucciones"]);
+            } else {
+              toastr("No has seleccionado un paciente");
+            }
+          });
         });
     });
 }
