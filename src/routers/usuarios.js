@@ -53,6 +53,11 @@ router.post('/registrar/avance/', function (req, res){
     });
 });
 
+// Envía el formulario para agregar un paciente
+router.get('/agregar', function(req, res){
+    res.render('paciente/agregar', {titulo: "Agregar"});
+});
+
 // ruta para agregar un usuario
 router.post('/agregar/', function(req, res){
     userManager.agregar(req.body.data, function(error, message){
