@@ -561,21 +561,53 @@
                     {
                         key: "render",
                         value: function () {
-                            var e;
-                            return (
+                          var regresar;
+                              if(typeof this.props.regresar === 'undefined'){
+                                  regresar = (
+                                      <div className="col-4">
+                                          <a
+                                              className="btn btn-principal btn-lg"
+                                              href="/juegos/">
+                                              Lista de juegos
+                                          </a>
+                                      </div>
+                                  );
+                              }else{
+                                  regresar = (
+                                      <div className="col-4"></div>
+                                  );
+                              }
+                              var audio = $("#player")
+                            if(audio[0] != undefined){
+                              audio[0].pause()
+                              audio[0].load()
+                            }
+                          return (
+                            <div>
+                              <div className="row border rounder my-3">
+                                <div className="col-12 text-center bg-white">
+                                  <p>{this.props.instrucciones}</p>
+                                </div>
+                              </div>
 
-                                React.createElement(
-                                    "div",
-                                    null,
-                                    React.createElement("div", { className: "row border rounder my-3" }, React.createElement("div", { className: "col-12 text-center bg-white" }, React.createElement("p", null, this.props.instrucciones))),
-                                    React.createElement(
-                                        "div",
-                                        { className: "row" },
-                                        e,
-                                        React.createElement("div", { className: "col-12 text-center" }, React.createElement("button", { className: "btn btn-principal btn-lg", onClick: this.props.iniciar }, "Iniciar Juego"))
-                                    )
-                                )
-                            );
+                              <div className="row">
+                                <div className="col-13">
+                                  <audio id="player" controls>
+                                    <source src={'./data/audio.mp3'} type="audio/mpeg">
+                                    </source>
+                                      Your browser does not support the audio element.
+                                  </audio>
+                                </div>
+                                <div className="col-12 text-center">
+                                  <button
+                                    className="btn btn-principal btn-lg"
+                                    onClick={this.props.iniciar}>
+                                    Iniciar Juego
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          );
                         },
                     },
                 ]),

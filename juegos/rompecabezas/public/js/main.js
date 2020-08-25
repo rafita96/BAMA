@@ -226,37 +226,27 @@ class Ejercicio extends React.Component {
     }
 
     generarPiezas () {
-        // https://pinetools.com/es/partir-imagenes
-        var piezas = [];
-        for (var i = 0; i < this.n; i++) {
-            var row = [];
-            for (var j = 0; j < this.n; j++) {
-                var n = Math.floor(Math.random() * this.n);
-                while (row.indexOf(n) >= 0) {
-                    n = Math.floor(Math.random() * this.n);
-                }
-                row.push(n);
-            }
-            piezas.push(row);
-        }
-        return piezas;
+      // https://pinetools.com/es/partir-imagenes
+      var piezas = [];
+      for (var i = 0; i < this.n; i++) {
+          var row = [];
+          for (var j = 0; j < this.n; j++) {
+              var n = Math.floor(Math.random() * this.n);
+              while (row.indexOf(n) >= 0) {
+                  n = Math.floor(Math.random() * this.n);
+              }
+              row.push(n);
+          }
+          piezas.push(row);
+      }
+      return piezas;
     }
 
     colocarPieza (i, j) {
         var done = this.state.done.map(x => x.map(y => y));
         var puzzle = this.state.puzzle.map(x => x.map(y => y));
         done[i][j] = this.state.selected.x >= 0 && this.state.selected.y == i && this.state.piezas[i][this.state.selected.x] == j;
-        switch (this.props.nivel) {
-            case 1:
-                puzzle[i][j] = done[i][j];
-                break;
-            case 2:
-                puzzle[i][j] = done[i][j] || !puzzle[i][j];
-                break;
-            case 3:
-                puzzle[i][j] = !puzzle[i][j];
-                break;
-        }
+        puzzle[i][j] = !puzzle[i][j];
         this.setState({
             done: done,
             movimientos: this.state.movimientos + 1,
@@ -266,7 +256,7 @@ class Ejercicio extends React.Component {
             }
         }, () => {
             if (this.state.done.every(x => x.every(y => y))) {
-                var puntaje = 100 - (this.state.movimientos - this.total - this.n) * 3;
+                var puntaje = 100 - (this.state.movimientos - this.total) * 5;
                 puntaje = Math.max(0, puntaje);
                 puntaje = Math.min(100, puntaje);
                 this.props.terminar(puntaje);
@@ -284,7 +274,7 @@ class Ejercicio extends React.Component {
                   ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
                   : '';
               row.push(
-                <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '33%' }} onClick={() => {
+                <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '112.77px', width: '33.3%' }} onClick={() => {
                    this.colocarPieza(i, j);
                   }}>
                       {content}
@@ -292,7 +282,7 @@ class Ejercicio extends React.Component {
               );
           }
           puzzle.push(<div style={{ borderCollapse: 'collapse' }}>{row}</div>);
-      }
+      } //fila es i, columna es pieza
       var piezas = this.state.piezas.map((row, i) => {
           var grid = row.map((pieza, j) => {
               var active = this.state.selected.x == j && this.state.selected.y == i;
@@ -305,7 +295,7 @@ class Ejercicio extends React.Component {
                   });
               }} />;
               return (
-                  <div style={{ background: '#fffdd0', border: 'solid ' + (active ? 'red' : 'black') + ' 2px', float: 'left', height: '80px', width: '33%' }}>
+                  <div style={{ background: '#fffdd0', border: 'solid ' + (active ? 'red' : 'black') + ' 2px', float: 'left', height: '112.77px', width: '33.3%' }}>
                       {content}
                   </div>
               );
@@ -322,8 +312,7 @@ class Ejercicio extends React.Component {
               <div className="col-sm-4">
                   {puzzle}
               </div>
-              <div className="col-sm-4 text-center">
-                  <h3>Resultado</h3>
+              <div className="col-sm-4">
                   <img src={"./img/" + this.rompecabezas + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%' }} />
               </div>
           </div>
@@ -338,7 +327,7 @@ class Ejercicio extends React.Component {
                   ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
                   : '';
               row.push(
-                <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '25%' }} onClick={() => {
+                <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '84.66px', width: '25%' }} onClick={() => {
                    this.colocarPieza(i, j);
                   }}>
                       {content}
@@ -359,7 +348,7 @@ class Ejercicio extends React.Component {
                   });
               }} />;
               return (
-                  <div style={{ background: '#fffdd0', border: 'solid ' + (active ? 'red' : 'black') + ' 2px', float: 'left', height: '80px', width: '25%' }}>
+                  <div style={{ background: '#fffdd0', border: 'solid ' + (active ? 'red' : 'black') + ' 2px', float: 'left', height: '84.66px', width: '25%' }}>
                       {content}
                   </div>
               );
@@ -376,8 +365,7 @@ class Ejercicio extends React.Component {
               <div className="col-sm-4">
                   {puzzle}
               </div>
-              <div className="col-sm-4 text-center">
-                  <h3>Resultado</h3>
+              <div className="col-sm-4">
                   <img src={"./img/" + this.rompecabezas + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%' }} />
               </div>
           </div>
@@ -392,7 +380,7 @@ class Ejercicio extends React.Component {
                   ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
                   : '';
               row.push(
-                <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '80px', width: '20%' }} onClick={() => {
+                <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '67.72px', width: '20%' }} onClick={() => {
                    this.colocarPieza(i, j);
                   }}>
                       {content}
@@ -413,7 +401,7 @@ class Ejercicio extends React.Component {
                   });
               }} />;
               return (
-                  <div style={{ background: '#fffdd0', border: 'solid ' + (active ? 'red' : 'black') + ' 2px', float: 'left', height: '80px', width: '20%' }}>
+                  <div style={{ background: '#fffdd0', border: 'solid ' + (active ? 'red' : 'black') + ' 2px', float: 'left', height: '67.72px', width: '20%' }}>
                       {content}
                   </div>
               );
@@ -430,8 +418,7 @@ class Ejercicio extends React.Component {
               <div className="col-sm-4">
                   {puzzle}
               </div>
-              <div className="col-sm-4 text-center">
-                  <h3>Resultado</h3>
+              <div className="col-sm-4">
                   <img src={"./img/" + this.rompecabezas + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%' }} />
               </div>
           </div>

@@ -124,7 +124,7 @@ class Ejercicio extends React.Component{
             </div>
             <div className="row">
                 <div className="col-12">
-                    <button className="btn btn-principal" onClick={this.siguiente}>Siguiente</button>
+                    <button className="btn btn-principal btn-lg" onClick={this.siguiente}>Siguiente</button>
                 </div>
             </div>
         </div>
