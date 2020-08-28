@@ -205,33 +205,34 @@ class Ejercicio extends React.Component {
 			return (
 				<div>
 					<div className="offset-2 col-8">
-						<Img
-							url={'./img/' + canciones[this.state.cancion_index] + '.png'}
-              text={text}
-							/>
+            <font color="red">
+  						<Img style="color:red"
+  							url={'./img/' + canciones[this.state.cancion_index] + '.png'}
+                text={text}
+  							/>
+            </font>
 					</div>
 
+
                     <div className="alert alert-success row mt-3">
-                        <div className="offset-1 col-2">
-                            <button onClick={() => {this.seleccionar(0)}} className="btn btn-danger">1</button>
-                        </div>
+                      <div class="clasificacion">
+                        <div id="radio1" type="radio" name="estrellas" value="5" onClick={() => {this.seleccionar(4)}}></div>
+                        <button type="radio" for="radio1">★</button>
 
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(1)}} className="btn btn-warning">2</button>
-                        </div>
+                        <div id="radio2" type="radio" name="estrellas" value="4" onClick={() => {this.seleccionar(3)}}></div>
+                        <button type="radio" for="radio2">★</button>
 
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(2)}} className="btn btn-info">3</button>
-                        </div>
+                        <div id="radio3" type="radio" name="estrellas" value="3" onClick={() => {this.seleccionar(2)}}></div>
+                        <button type="radio" for="radio3">★</button>
 
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(3)}} className="btn btn-primary">4</button>
-                        </div>
+                        <div id="radio4" type="radio" name="estrellas" value="2" onClick={() => {this.seleccionar(1)}}></div>
+                        <button type="radio" for="radio4">★</button>
 
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(4)}} className="btn btn-success">5</button>
-                        </div>
+                        <div id="radio5" type="radio" name="estrellas" value="1" onClick={() => {this.seleccionar(0)}}></div>
+                        <button type="radio" for="radio5">★</button>
+                      </div>
                     </div>
+
 
                     <div className="row mt-3">
                         <div className="col-2 offset-10">

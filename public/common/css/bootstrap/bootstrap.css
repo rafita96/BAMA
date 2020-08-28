@@ -3969,7 +3969,7 @@ tbody.collapse.show {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.55rem;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -4330,7 +4330,7 @@ tbody.collapse.show {
 }
 
 .navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.966);
 }
 
 .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
@@ -4386,7 +4386,7 @@ tbody.collapse.show {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.945);
 }
 
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
@@ -8972,4 +8972,33 @@ a.text-dark:hover, a.text-dark:focus {
     border: 1px solid #ddd !important;
   }
 }
+
+button[type="radio"] {
+  font-size: 70px;
+  margin-left: 110px;
+}
+
+div[type="radio"] {
+  display: none;
+}
+
+button[type="radio"] {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+button[type="radio"]:hover,
+button[type="radio"]:hover ~ button[type="radio"] {
+  color: orange;
+}
+
+div[type="radio"]:checked ~ button[type="radio"] {
+  color: orange;
+}
+
+
 /*# sourceMappingURL=bootstrap.css.map */
