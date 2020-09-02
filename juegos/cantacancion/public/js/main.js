@@ -213,26 +213,15 @@ class Ejercicio extends React.Component {
             </font>
 					</div>
 
-
-                    <div className="alert alert-success row mt-3">
-                      <div class="clasificacion">
-                        <div id="radio1" type="radio" name="estrellas" value="5" onClick={() => {this.seleccionar(4)}}></div>
-                        <button type="radio" for="radio1">★</button>
-
-                        <div id="radio2" type="radio" name="estrellas" value="4" onClick={() => {this.seleccionar(3)}}></div>
-                        <button type="radio" for="radio2">★</button>
-
-                        <div id="radio3" type="radio" name="estrellas" value="3" onClick={() => {this.seleccionar(2)}}></div>
-                        <button type="radio" for="radio3">★</button>
-
-                        <div id="radio4" type="radio" name="estrellas" value="2" onClick={() => {this.seleccionar(1)}}></div>
-                        <button type="radio" for="radio4">★</button>
-
-                        <div id="radio5" type="radio" name="estrellas" value="1" onClick={() => {this.seleccionar(0)}}></div>
-                        <button type="radio" for="radio5">★</button>
+                  <div className="alert alert-success row mt-3">
+                      <div class="ec-stars-wrapper">
+                        <a  type="star" title="Calificar con 1 estrella" onClick={() => {this.seleccionar(0)}}>&#9733;</a>
+                        <a  type="star" title="Calificar con 2 estrellas" onClick={() => {this.seleccionar(1)}}>&#9733;</a>
+                        <a  type="star" title="Calificar con 3 estrellas" onClick={() => {this.seleccionar(2)}}>&#9733;</a>
+                        <a  type="star" title="Calificar con 4 estrellas" onClick={() => {this.seleccionar(3)}}>&#9733;</a>
+                        <a  type="star" title="Calificar con 5 estrellas" onClick={() => {this.seleccionar(4)}}>&#9733;</a>
                       </div>
                     </div>
-
 
                     <div className="row mt-3">
                         <div className="col-2 offset-10">
