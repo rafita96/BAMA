@@ -211,27 +211,15 @@ class Ejercicio extends React.Component {
 							/>
 					</div>
 
-                    <div className="alert alert-success row mt-3">
-                        <div className="offset-1 col-2">
-                            <button onClick={() => {this.seleccionar(0)}} className="btn btn-danger">1</button>
-                        </div>
-
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(1)}} className="btn btn-warning">2</button>
-                        </div>
-
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(2)}} className="btn btn-info">3</button>
-                        </div>
-
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(3)}} className="btn btn-primary">4</button>
-                        </div>
-
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(4)}} className="btn btn-success">5</button>
-                        </div>
-                    </div>
+              <div className="alert alert-success row mt-3">
+                <div class="ec-stars-wrapper">
+                  <a  type="star" title="Calificar con 1 estrella" onClick={() => {this.seleccionar(0)}}>&#9733;</a>
+                  <a  type="star" title="Calificar con 2 estrellas" onClick={() => {this.seleccionar(1)}}>&#9733;</a>
+                  <a  type="star" title="Calificar con 3 estrellas" onClick={() => {this.seleccionar(2)}}>&#9733;</a>
+                  <a  type="star" title="Calificar con 4 estrellas" onClick={() => {this.seleccionar(3)}}>&#9733;</a>
+                  <a  type="star" title="Calificar con 5 estrellas" onClick={() => {this.seleccionar(4)}}>&#9733;</a>
+                </div>
+              </div>
 
                     <div className="row mt-3">
                         <div className="col-2 offset-10">

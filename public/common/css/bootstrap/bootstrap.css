@@ -8972,4 +8972,39 @@ a.text-dark:hover, a.text-dark:focus {
     border: 1px solid #ddd !important;
   }
 }
+
+.ec-stars-wrapper {
+	/* Espacio entre los inline-block (los hijos, los `a`)*/
+	font-size: 0;
+	/* Podríamos quitarlo,
+		pero de esta manera (siempre que no le demos padding),
+		sólo aplicará la regla .ec-stars-wrapper:hover a cuando
+		también se esté haciendo hover a alguna estrella */
+	display: inline-block;
+}
+.ec-stars-wrapper a[type=star] {
+	text-decoration: none;
+	display: inline-block;
+	/* Volver a dar tamaño al texto */
+	font-size: 70px;
+
+  margin-left: 115px;
+
+	color: #888;
+}
+
+.ec-stars-wrapper:hover a[type=star] {
+	color: rgb(39, 130, 228);
+}
+/*
+ * El selector de hijo, es necesario para aumentar la especifidad
+ */
+.ec-stars-wrapper > a[type=star]:hover ~ a[type=star] {
+	color: #888;
+}
+
+.ec-stars-wrapper:checked a[type=star] {
+  color: red;
+}
+
 /*# sourceMappingURL=bootstrap.css.map */
