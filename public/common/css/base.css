@@ -144,7 +144,7 @@ a:link{
 /* Pretty pastels */
 
 .bg-principal{
-    background: #bfd8d2;
+    background: #f8c78e63;
 }
 
 .input-brdr{
@@ -187,12 +187,13 @@ a:link{
 }
 
 .btn-principal {
-    background: #dcb239;
+    background: #5fdc39;
     color: #ffffff;
 }
  
 .btn-principal:hover, .btn-principal:focus, .btn-principal:active, .btn-principal.active, .open > .dropdown-toggle.btn-principal {
-    background: #dbc358;
+    background: #5fdc39;
+    color: #ffffff;
 }
 
 
