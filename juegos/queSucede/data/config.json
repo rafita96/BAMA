@@ -5,7 +5,7 @@
 				"carpeta": 0,
 				"respuesta": ["Lavando"],
 				"opciones": [
-					"Brincando", "Comiendo", "Leyendo", "Lavando"
+					"Brincando", "Comiendo", "Lavando", "Leyendo" 
 				]
 			},
 			{
@@ -33,7 +33,7 @@
 				"carpeta": 4,
 				"respuesta": ["Peinandose"],
 				"opciones": [
-					"Resbalandose", "Leyendo", "Lavando", "Peinandose"
+					"Peinandose", "Resbalandose", "Leyendo", "Lavando"
 				]
 			},
 			{
@@ -47,7 +47,7 @@
 				"carpeta": 6,
 				"respuesta": ["Brincando"],
 				"opciones": [
-					"Comiendo", "Pintando", "Leyendo", "Brincando"
+					"Comiendo", "Brincando","Pintando", "Leyendo"
 				]
 			},
 			{
