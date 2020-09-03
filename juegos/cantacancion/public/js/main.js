@@ -188,11 +188,11 @@ class Ejercicio extends React.Component {
 
       var canciones;
       switch (this.props.nivel) {
-        case 1: canciones = ['día', 'noche', 'corazón', 'mujer', 'sol', 'mar', 'azul', 'ojos', 'labios'];
+        case 1: canciones = ['día', 'noche', 'corazón', 'mujer', 'sol', 'mar', 'azul', 'ojos', 'labios', 'canta', 'llores', 'mexico', 'rancho', 'caballo', 'rogarle', 'cielito', 'tequila', 'paloma', 'morena', 'vida', 'rey', 'negrita', 'volver', 'querer', 'adelita'];
         break;
-        case 2: canciones = ['flor', 'zapatos', 'puerta', 'árbol', 'niña', 'camino', 'beso', 'baila', 'cama'];
+        case 2: canciones = ['flor', 'zapatos', 'puerta', 'árbol', 'niña', 'camino', 'beso', 'baila', 'cama', 'copa', 'mano', 'tristeza', 'sombras', 'luz', 'soledad', 'casa', 'mariachis', 'dinero', 'trono', 'reina', 'camino', 'volando', 'rebozo', 'loco', 'tiempo'];
         break;
-        case 3: canciones = ['día', 'noche', 'corazón', 'mujer', 'sol', 'mar', 'azul', 'ojos', 'labios','flor', 'zapatos', 'puerta', 'árbol', 'niña', 'camino', 'beso', 'baila', 'cama'];
+        case 3: canciones = ['acariciar', 'pasaje', 'rincón', 'drama', 'alma', 'blanco', 'negro', 'quedar', 'ley', 'piedra', 'papel', 'penando', 'seda', 'pelusa', 'delante', 'detrás', 'perder', 'brazos', 'valiente', 'sargento', 'tumba', 'venas', 'soñé', 'distancia', 'sol'];
         break;
       }
       if(this.state.cancion_index == null) {
@@ -213,26 +213,15 @@ class Ejercicio extends React.Component {
             </font>
 					</div>
 
-
-                    <div className="alert alert-success row mt-3">
-                      <div class="clasificacion">
-                        <div id="radio1" type="radio" name="estrellas" value="5" onClick={() => {this.seleccionar(4)}}></div>
-                        <button type="radio" for="radio1">★</button>
-
-                        <div id="radio2" type="radio" name="estrellas" value="4" onClick={() => {this.seleccionar(3)}}></div>
-                        <button type="radio" for="radio2">★</button>
-
-                        <div id="radio3" type="radio" name="estrellas" value="3" onClick={() => {this.seleccionar(2)}}></div>
-                        <button type="radio" for="radio3">★</button>
-
-                        <div id="radio4" type="radio" name="estrellas" value="2" onClick={() => {this.seleccionar(1)}}></div>
-                        <button type="radio" for="radio4">★</button>
-
-                        <div id="radio5" type="radio" name="estrellas" value="1" onClick={() => {this.seleccionar(0)}}></div>
-                        <button type="radio" for="radio5">★</button>
+                  <div className="alert alert-success row mt-3">
+                      <div class="ec-stars-wrapper">
+                        <a  type="star" title="Calificar con 1 estrella" onClick={() => {this.seleccionar(0)}}>&#9733;</a>
+                        <a  type="star" title="Calificar con 2 estrellas" onClick={() => {this.seleccionar(1)}}>&#9733;</a>
+                        <a  type="star" title="Calificar con 3 estrellas" onClick={() => {this.seleccionar(2)}}>&#9733;</a>
+                        <a  type="star" title="Calificar con 4 estrellas" onClick={() => {this.seleccionar(3)}}>&#9733;</a>
+                        <a  type="star" title="Calificar con 5 estrellas" onClick={() => {this.seleccionar(4)}}>&#9733;</a>
                       </div>
                     </div>
-
 
                     <div className="row mt-3">
                         <div className="col-2 offset-10">
