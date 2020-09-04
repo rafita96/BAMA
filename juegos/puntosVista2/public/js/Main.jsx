@@ -72,8 +72,8 @@
                                 t = 10 * Math.sin(Math.radians(this.props.angulo - 45)) + this.props.cy,
                                 n = 10 * Math.cos(Math.radians(this.props.angulo - 135)) + this.props.cx,
                                 r = 10 * Math.sin(Math.radians(this.props.angulo - 135)) + this.props.cy;
-                            if (this.props.seleccionado == this.props.indice) var c = "#FFD400";
-                            else c = "#32CD32";
+                            if (this.props.seleccionado == this.props.indice) var c = "#32CD32";
+                            else c = "#FFD400";
                             return React.createElement(
                                 "g",
                                 null,
@@ -253,23 +253,17 @@
                                 React.createElement(
                                     "div",
                                     { className: "row" },
-                                    React.createElement(
-                                      "div", { className: "col-6" }, React.createElement(c.default, { url: a })),
-                                    React.createElement(
-                                        "div",
-                                        { className: "col-6" },
-                                        React.createElement(
-                                            "svg",
-                                            { viewBox: "0 0 100 60" },
-                                            React.createElement("image", { y: "10", width: "100", height: "40", href: "./../../../../public/common/img/puntosVista/" + t + "/aereo.png" }),
-                                            React.createElement(o.default, { seleccionado: n, indice: 5, angulo: 135, cx: 29, cy: 10, r: 2 }),
-                                            React.createElement(o.default, { seleccionado: n, indice: 4, angulo: 180, cx: 50, cy: 6, r: 2 }),
-                                            React.createElement(o.default, { seleccionado: n, indice: 3, angulo: 225, cx: 71, cy: 10, r: 2 }),
-                                            React.createElement(o.default, { seleccionado: n, indice: 6, angulo: 90, cx: 25, cy: 29, r: 2 }),
-                                            React.createElement(o.default, { seleccionado: n, indice: 2, angulo: 270, cx: 75, cy: 29, r: 2 }),
-                                            React.createElement(o.default, { seleccionado: n, indice: 7, angulo: 45, cx: 29, cy: 50, r: 2 }),
-                                            React.createElement(o.default, { seleccionado: n, indice: 0, angulo: 0, cx: 50, cy: 54, r: 2 }),
-                                            React.createElement(o.default, { seleccionado: n, indice: 1, angulo: 315, cx: 71, cy: 50, r: 2 })
+                                    React.createElement ( "div", { className: "col-6" }, React.createElement ( "svg", { viewBox: "0 0 100 75" }, React.createElement ( "image", { width: "100%", height: "100%", href: a, class: "rounded mx-auto d-block" }))),
+                                    React.createElement ( "div", { className: "col-6" }, React.createElement ( "svg", { viewBox: "0 0 100 75" },
+                                            React.createElement("image", { width: "100%", height: "100%", href: "./../../../../public/common/img/puntosVista/" + t + "/aereo.png", class: "rounded mx-auto d-block" }),
+                                            React.createElement(o.default, { seleccionado: n, indice: 5, angulo: 135, cx: 20, cy: 9, r: 2 }),
+                                            React.createElement(o.default, { seleccionado: n, indice: 4, angulo: 180, cx: 50, cy: 2, r: 2 }),
+                                            React.createElement(o.default, { seleccionado: n, indice: 3, angulo: 225, cx: 80, cy: 9, r: 2 }),
+                                            React.createElement(o.default, { seleccionado: n, indice: 6, angulo: 90, cx: 13, cy: 37.5, r: 2 }),
+                                            React.createElement(o.default, { seleccionado: n, indice: 2, angulo: 270, cx: 87, cy: 37.5, r: 2 }),
+                                            React.createElement(o.default, { seleccionado: n, indice: 7, angulo: 45, cx: 20, cy: 66, r: 2 }),
+                                            React.createElement(o.default, { seleccionado: n, indice: 0, angulo: 0, cx: 50, cy: 73, r: 2 }),
+                                            React.createElement(o.default, { seleccionado: n, indice: 1, angulo: 315, cx: 80, cy: 66, r: 2 })
                                         )
                                     )
                                 ),
