@@ -1,13 +1,13 @@
 {
-  "name": "pvvc",
-  "version": "1.0.0",
-  "description": "",
+  "name": "bama",
+  "version": "0.9.0",
+  "description": "BAMA is a research project for elderly adults' cognitive stimulation from orientation, language, memory, and calculation games.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "server.js"
   },
-  "author": "",
+  "author": "UABC",
   "license": "ISC",
   "dependencies": {
     "ajax-request": "^1.2.3",
@@ -24,6 +24,11 @@
     "mongoose": "^5.0.11",
     "node-redis-session": "^0.3.3",
     "popper.js": "^1.14.3"
+  },
+  "engines": {
+    "node": ">= 10.13.0",
+    "npm": ">= 6.11.0",
+    "yarn": ">= 1.13.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
