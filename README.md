@@ -1,83 +1,75 @@
-# Volver a empezar
+# BAMA
 
-Sistema de administración de pacientes con un conjunto de ejercicios y juegos para la rehabilitación cognitiva en las áreas de orientación, lenguaje, praxias, memoria y cálculo.
+> BAMA is a research project for elderly adults' cognitive stimulation from orientation, language, memory, and calculation games.
 
 ## Getting Started
+This guide explains how to set up your environment for BAMA development. It includes information about prerequisites, creating an initial workspace and starter app, and running that app locally to verify your setup.
 
-Estas instrucciones te mostrarán como tener una copia del proyecto funcionando en tu máquina local.
-
-### Pre-requisitos
-
-Instalar NodeJS, npm y MongoDB correspondiente al sistema operativo.
-Ojo: npm ya viene cuando se instala NodeJS
-
+### Prerequisites
+To use the BAMA, you should be familiar with the following:
 - [NodeJS](https://nodejs.org/en/)
 - [MongoDB](https://www.mongodb.com/)
+- [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps)
 
-Asegurarse que el comando mongod, node y npm se puedan ejecutar en cualquier ruta desde la línea de comandos. De no ser así, por comodidad, se recomienda agregar estos comandos a las variables de entorno, sino, es necesario ejecutarlos con la ruta completa de cada comando.
+To install BAMA on your local system, you need the following:
+* Node js
+BAMA requires a [current, active LTS, or maintenance LTS](https://nodejs.org/en/about/releases/)  version of Node.js.
+> For information about specific version requirements, see the engines key in the [package.json](https://github.com/rafita96/BAMA/blob/master/package.json) file.
 
-### Instalación
+For more information on installing Node.js, see [nodejs.org](https://nodejs.org/en/). If you are unsure what version of Node.js runs on your system, run node -v in a terminal window.
 
-Descargar este proyecto en una carpeta reconocible, por ejemplo, "Documentos/PIPOV2".
-Existen 2 formas de descargarlo:
+* npm package manager
+BAMA depend on npm packages for many features and functions. To download and install npm packages, you need an npm package manager. This guide uses the npm client command line interface, which is installed with Node.js by default. To check that you have the npm client installed, run npm -v in a terminal window.
 
-- El botón de download de github, o
-- con git
+* MongoDB
+BAMA requires a [current, active LTS, or maintenance LTS](https://docs.mongodb.com/manual/installation/)  version of MongoDB.
 
-#### El botón de download de github
-
-Presionar el botón y esperar a que termine la descarga. Después se debe descomprimir el archivo.
-
-#### Descarga con git
-
-Recuerde posicionarse en la carpeta mencionada anteriormente. Ejecutar el comando en la línea de comandos
-
+### Install BAMA
+To install the BAMA, open a terminal window and run the following command:
 ```
-git clone https://github.com/rafita96/VolverAEmpezar
-```
-
-## Inicialización
-Esta es la inicialización del proyecto, solamente se tiene que hacer cuando se descarga por primera vez. 
-Para que estos comandos funcionen es necesario estar dentro de la carpeta VolverAEmpezar correspondiente al proyecto.
-
-Primero hay que instalar las dependencias del sistema con el siguiente comando
-```
-npm install
+git clone https://github.com/rafita96/BAMA && cd BAMA && npm install
 ```
 
-En el archivo [conf.js](/src/conf.js) se encuentran los parámetros para la base de datos y las credenciales de la cuenta de administrador.
+### Create a workspace and initial application
+To create a new workspace and initial starter app:
 
-Para crear la cuenta de administrador se debe ejecutar el siguiente comando.
-
+Run the CLI command node init.js as shown here:
 ```
 node init.js
 ```
+> MongoDB must have started successfully
 
-### Recibir conexiones externas
-Configurar el firewall en la computadora cliente para aceptar el puerto 8080.
-
-## Ejecución del sistema
-
-Ejecutar el comando
-```
+### Run the application
+```bash
 node server.js
 ```
 
-Después entrar al navegador y poner la url localhost:8080.
-Si se desea entrar en alguna otra computadora cliente se necesita cambiar la palabra localhost por la ip correspondiente a la computadora en la que se encuentra el servicio. No olvidar agregar el puerto 8080.
+## Project File Structure
+# Project structure
 
-## Organización del proyecto
+```
+juegos/                      games
+|- x-game/                   game example structure (naming without space)
+|  |- data/                  blobs
+|  |- public/js/             game source code
+|  |- songs/                 blobs
+|  |- index.ejs              game entry
+|  |- meta.json              game description
+|  |- thumbnail.png          game thumbnail
+audios/                      games sounds (blobs)
+public/                      assets
+|- common/             
+|- js/                   
+src/                         project source code
+|- controllers/             
+|- routers/                   
+|- views/             
+|- config.js                 starter local config
+|- router.js                 
+server.js                    server listener
+```
 
-### [/juegos](/juegos)
-
-Se encuentran los ejercicios disponibles en el sistema, cada uno de ellos se encuentra en una carpeta con un nombre único para que el servidor pueda encontrarlos.
-Cada ejercicio debe tener su propio index.ejs para que conserve la plantilla de los otros ejercicios.
-En el archivo meta.json se encuentra el nombre del ejercicio, el nombre de la imágen de muestra y las categorías a las que pertenece.
-
-### [/public](/public)
-
-Aquí se encuentran los archivos públicos como son los archivos css, javascript e imágenes generales.
-
-### [/src](/src)
-
-Se encuentran los archivos correspondientes al servidor, dividos en 3 carpetas, controllers, routers y views.
+## Next steps
+* Deployment
+* Flow
