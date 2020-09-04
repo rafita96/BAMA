@@ -45,7 +45,6 @@ node init.js
 node server.js
 ```
 
-## Project File Structure
 # Project structure
 
 ```
@@ -69,7 +68,3 @@ src/                         project source code
 |- router.js                 
 server.js                    server listener
 ```
-
-## Next steps
-* Deployment
-* Flow
