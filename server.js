@@ -18,30 +18,30 @@ app.use("/public", express.static(__dirname + "/public"));
 
 app.use(cookieParser());
 app.use(session({
-	secret: 'keyboard god',
-	resave: false,
-	saveUninitialized: true,
-	cookie: {
-		secure: false
-	},
-	store: new MongoStore({
-		url: 'mongodb://'+appConfig.database.host+':'+appConfig.database.port+'/'+appConfig.database.name,
-	})
+    secret: 'keyboard god',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        secure: false
+    },
+    store: new MongoStore({
+        url: 'mongodb://' + appConfig.database.host + ':' + appConfig.database.port + '/' + appConfig.database.name,
+    })
 }));
 
-app.use(bodyParser.json() );
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: true
+    extended: true
 }));
 
 app.use(flash());
 
 app.use(firewall);
 
-app.use(function(req, res, next) {
-	res.locals.roles = generalConfig.roles;
-	res.locals.role = req.session.role;
-  next();
+app.use(function (req, res, next) {
+    res.locals.roles = generalConfig.roles;
+    res.locals.role = req.session.role;
+    next();
 });
 
 
@@ -49,5 +49,5 @@ app.use('/', router);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-	console.log(`Server is listening on port ${PORT}`);
+    console.log(`Server is listening on port ${PORT}`);
 });
