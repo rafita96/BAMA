@@ -1,10 +1,12 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
 const path = require("path");
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const flash = require('express-flash');
 const bodyParser = require('body-parser');
 const generalConfig = require('./src/conf');
-const appConfig = generalConfig.conf;
 const firewall = require('./src/controllers/firewall').firewall;
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
@@ -25,7 +27,7 @@ app.use(session({
         secure: false
     },
     store: new MongoStore({
-        url: 'mongodb://' + appConfig.database.host + ':' + appConfig.database.port + '/' + appConfig.database.name,
+        url: process.env.DB_HOST,
     })
 }));
 
