@@ -27,7 +27,7 @@ app.use(session({
         secure: false
     },
     store: new MongoStore({
-        url: process.env.DB_HOST,
+        url: process.env.DB_HOST + process.env.DB,
     })
 }));
 

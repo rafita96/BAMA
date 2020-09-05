@@ -1,6 +1,5 @@
 const mongo = require('mongodb').MongoClient;
-const appConfig = require('./../conf').conf["database"];
-const url = 'mongodb://' + appConfig["host"] +':'+ appConfig["port"] +'/';
+const url = process.env.DB_HOST;
 
 /*
  * 	Busca un elemento en la base de datos
@@ -14,7 +13,7 @@ const url = 'mongodb://' + appConfig["host"] +':'+ appConfig["port"] +'/';
 exports.find = function(collection, query, callback){
 	mongo.connect(url, function(err, db) {
 		if (err) throw err;
-		var dbo = db.db("volveraempezar");
+		var dbo = db.db(process.env.DB);
 		dbo.collection(collection).find(query).toArray(function(err, res) {
 			if (err) throw err;
 			callback(res);
@@ -34,7 +33,7 @@ exports.find = function(collection, query, callback){
 exports.eliminar = function(collection, query, callback){
 	mongo.connect(url, function(err, db) {
 		if (err) throw err;
-		var dbo = db.db("volveraempezar");
+		var dbo = db.db(process.env.DB);
 		dbo.collection(collection).deleteMany(query, function(err, res) {
 			if (err) throw err;
 			callback(false);
@@ -54,7 +53,7 @@ exports.eliminar = function(collection, query, callback){
 exports.insertar = function(collection, data, callback){
 	mongo.connect(url, function(err, db) {
 		if (err) throw err;
-		var dbo = db.db("volveraempezar");
+		var dbo = db.db(process.env.DB);
 		dbo.collection(collection).insertOne(data, function(err, res) {
 			if (err) throw err;
 			callback(false);
@@ -75,7 +74,7 @@ exports.insertar = function(collection, data, callback){
 exports.actualizar = function(collection, query, data, callback){
 	mongo.connect(url, function(err, db) {
 		if (err) throw err;
-		var dbo = db.db("volveraempezar");
+		var dbo = db.db(process.env.DB);
 		dbo.collection(collection).updateOne(query, {$set: data}, function(err, res) {
 			if (err) throw err;
 			callback(false);
