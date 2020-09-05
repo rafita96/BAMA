@@ -7,19 +7,12 @@ var roles = {
 }
 
 var conf = {
-    database: {
-        name: 'volveraempezar',
-        host: 'localhost',
-        port: '27017'
-    },
-
     session:{
         saltRounds: 10,
         collection: "admins",
         algorithm: 'aes-256-ctr',
         secret: 'volveraempezar'
     },
-
     users: [
         {
             username: "admin",
