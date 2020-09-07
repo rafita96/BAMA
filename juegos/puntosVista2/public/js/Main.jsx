@@ -272,7 +272,7 @@
                                     { className: "row" },
                                     React.createElement(
                                         "div",
-                                        {className: "col-2",
+                                        {className: "col-3",
                                             onClick: function () {
                                                 e.seleccionar(e.respuesta[0]);
                                             },
@@ -281,7 +281,7 @@
                                     ),
                                     React.createElement(
                                         "div",
-                                        {className: "col-2",
+                                        {className: "col-3",
                                             onClick: function () {
                                                 e.seleccionar(e.respuesta[1]);
                                             },
@@ -290,7 +290,7 @@
                                     ),
                                     React.createElement(
                                         "div",
-                                        {className: "col-2",
+                                        {className: "col-3",
                                             onClick: function () {
                                                 e.seleccionar(e.respuesta[2]);
                                             },
@@ -299,7 +299,7 @@
                                     ),
                                     React.createElement(
                                         "div",
-                                        {className: "col-2",
+                                        {className: "col-3",
                                             onClick: function () {
                                                 e.seleccionar(e.respuesta[3]);
                                             },
@@ -313,7 +313,7 @@
                                     React.createElement(
                                         "div",
                                         {
-                                            className: "col-2",
+                                            className: "col-3",
                                             onClick: function () {
                                                 e.seleccionar(e.respuesta[4]);
                                             },
@@ -322,7 +322,7 @@
                                     ),
                                     React.createElement(
                                         "div",
-                                        {className: "col-2",
+                                        {className: "col-3",
                                             onClick: function () {
                                                 e.seleccionar(e.respuesta[5]);
                                             },
@@ -331,7 +331,7 @@
                                     ),
                                     React.createElement(
                                         "div",
-                                        {className: "col-2",
+                                        {className: "col-3",
                                             onClick: function () {
                                                 e.seleccionar(e.respuesta[6]);
                                             },
@@ -340,7 +340,7 @@
                                     ),
                                     React.createElement(
                                         "div",
-                                        {className: "col-2",
+                                        {className: "col-3",
                                             onClick: function () {
                                                 e.seleccionar(e.respuesta[7]);
                                             },
