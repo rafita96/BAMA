@@ -232,6 +232,13 @@ class Ejercicio extends React.Component{
                     }
                     return(
                             <div className="row">
+                                <div className="col-1">
+                                    <audio id="player" controls>
+                                        <source src={'./data/audio.mp3'} type="audio/mpeg">
+                                        </source>
+                                            Your browser does not support the audio element.
+                                    </audio>
+                                </div>
                                 <div className="col-12">
                                     <div className="row equal mt-3">{this.botones}</div>
                                 </div>

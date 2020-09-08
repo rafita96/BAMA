@@ -204,6 +204,13 @@ class Ejercicio extends React.Component {
 
 			return (
 				<div>
+                    <div className="col-1">
+                        <audio id="player" controls>
+                            <source src={'./data/cantaCancion.mp3'} type="audio/mpeg">
+                            </source>
+                                Your browser does not support the audio element.
+                        </audio>
+                    </div>
 					<div className="offset-2 col-8">
             <font color="red">
   						<Img style="color:red"

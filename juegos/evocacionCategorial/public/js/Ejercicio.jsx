@@ -62,7 +62,13 @@ class Ejercicio extends React.Component {
       if (this.state.alfa==1) {
 			return (
 				<div>
-
+					<div className="col-1">
+						<audio id="player" controls>
+							<source src={'./data/audio.mp3'} type="audio/mpeg">
+							</source>
+								Your browser does not support the audio element.
+						</audio>
+					</div>
 					<div className="offset-2 col-8">
 						<Img
 							url={"./img/" + carpeta + "/scene.jpg"}
@@ -113,7 +119,13 @@ class Ejercicio extends React.Component {
 		if (this.state.alfa==2) {
 		return (
 			<div>
-
+				<div className="col-1">
+						<audio id="player" controls>
+							<source src={'./data/audio.mp3'} type="audio/mpeg">
+							</source>
+								Your browser does not support the audio element.
+						</audio>
+					</div>
 				<div className="offset-2 col-8">
 					<Img
 						url={"./img/" + carpeta + "/scene.jpg"}
@@ -164,7 +176,13 @@ class Ejercicio extends React.Component {
 		if (this.state.alfa==3) {
 		return (
 			<div>
-
+				<div className="col-1">
+						<audio id="player" controls>
+							<source src={'./data/audio.mp3'} type="audio/mpeg">
+							</source>
+								Your browser does not support the audio element.
+						</audio>
+					</div>
 				<div className="offset-2 col-8">
 					<Img
 						url={"./img/" + carpeta + "/scene.jpg"}
@@ -215,7 +233,13 @@ class Ejercicio extends React.Component {
 		if (this.state.alfa==4) {
 		return (
 			<div>
-
+				<div className="col-1">
+						<audio id="player" controls>
+							<source src={'./data/audio.mp3'} type="audio/mpeg">
+							</source>
+								Your browser does not support the audio element.
+						</audio>
+					</div>
 				<div className="offset-2 col-8">
 					<Img
 						url={"./img/" + carpeta + "/scene.jpg"}

@@ -255,6 +255,13 @@ class Ejercicio extends React.Component {
             var text = palabras[this.state.palabra_index];
 			return (
 				<div>
+                    <div className="col-1">
+                        <audio id="player" controls>
+                            <source src={'./data/dibujaPalabra.mp3'} type="audio/mpeg">
+                            </source>
+                                Your browser does not support the audio element.
+                        </audio>
+                    </div>
 					<div className="offset-2 col-8 text-center text-bold">
                         <h3>{text}</h3> <br />
                         <canvas id="canvas" width={300} height={300} style={{ background: 'white' }} onMouseDown={this.dibujar} onMouseMove={this.continuarDibujo} onMouseUp={this.clear} onMouseLeave={this.clear} />

@@ -92,6 +92,13 @@ class Ejercicio extends React.Component {
 		if(this.state.pregunta < this.ejercicios.length){
 			return(
 				<div>
+					<div className="col-1">
+						<audio id="player" controls>
+							<source src={'./data/audio.mp3'} type="audio/mpeg">
+							</source>
+								Your browser does not support the audio element.
+						</audio>
+					</div>
 					<div class="row" style={{ color:"#009432", "padding-bottom":"25px"}}>
 						<div class="col text-center">
 							<h1> {this.ejercicios[this.state.pregunta].pregunta}</h1>
