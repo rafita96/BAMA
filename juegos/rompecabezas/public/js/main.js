@@ -146,9 +146,19 @@ class Ejercicio extends React.Component {
       this.generarPiezas = this.generarPiezas.bind(this);
       this.colocarPieza = this.colocarPieza.bind(this);
       if (this.props.nivel == 1) {
+        var disponibles = ['africa', 'alpaca', 'arca', 'caballos', 'castillo', 'changos', 'cocina', 'corbatas', 'desayuno', 'gazela', 'girasol', 'guacamallo', 'leopardo', 'panda', 'pingui', 'pitbulazos', 'ranita', 'steppe', 'tortuga', 'viejito'];
+      }
+      if (this.props.nivel == 2) {
+        var disponibles = ['arbol', 'balcon', 'cabra', 'cafe', 'caracol', 'cascada', 'ciudad', 'colibri', 'elefantes', 'favelas', 'flores', 'hamburguesa', 'liebre', 'maple', 'mono', 'nave', 'parque', 'piedritas', 'suculenta', 'tigre'];
+      }
+      if (this.props.nivel == 3) {
+        var disponibles = ['aerostatico', 'bote', 'caballito', 'cactus', 'cañon', 'casette', 'doggo', 'escalera', 'espiral', 'family', 'fox', 'huevos', 'lamparas', 'moras', 'mosaico', 'pasta', 'pintura', 'plumas', 'techo', 'vitral'];
+      }
+      var randomizador = Math.floor(Math.random() * 20);
+      if (this.props.nivel == 1) {
         this.n = 3;
         this.total = this.n * this.n;
-        this.rompecabezas = 'vladimir';
+        this.rompecabezas = disponibles[randomizador];
         var piezas = this.generarPiezas();
         this.state = {
             selected: {
@@ -172,7 +182,7 @@ class Ejercicio extends React.Component {
       if (this.props.nivel == 2) {
         this.n = 4;
         this.total = this.n * this.n;
-        this.rompecabezas = 'ping';
+        this.rompecabezas = disponibles[randomizador];
         var piezas = this.generarPiezas();
         this.state = {
             selected: {
@@ -198,7 +208,7 @@ class Ejercicio extends React.Component {
       if (this.props.nivel == 3) {
         this.n = 5;
         this.total = this.n * this.n;
-        this.rompecabezas = 'cascada';
+        this.rompecabezas = disponibles[randomizador];
         var piezas = this.generarPiezas();
         this.state = {
             selected: {
@@ -271,7 +281,7 @@ class Ejercicio extends React.Component {
           let row = [];
           for (let j = 0; j < this.n; j++) {
               let content = this.state.done[i][j]
-                  ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
+                  ? <img src={"./img/facil/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".png"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
                   : '';
               row.push(
                 <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '112.77px', width: '33.3%' }} onClick={() => {
@@ -286,7 +296,7 @@ class Ejercicio extends React.Component {
       var piezas = this.state.piezas.map((row, i) => {
           var grid = row.map((pieza, j) => {
               var active = this.state.selected.x == j && this.state.selected.y == i;
-              var content = this.state.done[i][pieza] ? '' : <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (pieza + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} onClick={() => {
+              var content = this.state.done[i][pieza] ? '' : <img src={"./img/facil/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (pieza + 1) + ".png"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} onClick={() => {
                   this.setState({
                       selected: {
                           x: j,
@@ -313,7 +323,7 @@ class Ejercicio extends React.Component {
                   {puzzle}
               </div>
               <div className="col-sm-4">
-                  <img src={"./img/" + this.rompecabezas + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%' }} />
+                  <img src={"./img/facil/" + this.rompecabezas + "/" + this.rompecabezas + ".png"} style={{ maxWidth: '100%', minWidth: '100%' }} />
               </div>
           </div>
       );
@@ -324,7 +334,7 @@ class Ejercicio extends React.Component {
           let row = [];
           for (let j = 0; j < this.n; j++) {
               let content = this.state.done[i][j]
-                  ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
+                  ? <img src={"./img/medio/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".png"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
                   : '';
               row.push(
                 <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '84.66px', width: '25%' }} onClick={() => {
@@ -339,7 +349,7 @@ class Ejercicio extends React.Component {
       var piezas = this.state.piezas.map((row, i) => {
           var grid = row.map((pieza, j) => {
               var active = this.state.selected.x == j && this.state.selected.y == i;
-              var content = this.state.done[i][pieza] ? '' : <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (pieza + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} onClick={() => {
+              var content = this.state.done[i][pieza] ? '' : <img src={"./img/medio/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (pieza + 1) + ".png"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} onClick={() => {
                   this.setState({
                       selected: {
                           x: j,
@@ -366,7 +376,7 @@ class Ejercicio extends React.Component {
                   {puzzle}
               </div>
               <div className="col-sm-4">
-                  <img src={"./img/" + this.rompecabezas + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%' }} />
+              <img src={"./img/medio/" + this.rompecabezas + "/" + this.rompecabezas + ".png"} style={{ maxWidth: '100%', minWidth: '100%' }} />
               </div>
           </div>
       );
@@ -377,7 +387,7 @@ class Ejercicio extends React.Component {
           let row = [];
           for (let j = 0; j < this.n; j++) {
               let content = this.state.done[i][j]
-                  ? <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
+                  ? <img src={"./img/dificil/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (j + 1) + ".png"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} />
                   : '';
               row.push(
                 <div style={{ background: '#fffdd0', border: 'solid black 2px', float: 'left', height: '67.72px', width: '20%' }} onClick={() => {
@@ -392,7 +402,7 @@ class Ejercicio extends React.Component {
       var piezas = this.state.piezas.map((row, i) => {
           var grid = row.map((pieza, j) => {
               var active = this.state.selected.x == j && this.state.selected.y == i;
-              var content = this.state.done[i][pieza] ? '' : <img src={"./img/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (pieza + 1) + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} onClick={() => {
+              var content = this.state.done[i][pieza] ? '' : <img src={"./img/dificil/" + this.rompecabezas + "/fila-" + (i + 1) + "-col-" + (pieza + 1) + ".png"} style={{ maxWidth: '100%', minWidth: '100%', maxHeight: '100%', minHeight: '100%' }} onClick={() => {
                   this.setState({
                       selected: {
                           x: j,
@@ -419,7 +429,7 @@ class Ejercicio extends React.Component {
                   {puzzle}
               </div>
               <div className="col-sm-4">
-                  <img src={"./img/" + this.rompecabezas + ".jpg"} style={{ maxWidth: '100%', minWidth: '100%' }} />
+              <img src={"./img/dificil/" + this.rompecabezas + "/" + this.rompecabezas + ".png"} style={{ maxWidth: '100%', minWidth: '100%' }} />
               </div>
           </div>
       );

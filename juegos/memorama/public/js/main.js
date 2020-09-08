@@ -177,19 +177,24 @@ class Ejercicio extends React.Component {
             var activo = this.state.activo.map(x => x);
             activo[i] = false;
             this.setState({
-                selected: -1,
-                activo: activo
+              movimientos: this.state.movimientos + 1,
+              selected: -1,
+              activo: activo
             });
             return;
         }
         if (this.state.cartas[this.state.selected] == this.state.cartas[i]) {
             var done = this.state.done.concat(i).concat(this.state.selected);
             this.setState({
-                done: done,
-                selected: -1
+              movimientos: this.state.movimientos + 1,
+              done: done,
+              selected: -1
             });
             if (done.length == this.n * this.m) {
-                this.props.terminar(Math.max(0, 100 - (this.state.movimientos - 2) * this.props.nivel * 3));
+              var puntopunto = 100 + (this.props.nivel * 4 + 7) * 5 - this.state.movimientos * 5;
+                puntopunto = Math.max(0, puntopunto);
+                puntopunto = Math.min(100, puntopunto);
+                this.props.terminar(puntopunto);
             }
         } else {
             this.setState({
@@ -200,10 +205,10 @@ class Ejercicio extends React.Component {
                 activo[i] = false;
                 activo[this.state.selected] = false;
                 this.setState({
-                    movimientos: this.state.movimientos + 1,
-                    activo: activo,
-                    selected: -1,
-                    locked: false
+                  movimientos: this.state.movimientos + 1,
+                  activo: activo,
+                  selected: -1,
+                  locked: false
                 });
             }, 1000 * (4 - this.props.nivel));
         }
