@@ -18,18 +18,20 @@ class Boton extends React.Component{
 
             return(
                 <div className="col py-5 mx-1 border border-dark rounded"
-                    style={{background:this.props.color}}
-                ><audio ref="audio_tag" src="./data/do.mp3" autoPlay/></div>
+                    style={{background:this.props.color}}>
+                  <audio ref="audio_tag" src={this.props.url} autoPlay/>
+                </div>
             );
         }
         else if(this.props.posicion != -1){
             return(
                 <div className="col py-4 mx-1 border border-dark rounded text-center"
-                    style={{background:this.props.color}} onClick={this.seleccionar}
-                ><audio ref="audio_tag" src="./data/do.mp3" autoPlay/>
-                <h1 className="unselectable text-white">
-                    {this.props.posicion+1}
-                </h1></div>
+                    style={{background:this.props.color}} onClick={this.seleccionar}>
+                  <audio ref="audio_tag" src={this.props.url} autoPlay/>
+                  <h1 className="unselectable text-white">
+                      {this.props.posicion+1}
+                  </h1>
+                </div>
             );
         }else{
             return(
