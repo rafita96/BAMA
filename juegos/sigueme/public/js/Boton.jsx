@@ -26,7 +26,8 @@ class Boton extends React.Component{
             return(
                 <div className="col py-4 mx-1 border border-dark rounded text-center"
                     style={{background:this.props.color}} onClick={this.seleccionar}
-                ><h1 className="unselectable text-white">
+                ><audio ref="audio_tag" src="./data/do.mp3" autoPlay/>
+                <h1 className="unselectable text-white">
                     {this.props.posicion+1}
                 </h1></div>
             );
