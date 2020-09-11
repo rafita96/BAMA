@@ -15,11 +15,11 @@ class Boton extends React.Component{
 
     render(){
         if(this.props.seleccionado){
-            
+
             return(
                 <div className="col py-5 mx-1 border border-dark rounded"
                     style={{background:this.props.color}}
-                ></div>
+                ><audio ref="audio_tag" src="./data/do.mp3" autoPlay/></div>
             );
         }
         else if(this.props.posicion != -1){
@@ -27,7 +27,7 @@ class Boton extends React.Component{
                 <div className="col py-4 mx-1 border border-dark rounded text-center"
                     style={{background:this.props.color}} onClick={this.seleccionar}
                 ><h1 className="unselectable text-white">
-                    {this.props.posicion+1}  
+                    {this.props.posicion+1}
                 </h1></div>
             );
         }else{
