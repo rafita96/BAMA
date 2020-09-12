@@ -8994,7 +8994,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .ec-stars-wrapper:hover a[type=star] {
-	color: rgb(39, 130, 228);
+	color: rgb(255, 164, 32);
 }
 /*
  * El selector de hijo, es necesario para aumentar la especifidad
