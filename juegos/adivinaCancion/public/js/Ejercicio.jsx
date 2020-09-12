@@ -87,9 +87,9 @@ class Ejercicio extends React.Component {
 								<source src={'./songs/'+this.ejercicios[this.state.pregunta].pregunta+this.props.nivel+'.mp3'} type="audio/mpeg">
 								</source>
 									Your browser does not support the audio element.
-								</audio>
-							</div>
-							</div>
+							</audio>
+						</div>
+					</div>
 					<div className="col-12"><hr/></div>
 					<div className="row text-center">
 						<div className="col">
