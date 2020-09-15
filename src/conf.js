@@ -1,12 +1,12 @@
 const crypto = require('crypto');
 
-var roles = {
+const roles = {
     ROLE_ADMIN: 0,
     ROLE_PSI: 1,
     ROLE_PACIENTE: 2
-}
+};
 
-var conf = {
+const conf = {
     session:{
         saltRounds: 10,
         collection: "admins",
@@ -23,8 +23,8 @@ var conf = {
 };
 
 exports.encrypt = function (text){
-  var cipher = crypto.createCipher(conf["session"]["algorithm"], conf["session"]["secret"])
-  var crypted = cipher.update(text,'utf8','hex')
+  const cipher = crypto.createCipher(conf["session"]["algorithm"], conf["session"]["secret"])
+  const crypted = cipher.update(text,'utf8','hex')
   crypted += cipher.final('hex');
   return crypted;
 }
