@@ -146,13 +146,13 @@ class Ejercicio extends React.Component {
       this.generarPiezas = this.generarPiezas.bind(this);
       this.colocarPieza = this.colocarPieza.bind(this);
       if (this.props.nivel == 1) {
-        var disponibles = ['steppe', 'tortuga', 'viejito'];
+        var disponibles = ['africa', 'alpaca', 'arca', 'caballos', 'castillo', 'changos', 'cocina', 'corbatas', 'desayuno', 'gazela', 'girasol', 'guacamallo', 'leopardo', 'panda', 'pingui', 'pitbulazos', 'ranita', 'steppe', 'tortuga', 'viejito'];
       }
       if (this.props.nivel == 2) {
-        var disponibles = ['piedritas', 'suculenta', 'tigre'];
+        var disponibles = ['arbol', 'balcon', 'cabra', 'cafe', 'caracol', 'cascada', 'ciudad', 'colibri', 'elefantes', 'favelas', 'flores', 'hamburguesa', 'liebre', 'maple', 'mono', 'nave', 'parque', 'piedritas', 'suculenta', 'tigre'];
       }
       if (this.props.nivel == 3) {
-        var disponibles = [  'plumas', 'techo', 'vitral'];
+        var disponibles = ['aerostatico', 'bote', 'caballito', 'cactus', 'cañon', 'casette', 'doggo', 'escalera', 'espiral', 'family', 'fox', 'huevos', 'lamparas', 'moras', 'mosaico', 'pasta', 'pintura', 'plumas', 'techo', 'vitral'];
       }
       var randomizador = Math.floor(Math.random() * 20);
       if (this.props.nivel == 1) {
