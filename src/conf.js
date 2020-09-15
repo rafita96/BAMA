@@ -24,9 +24,9 @@ const conf = {
 
 exports.encrypt = function (text){
   const cipher = crypto.createCipher(conf["session"]["algorithm"], conf["session"]["secret"])
-  let crypted = cipher.update(text,'utf8','hex')
-  crypted += cipher.final('hex');
-  return crypted;
+  let encrypted = cipher.update(text,'utf8','hex')
+  encrypted += cipher.final('hex');
+  return encrypted;
 }
 
 exports.roles = roles;
