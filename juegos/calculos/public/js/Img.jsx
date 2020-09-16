@@ -17,7 +17,7 @@ class Img extends React.Component{
   	if (this.props.id == null) {
   	} else if (this.props.id == this.props.seleccionado) {
   		return (
-        <button className="border border-success" onClick={() => this.seleccionar(this.props.id)}>
+        <button className="seleccionado border-success" onClick={() => this.seleccionar(this.props.id)}>
           <h1 class="text-capitalize" onClick={() => this.seleccionar(this.props.id)}>{this.props.url} </h1>
         </button>
 

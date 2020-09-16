@@ -77,8 +77,8 @@
                                 t = 10 * Math.sin(Math.radians(this.props.angulo - 45)) + this.props.cy,
                                 n = 10 * Math.cos(Math.radians(this.props.angulo - 135)) + this.props.cx,
                                 r = 10 * Math.sin(Math.radians(this.props.angulo - 135)) + this.props.cy;
-                            if (this.props.seleccionado == this.props.indice) var o = "#FFD400";
-                            else o = "#32CD32";
+                            if (this.props.seleccionado == this.props.indice) var o = "#32CD32";
+                            else o = "#FFD400";
                             return React.createElement(
                                 "g",
                                 null,
@@ -235,31 +235,25 @@
                     {
                         key: "render",
                         value: function () {
-                            var e = this.props.nivel + "/" + this.ejercicios[this.state.pregunta][0],
-                                t = "./../../../../public/common/img/puntosVista/" + e + "/" + this.ejercicios[this.state.pregunta][1] + ".png";
+                            var e = this.props.nivel + "/" + this.ejercicios[this.state.pregunta][0];
+                            var t = this.ejercicios[this.state.pregunta][1];
                             return React.createElement(
                                 "div",
                                 null,
-
                                     React.createElement(
                                         "div",
                                         { className: "row" },
-                                        React.createElement("div", { className: "col-6" }, React.createElement(o.default, { url: t })),
-                                        React.createElement(
-                                            "div",
-                                            { className: "col-6" },
-                                            React.createElement(
-                                                "svg",
-                                                { viewBox: "0 0 100 60" },
-                                                React.createElement("image", { y: "10", width: "100", height: "40", href: "./../../../../public/common/img/puntosVista/" + e + "/aereo.png" }),
-                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 5, angulo: 135, cx: 29, cy: 10, r: 2 }),
-                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 4, angulo: 180, cx: 50, cy: 6, r: 2 }),
-                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 3, angulo: 225, cx: 71, cy: 10, r: 2 }),
-                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 6, angulo: 90, cx: 25, cy: 29, r: 2 }),
-                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 2, angulo: 270, cx: 75, cy: 29, r: 2 }),
-                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 7, angulo: 45, cx: 29, cy: 50, r: 2 }),
-                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 0, angulo: 0, cx: 50, cy: 54, r: 2 }),
-                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 1, angulo: 315, cx: 71, cy: 50, r: 2 })
+                                        React.createElement ( "div", { className: "col-6" }, React.createElement ( "svg", { viewBox: "0 0 100 75" }, React.createElement ( "image", { width: "100%", height: "100%", href: "./../../../../public/common/img/puntosVista/" + e + "/" + t + ".png", class: "rounded mx-auto d-block" }))),
+                                        React.createElement ( "div", { className: "col-6" }, React.createElement ( "svg", { viewBox: "0 0 100 75" },
+                                                React.createElement("image", { width: "100%", height: "100%", href: "./../../../../public/common/img/puntosVista/" + e + "/aereo.png", class: "rounded mx-auto d-block" }),
+                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 5, angulo: 135, cx: 20, cy: 9, r: 2 }),
+                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 4, angulo: 180, cx: 50, cy: 2, r: 2 }),
+                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 3, angulo: 225, cx: 80, cy: 9, r: 2 }),
+                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 6, angulo: 90, cx: 13, cy: 37.5, r: 2 }),
+                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 2, angulo: 270, cx: 87, cy: 37.5, r: 2 }),
+                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 7, angulo: 45, cx: 20, cy: 66, r: 2 }),
+                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 0, angulo: 0, cx: 50, cy: 73, r: 2 }),
+                                                React.createElement(c.default, { seleccionado: this.state.seleccionado, seleccionar: this.seleccionar, indice: 1, angulo: 315, cx: 80, cy: 66, r: 2 })
                                             )
                                         )
                                 ),
@@ -481,18 +475,11 @@
                                           </a>
                                       </div>
                                   );
-                              }else{
-                                  regresar = (
-                                      <div className="col-4"></div>
-                                  );
                               }
-                              var audio = $("#player")
-                            if(audio[0] != undefined){
-                              audio[0].pause()
-                              audio[0].load()
-                            }
+                              else { regresar = (<div className="col-4"></div>); }
                           return (
                             <div>
+
                               <div className="row border rounder my-3">
                                 <div className="col-12 text-center bg-white">
                                   <p>{this.props.instrucciones}</p>
@@ -500,13 +487,6 @@
                               </div>
 
                               <div className="row">
-                                <div className="col-13">
-                                  <audio id="player" controls>
-                                    <source src={'./data/audio.mp3'} type="audio/mpeg">
-                                    </source>
-                                      Your browser does not support the audio element.
-                                  </audio>
-                                </div>
                                 <div className="col-12 text-center">
                                   <button
                                     className="btn btn-principal btn-lg"
@@ -515,6 +495,7 @@
                                   </button>
                                 </div>
                               </div>
+
                             </div>
                           );
                         },
@@ -560,10 +541,19 @@
                     {
                         key: "render",
                         value: function () {
-                            return React.createElement(
-                                "div",
-                                { className: "row mt-3 border rounded p-3 bg-principal" },
+                            var audio = $("#player")
+                            if (audio[0] != undefined) {
+                               audio[0].pause()
+                               audio[0].load()
+                            }
+                            return React.createElement("div", { className: "row mt-3 border rounded p-3 bg-principal" },
                                 React.createElement("div", { className: "col-6 offset-3 text-center" }, React.createElement("h1", null, this.props.nombre)),
+                                React.createElement("div", { className: "col-6 offset-3 text-center" },
+                                    <audio id="player" controls>
+                                      <source src={'./data/audio.mp3'} type="audio/mpeg">
+                                      </source>
+                                        Your browser does not support the audio element.
+                                    </audio>),
                                 React.createElement("div", { className: "col-12" }, this.props.children)
                             );
                         },

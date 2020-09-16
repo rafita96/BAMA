@@ -101,6 +101,13 @@ class Ejercicio extends React.Component {
 			var carpeta = this.state.pregunta;
 			return (
 				<div>
+					<div className="col-1">
+						<audio id="player" controls>
+							<source src={'./data/audio.mp3'} type="audio/mpeg">
+							</source>
+								Your browser does not support the audio element.
+						</audio>
+					</div>
 					<div className="row text-center">
 					    <div className="col-12">
 					        <Img url={"./img/"+this.ejercicios[this.state.pregunta].pregunta+".jpg"} />

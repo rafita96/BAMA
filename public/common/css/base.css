@@ -183,12 +183,12 @@ a:link{
     color: #343a40;
 }
 .a-principal:hover, .a-principal:focus, .a-principal:active{
-    color: #dbc358;
+    color: #5fdc39;
 }
 
 .btn-principal {
-    background: #5fdc39;
-    color: #ffffff;
+    background: #f56c6c;
+    color: #343a40;
 }
 
 .btn-principal:hover, .btn-principal:focus, .btn-principal:active, .btn-principal.active, .open > .dropdown-toggle.btn-principal {

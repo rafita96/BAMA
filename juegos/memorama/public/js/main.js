@@ -177,19 +177,24 @@ class Ejercicio extends React.Component {
             var activo = this.state.activo.map(x => x);
             activo[i] = false;
             this.setState({
-                selected: -1,
-                activo: activo
+              movimientos: this.state.movimientos + 1,
+              selected: -1,
+              activo: activo
             });
             return;
         }
         if (this.state.cartas[this.state.selected] == this.state.cartas[i]) {
             var done = this.state.done.concat(i).concat(this.state.selected);
             this.setState({
-                done: done,
-                selected: -1
+              movimientos: this.state.movimientos + 1,
+              done: done,
+              selected: -1
             });
             if (done.length == this.n * this.m) {
-                this.props.terminar(Math.max(0, 100 - (this.state.movimientos - 2) * this.props.nivel * 3));
+              var puntopunto = 100 + (this.props.nivel * 4 + 7) * 5 - this.state.movimientos * 5;
+                puntopunto = Math.max(0, puntopunto);
+                puntopunto = Math.min(100, puntopunto);
+                this.props.terminar(puntopunto);
             }
         } else {
             this.setState({
@@ -200,17 +205,16 @@ class Ejercicio extends React.Component {
                 activo[i] = false;
                 activo[this.state.selected] = false;
                 this.setState({
-                    movimientos: this.state.movimientos + 1,
-                    activo: activo,
-                    selected: -1,
-                    locked: false
+                  movimientos: this.state.movimientos + 1,
+                  activo: activo,
+                  selected: -1,
+                  locked: false
                 });
             }, 1000 * (4 - this.props.nivel));
         }
     }
 
 	render() {
-
     if (this.props.nivel < 3) {
       var cartas = this.state.cartas.map((carta, i) =>
       <div style={{ float: 'left', padding: '5px', width: '25%' }}>
@@ -263,15 +267,9 @@ class Ejercicio extends React.Component {
     }
 }
 
-class Instrucciones extends React.Component {
-	render() {
-        var audio = $("#player")
-            if(audio[0] != undefined){
-                audio[0].pause()
-                audio[0].load()
-            }
-		return (
+class Instrucciones extends React.Component { render() { return (
 			<div>
+
 				<div className="row border rounder my-3">
 					<div className="col-12 text-center bg-white">
 						<p>{this.props.instrucciones}</p>
@@ -279,13 +277,6 @@ class Instrucciones extends React.Component {
 				</div>
 
 				<div className="row">
-                    <div className="col-13">
-                        <audio id="player" controls>
-                            <source src={'./data/memorama.mp3'} type="audio/mpeg">
-                            </source>
-                                Your browser does not support the audio element.
-                        </audio>
-                    </div>
 					<div className="col-12 text-center">
 						<button
 							className="btn btn-principal btn-lg"
@@ -294,10 +285,9 @@ class Instrucciones extends React.Component {
 						</button>
 					</div>
 				</div>
+
 			</div>
-		);
-	}
-}
+		);}}
 
 class Bloque extends React.Component{
     constructor(props){
@@ -305,16 +295,28 @@ class Bloque extends React.Component{
     }
 
     render(){
-        return(
-            <div className="row mt-3 border rounded p-3 bg-principal">
-                <div className="col-6 offset-3 text-center">
-                    <h1>{this.props.nombre}</h1>
-                </div>
-                <div className="col-12">
-                    {this.props.children}
-                </div>
-            </div>
-        );
+      var audio = $("#player")
+      if (audio[0] != undefined) {
+         audio[0].pause()
+         audio[0].load()
+      }
+      return(
+          <div className="row mt-3 border rounded p-3 bg-principal">
+              <div className="col-6 offset-3 text-center">
+                  <h1>{this.props.nombre}</h1>
+              </div>
+              <div className="col-6 offset-3 text-center">
+                  <audio id="player" controls>
+                    <source src={'./data/memorama.mp3'} type="audio/mpeg">
+                    </source>
+                      Your browser does not support the audio element.
+                  </audio>
+              </div>
+              <div className="col-12">
+                  {this.props.children}
+              </div>
+          </div>
+      );
     }
 }
 

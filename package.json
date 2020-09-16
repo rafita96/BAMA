@@ -1,28 +1,30 @@
 {
-  "name": "pvvc",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "name": "bama",
+  "version": "0.9.0",
+  "description": "BAMA is a research project for elderly adults' cognitive stimulation from orientation, language, memory, and calculation games.",
   "scripts": {
+    "dev": "NODE_ENV=development node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "postinstall": "node init.js",
+    "start": "NODE_ENV=production node server.js"
   },
-  "author": "",
+  "author": "UABC",
   "license": "ISC",
   "dependencies": {
     "ajax-request": "^1.2.3",
     "body-parser": "^1.18.2",
-    "connect-mongo": "^2.0.1",
+    "connect-mongo": "^3.2.0",
     "connect-redis": "^3.3.3",
     "cookie-parser": "^1.4.3",
     "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
     "ejs": "^2.5.8",
     "express": "^4.16.2",
     "express-flash": "git://github.com/RGBboy/express-flash.git",
     "express-session": "^1.15.6",
-    "mongodb": "^3.0.4",
-    "mongoose": "^5.0.11",
-    "node-redis-session": "^0.3.3",
+    "mongodb": "^3.6.1",
+    "mongoose": "^5.10.3",
+    "node-redis-session": "^0.3.4",
     "popper.js": "^1.14.3"
   },
   "devDependencies": {
@@ -31,7 +33,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2",
+    "react-dom": "^16.13.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   }
