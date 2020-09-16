@@ -10,11 +10,11 @@ const url = process.env.DB_HOST;
  * 									a la base de datos termine.
  *
  */
-exports.find = function(collection, query, callback){
+exports.find = function(collection, query, callback,sort){
 	mongo.connect(url, function(err, db) {
 		if (err) throw err;
 		var dbo = db.db(process.env.DB);
-		dbo.collection(collection).find(query).toArray(function(err, res) {
+		dbo.collection(collection).find(query).sort(sort).toArray(function(err, res) {
 			if (err) throw err;
 			callback(res);
 		});

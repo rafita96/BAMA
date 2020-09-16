@@ -3,7 +3,7 @@
   "version": "0.9.0",
   "description": "BAMA is a research project for elderly adults' cognitive stimulation from orientation, language, memory, and calculation games.",
   "scripts": {
-    "dev": "NODE_ENV=development node server.js",
+    "dev": "NODE_ENV=development ./node_modules/.bin/nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "node init.js",
     "start": "NODE_ENV=production node server.js"
@@ -32,6 +32,7 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "nodemon": "^2.0.4",
     "react": "^16.3.2",
     "react-dom": "^16.13.1",
     "webpack": "^4.44.1",
