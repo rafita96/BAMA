@@ -15,14 +15,13 @@ var dbManager = require('./controllers/database');
 var roles = require('./conf').roles;
 
 router.get('/', function(req, res){
-
 	if(req.session.role == roles["ROLE_PACIENTE"]){
 		res.redirect('/paciente/perfil');
 	}else{
 	    var users = dbManager.find('users',{}, function(data){
 	        res.render('index', {
-	            success: req.flash('success'), 
-	            error: req.flash('error'), 
+	            success: req.flash('success'),
+	            error: req.flash('error'),
 	            titulo: "Pacientes",
 	            pacientes: data
 	        });
