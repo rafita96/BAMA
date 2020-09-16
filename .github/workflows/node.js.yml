@@ -21,7 +21,14 @@ jobs:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
+<<<<<<< HEAD
         host: 148.231.212.227
         username: bama
         password: reh@bilitacionCognitiv@20
+=======
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+>>>>>>> Create devops workflow
         script: whoami
