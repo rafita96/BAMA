@@ -24,4 +24,4 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        script: cd BAMA; git add .; git commit -m "pull from master"; git pull;
+        script: cd BAMA; git add .; git commit -m "pull from master"; git pull; npm i;
