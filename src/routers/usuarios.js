@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const userManager = require("./../controllers/usuarios");
+const {getSessionsByPatient} = require("../controllers/usuarios");
 
 router.use(function (req, res, next) {
     const isAuthenticatedPatient = req.path.match("/agregar") || req.path.match("/actual/") || req.session.pacienteId;
@@ -22,10 +23,11 @@ router.get('/perfil/', function (req, res) {
     });
 });
 
-
-router.get('/sesiones/', function (req, res) {
+router.get('/sesiones/', async function (req, res) {
+    const patients = await getSessionsByPatient(req.session.pacienteId);
     res.render('paciente/sesiones', {
         titulo: "Sesiones",
+        patients,
         error: req.flash('error'),
         success: req.flash('success')
     });
@@ -122,7 +124,6 @@ router.get('/editar', function (req, res) {
 
 // Registra la información editada de un paciente.
 router.post('/editar', function (req, res) {
-
     if (req.session.pacienteId) {
         userManager.editar(req.session.pacienteId, req.body.data, function (error, mensaje) {
             if (error) {
