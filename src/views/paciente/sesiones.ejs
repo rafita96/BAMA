@@ -7,7 +7,7 @@
         <% include ../layouts/header %>
         <style type="text/css">
             .legend {
-                    font-family: 'Arial' sans-serif;
+                    font-family: 'Arial', sans-serif;
                     fill: #333333;
                 }
             .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
@@ -30,15 +30,18 @@
                             <h3><b class="text-accent"><span id="paciente_actual" class="text-dark"></span></b></h3>
                       </div>
                  <% } else {%>
-                  <div class="row d-flex justify-content-between">
+                  <div class="row">
                        <div class="col-8">
                            <h3><b class="text-accent">Paciente actual: </b><span id="paciente_actual" class="text-dark">No has seleccionado a un paciente</span></h3>
                         </div>
                        <div class="col-1">
-                           <a class="btn btn-principal" href="/paciente/perfil/">Perfil</a>
+                           <a class="btn btn-principal" href="/paciente/editar/">Editar</a>
                        </div>
                        <div class="col-1">
                            <a class="btn btn-principal" href="/paciente/notas/">Notas</a>
+                       </div>
+                       <div class="col-1">
+                           <a class="btn btn-principal" href="/paciente/sesiones/">Sesiones</a>
                        </div>
                   </div>
                   <% } %>
