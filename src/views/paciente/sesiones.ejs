@@ -25,11 +25,6 @@
         <% include ../layouts/title %>
         <div class="w-100">
               <div class="card-header bg-principal">
-                 <% if (locals.role == locals.roles["ROLE_PACIENTE"]) { %>
-                      <div class="col-sm-6 col-md-12">
-                            <h3><b class="text-accent"><span id="paciente_actual" class="text-dark"></span></b></h3>
-                      </div>
-                 <% } else {%>
                   <div class="row d-flex justify-content-between">
                        <div class="col-8">
                            <h3><b class="text-accent">Paciente actual: </b><span id="paciente_actual" class="text-dark">No has seleccionado a un paciente</span></h3>
@@ -41,7 +36,6 @@
                            <a class="btn btn-principal" href="/paciente/notas/">Notas</a>
                        </div>
                   </div>
-                  <% } %>
             </div>
            <table class="table">
              <thead class="bg-principal">
@@ -54,15 +48,6 @@
                </tr>
              </thead>
              <tbody>
-               <% patients.forEach(function(patient){ %>
-                 <tr>
-                       <td> <%= patient.juego %> </td>
-                       <td> <%= patient.nivel %>    </td>
-                       <td> <%= patient.porcentaje %>  </td>
-                       <td> <%= patient.fechaInicio %>  </td>
-                       <td> <%= patient.fechaFin %> </td>
-                  </tr>
-                 <% }); %>
              </tbody>
            </table>
         </div>
