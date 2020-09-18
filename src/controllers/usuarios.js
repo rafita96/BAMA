@@ -188,17 +188,15 @@ exports.getNotas = function (id, callback) {
     });
 }
 
-exports.getSessionsByPatient = async function (id) {
+exports.getSessionsByPatient = function (id, tap) {
     const mysort = { [`record.0.fechaInicio`]: -1 };
-    return new Promise((resolve) =>
-        dbManager.find("juegos", {paciente: new ObjectId(id)}, resolve, mysort))
-        .then((sessions) =>
-            sessions.map((session) => {
-                return {
-                    juego: session.juego,
-                    ...session.record[0]
-                };
-            }));
+    dbManager.find("juegos", {paciente: new ObjectId(id)}, function(sessions) {
+        tap(sessions.map((session) => {
+            return {
+                juego: session.juego,
+                ...session.record[0]
+            };}));
+    }, mysort);
 }
 
 
