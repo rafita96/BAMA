@@ -24,16 +24,11 @@ router.get('/perfil/', function (req, res) {
 });
 
 router.get('/sesiones/', function (req, res) {
-    getSessionsByPatient(req.session.pacienteId, function(patients) {
-        if (patients.length === 0) {
-            req.flash('error', 'El paciente no tiene sesiones');
-        }
-        res.render('paciente/sesiones', {
-            titulo: "Sesiones",
-            patients,
-            error: req.flash('error'),
-            success: req.flash('success')
-        })
+    res.render('paciente/sesiones', {
+        titulo: "Sesiones",
+        patients: [],
+        error: req.flash('error'),
+        success: req.flash('success')
     })
 });
 
