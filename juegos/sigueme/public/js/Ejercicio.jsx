@@ -20,6 +20,8 @@ class Ejercicio extends React.Component{
 
         this.colores = shuffle(["#c0392b", "#27ae60", "#8e44ad", "#f1c40f", "#1abc9c", "#e84393", "#6D214F"]);
 
+        this.sonido = ["do", "re", "mi", "fa", "sol"];
+
         this.estados = {secuencia: 0, espera: 1, fin: 2};
         this.mensaje = {observa: "Observa", siguieme: "Vamos"};
         this.tiempoMuestra = 1000;
@@ -101,7 +103,8 @@ class Ejercicio extends React.Component{
                     deseleccionar={this.deseleccionar}
                     index={i}
                     seleccionado={seleccionado}
-                    color={this.colores[i]} />
+                    color={this.colores[i]}
+                    url={'./data/'+this.sonido[i]+'.mp3'} />
                 );
 
             this.botones.push(boton);
@@ -164,7 +167,8 @@ class Ejercicio extends React.Component{
                         index={i}
                         seleccionado={false}
                         color={this.colores[i]}
-                        posicion={-1} />
+                        posicion={-1}
+                        url={'./data/'+this.sonido[i]+'.mp3'} />
                     );
 
                 this.botones.push(boton);
@@ -196,7 +200,8 @@ class Ejercicio extends React.Component{
                                 index={i}
                                 seleccionado={seleccionado}
                                 color={this.colores[i]}
-                                posicion={-1} />
+                                posicion={-1}
+                                url={'./data/'+this.sonido[i]+'.mp3'} />
                             );
 
                         this.botones.push(boton);
@@ -219,7 +224,8 @@ class Ejercicio extends React.Component{
                                 index={i}
                                 seleccionado={false}
                                 color={this.colores[i]}
-                                posicion={posicion} />
+                                posicion={posicion}
+                                url={'./data/'+this.sonido[i]+'.mp3'} />
                             );
 
                         this.botones.push(boton);

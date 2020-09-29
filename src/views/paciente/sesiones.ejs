@@ -1,0 +1,56 @@
+<html lang="es">
+<!-- Vista para ver el perfil del paciente -->
+    <head>
+         <meta charset="UTF-8">
+         <title>Perfil</title>
+
+        <% include ../layouts/header %>
+        <style type="text/css">
+            .legend {
+                    font-family: 'Arial' sans-serif;
+                    fill: #333333;
+                }
+            .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
+        </style>
+        <script src="/public/common/js/bootstrap/datepicker/bootstrap-datepicker.js"></script>
+        <script src="/public/common/js/bootstrap/datepicker/bootstrap-datepicker.es.min.js"></script>
+        <script src="/public/common/js/d3/d3.min.js"></script>
+
+    </head>
+
+    <body class="bg-light text-dark">
+        <% include ../layouts/nav %>
+        <% include ../layouts/toast %>
+
+        <% include ../layouts/title %>
+        <div class="w-100">
+              <div class="card-header bg-principal">
+                  <div class="row d-flex justify-content-between">
+                       <div class="col-8">
+                           <h3><b class="text-accent">Paciente actual: </b><span id="paciente_actual" class="text-dark">No has seleccionado a un paciente</span></h3>
+                        </div>
+                       <div class="col-1">
+                           <a class="btn btn-principal" href="/paciente/perfil/">Perfil</a>
+                       </div>
+                       <div class="col-1">
+                           <a class="btn btn-principal" href="/paciente/notas/">Notas</a>
+                       </div>
+                  </div>
+            </div>
+           <table class="table">
+             <thead class="bg-principal">
+               <tr>
+                 <th scope="col">Juego</th>
+                 <th scope="col">Nivel</th>
+                 <th scope="col">Acierto</th>
+                 <th scope="col">Inicio</th>
+                 <th scope="col">Finalizo</th>
+               </tr>
+             </thead>
+             <tbody>
+             </tbody>
+           </table>
+        </div>
+        <script type="text/javascript" src="/public/js/user/show.js"></script>
+    </body>
+</html>
