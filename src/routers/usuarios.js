@@ -24,11 +24,13 @@ router.get('/perfil/', function (req, res) {
 });
 
 router.get('/sesiones/', function (req, res) {
-    res.render('paciente/sesiones', {
-        titulo: "Sesiones",
-        patients: [],
-        error: req.flash('error'),
-        success: req.flash('success')
+    getSessionsByPatient(req.session.pacienteId, function (patients) {
+        res.render('paciente/sesiones', {
+            titulo: "Sesiones",
+            patients,
+            error: req.flash('error'),
+            success: req.flash('success')
+        });
     })
 });
 
