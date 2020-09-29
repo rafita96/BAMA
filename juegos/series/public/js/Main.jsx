@@ -21,6 +21,7 @@ class Main extends React.Component {
 			seleccionNivel: false,
 			inicio: true,
 		});
+		this.fechaInicio = new Date();
 	}
 
 	reiniciar(){

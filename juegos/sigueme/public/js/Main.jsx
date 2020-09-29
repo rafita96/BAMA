@@ -34,6 +34,7 @@ class Main extends React.Component{
         this.setState({
             estado: this.constantes["ejercicio"]
         });
+        this.fechaInicio = new Date();
     }
 
     seleccionarNivel(nivel){
