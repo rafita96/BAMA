@@ -2,6 +2,7 @@
   "name": "bama",
   "version": "0.9.0",
   "description": "BAMA is a research project for elderly adults' cognitive stimulation from orientation, language, memory, and calculation games.",
+  "main": "server.js",
   "scripts": {
     "dev": "NODE_ENV=development ./node_modules/.bin/nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,6 +26,11 @@
     "mongoose": "^5.10.3",
     "node-redis-session": "^0.3.4",
     "popper.js": "^1.14.3"
+  },
+  "engines": {
+    "node": ">= 10.13.0",
+    "npm": ">= 6.11.0",
+    "yarn": ">= 1.13.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
