@@ -191,11 +191,16 @@ exports.getNotas = function (id, callback) {
 exports.getSessionsByPatient = function (id, tap) {
     const mysort = { [`record.0.fechaInicio`]: -1 };
     dbManager.find("juegos", {paciente: new ObjectId(id)}, function(sessions) {
-        tap(sessions.map((session) => {
-            return {
-                juego: session.juego,
-                ...session.record[0]
-            };}));
+        let games = []
+        for (let session of sessions) {
+            for (let record of session.record) {
+                games.push({
+                    juego: session.juego.split(/(?<!^)(?=[A-Z])/).join(" ").replace(/./, (temp) => temp[0].toUpperCase()),
+                    ...record,
+                })
+            }
+        }
+        tap(games);
     }, mysort);
 }
 

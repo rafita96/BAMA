@@ -613,7 +613,8 @@
                     {
                         key: "iniciar",
                         value: function () {
-                            this.setState({ seleccionNivel: !1, inicio: !0 });
+                            this.setState({ seleccionNivel: !1, inicio: !0});
+                            this.fechaInicio = new Date();
                         },
                     },
                     {
