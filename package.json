@@ -10,9 +10,12 @@
     "dev": "NODE_ENV=development ./node_modules/.bin/nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "start": "server.js"
 =======
     "postinstall": "node init.js",
+=======
+>>>>>>> bfacaee1459f755e0bacbd8fa79335d4c68f6f44
     "start": "NODE_ENV=production node server.js"
 >>>>>>> 7b7c7db40b06509fb8fe045ea31c1699562696f4
   },

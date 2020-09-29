@@ -34,7 +34,6 @@ router.get('/todos/los/nombres', function (req, res) {
 // Cada juego debe tener su vista index.ejs para mantener la plantilla del sistema
 // Suponemos que no son necesarias otras vistas para los juegos.
 router.get('/:name/', function (req, res) {
-    console.log('A');
     res.render('../../juegos/' + req.params.name + "/index");
 });
 
