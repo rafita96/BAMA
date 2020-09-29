@@ -12,7 +12,7 @@ To use the BAMA, you should be familiar with the following:
 - [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
 - [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps)
 
-To install BAMA on your local system, you need the following:
+To install BAMA on your local system, you need the following::
 * Node js
 BAMA requires a [current, active LTS, or maintenance LTS](https://nodejs.org/en/about/releases/)  version of Node.js.
 > For information about specific version requirements, see the engines key in the [package.json](https://github.com/rafita96/BAMA/blob/master/package.json) file.
@@ -45,9 +45,17 @@ node init.js
 node server.js
 ```
 
+### Create a .env in root project for your local environment
+```
+DB_HOST=mongodb://localhost:27017/
+DB=volveraempezar
+PORT=5850
+```
+
 # Project structure
 
 ```
+.env			     local environment
 juegos/                      games
 |- x-game/                   game example structure (naming without space)
 |  |- data/                  blobs
