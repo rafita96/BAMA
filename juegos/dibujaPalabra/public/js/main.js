@@ -75,9 +75,20 @@ class Nivel extends React.Component{
                 niveles.push("col-4 bg-light border py-3")
             }
         }
-
+        var audio = $("#player")
+            if(audio[0] != undefined){
+                audio[0].pause()
+                audio[0].load()
+            }
         return(
             <div>
+            <div className="col-6 offset-3 text-center">
+              <audio id="player" controls>
+                <source src={'./data/dibujaPalabra.mp3'} type="audio/mpeg">
+                </source>
+                Your browser does not support the audio element.
+              </audio>
+            </div>
                 <div className="row">
                     <div className="col-6 offset-3 text-center">
                         <h3>Seleccione el nivel de dificultad</h3>
@@ -255,7 +266,7 @@ class Ejercicio extends React.Component {
             var text = palabras[this.state.palabra_index];
 			return (
 				<div>
-                    <div className="col-1">
+                    <div className="col-6 offset-3 text-center">
                         <audio id="player" controls>
                             <source src={'./data/dibujaPalabra.mp3'} type="audio/mpeg">
                             </source>
@@ -308,6 +319,13 @@ class Instrucciones extends React.Component {
             }
 		return (
 			<div>
+        <div className="col-6 offset-3 text-center">
+          <audio id="player" controls>
+            <source src={'./data/dibujaPalabra.mp3'} type="audio/mpeg">
+            </source>
+            Your browser does not support the audio element.
+          </audio>
+        </div>
 				<div className="row border rounder my-3">
 					<div className="col-12 text-center bg-white">
 						<p>{this.props.instrucciones}</p>
@@ -315,13 +333,6 @@ class Instrucciones extends React.Component {
 				</div>
 
 				<div className="row">
-                    <div className="col-13">
-                        <audio id="player" controls>
-                            <source src={'./data/dibujaPalabra.mp3'} type="audio/mpeg">
-                            </source>
-                                Your browser does not support the audio element.
-                        </audio>
-                    </div>
 					<div className="col-12 text-center">
 						<button
 							className="btn btn-principal btn-lg"
