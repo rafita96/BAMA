@@ -62,7 +62,7 @@ class Ejercicio extends React.Component {
       if (this.state.alfa==1) {
 			return (
 				<div>
-					<div className="col-1">
+					<div className="col-6 offset-3 text-center">
 						<audio id="player" controls>
 							<source src={'./data/audio.mp3'} type="audio/mpeg">
 							</source>
@@ -119,7 +119,7 @@ class Ejercicio extends React.Component {
 		if (this.state.alfa==2) {
 		return (
 			<div>
-				<div className="col-1">
+				<div className="col-6 offset-3 text-center">
 						<audio id="player" controls>
 							<source src={'./data/audio.mp3'} type="audio/mpeg">
 							</source>
@@ -176,7 +176,7 @@ class Ejercicio extends React.Component {
 		if (this.state.alfa==3) {
 		return (
 			<div>
-				<div className="col-1">
+				<div className="col-6 offset-3 text-center">
 						<audio id="player" controls>
 							<source src={'./data/audio.mp3'} type="audio/mpeg">
 							</source>
@@ -233,7 +233,7 @@ class Ejercicio extends React.Component {
 		if (this.state.alfa==4) {
 		return (
 			<div>
-				<div className="col-1">
+				<div className="col-6 offset-3 text-center">
 						<audio id="player" controls>
 							<source src={'./data/audio.mp3'} type="audio/mpeg">
 							</source>

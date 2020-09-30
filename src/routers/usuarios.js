@@ -1,70 +1,60 @@
-/**
-* @author   Rafael Peralta Blanco <rafael.peralta.blanco@gmail.com>
-*/
+const express = require('express');
+const router = express.Router();
 
-/*
-    Rutas para administrar usuarios
-*/
-var express = require('express');
-var router = express.Router();
-var path = require("path");
+const userManager = require("./../controllers/usuarios");
+const {getSessionsByPatient} = require("../controllers/usuarios");
 
-// Controlador de pacientes
-// Para más información sobre los requerimientos de cada función
-// revisar el controlador de usuarios
-var userManager = require("./../controllers/usuarios");
-
-// Middleware que evita entrar a rutas de administración de un paciente
-// cuando aún no se ha seleccionado alguno.
-router.use(function(req, res, next){
-    // Solo permite ejecutar la ruta cuando se va a agregar un paciente,
-    // se va a seleccionar un paciente o ya hay un paciente seleccionado 
-    if(req.path.match("/agregar") || req.path.match("/actual/") || req.session.pacienteId){
+router.use(function (req, res, next) {
+    const isAuthenticatedPatient = req.path.match("/agregar") || req.path.match("/actual/") || req.session.pacienteId;
+    if (isAuthenticatedPatient) {
         return next();
-    }else{
-        // Sino envia un mensaje de error
+    } else {
         req.flash('error', 'No has seleccionado un paciente.');
         return res.redirect('/');
     }
 });
 
-// Llama la vista del perfil, en este caso desde esa vista
-// se llena la información correspondiente al paciente desde la vista
-// en lugar de llenarse desde el lado del servidor. 
-// Mala práctica, se debe cambiar para reducir el tiempo de espera.
-router.get('/perfil/', function(req, res){
+// TODO: Render from the server. It shouldn't render from client
+router.get('/perfil/', function (req, res) {
     res.render('paciente/perfil', {
-        titulo: "Perfil", 
+        titulo: "Perfil",
         error: req.flash('error'),
         success: req.flash('success')
     });
 });
 
-// Sirve para guardar el resultado de un ejercicio.
-// se le envia el nombre de la carpeta del juego, el nivel, porcentaje de aciertos
-// para más información revisar el controlador de usuarios en la función registrarAvance
-router.post('/registrar/avance/', function (req, res){
-    userManager.registrarAvance(req.body, function(error, message){
-        if(error){
+router.get('/sesiones/', function (req, res) {
+    getSessionsByPatient(req.session.pacienteId, function (patients) {
+        res.render('paciente/sesiones', {
+            titulo: "Sesiones",
+            patients,
+            error: req.flash('error'),
+            success: req.flash('success')
+        });
+    })
+});
+
+// Comunica el nombre de la carpeta del juego, el nivel, porcentaje de aciertos
+router.post('/registrar/avance/', function (req, res) {
+    userManager.registrarAvance(req.body, function (error, message) {
+        if (error) {
             res.jsonp({status: 500, message: message});
-        }else{
+        } else {
             res.jsonp({status: 200});
         }
     });
 });
 
-// Envía el formulario para agregar un paciente
-router.get('/agregar', function(req, res){
+router.get('/agregar', function (req, res) {
     res.render('paciente/agregar', {titulo: "Agregar"});
 });
 
-// ruta para agregar un usuario
-router.post('/agregar/', function(req, res){
-    userManager.agregar(req.body.data, function(error, message){
-        if(error){
+router.post('/agregar/', function (req, res) {
+    userManager.agregar(req.body.data, function (error, message) {
+        if (error) {
             req.flash('error', message);
             res.redirect('/');
-        }else{
+        } else {
             req.flash('success', "El usuario se ha agregado éxitosamente.")
             res.redirect('/');
         }
@@ -72,44 +62,44 @@ router.post('/agregar/', function(req, res){
 });
 
 // Define el paciente actual y lo guarda en la variable de sesión
-router.post('/actual', function(req, res){
+router.post('/actual', function (req, res) {
     req.session.pacienteId = req.body.paciente;
-    userManager.getUserInfo(req.body.paciente, function(data){
-        if(data == null){
+    userManager.getUserInfo(req.body.paciente, function (data) {
+        if (data == null) {
             res.status(200).jsonp({id: null});
-        }else{
+        } else {
             res.status(200).jsonp(data);
         }
     });
 });
 
 // Regresa el id del paciente seleccionado
-router.get('/actual', function(req, res){
-    if(req.session.pacienteId){
-        userManager.getUserInfo(req.session.pacienteId, function(data){
-            if(data == null){
+router.get('/actual', function (req, res) {
+    if (req.session.pacienteId) {
+        userManager.getUserInfo(req.session.pacienteId, function (data) {
+            if (data == null) {
                 res.status(200).jsonp({id: null});
-            }else{
+            } else {
                 res.status(200).jsonp(data);
             }
         });
-    }else{
+    } else {
         res.status(200).jsonp({id: null});
     }
 });
 
 // Muestra la vista del formulario para hacer una nota clínica
-router.get('/evaluar', function(req, res){
+router.get('/evaluar', function (req, res) {
     res.render('psicologo/evaluar', {titulo: "Agregar Nota Clínica"});
 });
 
-// Se guarda una nota clínica en la base de datos
-router.post('/evaluar', function(req, res){
-    userManager.evaluar(req.session.pacienteId,req.body.data, function(error){
-        if(error){
+// Guarda una nota clínica en la base de datos
+router.post('/evaluar', function (req, res) {
+    userManager.evaluar(req.session.pacienteId, req.body.data, function (error) {
+        if (error) {
             req.flash('error', 'No se pudo guardar la nota.');
             res.redirect('/');
-        }else{
+        } else {
             req.flash('success', "La nota se ha registrado con exito.")
             res.redirect('/paciente/notas');
         }
@@ -117,57 +107,55 @@ router.post('/evaluar', function(req, res){
 });
 
 // Envía el formulario de edición de un paciente
-router.get('/editar', function(req, res){
-    if(req.session.pacienteId){
-        userManager.getUserInfo(req.session.pacienteId, function(data){
-            if(data == null){
+router.get('/editar', function (req, res) {
+    if (req.session.pacienteId) {
+        userManager.getUserInfo(req.session.pacienteId, function (data) {
+            if (data == null) {
                 req.flash('error', 'Error en base de datos.');
                 res.redirect('/');
-            }else{
+            } else {
                 res.render('paciente/editar', {userData: data, titulo: "Editar"});
             }
         });
-    }else{
+    } else {
         req.flash('error', 'No has seleccionado un paciente.');
         res.redirect('/');
     }
 });
 
 // Registra la información editada de un paciente.
-router.post('/editar', function(req,res){
-
-    if(req.session.pacienteId){
-        userManager.editar(req.session.pacienteId,req.body.data, function(error, mensaje){
-            if(error){
+router.post('/editar', function (req, res) {
+    if (req.session.pacienteId) {
+        userManager.editar(req.session.pacienteId, req.body.data, function (error, mensaje) {
+            if (error) {
                 req.flash('error', mensaje);
                 res.redirect('/paciente/perfil');
-            }else{
+            } else {
                 req.flash('success', 'Paciente actualizado.');
                 res.redirect('/paciente/perfil');
             }
         });
-    }else{
+    } else {
         req.flash('error', 'No has seleccionado un paciente.');
         res.redirect('/');
     }
 });
 
 // Regresa todos los puntajes en todos los juegos del paciente actual
-router.get('/record', function(req, res){
-    if(req.session.pacienteId){
-        userManager.getRecord(req.session.pacienteId, function(error, record){
+router.get('/record', function (req, res) {
+    if (req.session.pacienteId) {
+        userManager.getRecord(req.session.pacienteId, function (error, record) {
             res.jsonp(record);
         });
-    }
-    else{
+    } else {
         req.flash('error', 'No has seleccionado un paciente.');
         res.redirect('/');
     }
 });
 
 // Muestra la vista de notas con todas las notas clínicas
-router.get('/notas', function(req, res){
-    userManager.getNotas(req.session.pacienteId, function(notas){
+router.get('/notas', function (req, res) {
+    userManager.getNotas(req.session.pacienteId, function (notas) {
         res.render('psicologo/notas', {success: req.flash('success'), titulo: "Notas Clínicas", notas: notas});
     });
 });

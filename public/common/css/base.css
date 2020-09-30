@@ -23,7 +23,7 @@
     background-color: #F5AB35;
 }
 
-.text-azul{
+.text-azul {
     color: #317589;
 }
 
@@ -59,8 +59,8 @@
 }
 
 .btn-verde {
-    background: #87d37c;
-    color: #000000;
+    background: #5fdc39;
+    color: #ffffff;
 }
 
 .btn-verde:hover, .btn-verde:focus, .btn-verde:active, .btn-verde.active, .open > .dropdown-toggle.btn-verde {
@@ -167,7 +167,7 @@ a:link{
     background: #fedcd2;
 }
 
-.text-accent{
+.text-accent {
     color: #2e2d2d;
 }
 

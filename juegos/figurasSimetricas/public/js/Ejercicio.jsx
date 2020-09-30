@@ -101,7 +101,7 @@ class Ejercicio extends React.Component {
 			var carpeta = this.state.pregunta;
 			return (
 				<div>
-					<div className="col-1">
+					<div className="col-6 offset-3 text-center">
 						<audio id="player" controls>
 							<source src={'./data/audio.mp3'} type="audio/mpeg">
 							</source>
