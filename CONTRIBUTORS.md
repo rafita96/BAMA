@@ -8,3 +8,5 @@ CONTRIBUTORS
 * **[Ernesto Reyes Alvarez](https://github.com/Thetoro)**
 * **[Oleksiy Levchuk](https://github.com/alexlehander)**
 * **[Sanchez Carlos JR](https://sanchezcarlosjr.com)**
+* **[Edgar Rodríguez Antillón](https://github.com/ciberedgar)**
+* **[Luis Gerardo Carvajal Garcia](https://github.com/gerardocege)**
