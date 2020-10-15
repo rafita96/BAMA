@@ -19,6 +19,11 @@ class Nivel extends React.Component{
     }
 
     render() {
+        var audio = $("#player")
+        if(audio[0] != undefined){
+        audio[0].pause()
+        audio[0].load()
+        }
         var niveles = [];
         for(var i = 0; i < 3; i++){
             if(this.state.index == i+1) {
@@ -30,6 +35,13 @@ class Nivel extends React.Component{
 
         return(
             <div>
+                <div className="col-6 offset-3 text-center">
+                  <audio id="player" controls>
+                    <source src={'./data/audio.mp3'} type="audio/mpeg">
+                    </source>
+                      Your browser does not support the audio element.
+                  </audio>
+                </div>
                 <div className="row">
                     <div className="col-6 offset-3 text-center">
                         <h3>Seleccione el nivel de dificultad</h3>

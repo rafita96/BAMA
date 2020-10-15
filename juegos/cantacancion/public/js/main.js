@@ -65,7 +65,6 @@ class Nivel extends React.Component{
             this.props.seleccionar(this.state.index);
         }
     }
-
     render() {
         var niveles = [];
         for(var i = 0; i < 3; i++){
@@ -75,9 +74,20 @@ class Nivel extends React.Component{
                 niveles.push("col-4 bg-light border py-3")
             }
         }
-
+        var audio = $("#player")
+            if(audio[0] != undefined){
+                audio[0].pause()
+                audio[0].load()
+            }
         return(
             <div>
+            <div className="col-6 offset-3 text-center">
+                <audio id="player" controls>
+                    <source src={'./data/cantaCancion.mp3'} type="audio/mpeg">
+                    </source>
+                        Your browser does not support the audio element.
+                </audio>
+            </div>
                 <div className="row">
                     <div className="col-6 offset-3 text-center">
                         <h3>Seleccione el nivel de dificultad</h3>
@@ -188,11 +198,11 @@ class Ejercicio extends React.Component {
 
       var canciones;
       switch (this.props.nivel) {
-        case 1: canciones = ['día', 'noche', 'corazón', 'mujer', 'sol', 'mar', 'azul', 'ojos', 'labios'];
+        case 1: canciones = ['día', 'noche', 'corazón', 'mujer', 'sol', 'mar', 'azul', 'ojos', 'labios', 'canta', 'llores', 'mexico', 'rancho', 'caballo', 'rogarle', 'cielito', 'tequila', 'paloma', 'morena', 'vida', 'rey', 'negrita', 'volver', 'querer', 'adelita'];
         break;
-        case 2: canciones = ['flor', 'zapatos', 'puerta', 'árbol', 'niña', 'camino', 'beso', 'baila', 'cama'];
+        case 2: canciones = ['flor', 'zapatos', 'puerta', 'árbol', 'niña', 'camino', 'beso', 'baila', 'cama', 'copa', 'mano', 'tristeza', 'sombras', 'luz', 'soledad', 'casa', 'mariachis', 'dinero', 'trono', 'reina', 'camino', 'volando', 'rebozo', 'loco', 'tiempo'];
         break;
-        case 3: canciones = ['día', 'noche', 'corazón', 'mujer', 'sol', 'mar', 'azul', 'ojos', 'labios','flor', 'zapatos', 'puerta', 'árbol', 'niña', 'camino', 'beso', 'baila', 'cama'];
+        case 3: canciones = ['acariciar', 'pasaje', 'rincón', 'drama', 'alma', 'blanco', 'negro', 'quedar', 'ley', 'piedra', 'papel', 'penando', 'seda', 'pelusa', 'delante', 'detrás', 'perder', 'brazos', 'valiente', 'sargento', 'tumba', 'venas', 'soñé', 'distancia', 'sol'];
         break;
       }
       if(this.state.cancion_index == null) {
@@ -204,13 +214,23 @@ class Ejercicio extends React.Component {
 
 			return (
 				<div>
+        <div className="col-6 offset-3 text-center">
+            <audio id="player" controls>
+                <source src={'./data/cantaCancion.mp3'} type="audio/mpeg">
+                </source>
+                    Your browser does not support the audio element.
+            </audio>
+        </div>
 					<div className="offset-2 col-8">
-						<Img
-							url={'./img/' + canciones[this.state.cancion_index] + '.png'}
-              text={text}
-							/>
+            <font color="red">
+  						<Img style="color:red"
+  							url={'./img/' + canciones[this.state.cancion_index] + '.png'}
+                text={text}
+  							/>
+            </font>
 					</div>
 
+<<<<<<< HEAD
               <div className="alert alert-success row mt-3">
                 <div class="ec-stars-wrapper">
                   <a  type="star" title="Calificar con 1 estrella" onClick={() => {this.seleccionar(0)}}>&#9733;</a>
@@ -220,6 +240,17 @@ class Ejercicio extends React.Component {
                   <a  type="star" title="Calificar con 5 estrellas" onClick={() => {this.seleccionar(4)}}>&#9733;</a>
                 </div>
               </div>
+=======
+                  <div className="alert alert-success row mt-3">
+                      <div class="ec-stars-wrapper">
+                        <a  type="star" title="Calificar con 1 estrella" onClick={() => {this.seleccionar(0)}}>&#9733;</a>
+                        <a  type="star" title="Calificar con 2 estrellas" onClick={() => {this.seleccionar(1)}}>&#9733;</a>
+                        <a  type="star" title="Calificar con 3 estrellas" onClick={() => {this.seleccionar(2)}}>&#9733;</a>
+                        <a  type="star" title="Calificar con 4 estrellas" onClick={() => {this.seleccionar(3)}}>&#9733;</a>
+                        <a  type="star" title="Calificar con 5 estrellas" onClick={() => {this.seleccionar(4)}}>&#9733;</a>
+                      </div>
+                    </div>
+>>>>>>> master
 
                     <div className="row mt-3">
                         <div className="col-2 offset-10">
@@ -240,6 +271,13 @@ class Instrucciones extends React.Component {
             }
 		return (
 			<div>
+      <div className="col-6 offset-3 text-center">
+          <audio id="player" controls>
+              <source src={'./data/cantaCancion.mp3'} type="audio/mpeg">
+              </source>
+                  Your browser does not support the audio element.
+          </audio>
+      </div>
 				<div className="row border rounder my-3">
 					<div className="col-12 text-center bg-white">
 						<p>{this.props.instrucciones}</p>
@@ -247,13 +285,6 @@ class Instrucciones extends React.Component {
 				</div>
 
 				<div className="row">
-                    <div className="col-13">
-                        <audio id="player" controls>
-                            <source src={'./data/cantaCancion.mp3'} type="audio/mpeg">
-                            </source>
-                                Your browser does not support the audio element.
-                        </audio>
-                    </div>
 					<div className="col-12 text-center">
 						<button
 							className="btn btn-principal btn-lg"

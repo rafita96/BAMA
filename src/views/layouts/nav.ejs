@@ -1,11 +1,11 @@
 <!-- Barra de navegación del sistema -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-cardhead sticky-top ">
 
-  <span class="navbar-brand h1">Sistema de rehabilitación cognitiva</span>
+  <img src="../../public/common/img/nav/navlogo.png"  style="max-width: 30%; margin: auto;">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
+  <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
       <% if (locals.role == locals.roles["ROLE_PACIENTE"]) { %>
       <li class="nav-item">
@@ -22,6 +22,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/paciente/perfil">Perfil</a>
             <a class="dropdown-item" href="/paciente/notas">Notas</a>
+            <a class="dropdown-item" href="/paciente/sesiones"> Sesiones</a>
             <a class="dropdown-item" href="/paciente/evaluar">Agregar Nota</a>
           </div>
         </li>

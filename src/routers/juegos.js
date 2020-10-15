@@ -1,33 +1,20 @@
-/**
-* @author   Rafael Peralta Blanco <rafael.peralta.blanco@gmail.com>
-*/
+const express = require('express');
+const router = express.Router();
+const path = require("path");
+const juegosManager = require("./../controllers/juegos");
 
-/*
-    Rutas para los juegos
-*/
-var express = require('express');
-var router = express.Router();
-var path = require("path");
-
-var fs = require("fs");
-
-// El controlador de los juegos
-var juegosManager = require("./../controllers/juegos");
-
-// Middleware que evita entrar a la vista de juegos sin un paciente seleccionado
-router.use(function(req, res, next){
-    if(req.session.pacienteId){
+router.use(function (req, res, next) {
+    if (req.session.pacienteId) {
         return next();
-    }else{
+    } else {
         req.flash('error', 'No has seleccionado un paciente.');
         return res.redirect('/');
     }
 });
 
-// Envia la lista de juegos
-// En la vista de juegos es donde se llena la información mediante consultas de
-// javascript. Esto no es eficiente y debe hacerse desde la base de datos.
-router.get('/', function(req, res){
+
+// TODO: Esto no es eficiente y debe hacerse desde la base de datos.
+router.get('/', function (req, res) {
     res.render('juegos/lista', {titulo: "Juegos"});
 });
 
@@ -35,8 +22,8 @@ router.get('/', function(req, res){
 // Esto es necesario porque la vista de la lista de juegos se llena mediante
 // javascript, si fuera eficiente no sería necesario, porque el servidor
 // puede crear la vista completa utilizando las plantillas EJS
-router.get('/todos/los/nombres', function(req, res){
-    juegosManager.getJuegos(function(juegos){
+router.get('/todos/los/nombres', function (req, res) {
+    juegosManager.getJuegos(function (juegos) {
         res.jsonp({juegos: juegos});
     });
 });
@@ -46,8 +33,8 @@ router.get('/todos/los/nombres', function(req, res){
 // eso se pone en el meta.json de cada juego.
 // Cada juego debe tener su vista index.ejs para mantener la plantilla del sistema
 // Suponemos que no son necesarias otras vistas para los juegos.
-router.get('/:name/', function (req, res){
-    res.render('../../juegos/'+req.params.name+"/index");
+router.get('/:name/', function (req, res) {
+    res.render('../../juegos/' + req.params.name + "/index");
 });
 
 // Permite acceder a los recursos de cada juego, por ejemplo los archivos js, css o imágenes
@@ -56,8 +43,8 @@ router.get('/:name/', function (req, res){
 // por ejemplo: ./public/js/main.js
 // El punto hace referencia a la carpeta actual. Si quieren usar recursos del 'common'
 // no antepongan el punto. por ejemplo: /public/common/js/post.js
-router.get('/:name/*', function (req, res){
-    res.sendFile(path.join(__dirname+"/../../juegos/"+ req.params["name"] +"/"+req.params[0]));
+router.get('/:name/*', function (req, res) {
+    res.sendFile(path.join(__dirname + "/../../juegos/" + req.params["name"] + "/" + req.params[0]));
 });
 
 module.exports = router;

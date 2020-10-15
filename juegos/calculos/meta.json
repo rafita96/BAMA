@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
     "nombre": "Operaciones matemáticas",
+=======
+    "nombre": "Operaciones Matemáticas",
+>>>>>>> master
     "img": "thumbnail.png",
     "categorias": ["C"]
 }
