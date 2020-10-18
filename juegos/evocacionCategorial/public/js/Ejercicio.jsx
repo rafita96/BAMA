@@ -3,7 +3,7 @@ class Ejercicio extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pregunta: Math.floor(Math.random() * 15) + 1,
+			pregunta: Math.floor(Math.random() * 20) + 1,
 			aciertos: 0,
 			limite: 0,
 			alfa: Math.floor(Math.random() * 4) + 1,
@@ -34,7 +34,7 @@ class Ejercicio extends React.Component {
 			var x=0;
 			while (x==0) {
 				var y=0;
-				var tempo = Math.floor(Math.random() * 15) + 1;
+				var tempo = Math.floor(Math.random() * 20) + 1;
 				for (var i=0; i<5; i++) if (tempo==this.state.usados[i]) y=1;
 				if (y==0) x=1;
 			}
