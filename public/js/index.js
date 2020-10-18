@@ -74,7 +74,7 @@ function fillTable(data){
         var cell = document.createElement("div");
         cell.setAttribute("class", "col-2");
         var b = document.createElement('button');
-        b.setAttribute('class', 'btn btn-principal');
+        b.setAttribute('class', 'btn btn-principal btn-lg');
 
         b.userId = data[i]._id;
         b.addEventListener('click', function(){
