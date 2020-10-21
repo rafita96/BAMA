@@ -84,7 +84,7 @@ class Nivel extends React.Component{
             <div>
             <div className="col-6 offset-3 text-center">
               <audio id="player" controls>
-                <source src={'./data/dibujaPalabra.mp3'} type="audio/mpeg">
+                <source src={'./data/instruccion.mp3'} type="audio/mpeg">
                 </source>
                 Your browser does not support the audio element.
               </audio>
