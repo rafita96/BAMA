@@ -67,6 +67,11 @@ class Nivel extends React.Component{
     }
 
     render() {
+        var audio = $("#player")
+        if(audio[0] != undefined){
+        audio[0].pause()
+        audio[0].load()
+        }
         var niveles = [];
         for(var i = 0; i < 3; i++){
             if(this.state.index == i+1) {
@@ -78,6 +83,13 @@ class Nivel extends React.Component{
 
         return(
             <div>
+                <div className="col-6 offset-3 text-center">
+                  <audio id="player" controls>
+                    <source src={'./data/instruccion.mp3'} type="audio/mpeg">
+                    </source>
+                      Your browser does not support the audio element.
+                  </audio>
+                </div>
                 <div className="row">
                     <div className="col-6 offset-3 text-center">
                         <h3>Seleccione el nivel de dificultad</h3>
@@ -316,6 +328,13 @@ class Ejercicio extends React.Component {
       });
       return (
           <div className="row">
+              <div className="col-6 offset-3 text-center">
+			      <audio id="player" controls>
+				      <source src={'./data/rompecabezas.mp3'} type="audio/mpeg">
+					  </source>
+					      Your browser does not support the audio element.
+				  </audio>
+			  </div>
               <div className="col-sm-4">
                   {piezas}
               </div>
@@ -369,6 +388,13 @@ class Ejercicio extends React.Component {
       });
       return (
           <div className="row">
+              <div className="col-6 offset-3 text-center">
+			      <audio id="player" controls>
+				      <source src={'./data/rompecabezas.mp3'} type="audio/mpeg">
+					  </source>
+					      Your browser does not support the audio element.
+				  </audio>
+			  </div>
               <div className="col-sm-4">
                   {piezas}
               </div>
@@ -422,6 +448,13 @@ class Ejercicio extends React.Component {
       });
       return (
           <div className="row">
+              <div className="col-6 offset-3 text-center">
+			      <audio id="player" controls>
+				      <source src={'./data/rompecabezas.mp3'} type="audio/mpeg">
+					  </source>
+					      Your browser does not support the audio element.
+				  </audio>
+			  </div>
               <div className="col-sm-4">
                   {piezas}
               </div>
@@ -437,8 +470,22 @@ class Ejercicio extends React.Component {
     }
 }
 
-class Instrucciones extends React.Component { render() { return (
+class Instrucciones extends React.Component { render() { 
+	var audio = $("#player")
+		if(audio[0] != undefined){
+			audio[0].pause()
+			audio[0].load()
+		}
+	return (
 			<div>
+        
+				<div className="col-6 offset-3 text-center">
+					<audio id="player" controls>
+						<source src={'./data/rompecabezas.mp3'} type="audio/mpeg">
+						</source>
+							Your browser does not support the audio element.
+					</audio>
+				</div>
 
 				<div className="row border rounder my-3">
 					<div className="col-12 text-center bg-white">
@@ -465,22 +512,10 @@ class Bloque extends React.Component{
     }
 
     render(){
-      var audio = $("#player")
-      if (audio[0] != undefined) {
-         audio[0].pause()
-         audio[0].load()
-      }
       return(
           <div className="row mt-3 border rounded p-3 bg-principal">
               <div className="col-6 offset-3 text-center">
                   <h1>{this.props.nombre}</h1>
-              </div>
-              <div className="col-6 offset-3 text-center">
-                  <audio id="player" controls>
-                    <source src={'./data/rompecabezas.mp3'} type="audio/mpeg">
-                    </source>
-                      Your browser does not support the audio element.
-                  </audio>
               </div>
               <div className="col-12">
                   {this.props.children}
