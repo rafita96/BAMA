@@ -114,6 +114,62 @@
 				"opciones": [
 					"Abrazando", "Brincando", "Llorando", "Resbalandose"
 				]
+			},
+			{
+				"carpeta": 8,
+				"respuesta": ["Volando"],
+				"opciones": [
+					"Brincando", "Comiendo", "Cantando", "Volando"
+				]
+			},
+			{
+				"carpeta": 9,
+				"respuesta": ["Observando"],
+				"opciones": [
+					"Conversando", "Volando", "Brincando", "Observando"
+				]
+			},
+			{
+				"carpeta": 10,
+				"respuesta": ["Escalando"],
+				"opciones": [
+					"Marchando", "Leyendo", "Escalando", "Caminando"
+				]
+			},
+			{
+				"carpeta": 11,
+				"respuesta": ["Bebiendo"],
+				"opciones": [
+					"Bebiendo", "Brincando", "Lavando", "Durmiendo"
+				]
+			},
+			{
+				"carpeta": 12,
+				"respuesta": ["Jugando"],
+				"opciones": [
+					"Resbalandose", "Moviendose", "Descansando", "Jugando"
+				]
+			},
+			{
+				"carpeta": 13,
+				"respuesta": ["Pintando"],
+				"opciones": [
+					"Jugando", "Corriendo", "Comiendo", "Pintando"
+				]
+			},
+			{
+				"carpeta": 14,
+				"respuesta": ["Escuchando"],
+				"opciones": [
+					"Comiendo", "Pintando", "Descansando", "Escuchando"
+				]
+			},
+			{
+				"carpeta": 15,
+				"respuesta": ["Alimentando"],
+				"opciones": [
+					"Sentandose", "Brincando", "Comiendo", "Alimentando"
+				]
 			}
 		],
 		[
@@ -171,6 +227,62 @@
 				"respuesta": ["Alimentando"],
 				"opciones": [
 					"Sentandose", "Brincando", "Comiendo", "Alimentando"
+				]
+			}
+			{
+				"carpeta": 8,
+				"respuesta": ["Subiendo"],
+				"opciones": [
+					"Brincando", "Caminando", "Leyendo", "Subiendo"
+				]
+			},
+			{
+				"carpeta": 9,
+				"respuesta": ["Durmiendo"],
+				"opciones": [
+					"Pintando", "Durmiendo", "Brincando", "Leyendo"
+				]
+			},
+			{
+				"carpeta": 10,
+				"respuesta": ["Riendo"],
+				"opciones": [
+					"Riendo", "Leyendo", "Divirtiendo", "Oliendo"
+				]
+			},
+			{
+				"carpeta": 11,
+				"respuesta": ["Oliendo"],
+				"opciones": [
+					"Oliendo", "Brincando", "Conociendo", "Comiendo"
+				]
+			},
+			{
+				"carpeta": 12,
+				"respuesta": ["Tosiendo"],
+				"opciones": [
+					"Tosiendo", "Estornudando", "Lavando", "Peinandose"
+				]
+			},
+			{
+				"carpeta": 13,
+				"respuesta": ["Saliendo"],
+				"opciones": [
+					"Leyendo", "Saliendo", "Comiendo", "Abriendo"
+				]
+			},
+			{
+				"carpeta": 14,
+				"respuesta": ["Abriendo"],
+				"opciones": [
+					"Encontrando", "Pintando", "Abriendo", "Brincando"
+				]
+			},
+			{
+				"carpeta": 15,
+				"respuesta": ["Llorando"],
+				"opciones": [
+					"Abrazando", "Brincando", "Llorando", "Resbalandose"
 				]
 			}
 		]
