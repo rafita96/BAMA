@@ -56,6 +56,62 @@
 				"opciones": [
 					"Peinandose", "Brincando", "Comiendo", "Resbalandose"
 				]
+			},
+                        {
+				"carpeta": 8,
+				"respuesta": ["Empujando"],
+				"opciones": [
+					"Ayudando", "Lanzando","Pedaleando", "Empujando"
+				]
+			},
+                        {
+				"carpeta": 9,
+				"respuesta": ["Ayudando"],
+				"opciones": [
+					"Lanzando", "Pedaleando","Ayudando", "Bajando"
+				]
+			},
+                        {
+				"carpeta": 10,
+				"respuesta": ["Lanzando"],
+				"opciones": [
+					"Pedaleando", "Lanzando","Bajando", "Montando"
+				]
+			},
+                        {
+				"carpeta": 11,
+				"respuesta": ["Pedaleando"],
+				"opciones": [
+					"Pedaleando", "Bajando","Montando", "Surfeando"
+				]
+			},
+                        {
+				"carpeta": 12,
+				"respuesta": ["Bajando"],
+				"opciones": [
+					"Montando", "Bajando","Surfeando", "Cayendo"
+				]
+			},
+                        {
+				"carpeta": 13,
+				"respuesta": ["Montando"],
+				"opciones": [
+					"Surfeando", "Cayendo","Montando", "Lavando"
+				]
+			},
+                        {
+				"carpeta": 14,
+				"respuesta": ["Surfeando"],
+				"opciones": [
+					"Cayendo", "Lavando","Leyendo", "Surfeando"
+				]
+			},
+                        {
+				"carpeta": 15,
+				"respuesta": ["Cayendo"],
+				"opciones": [
+					"Cayendo", "Lavando","Leyendo", "Comiendo"
+				]
 			}
 		],
 		[
