@@ -1,16 +1,14 @@
 function getInfo(callback){
-    d3.json("./data/info.json", function(error, instrucciones) {
-        d3.json("./meta.json", function(error, nombre) {
-          Consulta.get('/paciente/actual/', function(data) {
-            if (data["id"] != null) {
-              mostrarPerfil(data);
-              callback(data["id"], nombre["nombre"], instrucciones["instrucciones"], config["niveles"]);
-            } else {
-              toastr("No has seleccionado un paciente");
-            }
-          });
-        });
-    });
+	d3.json("./data/info.json", function(error, instrucciones) {
+		d3.json("./meta.json", function(error, nombre) {
+			Consulta.get('/paciente/actual/', function(data) {
+				if (data["id"] != null) {
+					mostrarPerfil(data);
+					callback(data["id"], nombre["nombre"], instrucciones["instrucciones"], config["niveles"]);
+				} else toastr("No has seleccionado un paciente");
+			});
+		});
+	});
 }
 
 $(document).ready(() => {
@@ -18,7 +16,7 @@ $(document).ready(() => {
 		ReactDOM.render(<Game
 			nombre={nombre}
 			paciente={paciente}
-            config={config}
+			config={config}
 			instrucciones={instrucciones}/>, document.getElementById('main'));
 	})
 });
