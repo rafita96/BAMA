@@ -235,11 +235,22 @@
                     {
                         key: "render",
                         value: function () {
+                            var audio = $("#player")
+                            if (audio[0] != undefined) {
+                               audio[0].pause()
+                               audio[0].load()
+                            }
                             var e = this.props.nivel + "/" + this.ejercicios[this.state.pregunta][0];
                             var t = this.ejercicios[this.state.pregunta][1];
                             return React.createElement(
                                 "div",
                                 null,
+                                React.createElement("div", { className: "col-6 offset-3 text-center" },
+                                    <audio id="player" controls>
+                                      <source src={'./data/audio.mp3'} type="audio/mpeg">
+                                      </source>
+                                        Your browser does not support the audio element.
+                                    </audio>),
                                     React.createElement(
                                         "div",
                                         { className: "row" },
@@ -375,10 +386,21 @@
                     {
                         key: "render",
                         value: function () {
+                            var audio = $("#player")
+                            if (audio[0] != undefined) {
+                               audio[0].pause()
+                               audio[0].load()
+                            }
                             for (var e = this, t = [], n = 0; n < 3; n++) this.state.index == n + 1 ? t.push("col-4 bg-verde border text-white py-3 unselectable") : t.push("col-4 bg-light border py-3 unselectable");
                             return React.createElement(
                                 "div",
                                 null,
+                                React.createElement("div", { className: "col-6 offset-3 text-center" },
+                                    <audio id="player" controls>
+                                      <source src={'./data/instruccion.mp3'} type="audio/mpeg">
+                                      </source>
+                                        Your browser does not support the audio element.
+                                    </audio>),
                                 React.createElement("div", { className: "row" }, React.createElement("div", { className: "col-6 offset-3 text-center" }, React.createElement("h3", null, "Seleccione el nivel de dificultad"))),
                                 React.createElement(
                                     "div",
@@ -464,6 +486,11 @@
                     {
                         key: "render",
                         value: function () {
+                            var audio = $("#player")
+                            if (audio[0] != undefined) {
+                               audio[0].pause()
+                               audio[0].load()
+                            }
                           var regresar;
                               if(typeof this.props.regresar === 'undefined'){
                                   regresar = (
@@ -479,7 +506,15 @@
                               else { regresar = (<div className="col-4"></div>); }
                           return (
                             <div>
-
+                                  
+                              <div className="col-6 offset-3 text-center">
+                                <audio id="player" controls>
+                                  <source src={'./data/audio.mp3'} type="audio/mpeg">
+                                  </source>
+                                    Your browser does not support the audio element.
+                                </audio>
+                              </div>
+                                  
                               <div className="row border rounder my-3">
                                 <div className="col-12 text-center bg-white">
                                   <p>{this.props.instrucciones}</p>
@@ -541,19 +576,8 @@
                     {
                         key: "render",
                         value: function () {
-                            var audio = $("#player")
-                            if (audio[0] != undefined) {
-                               audio[0].pause()
-                               audio[0].load()
-                            }
                             return React.createElement("div", { className: "row mt-3 border rounded p-3 bg-principal" },
                                 React.createElement("div", { className: "col-6 offset-3 text-center" }, React.createElement("h1", null, this.props.nombre)),
-                                React.createElement("div", { className: "col-6 offset-3 text-center" },
-                                    <audio id="player" controls>
-                                      <source src={'./data/audio.mp3'} type="audio/mpeg">
-                                      </source>
-                                        Your browser does not support the audio element.
-                                    </audio>),
                                 React.createElement("div", { className: "col-12" }, this.props.children)
                             );
                         },

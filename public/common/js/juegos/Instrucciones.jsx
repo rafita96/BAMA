@@ -12,12 +12,12 @@ class Instrucciones extends React.Component {
                 </div>
             );
         }
-				else { regresar = (<div className="col-4"></div>); }
+		else { regresar = (<div className="col-4"></div>); }
         var audio = $("#player")
-			  if(audio[0] != undefined){
-				audio[0].pause()
-				audio[0].load()
-			  }
+		if(audio[0] != undefined){
+			audio[0].pause()
+			audio[0].load()
+		}
 		return (
 			<div>
 		  	<div className="col-6 offset-3 text-center">

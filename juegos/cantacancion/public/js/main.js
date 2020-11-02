@@ -83,7 +83,7 @@ class Nivel extends React.Component{
             <div>
             <div className="col-6 offset-3 text-center">
                 <audio id="player" controls>
-                    <source src={'./data/cantaCancion.mp3'} type="audio/mpeg">
+                    <source src={'./data/instruccion.mp3'} type="audio/mpeg">
                     </source>
                         Your browser does not support the audio element.
                 </audio>
@@ -198,9 +198,9 @@ class Ejercicio extends React.Component {
 
       var canciones;
       switch (this.props.nivel) {
-        case 1: canciones = ['día', 'noche', 'corazón', 'mujer', 'sol', 'mar', 'azul', 'ojos', 'labios', 'canta', 'llores', 'mexico', 'rancho', 'caballo', 'rogarle', 'cielito', 'tequila', 'paloma', 'morena', 'vida', 'rey', 'negrita', 'volver', 'querer', 'adelita'];
+        case 1: canciones = ['día', 'noche', 'corazón', 'mujer', 'sol', 'mar', 'azul', 'ojos', 'labios', 'canta', 'llorar', 'mexico', 'rancho', 'caballo', 'rogar', 'cielito', 'tequila', 'paloma', 'morena', 'vida', 'rey', 'negrita', 'volver', 'querer', 'adelita'];
         break;
-        case 2: canciones = ['flor', 'zapatos', 'puerta', 'árbol', 'niña', 'camino', 'beso', 'baila', 'cama', 'copa', 'mano', 'tristeza', 'sombras', 'luz', 'soledad', 'casa', 'mariachis', 'dinero', 'trono', 'reina', 'camino', 'volando', 'rebozo', 'loco', 'tiempo'];
+        case 2: canciones = ['flor', 'zapatos', 'puerta', 'árbol', 'niña', 'soldado', 'beso', 'baila', 'cama', 'copa', 'mano', 'tristeza', 'sombra', 'luz', 'soledad', 'casa', 'mariachis', 'dinero', 'trono', 'reina', 'camino', 'volando', 'rebozo', 'loco', 'tiempo'];
         break;
         case 3: canciones = ['acariciar', 'pasaje', 'rincón', 'drama', 'alma', 'blanco', 'negro', 'quedar', 'ley', 'piedra', 'papel', 'penando', 'seda', 'pelusa', 'delante', 'detrás', 'perder', 'brazos', 'valiente', 'sargento', 'tumba', 'venas', 'soñé', 'distancia', 'sol'];
         break;
