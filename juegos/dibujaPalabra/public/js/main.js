@@ -278,27 +278,15 @@ class Ejercicio extends React.Component {
                         <canvas id="canvas" width={300} height={300} style={{ background: 'white' }} onMouseDown={this.dibujar} onMouseMove={this.continuarDibujo} onMouseUp={this.clear} onMouseLeave={this.clear} />
 					</div>
 
-                    <div className="alert alert-success row mt-3">
-                        <div className="offset-1 col-2">
-                            <button onClick={() => {this.seleccionar(0)}} className="btn btn-danger">Muy mal</button>
-                        </div>
-
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(1)}} className="btn btn-warning">Mal</button>
-                        </div>
-
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(2)}} className="btn btn-info">Regular</button>
-                        </div>
-
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(3)}} className="btn btn-primary">Bien</button>
-                        </div>
-
-                        <div className="col-2">
-                            <button onClick={() => {this.seleccionar(4)}} className="btn btn-success">Muy bien</button>
-                        </div>
-                    </div>
+          <div className="alert alert-success row mt-3">
+              <div class="ec-stars-wrapper">
+                <a  type="star" title="Calificar con 1 estrella" onClick={() => {this.seleccionar(0)}}>&#9733;</a>
+                <a  type="star" title="Calificar con 2 estrellas" onClick={() => {this.seleccionar(1)}}>&#9733;</a>
+                <a  type="star" title="Calificar con 3 estrellas" onClick={() => {this.seleccionar(2)}}>&#9733;</a>
+                <a  type="star" title="Calificar con 4 estrellas" onClick={() => {this.seleccionar(3)}}>&#9733;</a>
+                <a  type="star" title="Calificar con 5 estrellas" onClick={() => {this.seleccionar(4)}}>&#9733;</a>
+              </div>
+            </div>
 
                     <div className="row mt-3">
                         <div className="col-2 offset-10">
