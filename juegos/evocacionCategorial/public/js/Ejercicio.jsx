@@ -3,7 +3,7 @@ class Ejercicio extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pregunta: Math.floor(Math.random() * 20) + 1,
+			pregunta: Math.floor(Math.random() * 35) + 1,
 			aciertos: 0,
 			limite: 0,
 			alfa: Math.floor(Math.random() * 4) + 1,
@@ -34,7 +34,7 @@ class Ejercicio extends React.Component {
 			var x=0;
 			while (x==0) {
 				var y=0;
-				var tempo = Math.floor(Math.random() * 20) + 1;
+				var tempo = Math.floor(Math.random() * 35) + 1;
 				for (var i=0; i<5; i++) if (tempo==this.state.usados[i]) y=1;
 				if (y==0) x=1;
 			}
@@ -107,151 +107,151 @@ class Ejercicio extends React.Component {
 			);
 		}
 		if (this.state.alfa==2) {
-		return (
-			<div>
-				<div className="col-6 offset-3 text-center">
-						<audio id="player" controls>
-							<source src={'./data/audio.mp3'} type="audio/mpeg">
-							</source>
-								Your browser does not support the audio element.
-						</audio>
+			return (
+				<div>
+					<div className="col-6 offset-3 text-center">
+							<audio id="player" controls>
+								<source src={'./data/audio.mp3'} type="audio/mpeg">
+								</source>
+									Your browser does not support the audio element.
+							</audio>
+						</div>
+					<div className="offset-2 col-8">
+						<Img
+							url={"./img/" + this.state.dificultad + "/" + carpeta + "/scene.jpg"}
+							/>
 					</div>
-				<div className="offset-2 col-8">
-					<Img
-						url={"./img/" + this.state.dificultad + "/" + carpeta + "/scene.jpg"}
-						/>
+					<div className="row mt-3">
+						<div onClick={() => {this.seleccionar(1)}} className="offset-1 col-2">
+							<Img
+								seleccionado={this.state.index}
+								index={1}
+								url={"./img/" + this.state.dificultad + "/" + carpeta + "/1.jpg"} />
+						</div>
+						<div onClick={() => {this.seleccionar(2)}} className="offset-1 col">
+							<Img
+								seleccionado={this.state.index}
+								index={2}
+								url={"./img/" + this.state.dificultad + "/" + carpeta + "/2.jpg"} />
+						</div>
+						<div onClick={() => {this.seleccionar('r')}} className="offset-1 col">
+							<Img
+								seleccionado={this.state.index}
+								index={'r'}
+								url={"./img/" + this.state.dificultad + "/" + carpeta + "/r.jpg"} />
+						</div>
+						<div onClick={() => {this.seleccionar(3)}}className="offset-1 col">
+							<Img
+								seleccionado={this.state.index}
+								index={3}
+								url={"./img/" + this.state.dificultad + "/" + carpeta + "/3.jpg"} />
+						</div>
+					</div>
+					<div className="row mt-3">
+						<div className="col-2 offset-10">
+							<button className="btn btn-principal btn-lg" onClick={this.siguiente}>Siguiente</button>
+						</div>
+					</div>
 				</div>
-				<div className="row mt-3">
-					<div onClick={() => {this.seleccionar(1)}} className="offset-1 col-2">
-						<Img
-							seleccionado={this.state.index}
-							index={1}
-							url={"./img/" + this.state.dificultad + "/" + carpeta + "/1.jpg"} />
-					</div>
-					<div onClick={() => {this.seleccionar(2)}} className="offset-1 col">
-						<Img
-							seleccionado={this.state.index}
-							index={2}
-							url={"./img/" + this.state.dificultad + "/" + carpeta + "/2.jpg"} />
-					</div>
-					<div onClick={() => {this.seleccionar('r')}} className="offset-1 col">
-						<Img
-							seleccionado={this.state.index}
-							index={'r'}
-							url={"./img/" + this.state.dificultad + "/" + carpeta + "/r.jpg"} />
-					</div>
-					<div onClick={() => {this.seleccionar(3)}}className="offset-1 col">
-						<Img
-							seleccionado={this.state.index}
-							index={3}
-							url={"./img/" + this.state.dificultad + "/" + carpeta + "/3.jpg"} />
-					</div>
-				</div>
-				<div className="row mt-3">
-					<div className="col-2 offset-10">
-						<button className="btn btn-principal btn-lg" onClick={this.siguiente}>Siguiente</button>
-					</div>
-				</div>
-			</div>
-		);
+			);
 		}
 		if (this.state.alfa==3) {
-		return (
-			<div>
-				<div className="col-6 offset-3 text-center">
-						<audio id="player" controls>
-							<source src={'./data/audio.mp3'} type="audio/mpeg">
-							</source>
-								Your browser does not support the audio element.
-						</audio>
+			return (
+				<div>
+					<div className="col-6 offset-3 text-center">
+							<audio id="player" controls>
+								<source src={'./data/audio.mp3'} type="audio/mpeg">
+								</source>
+									Your browser does not support the audio element.
+							</audio>
+						</div>
+					<div className="offset-2 col-8">
+						<Img
+							url={"./img/" + this.state.dificultad + "/" + carpeta + "/scene.jpg"}
+							/>
 					</div>
-				<div className="offset-2 col-8">
-					<Img
-						url={"./img/" + this.state.dificultad + "/" + carpeta + "/scene.jpg"}
-						/>
+					<div className="row mt-3">
+						<div onClick={() => {this.seleccionar(1)}} className="offset-1 col-2">
+							<Img
+								seleccionado={this.state.index}
+								index={1}
+								url={"./img/" + this.state.dificultad + "/" + carpeta + "/1.jpg"} />
+						</div>
+						<div onClick={() => {this.seleccionar('r')}} className="offset-1 col">
+							<Img
+								seleccionado={this.state.index}
+								index={'r'}
+								url={"./img/" + this.state.dificultad + "/" + carpeta + "/r.jpg"} />
+						</div>
+						<div onClick={() => {this.seleccionar(3)}} className="offset-1 col">
+							<Img
+								seleccionado={this.state.index}
+								index={3}
+								url={"./img/" + this.state.dificultad + "/" + carpeta + "/3.jpg"} />
+						</div>
+						<div onClick={() => {this.seleccionar(2)}}className="offset-1 col">
+							<Img
+								seleccionado={this.state.index}
+								index={2}
+								url={"./img/" + this.state.dificultad + "/" + carpeta + "/2.jpg"} />
+						</div>
+					</div>
+					<div className="row mt-3">
+						<div className="col-2 offset-10">
+							<button className="btn btn-principal btn-lg" onClick={this.siguiente}>Siguiente</button>
+						</div>
+					</div>
 				</div>
-				<div className="row mt-3">
-					<div onClick={() => {this.seleccionar(1)}} className="offset-1 col-2">
-						<Img
-							seleccionado={this.state.index}
-							index={1}
-							url={"./img/" + this.state.dificultad + "/" + carpeta + "/1.jpg"} />
-					</div>
-					<div onClick={() => {this.seleccionar('r')}} className="offset-1 col">
-						<Img
-							seleccionado={this.state.index}
-							index={'r'}
-							url={"./img/" + this.state.dificultad + "/" + carpeta + "/r.jpg"} />
-					</div>
-					<div onClick={() => {this.seleccionar(3)}} className="offset-1 col">
-						<Img
-							seleccionado={this.state.index}
-							index={3}
-							url={"./img/" + this.state.dificultad + "/" + carpeta + "/3.jpg"} />
-					</div>
-					<div onClick={() => {this.seleccionar(2)}}className="offset-1 col">
-						<Img
-							seleccionado={this.state.index}
-							index={2}
-							url={"./img/" + this.state.dificultad + "/" + carpeta + "/2.jpg"} />
-					</div>
-				</div>
-				<div className="row mt-3">
-					<div className="col-2 offset-10">
-						<button className="btn btn-principal btn-lg" onClick={this.siguiente}>Siguiente</button>
-					</div>
-				</div>
-			</div>
-		);
+			);
 		}
 		if (this.state.alfa==4) {
-		return (
-			<div>
-				<div className="col-6 offset-3 text-center">
-						<audio id="player" controls>
-							<source src={'./data/audio.mp3'} type="audio/mpeg">
-							</source>
-								Your browser does not support the audio element.
-						</audio>
+			return (
+				<div>
+					<div className="col-6 offset-3 text-center">
+							<audio id="player" controls>
+								<source src={'./data/audio.mp3'} type="audio/mpeg">
+								</source>
+									Your browser does not support the audio element.
+							</audio>
+						</div>
+					<div className="offset-2 col-8">
+						<Img
+							url={"./img/" + this.state.dificultad + "/" + carpeta + "/scene.jpg"}
+							/>
 					</div>
-				<div className="offset-2 col-8">
-					<Img
-						url={"./img/" + this.state.dificultad + "/" + carpeta + "/scene.jpg"}
-						/>
+					<div className="row mt-3">
+						<div onClick={() => {this.seleccionar('r')}} className="offset-1 col-2">
+							<Img
+								seleccionado={this.state.index}
+								index={'r'}
+								url={"./img/" + this.state.dificultad + "/" + carpeta + "/r.jpg"} />
+						</div>
+						<div onClick={() => {this.seleccionar(2)}} className="offset-1 col">
+							<Img
+								seleccionado={this.state.index}
+								index={2}
+								url={"./img/" + this.state.dificultad + "/" + carpeta + "/2.jpg"} />
+						</div>
+						<div onClick={() => {this.seleccionar(3)}} className="offset-1 col">
+							<Img
+								seleccionado={this.state.index}
+								index={3}
+								url={"./img/" + this.state.dificultad + "/" + carpeta + "/3.jpg"} />
+						</div>
+						<div onClick={() => {this.seleccionar(1)}}className="offset-1 col">
+							<Img
+								seleccionado={this.state.index}
+								index={1}
+								url={"./img/" + this.state.dificultad + "/" + carpeta + "/1.jpg"} />
+						</div>
+					</div>
+					<div className="row mt-3">
+						<div className="col-2 offset-10">
+							<button className="btn btn-principal btn-lg" onClick={this.siguiente}>Siguiente</button>
+						</div>
+					</div>
 				</div>
-				<div className="row mt-3">
-					<div onClick={() => {this.seleccionar('r')}} className="offset-1 col-2">
-						<Img
-							seleccionado={this.state.index}
-							index={'r'}
-							url={"./img/" + this.state.dificultad + "/" + carpeta + "/r.jpg"} />
-					</div>
-					<div onClick={() => {this.seleccionar(2)}} className="offset-1 col">
-						<Img
-							seleccionado={this.state.index}
-							index={2}
-							url={"./img/" + this.state.dificultad + "/" + carpeta + "/2.jpg"} />
-					</div>
-					<div onClick={() => {this.seleccionar(3)}} className="offset-1 col">
-						<Img
-							seleccionado={this.state.index}
-							index={3}
-							url={"./img/" + this.state.dificultad + "/" + carpeta + "/3.jpg"} />
-					</div>
-					<div onClick={() => {this.seleccionar(1)}}className="offset-1 col">
-						<Img
-							seleccionado={this.state.index}
-							index={1}
-							url={"./img/" + this.state.dificultad + "/" + carpeta + "/1.jpg"} />
-					</div>
-				</div>
-				<div className="row mt-3">
-					<div className="col-2 offset-10">
-						<button className="btn btn-principal btn-lg" onClick={this.siguiente}>Siguiente</button>
-					</div>
-				</div>
-			</div>
-		);
+			);
 		}
 		}
 	}
