@@ -57,61 +57,60 @@
 					"Peinandose", "Brincando", "Comiendo", "Resbalandose"
 				]
 			},
-<<<<<<< HEAD
 			{
 				"carpeta": 8,
-				"respuesta": ["Armando"],
+				"respuesta": ["Empujando"],
 				"opciones": [
-					"Peinandose", "Brincando", "Armando", "Resbalandose"
+					"Ayudando", "Lanzando","Pedaleando", "Empujando"
 				]
 			},
 			{
 				"carpeta": 9,
-				"respuesta": ["Bañando"],
+				"respuesta": ["Ayudando"],
 				"opciones": [
-					"Bañando", "Armando", "Comiendo", "Resbalandose"
+					"Lanzando", "Pedaleando","Ayudando", "Bajando"
 				]
 			},
 			{
 				"carpeta": 10,
-				"respuesta": ["Buceando"],
+				"respuesta": ["Lanzando"],
 				"opciones": [
-					"Peinandose", "Bañando", "Comiendo", "Buceando"
+					"Pedaleando", "Lanzando","Bajando", "Montando"
 				]
 			},
 			{
 				"carpeta": 11,
-				"respuesta": ["Cargando"],
+				"respuesta": ["Pedaleando"],
 				"opciones": [
-					"Buceando", "Brincando", "Cargando", "Resbalandose"
+					"Pedaleando", "Bajando","Montando", "Surfeando"
 				]
 			},
 			{
 				"carpeta": 12,
-				"respuesta": ["Clavando"],
+				"respuesta": ["Bajando"],
 				"opciones": [
-					"Peinandose", "Cargando", "Comiendo", "Clavando"
+					"Montando", "Bajando","Surfeando", "Cayendo"
 				]
 			},
 			{
 				"carpeta": 13,
-				"respuesta": ["Persiguiendo"],
+				"respuesta": ["Montando"],
 				"opciones": [
-					"Persiguiendo", "Brincando", "Clavando", "Resbalandose"
+					"Surfeando", "Cayendo","Montando", "Lavando"
 				]
 			},
 			{
 				"carpeta": 14,
-				"respuesta": ["Pescando"],
+				"respuesta": ["Surfeando"],
 				"opciones": [
-					"Peinandose", "Persiguiendo", "Comiendo", "Pescando"
+					"Cayendo", "Lavando","Leyendo", "Surfeando"
 				]
 			},
 			{
 				"carpeta": 15,
-				"respuesta": ["Plantando"],
+				"respuesta": ["Cayendo"],
 				"opciones": [
-					"Plantando", "Brincando", "Pescando", "Resbalandose"
+					"Cayendo", "Lavando","Leyendo", "Comiendo"
 				]
 			},
 			{
@@ -147,62 +146,62 @@
 				"respuesta": ["Viajando"],
 				"opciones": [
 					"Tejiendo", "Brincando", "Comiendo", "Viajando"
-=======
-                        {
-				"carpeta": 8,
-				"respuesta": ["Empujando"],
-				"opciones": [
-					"Ayudando", "Lanzando","Pedaleando", "Empujando"
 				]
 			},
-                        {
-				"carpeta": 9,
-				"respuesta": ["Ayudando"],
+			{
+				"carpeta": 21,
+				"respuesta": ["Playa"],
 				"opciones": [
-					"Lanzando", "Pedaleando","Ayudando", "Bajando"
+					"Desierto", "Rio","Concreto", "Playa"
 				]
 			},
-                        {
-				"carpeta": 10,
-				"respuesta": ["Lanzando"],
+			{
+				"carpeta": 22,
+				"respuesta": ["Armando"],
 				"opciones": [
-					"Pedaleando", "Lanzando","Bajando", "Montando"
+					"Lanzando", "Pedaleando","Armando", "Bajando"
 				]
 			},
-                        {
-				"carpeta": 11,
-				"respuesta": ["Pedaleando"],
+			{
+				"carpeta": 23,
+				"respuesta": ["Bañando"],
 				"opciones": [
-					"Pedaleando", "Bajando","Montando", "Surfeando"
+					"Pedaleando", "Bañando","Bajando", "Montando"
 				]
 			},
-                        {
-				"carpeta": 12,
-				"respuesta": ["Bajando"],
+			{
+				"carpeta": 24,
+				"respuesta": ["Buceando"],
 				"opciones": [
-					"Montando", "Bajando","Surfeando", "Cayendo"
+					"Pedaleando", "Bajando","Buceando", "Surfeando"
 				]
 			},
-                        {
-				"carpeta": 13,
-				"respuesta": ["Montando"],
+			{
+				"carpeta": 25,
+				"respuesta": ["Cargando"],
 				"opciones": [
-					"Surfeando", "Cayendo","Montando", "Lavando"
+					"Montando", "Bajando","Cargando", "Lanzando"
 				]
 			},
-                        {
-				"carpeta": 14,
-				"respuesta": ["Surfeando"],
+			{
+				"carpeta": 26,
+				"respuesta": ["Clavando"],
 				"opciones": [
-					"Cayendo", "Lavando","Leyendo", "Surfeando"
+					"Clavando", "Cayendo","Pegando", "Lavando"
 				]
 			},
-                        {
-				"carpeta": 15,
-				"respuesta": ["Cayendo"],
+			{
+				"carpeta": 27,
+				"respuesta": ["Persiguiendo"],
 				"opciones": [
-					"Cayendo", "Lavando","Leyendo", "Comiendo"
->>>>>>> 2a69a021307bc54e5d9814ee9374bfb87e7e7ca3
+					"Persiguiendo", "Amando","Oliendo", "Surfeando"
+				]
+			},
+			{
+				"carpeta": 28,
+				"respuesta": ["Pescando"],
+				"opciones": [
+					"Cayendo", "Pescando","Leyendo", "Comiendo"
 				]
 			}
 		],
@@ -409,76 +408,6 @@
 				"opciones": [
 					"Sentandose", "Limpiando", "Viajando", "Alimentando"
 				]
-			},
-			{
-				"carpeta": 29,
-				"respuesta": ["Maquillando"],
-				"opciones": [
-					"Sentandose", "Limpiando", "Viajando", "Maquillando"
-				]
-			},
-			{
-				"carpeta": 30,
-				"respuesta": ["Midiendo"],
-				"opciones": [
-					"Midiendo", "Limpiando", "Maquillando", "Alimentando"
-				]
-			},
-			{
-				"carpeta": 31,
-				"respuesta": ["Mudando"],
-				"opciones": [
-					"Mudando", "Limpiando", "Viajando", "Midiendo"
-				]
-			},
-			{
-				"carpeta": 32,
-				"respuesta": ["Nadando"],
-				"opciones": [
-					"Sentandose", "Limpiando", "Nadando", "Mudando"
-				]
-			},
-			{
-				"carpeta": 33,
-				"respuesta": ["Patinando"],
-				"opciones": [
-					"Sentandose", "Patinando", "Viajando", "Nadando"
-				]
-			},
-			{
-				"carpeta": 34,
-				"respuesta": ["Regalando"],
-				"opciones": [
-					"Patinando", "Limpiando", "Regalando", "Alimentando"
-				]
-			},
-			{
-				"carpeta": 35,
-				"respuesta": ["Remando"],
-				"opciones": [
-					"Sentandose", "Regalando", "Viajando", "Remando"
-				]
-			},
-			{
-				"carpeta": 36,
-				"respuesta": ["Surfeando"],
-				"opciones": [
-					"Surfeando", "Limpiando", "Remando", "Alimentando"
-				]
-			},
-			{
-				"carpeta": 37,
-				"respuesta": ["Talando"],
-				"opciones": [
-					"Sentandose", "Talando", "Viajando", "Surfeando"
-				]
-			},
-			{
-				"carpeta": 38,
-				"respuesta": ["Trepando"],
-				"opciones": [
-					"Sentandose", "Limpiando", "Trepando", "Talando"
-				]
 			}
 		],
 		[
@@ -606,6 +535,83 @@
 				"respuesta": ["Tocando"],
 				"opciones": [
 					"Abrazando", "Montando", "Tocando", "Resbalandose"
+				]
+			},
+			{
+				"carpeta": 18,
+				"respuesta": ["Maquillando"],
+				"opciones": [
+					"Sentandose", "Limpiando", "Viajando", "Maquillando"
+				]
+			},
+			{
+				"carpeta": 19,
+				"respuesta": ["Midiendo"],
+				"opciones": [
+					"Midiendo", "Limpiando", "Maquillando", "Alimentando"
+				]
+			},
+			{
+				"carpeta": 29,
+				"respuesta": ["Mudando"],
+				"opciones": [
+					"Mudando", "Limpiando", "Viajando", "Midiendo"
+				]
+			},
+			{
+				"carpeta": 21,
+				"respuesta": ["Nadando"],
+				"opciones": [
+					"Sentandose", "Limpiando", "Nadando", "Mudando"
+				]
+			},
+			{
+				"carpeta": 22,
+				"respuesta": ["Patinando"],
+				"opciones": [
+					"Sentandose", "Patinando", "Viajando", "Nadando"
+				]
+			},
+			{
+				"carpeta": 23,
+				"respuesta": ["Regalando"],
+				"opciones": [
+					"Patinando", "Limpiando", "Regalando", "Alimentando"
+				]
+			},
+			{
+				"carpeta": 24,
+				"respuesta": ["Remando"],
+				"opciones": [
+					"Sentandose", "Regalando", "Viajando", "Remando"
+				]
+			},
+			{
+				"carpeta": 25,
+				"respuesta": ["Surfeando"],
+				"opciones": [
+					"Surfeando", "Limpiando", "Remando", "Alimentando"
+				]
+			},
+			{
+				"carpeta": 26,
+				"respuesta": ["Talando"],
+				"opciones": [
+					"Sentandose", "Talando", "Viajando", "Surfeando"
+				]
+			},
+			{
+				"carpeta": 27,
+				"respuesta": ["Trepando"],
+				"opciones": [
+					"Sentandose", "Limpiando", "Trepando", "Talando"
+				]
+			},
+			{
+				"carpeta": 28,
+				"respuesta": ["Plantando"],
+				"opciones": [
+					"Sentandose", "Talando", "Viajando", "Surfeando"
 				]
 			}
 		]

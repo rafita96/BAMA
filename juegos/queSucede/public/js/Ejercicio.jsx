@@ -36,8 +36,8 @@ class Ejercicio extends React.Component {
 		var indices = [];
 		this.ejercicios = [];
 		for (var i = 0; i < this.numeroPreguntas; i++) {
-			var index = Math.floor(Math.random() * 16);
-			while(indices.indexOf(index) != -1) { index = Math.floor(Math.random() * 16); }
+			var index = Math.floor(Math.random() * 29);
+			while(indices.indexOf(index) != -1) { index = Math.floor(Math.random() * 29); }
 			indices.push(index);
 			if (this.state.dificultad == "Facil" ) this.ejercicios.push(this.props.datos["niveles"][0][index]);
 			else if (this.state.dificultad == "Mediano") this.ejercicios.push(this.props.datos["niveles"][1][index]);
