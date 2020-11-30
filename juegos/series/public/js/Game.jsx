@@ -9,7 +9,7 @@ class Game extends React.Component {
 			porcentaje: null,
 		}
 
-		this.juego = "evocacionCategorial";
+		this.juego = "series";
 		this.iniciar = this.iniciar.bind(this);
 		this.seleccionarNivel = this.seleccionarNivel.bind(this);
 		this.terminar = this.terminar.bind(this);

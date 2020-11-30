@@ -68,7 +68,7 @@ class Main extends React.Component {
 		} else if (this.state.inicio) {
 			return (
 				<Bloque nombre={this.props.nombre}>
-					<Ejercicio nivel={this.nivel} terminar={this.terminar} datos={this.props.config} />
+					<Ejercicio nivel={this.nivel} terminar={this.terminar}/>
 				</Bloque>
 			);
 		} else {
