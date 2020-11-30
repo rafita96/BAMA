@@ -30,8 +30,6 @@ class Ejercicio extends React.Component {
 		else if (this.props.nivel == 3) {this.state.dificultad = "Dificil"; this.state.temporal = 2;}
 	}
 
-    
-    
 	generarEjercicios() {
 		var indices = [];
 		this.ejercicios = [];

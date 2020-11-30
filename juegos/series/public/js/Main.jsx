@@ -9,7 +9,7 @@ class Main extends React.Component {
 			porcentaje: null,
 		}
 
-		this.juego = "series"; // Nombre de la carpeta.
+		this.juego = "series";
 		this.iniciar = this.iniciar.bind(this);
 		this.seleccionarNivel = this.seleccionarNivel.bind(this);
 		this.terminar = this.terminar.bind(this);
@@ -25,26 +25,25 @@ class Main extends React.Component {
 	}
 
 	reiniciar(){
-        this.setState({
-            inicio: false,
-            fin: false,
-            seleccionNivel: true,
-            porcentaje: null
-        });
-    }
+		this.setState({
+			inicio: false,
+			fin: false,
+			seleccionNivel: true,
+			porcentaje: null
+		});
+	}
 
 	terminar(porcentaje) {
-        this.setState({
-            fin: true,
-            porcentaje: porcentaje
-        });
-    }
+		this.setState({
+			fin: true,
+			porcentaje: porcentaje
+		});
+	}
 
 	seleccionarNivel(nivel) {
 		this.nivel = nivel;
-		this.setState({
-			seleccionNivel: false
-		});
+		this.setState({seleccionNivel: false});
+		this.fechaInicio = new Date();
 	}
 
 	render() {
@@ -56,20 +55,20 @@ class Main extends React.Component {
 			);
 		} else if (this.state.fin) {
 			return(
-                <Bloque nombre={this.props.nombre}>
-                    <Fin
-                    	juego={this.juego}
-                        fechaInicio={this.fechaInicio}
-                        nivel={this.nivel}
-                        paciente={this.props.paciente}
-                        reiniciar={this.reiniciar}
-                        porcentaje={this.state.porcentaje} />
-                </Bloque>
-            );
+				<Bloque nombre={this.props.nombre}>
+					<Fin
+						juego={this.juego}
+						fechaInicio={this.fechaInicio}
+						nivel={this.nivel}
+						paciente={this.props.paciente}
+						reiniciar={this.reiniciar}
+						porcentaje={this.state.porcentaje} />
+				</Bloque>
+			);
 		} else if (this.state.inicio) {
 			return (
 				<Bloque nombre={this.props.nombre}>
-					<Ejercicio nivel={this.nivel} terminar={this.terminar}/>
+					<Ejercicio nivel={this.nivel} terminar={this.terminar} datos={this.props.config} />
 				</Bloque>
 			);
 		} else {
@@ -83,27 +82,3 @@ class Main extends React.Component {
 		}
 	}
 }
-
-function getInfo(callback) {
-    d3.json("./data/info.json", function(error, instrucciones) {
-        d3.json("./meta.json", function(error, nombre) {
-            Consulta.get('/paciente/actual/', function(data) {
-                if (data["id"] != null) {
-                    mostrarPerfil(data);
-                    callback(data["id"],nombre["nombre"], instrucciones["instrucciones"]);
-                } else {
-                    toastr("No has seleccionado un paciente");
-                }
-            });
-        });
-    });
-}
-
-$(document).ready(function(){
-    getInfo(function(paciente, nombre, instrucciones) {
-        ReactDOM.render(<Main
-            paciente={paciente}
-            nombre={nombre}
-            instrucciones={instrucciones}/>, document.getElementById('main'));
-    })
-});

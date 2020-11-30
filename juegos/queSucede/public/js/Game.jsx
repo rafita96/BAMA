@@ -9,7 +9,7 @@ class Game extends React.Component {
 			porcentaje: null,
 		}
 
-		this.juego = "queSucede"; // Nombre de la carpeta.
+		this.juego = "queSucede";
 		this.iniciar = this.iniciar.bind(this);
 		this.seleccionarNivel = this.seleccionarNivel.bind(this);
 		this.terminar = this.terminar.bind(this);

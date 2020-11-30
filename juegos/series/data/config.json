@@ -3,9 +3,9 @@
 		[
 			{
 				"carpeta": 0,
-				"respuesta": ["Lavando"],
+				"respuesta": ["1"],
 				"opciones": [
-					"Brincando", "Comiendo", "Lavando", "Leyendo" 
+					"3", "2", "4", "Leyendo" 
 				]
 			},
 			{
