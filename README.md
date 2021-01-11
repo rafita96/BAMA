@@ -1,78 +1,336 @@
 # BAMA
 
-> BAMA is a research project for elderly adults' cognitive stimulation from orientation, language, memory, and calculation games.
+El sistema se divide en 2 partes independientes:
+- El back-end en la carpeta [api-server/](api-server/).
+- El front-end en la carpeta [client-side/](client-side/).
 
-## Getting Started
-This guide explains how to set up your environment for BAMA development. It includes information about prerequisites, creating an initial workspace and starter app, and running that app locally to verify your setup.
+## Prerrequisitos
 
-### Prerequisites
-To use the BAMA, you should be familiar with the following:
 - [NodeJS](https://nodejs.org/en/)
 - [MongoDB](https://www.mongodb.com/)
-- [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
-- [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps)
 
-To install BAMA on your local system, you need the following::
-* Node js
-BAMA requires a [current, active LTS, or maintenance LTS](https://nodejs.org/en/about/releases/)  version of Node.js.
-> For information about specific version requirements, see the engines key in the [package.json](https://github.com/rafita96/BAMA/blob/master/package.json) file.
+## Configuración para el back-end
 
-For more information on installing Node.js, see [nodejs.org](https://nodejs.org/en/). If you are unsure what version of Node.js runs on your system, run node -v in a terminal window.
+### Archivo .env para el back-end
 
-* npm package manager
-BAMA depend on npm packages for many features and functions. To download and install npm packages, you need an npm package manager. This guide uses the npm client command line interface, which is installed with Node.js by default. To check that you have the npm client installed, run npm -v in a terminal window.
-
-* MongoDB
-BAMA requires a [current, active LTS, or maintenance LTS](https://docs.mongodb.com/manual/installation/)  version of MongoDB.
-
-### Install BAMA
-To install the BAMA, open a terminal window and run the following command:
+Dentro de la carpeta [api-server/](api-server/), usted debe crear un archivo .env con las siguientes variables:
 ```
-git clone https://github.com/rafita96/BAMA && cd BAMA && npm install
+DB_HOST= 
+DB=
+PORT=
+API_KEY=
 ```
 
-### Create a workspace and initial application
-To create a new workspace and initial starter app:
+### Base de datos
 
-Run the CLI command node init.js as shown here:
-```
-node init.js
-```
-> MongoDB must have started successfully
-
-### Run the application
-```bash
-node server.js
-```
-
-### Create a .env in root project for your local environment
+El back-end requiere de un servicio de base de datos basado en [MongoDB](https://docs.mongodb.com/manual/installation/).
+Una vez que el servicio de mongodb se encuentre encendido, defina la variable DB_HOST en el archivo .env con la dirección del servicio de mongodb. Por ejemplo:
 ```
 DB_HOST=mongodb://localhost:27017/
-DB=volveraempezar
+```
+
+Ahora defina el nombre de la base de datos en el mismo archivo .env. Por ejemplo:
+```
+DB=bama
+```
+
+### Inicialización
+
+Desde una terminal (BASH, powerShell, cmd, etc) entre a la carpeta [api-server/](api-server/), y ejecute el comando: 
+```
+npm install
+```
+Para descargar he instalar las librerías requeridas.
+
+Ahora defina la variable PORT en el archivo .env para definir el puerto sobre el que se ejecutará el servicio del back-end. Por ejemplo:
+```
 PORT=5850
 ```
 
-# Project structure
-
+Este sistema es una REST API que no guarda el estado de la sesión. Por esta razón se necesita una contraseña para los tokens de acceso. Usted debe definir la variable API_KEY en el archivo .env para cifrar el token. Por ejemplo:
 ```
-.env			     local environment
-juegos/                      games
-|- x-game/                   game example structure (naming without space)
-|  |- data/                  blobs
-|  |- public/js/             game source code
-|  |- songs/                 blobs
-|  |- index.ejs              game entry
-|  |- meta.json              game description
-|  |- thumbnail.png          game thumbnail
-audios/                      games sounds (blobs)
-public/                      assets
-|- common/             
-|- js/                   
-src/                         project source code
-|- controllers/             
-|- routers/                   
-|- views/             
-|- config.js                 starter local config
-|- router.js                 
-server.js                    server listener
+API_KEY=unacontraseñacomplicadadelongitud32
+```
+
+### Creación de un administrador
+
+El sistema necesita un administrador para que pueda ser utilizado. Para crear el administrador usted debe ejecutar el siguiente comando en una terminal dentro de la carpeta [api-server/](api-server/):
+```
+node init.js
+```
+Posteriormente se le pedirán los datos del administrador, un usuario y una contraseña.
+
+Este paso solamente se ejecuta cuando la base de datos es nueva y aún no existe un administrador. Después ya no es necesario ejecutarlo.
+
+### Ejecución
+
+Para iniciar el servicio usted debe ejecutar en una terminal, dentro de la carpeta [api-server/](api-server/), el siguiente comando:
+```
+node server.js
+```
+
+## Configuración para el front-end
+
+Para que este sistema funcione se necesita que el sistema del back-end se encuentre en servicio. Este sistema fue desarrollado con el framework [NextJS](https://nextjs.org/).
+
+### Archivo .env para el front-end
+
+Dentro de la carpeta [client-side/](client-side/), usted debe crear un archivo .env con las siguientes variables:
+```
+NEXTAUTH_URL=
+SERVER_URL=
+APPLICATION_SECRET=
+NODE_ENV=
+SITE=
+```
+
+### Inicialización
+
+Desde una terminal (BASH, powerShell, cmd, etc) entre a la carpeta [client-side/](client-side/), y ejecute el comando: 
+```
+npm install
+```
+Para descargar he instalar las librerías requeridas.
+
+Ahora defina la variable NEXTAUTH_URL en el archiv .env. Esta variable define la dirección IP y el puerto de este sistema. Por ejemplo:
+```
+NEXTAUTH_URL=localhost:3000
+```
+
+A continuación defina la variable SERVER_URL que corresponde a la dirección completa donde se encuentra el servicio del back-end. Por ejemplo:
+```
+SERVER_URL=http://localhost:5850
+```
+
+Durante el desarrollo, la variable NODE_ENV será:
+```
+NODE_ENV=dev
+```
+
+En el caso de SITE, puede ser:
+```
+SITE=bama
+```
+Como este sistema guarda el token de manera local, entonces se debe cifrar por seguridad. Para esto se requiere una contraseña de cifrado. Defina la variable APPLICATION_SECRET para proteger esta información. Por ejemplo:
+```
+APPLICATION_SECRET=otracontraseñadificilydiferentede32
+```
+
+Por último para desarrollar y utilizar el sistema, usted debe ejecutar el siguiente comando en una terminal dentro la carpeta correspondiente:
+```
+npm run dev
+```
+
+### Deploy
+Si usted ha terminado de desarrollar, lea la documentación de [NextJS](https://nextjs.org/) para terminar con el trabajo.
+
+# API Endpoints
+
+## Get /
+
+Determina si hay comunicación con el servidor.
+
+### Request body
+```
+{
+
+}
+```
+
+### Response body 
+```
+{
+    status: 200,
+    message: "Servidor listo."
+}
+```
+
+## Post /login
+
+Determina si un usuario es válido y regresa un token de acceso.
+
+### Request body
+```
+{
+    username: {String},
+    password: {String}
+}
+```
+
+### Response body  
+```
+{
+    status: 200,
+    token: {String},
+    role: {String}
+}
+```
+
+El role puede ser: ROLE_ADMIN para administrador y ROLE_USER para un usuario.
+Para hacer logout, usted debe eliminar el token o esperar a que caduque.
+
+## Get /pacients/
+
+Obtiene todos los pacientes registrados en la base de datos.
+
+### Headers
+| Variable | Valor |Descripción|
+|----------|-------|-----------|
+|access-token|{String}|Token de acceso obtenido en el login.|
+
+### Request body
+```
+{
+
+}
+```
+
+### Response body  
+```
+{
+    status: {Integer},
+    pacients: {Object_Array}
+}
+```
+
+## Get /pacients/profile/{id}
+
+Obtiene el perfil de un paciente. El id es el identificador el paciente en la base de datos.
+
+### Headers
+| Variable | Valor |Descripción|
+|----------|-------|-----------|
+|access-token|{String}|Token de acceso obtenido en el login.|
+
+### Request body
+```
+{
+
+}
+```
+
+### Response body  
+```
+{
+    status: {Integer},
+    pacient: {Object}
+}
+```
+
+## Post /pacients/
+
+Crea un nuevo paciente.
+
+### Headers
+| Variable | Valor |Descripción|
+|----------|-------|-----------|
+|access-token|{String}|Token de acceso obtenido en el login.|
+
+### Request body
+```
+{
+    name: {String},
+    firstLastName: {String},
+    secondLastName: {String},
+    noExp: {String},
+    birthday: {Date}
+}
+```
+
+### Response body  
+```
+{
+    status: {Integer},
+    pacient: {String}
+}
+```
+
+En pacient se encuentra el id del paciente.
+
+## Put /pacients/
+
+Actualiza un paciente existente.
+
+### Headers
+| Variable | Valor |Descripción|
+|----------|-------|-----------|
+|access-token|{String}|Token de acceso obtenido en el login.|
+
+### Request body
+```
+{
+    _id: {String},
+    name: {String},
+    firstLastName: {String},
+    secondLastName: {String},
+    birthday: {Date}
+}
+```
+El _id es el identificador del paciente en la base de datos.
+
+### Response body  
+```
+{
+    status: {Integer},
+    message: {String}
+}
+```
+
+## Delete /pacients/
+
+Elimina un paciente de la base de datos.
+
+### Headers
+| Variable | Valor |Descripción|
+|----------|-------|-----------|
+|access-token|{String}|Token de acceso obtenido en el login.|
+
+### Request body
+```
+{
+    _id: {String}
+}
+```
+El _id es el identificador del paciente en la base de datos.
+
+### Response body  
+```
+{
+    status: {Integer},
+    message: {String}
+}
+```
+
+## Post /pacients/score
+
+Agrega un puntaje a un paciente.
+
+### Headers
+| Variable | Valor |Descripción|
+|----------|-------|-----------|
+|access-token|{String}|Token de acceso obtenido en el login.|
+
+### Request body
+```
+{
+    _id: {String},
+    score: {
+        initTime: {Date},
+        finishTime: {Date},
+        score: {Integer (0, 100)},
+        game: {String},
+        gameType: {String}
+    }
+}
+```
+El _id es el identificador del paciente en la base de datos.
+El score es el puntaje del paciente en el juego. El puntaje debe estar entre 0 y 100.
+game es el nombre del juego, y gameType el tipo de juego. Los tipos de juego son: "M" (Memoria), "L" (Lenguaje), "O" (Orientación), "C" (Cálculo) y "P" (Praxias).
+
+### Response body  
+```
+{
+    status: {Integer},
+    saved: {Boolean}
+}
 ```

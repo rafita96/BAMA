@@ -1,0 +1,6 @@
+{
+    "nombre": "Rompecabezas",
+    "img": "thumbnail.png",
+    "categoria": "O",
+    "instrucciones": "Complete el rompecabezas de acuerdo a la imagen proporcionada. Para colocar cada pieza se debe seleccionar la pieza deseada de la primera imagen y seleccionar la posición donde se desea colocar en la cuadrícula central. Al finalizar presione el botón 'siguiente'."
+}
